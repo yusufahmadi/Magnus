@@ -35,14 +35,14 @@ Partial Class FormMain
         Me.BarButtonKasKeluar = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButtonLapKartuStok = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButtonLapSaldoStok = New DevExpress.XtraBars.BarButtonItem()
-        Me.BarButtonPalingCepatHabis = New DevExpress.XtraBars.BarButtonItem()
-        Me.BarButtonLapKartuKas = New DevExpress.XtraBars.BarButtonItem()
+        Me.BarButtonLapTopItem = New DevExpress.XtraBars.BarButtonItem()
+        Me.BarButtonLapKasHarian = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButtonLapPerbandinganBiayaBulanan = New DevExpress.XtraBars.BarButtonItem()
-        Me.BarButtonLapKasPerKategoriKaryawan = New DevExpress.XtraBars.BarButtonItem()
+        Me.BarButtonLapKasPerKategori = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButtonRoleUser = New DevExpress.XtraBars.BarButtonItem()
         Me.BarStaticItem1 = New DevExpress.XtraBars.BarStaticItem()
         Me.BarStaticItem2 = New DevExpress.XtraBars.BarStaticItem()
-        Me.BarStaticItem3 = New DevExpress.XtraBars.BarStaticItem()
+        Me.BarStaticIP = New DevExpress.XtraBars.BarStaticItem()
         Me.BarStaticItemUsername = New DevExpress.XtraBars.BarStaticItem()
         Me.BarButtonItem1 = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButtonCalcLabel = New DevExpress.XtraBars.BarButtonItem()
@@ -65,7 +65,7 @@ Partial Class FormMain
         Me.RibbonPageGroup10 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RibbonPageSetting = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.RibbonPageGroup1 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
-        Me.RibbonPageGroup9 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
+        Me.RibbonPageGroupUser = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RibbonPageGroup6 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RibbonStatusBar = New DevExpress.XtraBars.Ribbon.RibbonStatusBar()
         Me.DocumentManager1 = New DevExpress.XtraBars.Docking2010.DocumentManager(Me.components)
@@ -77,6 +77,10 @@ Partial Class FormMain
         Me.BarButtonItem7 = New DevExpress.XtraBars.BarButtonItem()
         Me.SharedImageCollection1 = New DevExpress.Utils.SharedImageCollection(Me.components)
         Me.BarButtonItem4 = New DevExpress.XtraBars.BarButtonItem()
+        Me.RibbonPageHelp = New DevExpress.XtraBars.Ribbon.RibbonPage()
+        Me.RibbonPageGroup12 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
+        Me.BarButtonHelp = New DevExpress.XtraBars.BarButtonItem()
+        Me.BarButtonAbout = New DevExpress.XtraBars.BarButtonItem()
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DocumentManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TabbedView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -88,12 +92,12 @@ Partial Class FormMain
         'RibbonControl
         '
         Me.RibbonControl.ExpandCollapseItem.Id = 0
-        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BarButtonSettingDatabase, Me.SkinRibbonGalleryBarItem2, Me.BarButtonMasterBarang, Me.BarButtonMasterKategori, Me.BarButtonMasterKategoriBiaya, Me.BarButtonKaryawan, Me.BarButtonManagementUser, Me.BarButtonStokKeluar, Me.BarButtonStokMasuk, Me.BarButtonKasMasuk, Me.BarButtonKasKeluar, Me.BarButtonLapKartuStok, Me.BarButtonLapSaldoStok, Me.BarButtonPalingCepatHabis, Me.BarButtonLapKartuKas, Me.BarButtonLapPerbandinganBiayaBulanan, Me.BarButtonLapKasPerKategoriKaryawan, Me.BarButtonRoleUser, Me.BarStaticItem1, Me.BarStaticItem2, Me.BarStaticItem3, Me.BarStaticItemUsername, Me.BarButtonItem1, Me.BarButtonCalcLabel, Me.BarButtonCalcRibbon, Me.BarButtonCalcTaffeta, Me.BarButtonCalcPaket, Me.BarButtonMasterTypeTaffeta})
+        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BarButtonSettingDatabase, Me.SkinRibbonGalleryBarItem2, Me.BarButtonMasterBarang, Me.BarButtonMasterKategori, Me.BarButtonMasterKategoriBiaya, Me.BarButtonKaryawan, Me.BarButtonManagementUser, Me.BarButtonStokKeluar, Me.BarButtonStokMasuk, Me.BarButtonKasMasuk, Me.BarButtonKasKeluar, Me.BarButtonLapKartuStok, Me.BarButtonLapSaldoStok, Me.BarButtonLapTopItem, Me.BarButtonLapKasHarian, Me.BarButtonLapPerbandinganBiayaBulanan, Me.BarButtonLapKasPerKategori, Me.BarButtonRoleUser, Me.BarStaticItem1, Me.BarStaticItem2, Me.BarStaticIP, Me.BarStaticItemUsername, Me.BarButtonItem1, Me.BarButtonCalcLabel, Me.BarButtonCalcRibbon, Me.BarButtonCalcTaffeta, Me.BarButtonCalcPaket, Me.BarButtonMasterTypeTaffeta, Me.BarButtonHelp, Me.BarButtonAbout})
         Me.RibbonControl.Location = New System.Drawing.Point(0, 0)
-        Me.RibbonControl.MaxItemId = 33
+        Me.RibbonControl.MaxItemId = 35
         Me.RibbonControl.Name = "RibbonControl"
         Me.RibbonControl.PageHeaderItemLinks.Add(Me.BarStaticItemUsername)
-        Me.RibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.RibbonPageMaster, Me.RibbonPageMobile, Me.RibbonPageStok, Me.RibbonPageKas, Me.RibbonPageLaporan, Me.RibbonPageSetting})
+        Me.RibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.RibbonPageMaster, Me.RibbonPageMobile, Me.RibbonPageStok, Me.RibbonPageKas, Me.RibbonPageLaporan, Me.RibbonPageSetting, Me.RibbonPageHelp})
         Me.RibbonControl.Size = New System.Drawing.Size(889, 146)
         Me.RibbonControl.StatusBar = Me.RibbonStatusBar
         Me.RibbonControl.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden
@@ -196,17 +200,17 @@ Partial Class FormMain
         Me.BarButtonLapSaldoStok.Id = 16
         Me.BarButtonLapSaldoStok.Name = "BarButtonLapSaldoStok"
         '
-        'BarButtonPalingCepatHabis
+        'BarButtonLapTopItem
         '
-        Me.BarButtonPalingCepatHabis.Caption = "Paling Cepat Habis"
-        Me.BarButtonPalingCepatHabis.Id = 17
-        Me.BarButtonPalingCepatHabis.Name = "BarButtonPalingCepatHabis"
+        Me.BarButtonLapTopItem.Caption = "Top Item"
+        Me.BarButtonLapTopItem.Id = 17
+        Me.BarButtonLapTopItem.Name = "BarButtonLapTopItem"
         '
-        'BarButtonLapKartuKas
+        'BarButtonLapKasHarian
         '
-        Me.BarButtonLapKartuKas.Caption = "Harian"
-        Me.BarButtonLapKartuKas.Id = 19
-        Me.BarButtonLapKartuKas.Name = "BarButtonLapKartuKas"
+        Me.BarButtonLapKasHarian.Caption = "Harian"
+        Me.BarButtonLapKasHarian.Id = 19
+        Me.BarButtonLapKasHarian.Name = "BarButtonLapKasHarian"
         '
         'BarButtonLapPerbandinganBiayaBulanan
         '
@@ -214,11 +218,11 @@ Partial Class FormMain
         Me.BarButtonLapPerbandinganBiayaBulanan.Id = 20
         Me.BarButtonLapPerbandinganBiayaBulanan.Name = "BarButtonLapPerbandinganBiayaBulanan"
         '
-        'BarButtonLapKasPerKategoriKaryawan
+        'BarButtonLapKasPerKategori
         '
-        Me.BarButtonLapKasPerKategoriKaryawan.Caption = "Per Kategori / Karyawan"
-        Me.BarButtonLapKasPerKategoriKaryawan.Id = 21
-        Me.BarButtonLapKasPerKategoriKaryawan.Name = "BarButtonLapKasPerKategoriKaryawan"
+        Me.BarButtonLapKasPerKategori.Caption = "Per Kategori"
+        Me.BarButtonLapKasPerKategori.Id = 21
+        Me.BarButtonLapKasPerKategori.Name = "BarButtonLapKasPerKategori"
         '
         'BarButtonRoleUser
         '
@@ -240,12 +244,12 @@ Partial Class FormMain
         Me.BarStaticItem2.Id = 24
         Me.BarStaticItem2.Name = "BarStaticItem2"
         '
-        'BarStaticItem3
+        'BarStaticIP
         '
-        Me.BarStaticItem3.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right
-        Me.BarStaticItem3.Caption = "Online On : -"
-        Me.BarStaticItem3.Id = 25
-        Me.BarStaticItem3.Name = "BarStaticItem3"
+        Me.BarStaticIP.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right
+        Me.BarStaticIP.Caption = "Online On : -"
+        Me.BarStaticIP.Id = 25
+        Me.BarStaticIP.Name = "BarStaticIP"
         '
         'BarStaticItemUsername
         '
@@ -381,21 +385,21 @@ Partial Class FormMain
         '
         Me.RibbonPageGroup5.ItemLinks.Add(Me.BarButtonLapKartuStok)
         Me.RibbonPageGroup5.ItemLinks.Add(Me.BarButtonLapSaldoStok)
-        Me.RibbonPageGroup5.ItemLinks.Add(Me.BarButtonPalingCepatHabis)
+        Me.RibbonPageGroup5.ItemLinks.Add(Me.BarButtonLapTopItem)
         Me.RibbonPageGroup5.Name = "RibbonPageGroup5"
         Me.RibbonPageGroup5.Text = "Stok"
         '
         'RibbonPageGroup10
         '
-        Me.RibbonPageGroup10.ItemLinks.Add(Me.BarButtonLapKartuKas)
-        Me.RibbonPageGroup10.ItemLinks.Add(Me.BarButtonLapKasPerKategoriKaryawan)
+        Me.RibbonPageGroup10.ItemLinks.Add(Me.BarButtonLapKasHarian)
+        Me.RibbonPageGroup10.ItemLinks.Add(Me.BarButtonLapKasPerKategori)
         Me.RibbonPageGroup10.ItemLinks.Add(Me.BarButtonLapPerbandinganBiayaBulanan)
         Me.RibbonPageGroup10.Name = "RibbonPageGroup10"
         Me.RibbonPageGroup10.Text = "Kas"
         '
         'RibbonPageSetting
         '
-        Me.RibbonPageSetting.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup1, Me.RibbonPageGroup9, Me.RibbonPageGroup6})
+        Me.RibbonPageSetting.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup1, Me.RibbonPageGroupUser, Me.RibbonPageGroup6})
         Me.RibbonPageSetting.Name = "RibbonPageSetting"
         Me.RibbonPageSetting.Text = "Setting"
         '
@@ -407,13 +411,13 @@ Partial Class FormMain
         Me.RibbonPageGroup1.ShowCaptionButton = False
         Me.RibbonPageGroup1.Text = "Koneksi"
         '
-        'RibbonPageGroup9
+        'RibbonPageGroupUser
         '
-        Me.RibbonPageGroup9.ItemLinks.Add(Me.BarButtonManagementUser)
-        Me.RibbonPageGroup9.ItemLinks.Add(Me.BarButtonRoleUser)
-        Me.RibbonPageGroup9.Name = "RibbonPageGroup9"
-        Me.RibbonPageGroup9.ShowCaptionButton = False
-        Me.RibbonPageGroup9.Text = "Management"
+        Me.RibbonPageGroupUser.ItemLinks.Add(Me.BarButtonManagementUser)
+        Me.RibbonPageGroupUser.ItemLinks.Add(Me.BarButtonRoleUser)
+        Me.RibbonPageGroupUser.Name = "RibbonPageGroupUser"
+        Me.RibbonPageGroupUser.ShowCaptionButton = False
+        Me.RibbonPageGroupUser.Text = "Management"
         '
         'RibbonPageGroup6
         '
@@ -426,7 +430,7 @@ Partial Class FormMain
         '
         Me.RibbonStatusBar.ItemLinks.Add(Me.BarStaticItem1)
         Me.RibbonStatusBar.ItemLinks.Add(Me.BarStaticItem2)
-        Me.RibbonStatusBar.ItemLinks.Add(Me.BarStaticItem3)
+        Me.RibbonStatusBar.ItemLinks.Add(Me.BarStaticIP)
         Me.RibbonStatusBar.Location = New System.Drawing.Point(0, 499)
         Me.RibbonStatusBar.Name = "RibbonStatusBar"
         Me.RibbonStatusBar.Ribbon = Me.RibbonControl
@@ -629,6 +633,35 @@ Partial Class FormMain
         Me.BarButtonItem4.Id = 18
         Me.BarButtonItem4.Name = "BarButtonItem4"
         '
+        'RibbonPageHelp
+        '
+        Me.RibbonPageHelp.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup12})
+        Me.RibbonPageHelp.Name = "RibbonPageHelp"
+        Me.RibbonPageHelp.Text = "Help"
+        '
+        'RibbonPageGroup12
+        '
+        Me.RibbonPageGroup12.ItemLinks.Add(Me.BarButtonHelp)
+        Me.RibbonPageGroup12.ItemLinks.Add(Me.BarButtonAbout)
+        Me.RibbonPageGroup12.Name = "RibbonPageGroup12"
+        Me.RibbonPageGroup12.Text = "RibbonPageGroup12"
+        '
+        'BarButtonHelp
+        '
+        Me.BarButtonHelp.Caption = "Help"
+        Me.BarButtonHelp.Id = 33
+        Me.BarButtonHelp.ImageOptions.Image = CType(resources.GetObject("BarButtonItem2.ImageOptions.Image"), System.Drawing.Image)
+        Me.BarButtonHelp.ImageOptions.LargeImage = CType(resources.GetObject("BarButtonItem2.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.BarButtonHelp.Name = "BarButtonHelp"
+        '
+        'BarButtonAbout
+        '
+        Me.BarButtonAbout.Caption = "About"
+        Me.BarButtonAbout.Id = 34
+        Me.BarButtonAbout.ImageOptions.Image = CType(resources.GetObject("About.ImageOptions.Image"), System.Drawing.Image)
+        Me.BarButtonAbout.ImageOptions.LargeImage = CType(resources.GetObject("About.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.BarButtonAbout.Name = "BarButtonAbout"
+        '
         'FormMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -680,7 +713,7 @@ Partial Class FormMain
     Friend WithEvents BarButtonMasterKategoriBiaya As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BarButtonKaryawan As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BarButtonManagementUser As DevExpress.XtraBars.BarButtonItem
-    Friend WithEvents RibbonPageGroup9 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
+    Friend WithEvents RibbonPageGroupUser As DevExpress.XtraBars.Ribbon.RibbonPageGroup
     Friend WithEvents RibbonPageGroup7 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
     Friend WithEvents RibbonPageGroup8 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
     Friend WithEvents BarButtonStokKeluar As DevExpress.XtraBars.BarButtonItem
@@ -691,16 +724,16 @@ Partial Class FormMain
     Public WithEvents SharedImageCollection1 As DevExpress.Utils.SharedImageCollection
     Friend WithEvents BarButtonLapKartuStok As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BarButtonLapSaldoStok As DevExpress.XtraBars.BarButtonItem
-    Friend WithEvents BarButtonPalingCepatHabis As DevExpress.XtraBars.BarButtonItem
-    Friend WithEvents BarButtonLapKartuKas As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BarButtonLapTopItem As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BarButtonLapKasHarian As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BarButtonLapPerbandinganBiayaBulanan As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents RibbonPageGroup10 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
     Friend WithEvents BarButtonItem4 As DevExpress.XtraBars.BarButtonItem
-    Friend WithEvents BarButtonLapKasPerKategoriKaryawan As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BarButtonLapKasPerKategori As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BarButtonRoleUser As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BarStaticItem1 As DevExpress.XtraBars.BarStaticItem
     Friend WithEvents BarStaticItem2 As DevExpress.XtraBars.BarStaticItem
-    Friend WithEvents BarStaticItem3 As DevExpress.XtraBars.BarStaticItem
+    Friend WithEvents BarStaticIP As DevExpress.XtraBars.BarStaticItem
     Friend WithEvents BarStaticItemUsername As DevExpress.XtraBars.BarStaticItem
     Friend WithEvents BarButtonItem1 As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BarButtonCalcLabel As DevExpress.XtraBars.BarButtonItem
@@ -710,4 +743,8 @@ Partial Class FormMain
     Friend WithEvents RibbonPageMobile As DevExpress.XtraBars.Ribbon.RibbonPage
     Friend WithEvents RibbonPageGroup11 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
     Friend WithEvents BarButtonMasterTypeTaffeta As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BarButtonHelp As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BarButtonAbout As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents RibbonPageHelp As DevExpress.XtraBars.Ribbon.RibbonPage
+    Friend WithEvents RibbonPageGroup12 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
 End Class

@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Public Class FormUser
+Partial Public Class FormRoleUser
     Inherits DevExpress.XtraBars.Ribbon.RibbonForm
     ''' <summary>
     ''' Required designer variable.
@@ -25,7 +25,8 @@ Partial Public Class FormUser
     ''' </summary>
     Private Sub InitializeComponent()
         Me.dataLayoutControl1 = New DevExpress.XtraDataLayout.DataLayoutControl()
-        Me.ckIsActive = New DevExpress.XtraEditors.CheckEdit()
+        Me.GridControl1 = New DevExpress.XtraGrid.GridControl()
+        Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.mainRibbonControl = New DevExpress.XtraBars.Ribbon.RibbonControl()
         Me.bbiSave = New DevExpress.XtraBars.BarButtonItem()
         Me.bbiSaveAndClose = New DevExpress.XtraBars.BarButtonItem()
@@ -35,60 +36,77 @@ Partial Public Class FormUser
         Me.bbiClose = New DevExpress.XtraBars.BarButtonItem()
         Me.mainRibbonPage = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.mainRibbonPageGroup = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
-        Me.cbRoleUser = New DevExpress.XtraEditors.LookUpEdit()
-        Me.txtPwd = New DevExpress.XtraEditors.TextEdit()
-        Me.txtAlias = New DevExpress.XtraEditors.TextEdit()
-        Me.txtUser = New DevExpress.XtraEditors.TextEdit()
+        Me.ckMenuSettingUser = New DevExpress.XtraEditors.CheckEdit()
+        Me.txtKeterangan = New DevExpress.XtraEditors.TextEdit()
+        Me.ckIsActive = New DevExpress.XtraEditors.CheckEdit()
+        Me.cbTypeLayout = New DevExpress.XtraEditors.LookUpEdit()
+        Me.txtNama = New DevExpress.XtraEditors.TextEdit()
+        Me.txtKode = New DevExpress.XtraEditors.TextEdit()
         Me.layoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup()
         Me.layoutControlGroup2 = New DevExpress.XtraLayout.LayoutControlGroup()
-        Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.EmptySpaceItem1 = New DevExpress.XtraLayout.EmptySpaceItem()
-        Me.LayoutControlItem3 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem6 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem2 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem4 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItem5 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItem3 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItem7 = New DevExpress.XtraLayout.LayoutControlItem()
         CType(Me.dataLayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.dataLayoutControl1.SuspendLayout()
-        CType(Me.ckIsActive.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GridControl1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.mainRibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.cbRoleUser.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.txtPwd.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.txtAlias.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.txtUser.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ckMenuSettingUser.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtKeterangan.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ckIsActive.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cbTypeLayout.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtNama.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtKode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.layoutControlGroup1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.layoutControlGroup2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem7, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'dataLayoutControl1
         '
         Me.dataLayoutControl1.AllowCustomization = False
+        Me.dataLayoutControl1.Controls.Add(Me.GridControl1)
+        Me.dataLayoutControl1.Controls.Add(Me.ckMenuSettingUser)
+        Me.dataLayoutControl1.Controls.Add(Me.txtKeterangan)
         Me.dataLayoutControl1.Controls.Add(Me.ckIsActive)
-        Me.dataLayoutControl1.Controls.Add(Me.cbRoleUser)
-        Me.dataLayoutControl1.Controls.Add(Me.txtPwd)
-        Me.dataLayoutControl1.Controls.Add(Me.txtAlias)
-        Me.dataLayoutControl1.Controls.Add(Me.txtUser)
+        Me.dataLayoutControl1.Controls.Add(Me.cbTypeLayout)
+        Me.dataLayoutControl1.Controls.Add(Me.txtNama)
+        Me.dataLayoutControl1.Controls.Add(Me.txtKode)
         Me.dataLayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dataLayoutControl1.Location = New System.Drawing.Point(0, 146)
         Me.dataLayoutControl1.Name = "dataLayoutControl1"
         Me.dataLayoutControl1.Root = Me.layoutControlGroup1
-        Me.dataLayoutControl1.Size = New System.Drawing.Size(468, 194)
+        Me.dataLayoutControl1.Size = New System.Drawing.Size(956, 364)
         Me.dataLayoutControl1.TabIndex = 0
         '
-        'ckIsActive
+        'GridControl1
         '
-        Me.ckIsActive.Location = New System.Drawing.Point(12, 60)
-        Me.ckIsActive.MenuManager = Me.mainRibbonControl
-        Me.ckIsActive.Name = "ckIsActive"
-        Me.ckIsActive.Properties.Caption = "Aktif"
-        Me.ckIsActive.Size = New System.Drawing.Size(444, 19)
-        Me.ckIsActive.StyleController = Me.dataLayoutControl1
-        Me.ckIsActive.TabIndex = 9
+        Me.GridControl1.Location = New System.Drawing.Point(12, 96)
+        Me.GridControl1.MainView = Me.GridView1
+        Me.GridControl1.MenuManager = Me.mainRibbonControl
+        Me.GridControl1.Name = "GridControl1"
+        Me.GridControl1.Size = New System.Drawing.Size(932, 256)
+        Me.GridControl1.TabIndex = 2
+        Me.GridControl1.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
+        '
+        'GridView1
+        '
+        Me.GridView1.GridControl = Me.GridControl1
+        Me.GridView1.Name = "GridView1"
+        Me.GridView1.OptionsView.ShowGroupPanel = False
         '
         'mainRibbonControl
         '
@@ -100,7 +118,7 @@ Partial Public Class FormUser
         Me.mainRibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.mainRibbonPage})
         Me.mainRibbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013
         Me.mainRibbonControl.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.[False]
-        Me.mainRibbonControl.Size = New System.Drawing.Size(468, 146)
+        Me.mainRibbonControl.Size = New System.Drawing.Size(956, 146)
         Me.mainRibbonControl.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden
         '
         'bbiSave
@@ -165,43 +183,62 @@ Partial Public Class FormUser
         Me.mainRibbonPageGroup.ShowCaptionButton = False
         Me.mainRibbonPageGroup.Text = "Tasks"
         '
-        'cbRoleUser
+        'ckMenuSettingUser
         '
-        Me.cbRoleUser.Location = New System.Drawing.Point(287, 36)
-        Me.cbRoleUser.MenuManager = Me.mainRibbonControl
-        Me.cbRoleUser.Name = "cbRoleUser"
-        Me.cbRoleUser.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.cbRoleUser.Size = New System.Drawing.Size(169, 20)
-        Me.cbRoleUser.StyleController = Me.dataLayoutControl1
-        Me.cbRoleUser.TabIndex = 7
+        Me.ckMenuSettingUser.Location = New System.Drawing.Point(480, 60)
+        Me.ckMenuSettingUser.MenuManager = Me.mainRibbonControl
+        Me.ckMenuSettingUser.Name = "ckMenuSettingUser"
+        Me.ckMenuSettingUser.Properties.Caption = "Menu Setting User"
+        Me.ckMenuSettingUser.Size = New System.Drawing.Size(464, 19)
+        Me.ckMenuSettingUser.StyleController = Me.dataLayoutControl1
+        Me.ckMenuSettingUser.TabIndex = 11
         '
-        'txtPwd
+        'txtKeterangan
         '
-        Me.txtPwd.Location = New System.Drawing.Point(63, 36)
-        Me.txtPwd.MenuManager = Me.mainRibbonControl
-        Me.txtPwd.Name = "txtPwd"
-        Me.txtPwd.Properties.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.txtPwd.Size = New System.Drawing.Size(169, 20)
-        Me.txtPwd.StyleController = Me.dataLayoutControl1
-        Me.txtPwd.TabIndex = 6
+        Me.txtKeterangan.Location = New System.Drawing.Point(75, 36)
+        Me.txtKeterangan.MenuManager = Me.mainRibbonControl
+        Me.txtKeterangan.Name = "txtKeterangan"
+        Me.txtKeterangan.Size = New System.Drawing.Size(401, 20)
+        Me.txtKeterangan.StyleController = Me.dataLayoutControl1
+        Me.txtKeterangan.TabIndex = 10
         '
-        'txtAlias
+        'ckIsActive
         '
-        Me.txtAlias.Location = New System.Drawing.Point(287, 12)
-        Me.txtAlias.MenuManager = Me.mainRibbonControl
-        Me.txtAlias.Name = "txtAlias"
-        Me.txtAlias.Size = New System.Drawing.Size(169, 20)
-        Me.txtAlias.StyleController = Me.dataLayoutControl1
-        Me.txtAlias.TabIndex = 5
+        Me.ckIsActive.Location = New System.Drawing.Point(12, 60)
+        Me.ckIsActive.MenuManager = Me.mainRibbonControl
+        Me.ckIsActive.Name = "ckIsActive"
+        Me.ckIsActive.Properties.Caption = "Aktif"
+        Me.ckIsActive.Size = New System.Drawing.Size(464, 19)
+        Me.ckIsActive.StyleController = Me.dataLayoutControl1
+        Me.ckIsActive.TabIndex = 9
         '
-        'txtUser
+        'cbTypeLayout
         '
-        Me.txtUser.Location = New System.Drawing.Point(63, 12)
-        Me.txtUser.MenuManager = Me.mainRibbonControl
-        Me.txtUser.Name = "txtUser"
-        Me.txtUser.Size = New System.Drawing.Size(169, 20)
-        Me.txtUser.StyleController = Me.dataLayoutControl1
-        Me.txtUser.TabIndex = 4
+        Me.cbTypeLayout.Location = New System.Drawing.Point(543, 36)
+        Me.cbTypeLayout.MenuManager = Me.mainRibbonControl
+        Me.cbTypeLayout.Name = "cbTypeLayout"
+        Me.cbTypeLayout.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cbTypeLayout.Size = New System.Drawing.Size(401, 20)
+        Me.cbTypeLayout.StyleController = Me.dataLayoutControl1
+        Me.cbTypeLayout.TabIndex = 7
+        '
+        'txtNama
+        '
+        Me.txtNama.Location = New System.Drawing.Point(543, 12)
+        Me.txtNama.MenuManager = Me.mainRibbonControl
+        Me.txtNama.Name = "txtNama"
+        Me.txtNama.Size = New System.Drawing.Size(401, 20)
+        Me.txtNama.StyleController = Me.dataLayoutControl1
+        Me.txtNama.TabIndex = 5
+        '
+        'txtKode
+        '
+        Me.txtKode.Location = New System.Drawing.Point(75, 12)
+        Me.txtKode.MenuManager = Me.mainRibbonControl
+        Me.txtKode.Name = "txtKode"
+        Me.txtKode.Size = New System.Drawing.Size(401, 20)
+        Me.txtKode.StyleController = Me.dataLayoutControl1
+        Me.txtKode.TabIndex = 4
         '
         'layoutControlGroup1
         '
@@ -210,99 +247,122 @@ Partial Public Class FormUser
         Me.layoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.layoutControlGroup2})
         Me.layoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.layoutControlGroup1.Name = "Root"
-        Me.layoutControlGroup1.Size = New System.Drawing.Size(468, 194)
+        Me.layoutControlGroup1.Size = New System.Drawing.Size(956, 364)
         Me.layoutControlGroup1.TextVisible = False
         '
         'layoutControlGroup2
         '
         Me.layoutControlGroup2.AllowDrawBackground = False
         Me.layoutControlGroup2.GroupBordersVisible = False
-        Me.layoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.EmptySpaceItem1, Me.LayoutControlItem3, Me.LayoutControlItem6, Me.LayoutControlItem2, Me.LayoutControlItem4})
+        Me.layoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.EmptySpaceItem1, Me.LayoutControlItem6, Me.LayoutControlItem2, Me.LayoutControlItem4, Me.LayoutControlItem5, Me.LayoutControlItem3, Me.LayoutControlItem1, Me.LayoutControlItem7})
         Me.layoutControlGroup2.Location = New System.Drawing.Point(0, 0)
         Me.layoutControlGroup2.Name = "autoGeneratedGroup0"
-        Me.layoutControlGroup2.Size = New System.Drawing.Size(448, 174)
-        '
-        'LayoutControlItem1
-        '
-        Me.LayoutControlItem1.Control = Me.txtUser
-        Me.LayoutControlItem1.Location = New System.Drawing.Point(0, 0)
-        Me.LayoutControlItem1.Name = "LayoutControlItem1"
-        Me.LayoutControlItem1.Size = New System.Drawing.Size(224, 24)
-        Me.LayoutControlItem1.Text = "Username"
-        Me.LayoutControlItem1.TextSize = New System.Drawing.Size(48, 13)
+        Me.layoutControlGroup2.Size = New System.Drawing.Size(936, 344)
         '
         'EmptySpaceItem1
         '
         Me.EmptySpaceItem1.AllowHotTrack = False
         Me.EmptySpaceItem1.Location = New System.Drawing.Point(0, 71)
         Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Size = New System.Drawing.Size(448, 103)
+        Me.EmptySpaceItem1.Size = New System.Drawing.Size(936, 13)
         Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
-        '
-        'LayoutControlItem3
-        '
-        Me.LayoutControlItem3.Control = Me.txtPwd
-        Me.LayoutControlItem3.Location = New System.Drawing.Point(0, 24)
-        Me.LayoutControlItem3.Name = "LayoutControlItem3"
-        Me.LayoutControlItem3.Size = New System.Drawing.Size(224, 24)
-        Me.LayoutControlItem3.Text = "Password"
-        Me.LayoutControlItem3.TextSize = New System.Drawing.Size(48, 13)
         '
         'LayoutControlItem6
         '
         Me.LayoutControlItem6.Control = Me.ckIsActive
         Me.LayoutControlItem6.Location = New System.Drawing.Point(0, 48)
         Me.LayoutControlItem6.Name = "LayoutControlItem6"
-        Me.LayoutControlItem6.Size = New System.Drawing.Size(448, 23)
+        Me.LayoutControlItem6.Size = New System.Drawing.Size(468, 23)
         Me.LayoutControlItem6.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem6.TextVisible = False
         '
         'LayoutControlItem2
         '
-        Me.LayoutControlItem2.Control = Me.txtAlias
-        Me.LayoutControlItem2.Location = New System.Drawing.Point(224, 0)
+        Me.LayoutControlItem2.Control = Me.txtNama
+        Me.LayoutControlItem2.Location = New System.Drawing.Point(468, 0)
         Me.LayoutControlItem2.Name = "LayoutControlItem2"
-        Me.LayoutControlItem2.Size = New System.Drawing.Size(224, 24)
-        Me.LayoutControlItem2.Text = "Alias"
-        Me.LayoutControlItem2.TextSize = New System.Drawing.Size(48, 13)
+        Me.LayoutControlItem2.Size = New System.Drawing.Size(468, 24)
+        Me.LayoutControlItem2.Text = "Nama"
+        Me.LayoutControlItem2.TextSize = New System.Drawing.Size(60, 13)
         '
         'LayoutControlItem4
         '
-        Me.LayoutControlItem4.Control = Me.cbRoleUser
-        Me.LayoutControlItem4.Location = New System.Drawing.Point(224, 24)
+        Me.LayoutControlItem4.Control = Me.cbTypeLayout
+        Me.LayoutControlItem4.Location = New System.Drawing.Point(468, 24)
         Me.LayoutControlItem4.Name = "LayoutControlItem4"
-        Me.LayoutControlItem4.Size = New System.Drawing.Size(224, 24)
-        Me.LayoutControlItem4.Text = "Role User"
-        Me.LayoutControlItem4.TextSize = New System.Drawing.Size(48, 13)
+        Me.LayoutControlItem4.Size = New System.Drawing.Size(468, 24)
+        Me.LayoutControlItem4.Text = "Type Layout"
+        Me.LayoutControlItem4.TextSize = New System.Drawing.Size(60, 13)
         '
-        'FormUser
+        'LayoutControlItem5
+        '
+        Me.LayoutControlItem5.Control = Me.txtKeterangan
+        Me.LayoutControlItem5.Location = New System.Drawing.Point(0, 24)
+        Me.LayoutControlItem5.Name = "LayoutControlItem5"
+        Me.LayoutControlItem5.Size = New System.Drawing.Size(468, 24)
+        Me.LayoutControlItem5.Text = "Keterangan"
+        Me.LayoutControlItem5.TextSize = New System.Drawing.Size(60, 13)
+        '
+        'LayoutControlItem3
+        '
+        Me.LayoutControlItem3.Control = Me.ckMenuSettingUser
+        Me.LayoutControlItem3.Location = New System.Drawing.Point(468, 48)
+        Me.LayoutControlItem3.Name = "LayoutControlItem3"
+        Me.LayoutControlItem3.Size = New System.Drawing.Size(468, 23)
+        Me.LayoutControlItem3.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem3.TextVisible = False
+        '
+        'LayoutControlItem1
+        '
+        Me.LayoutControlItem1.Control = Me.txtKode
+        Me.LayoutControlItem1.Location = New System.Drawing.Point(0, 0)
+        Me.LayoutControlItem1.Name = "LayoutControlItem1"
+        Me.LayoutControlItem1.Size = New System.Drawing.Size(468, 24)
+        Me.LayoutControlItem1.Text = "Kode"
+        Me.LayoutControlItem1.TextSize = New System.Drawing.Size(60, 13)
+        '
+        'LayoutControlItem7
+        '
+        Me.LayoutControlItem7.Control = Me.GridControl1
+        Me.LayoutControlItem7.Location = New System.Drawing.Point(0, 84)
+        Me.LayoutControlItem7.Name = "LayoutControlItem7"
+        Me.LayoutControlItem7.Size = New System.Drawing.Size(936, 260)
+        Me.LayoutControlItem7.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem7.TextVisible = False
+        '
+        'FormRoleUser
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange
-        Me.ClientSize = New System.Drawing.Size(468, 340)
+        Me.ClientSize = New System.Drawing.Size(956, 510)
         Me.Controls.Add(Me.dataLayoutControl1)
         Me.Controls.Add(Me.mainRibbonControl)
-        Me.Name = "FormUser"
+        Me.Name = "FormRoleUser"
         Me.Ribbon = Me.mainRibbonControl
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "User"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "Role User"
         CType(Me.dataLayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.dataLayoutControl1.ResumeLayout(False)
-        CType(Me.ckIsActive.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GridControl1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.mainRibbonControl, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.cbRoleUser.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.txtPwd.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.txtAlias.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.txtUser.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ckMenuSettingUser.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtKeterangan.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ckIsActive.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cbTypeLayout.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtNama.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtKode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.layoutControlGroup1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.layoutControlGroup2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem7, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -321,15 +381,20 @@ Partial Public Class FormUser
     Private WithEvents bbiDelete As DevExpress.XtraBars.BarButtonItem
     Private WithEvents bbiClose As DevExpress.XtraBars.BarButtonItem
     Private WithEvents layoutControlGroup2 As DevExpress.XtraLayout.LayoutControlGroup
-    Friend WithEvents txtUser As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents txtKode As DevExpress.XtraEditors.TextEdit
     Friend WithEvents LayoutControlItem1 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents EmptySpaceItem1 As DevExpress.XtraLayout.EmptySpaceItem
-    Friend WithEvents txtPwd As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents txtAlias As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents txtNama As DevExpress.XtraEditors.TextEdit
     Friend WithEvents LayoutControlItem2 As DevExpress.XtraLayout.LayoutControlItem
-    Friend WithEvents LayoutControlItem3 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents ckIsActive As DevExpress.XtraEditors.CheckEdit
-    Friend WithEvents cbRoleUser As DevExpress.XtraEditors.LookUpEdit
-    Friend WithEvents LayoutControlItem4 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents LayoutControlItem6 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents ckMenuSettingUser As DevExpress.XtraEditors.CheckEdit
+    Friend WithEvents txtKeterangan As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents cbTypeLayout As DevExpress.XtraEditors.LookUpEdit
+    Friend WithEvents LayoutControlItem4 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents LayoutControlItem5 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents LayoutControlItem3 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents GridControl1 As DevExpress.XtraGrid.GridControl
+    Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents LayoutControlItem7 As DevExpress.XtraLayout.LayoutControlItem
 End Class

@@ -111,12 +111,19 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="BLL\Login.vb" />
+    <Compile Include="FormDetail\FormRoleUser.Designer.vb">
+      <DependentUpon>FormRoleUser.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormDetail\FormRoleUser.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormDetail\FormUser.Designer.vb">
       <DependentUpon>FormUser.vb</DependentUpon>
     </Compile>
     <Compile Include="FormDetail\FormUser.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Model\MenuRoleUser.vb" />
     <Compile Include="Model\Pesan.vb" />
     <Compile Include="Class And Modul\Query.vb" />
     <Compile Include="Class And Modul\Utils.vb" />
@@ -170,6 +177,9 @@
     </Compile>
     <EmbeddedResource Include="AboutBox1.resx">
       <DependentUpon>AboutBox1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDetail\FormRoleUser.resx">
+      <DependentUpon>FormRoleUser.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDetail\FormUser.resx">
       <DependentUpon>FormUser.vb</DependentUpon>

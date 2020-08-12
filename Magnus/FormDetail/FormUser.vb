@@ -200,14 +200,14 @@ Partial Public Class FormUser
                     sql = "Insert Into MUser (Username,Alias,Password,IsActive,IDRoleUser) " & vbCrLf &
                           " Values ('" & txtUser.Text.Trim & "'," & vbCrLf &
                             " '" & txtAlias.Text.Trim & "'," & vbCrLf &
-                            " '" & strEncrypt(txtUser.Text.Trim) & "'," & vbCrLf &
+                            " '" & AES_Encrypt(txtUser.Text.Trim, "Kia") & "'," & vbCrLf &
                             Utils.ObjToInt(cbRoleUser.EditValue) & "," & vbCrLf &
                             Utils.ObjToBit(ckIsActive.Checked) & ")"
 
                 Else
                     sql = "Update MUser Set " & vbCrLf &
                             " Alias ='" & txtAlias.Text.Trim & "',  " & vbCrLf &
-                            " Password ='" & strEncrypt(txtUser.Text.Trim) & "', " & vbCrLf &
+                            " Password ='" & AES_Encrypt(txtUser.Text.Trim, "Kia") & "', " & vbCrLf &
                             " IsActive= " & Utils.ObjToInt(cbRoleUser.EditValue) & ", " & vbCrLf &
                             " IDRoleUser =" & Utils.ObjToBit(ckIsActive.Checked) & vbCrLf &
                             " Where Username ='" & txtUser.Text.Trim & "'"

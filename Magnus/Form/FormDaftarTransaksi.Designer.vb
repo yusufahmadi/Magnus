@@ -29,8 +29,9 @@ Partial Class FormDaftarTransaksi
         Me.RepositoryTglSampai = New DevExpress.XtraEditors.Repository.RepositoryItemDateEdit()
         Me.BarButtonRefresh = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButtonBaru = New DevExpress.XtraBars.BarButtonItem()
-        Me.BarButtonEdit = New DevExpress.XtraBars.BarButtonItem()
+        Me.BarButtonUbah = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButtonHapus = New DevExpress.XtraBars.BarButtonItem()
+        Me.BarButtonCetak = New DevExpress.XtraBars.BarButtonItem()
         Me.Bar3 = New DevExpress.XtraBars.Bar()
         Me.barDockControlTop = New DevExpress.XtraBars.BarDockControl()
         Me.barDockControlBottom = New DevExpress.XtraBars.BarDockControl()
@@ -39,7 +40,7 @@ Partial Class FormDaftarTransaksi
         Me.BarDockingMenuItem1 = New DevExpress.XtraBars.BarDockingMenuItem()
         Me.GridControl1 = New DevExpress.XtraGrid.GridControl()
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
-        Me.BarButtonCetak = New DevExpress.XtraBars.BarButtonItem()
+        Me.BarButtonExport = New DevExpress.XtraBars.BarButtonItem()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemTglDari, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemTglDari.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -57,9 +58,9 @@ Partial Class FormDaftarTransaksi
         Me.BarManager1.DockControls.Add(Me.barDockControlLeft)
         Me.BarManager1.DockControls.Add(Me.barDockControlRight)
         Me.BarManager1.Form = Me
-        Me.BarManager1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.BarButtonBaru, Me.BarButtonEdit, Me.BarButtonHapus, Me.BarButtonRefresh, Me.BarDockingMenuItem1, Me.BarEditTglDari, Me.BarEditTglSampai, Me.BarButtonCetak})
+        Me.BarManager1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.BarButtonBaru, Me.BarButtonUbah, Me.BarButtonHapus, Me.BarButtonRefresh, Me.BarDockingMenuItem1, Me.BarEditTglDari, Me.BarEditTglSampai, Me.BarButtonCetak, Me.BarButtonExport})
         Me.BarManager1.MainMenu = Me.Bar2
-        Me.BarManager1.MaxItemId = 13
+        Me.BarManager1.MaxItemId = 14
         Me.BarManager1.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemTglDari, Me.RepositoryTglSampai})
         Me.BarManager1.StatusBar = Me.Bar3
         '
@@ -69,7 +70,7 @@ Partial Class FormDaftarTransaksi
         Me.Bar2.DockCol = 0
         Me.Bar2.DockRow = 0
         Me.Bar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Top
-        Me.Bar2.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(CType((DevExpress.XtraBars.BarLinkUserDefines.PaintStyle Or DevExpress.XtraBars.BarLinkUserDefines.Width), DevExpress.XtraBars.BarLinkUserDefines), Me.BarEditTglDari, "", False, True, True, 109, Nothing, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(CType((DevExpress.XtraBars.BarLinkUserDefines.PaintStyle Or DevExpress.XtraBars.BarLinkUserDefines.Width), DevExpress.XtraBars.BarLinkUserDefines), Me.BarEditTglSampai, "", False, True, True, 111, Nothing, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.BarButtonRefresh, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.BarButtonBaru, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.BarButtonEdit, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.BarButtonHapus, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.BarButtonCetak, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)})
+        Me.Bar2.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(CType((DevExpress.XtraBars.BarLinkUserDefines.PaintStyle Or DevExpress.XtraBars.BarLinkUserDefines.Width), DevExpress.XtraBars.BarLinkUserDefines), Me.BarEditTglDari, "", False, True, True, 109, Nothing, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(CType((DevExpress.XtraBars.BarLinkUserDefines.PaintStyle Or DevExpress.XtraBars.BarLinkUserDefines.Width), DevExpress.XtraBars.BarLinkUserDefines), Me.BarEditTglSampai, "", False, True, True, 111, Nothing, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.BarButtonRefresh, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.BarButtonBaru, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.BarButtonUbah, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.BarButtonHapus, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.BarButtonExport, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.BarButtonCetak, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)})
         Me.Bar2.OptionsBar.MultiLine = True
         Me.Bar2.OptionsBar.UseWholeRow = True
         Me.Bar2.Text = "Main menu"
@@ -122,13 +123,13 @@ Partial Class FormDaftarTransaksi
         Me.BarButtonBaru.ImageOptions.LargeImage = Global.Magnus.My.Resources.Resources.addfile_32x32
         Me.BarButtonBaru.Name = "BarButtonBaru"
         '
-        'BarButtonEdit
+        'BarButtonUbah
         '
-        Me.BarButtonEdit.Caption = "Ubah"
-        Me.BarButtonEdit.Id = 6
-        Me.BarButtonEdit.ImageOptions.Image = Global.Magnus.My.Resources.Resources.additem_16x16
-        Me.BarButtonEdit.ImageOptions.LargeImage = Global.Magnus.My.Resources.Resources.additem_32x321
-        Me.BarButtonEdit.Name = "BarButtonEdit"
+        Me.BarButtonUbah.Caption = "Ubah"
+        Me.BarButtonUbah.Id = 6
+        Me.BarButtonUbah.ImageOptions.Image = Global.Magnus.My.Resources.Resources.additem_16x16
+        Me.BarButtonUbah.ImageOptions.LargeImage = Global.Magnus.My.Resources.Resources.additem_32x321
+        Me.BarButtonUbah.Name = "BarButtonUbah"
         '
         'BarButtonHapus
         '
@@ -137,6 +138,14 @@ Partial Class FormDaftarTransaksi
         Me.BarButtonHapus.ImageOptions.Image = Global.Magnus.My.Resources.Resources.cancel_16x16
         Me.BarButtonHapus.ImageOptions.LargeImage = Global.Magnus.My.Resources.Resources.cancel_32x32
         Me.BarButtonHapus.Name = "BarButtonHapus"
+        '
+        'BarButtonCetak
+        '
+        Me.BarButtonCetak.Caption = "Cetak"
+        Me.BarButtonCetak.Id = 12
+        Me.BarButtonCetak.ImageOptions.Image = CType(resources.GetObject("BarButtonCetak.ImageOptions.Image"), System.Drawing.Image)
+        Me.BarButtonCetak.ImageOptions.LargeImage = CType(resources.GetObject("BarButtonCetak.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.BarButtonCetak.Name = "BarButtonCetak"
         '
         'Bar3
         '
@@ -206,13 +215,13 @@ Partial Class FormDaftarTransaksi
         Me.GridView1.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.ShowAlways
         Me.GridView1.OptionsView.ShowGroupPanel = False
         '
-        'BarButtonCetak
+        'BarButtonExport
         '
-        Me.BarButtonCetak.Caption = "Cetak"
-        Me.BarButtonCetak.Id = 12
-        Me.BarButtonCetak.ImageOptions.Image = CType(resources.GetObject("BarButtonItem1.ImageOptions.Image"), System.Drawing.Image)
-        Me.BarButtonCetak.ImageOptions.LargeImage = CType(resources.GetObject("BarButtonItem1.ImageOptions.LargeImage"), System.Drawing.Image)
-        Me.BarButtonCetak.Name = "BarButtonCetak"
+        Me.BarButtonExport.Caption = "Export"
+        Me.BarButtonExport.Id = 13
+        Me.BarButtonExport.ImageOptions.Image = CType(resources.GetObject("BarButtonItem1.ImageOptions.Image"), System.Drawing.Image)
+        Me.BarButtonExport.ImageOptions.LargeImage = CType(resources.GetObject("BarButtonItem1.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.BarButtonExport.Name = "BarButtonExport"
         '
         'FormDaftarTransaksi
         '
@@ -248,7 +257,7 @@ Partial Class FormDaftarTransaksi
     Friend WithEvents GridControl1 As DevExpress.XtraGrid.GridControl
     Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents BarButtonBaru As DevExpress.XtraBars.BarButtonItem
-    Friend WithEvents BarButtonEdit As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BarButtonUbah As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BarButtonHapus As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BarButtonRefresh As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BarEditTglDari As DevExpress.XtraBars.BarEditItem
@@ -257,4 +266,5 @@ Partial Class FormDaftarTransaksi
     Friend WithEvents RepositoryTglSampai As DevExpress.XtraEditors.Repository.RepositoryItemDateEdit
     Friend WithEvents BarDockingMenuItem1 As DevExpress.XtraBars.BarDockingMenuItem
     Friend WithEvents BarButtonCetak As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BarButtonExport As DevExpress.XtraBars.BarButtonItem
 End Class
