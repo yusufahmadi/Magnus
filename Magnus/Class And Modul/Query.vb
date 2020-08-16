@@ -120,15 +120,15 @@ Public Class Query
         Return serializer.Serialize(e)
     End Function
 
-    Public Shared Function DeleteDataMaster(ByVal Table As String, ByVal FilterPkColumn_PkValue As String, Optional ByVal strKoneksi As String = "") As Pesan
+    Public Shared Function DeleteDataMaster(ByVal Table As String, ByVal FilterPkColumn_PkValue As String, Optional ByVal CheckIsActive As Boolean = True, Optional ByVal strKoneksi As String = "") As Pesan
         Dim e As New Pesan With {.Hasil = False, .Message = "", .Value = Nothing}
         If strKoneksi = "" Then
             strKoneksi = conStr
         End If
         Dim sql As String = ""
         sql = "Select IsActive From " & Table & " Where " & FilterPkColumn_PkValue
-        If Utils.ObjToBool(Query.ExecuteScalar(sql)) Then
-            If MessageBox.Show("Nonaktifkan data ?", AppName, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) = DialogResult.Yes Then
+        If CheckIsActive AndAlso Utils.ObjToBool(Query.ExecuteScalar(sql)) Then
+            If MessageBox.Show("Nonaktifkan data ?", NamaAplikasi, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) = DialogResult.Yes Then
                 sql = "Update " & Table & " Set IsActive=0 Where " & FilterPkColumn_PkValue
                 Query.Execute(sql)
                 With e
@@ -144,7 +144,7 @@ Public Class Query
                 End With
             End If
         Else
-            If MessageBox.Show("Hapus data dari database (permanen) ?", AppName, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) = DialogResult.Yes Then
+            If MessageBox.Show("Hapus data dari database (permanen) ?", NamaAplikasi, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) = DialogResult.Yes Then
                 sql = "Delete " & Table & " Where " & FilterPkColumn_PkValue
                 e = Query.Execute(sql)
                 If e.Hasil Then

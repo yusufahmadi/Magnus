@@ -3,7 +3,11 @@ Imports System.Security.Cryptography
 Public Module modPub
     Public conStr As String = "Server=(local);Database=Magnus;User Id=sa;Password=Sg1;"
 
-    Public AppName As String = "Magnus"
+    Public NamaAplikasi As String = "Magnus"
+    Public NamaPerusahaan As String = ""
+    Public AlamatPerusahaan As String = ""
+    Public KotaPerusahaan As String = ""
+    Public FolderLayouts As String = Application.StartupPath & "\System\Layouts\"
     Public Username As String = ""
     Public IDRoleUser As Integer = 0
     Public RoleUser As String = ""
@@ -15,6 +19,13 @@ Public Module modPub
     Private enc As System.Text.UTF8Encoding
     Private encryptor As ICryptoTransform
     Private decryptor As ICryptoTransform
+
+    Public IsEditReport As Boolean = False
+    Public Enum ActionReport
+        Edit = 0
+        Preview = 1
+        Print = 2
+    End Enum
 
     ', Optional ByVal pass As String = "Kia"
     Public Function AES_Encrypt(ByVal input As String) As String

@@ -31,6 +31,7 @@ Partial Class FormDaftarTransaksi
         Me.BarButtonBaru = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButtonUbah = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButtonHapus = New DevExpress.XtraBars.BarButtonItem()
+        Me.BarButtonExport = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButtonCetak = New DevExpress.XtraBars.BarButtonItem()
         Me.Bar3 = New DevExpress.XtraBars.Bar()
         Me.barDockControlTop = New DevExpress.XtraBars.BarDockControl()
@@ -40,7 +41,6 @@ Partial Class FormDaftarTransaksi
         Me.BarDockingMenuItem1 = New DevExpress.XtraBars.BarDockingMenuItem()
         Me.GridControl1 = New DevExpress.XtraGrid.GridControl()
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
-        Me.BarButtonExport = New DevExpress.XtraBars.BarButtonItem()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemTglDari, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemTglDari.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -139,6 +139,14 @@ Partial Class FormDaftarTransaksi
         Me.BarButtonHapus.ImageOptions.LargeImage = Global.Magnus.My.Resources.Resources.cancel_32x32
         Me.BarButtonHapus.Name = "BarButtonHapus"
         '
+        'BarButtonExport
+        '
+        Me.BarButtonExport.Caption = "Export"
+        Me.BarButtonExport.Id = 13
+        Me.BarButtonExport.ImageOptions.Image = CType(resources.GetObject("BarButtonExport.ImageOptions.Image"), System.Drawing.Image)
+        Me.BarButtonExport.ImageOptions.LargeImage = CType(resources.GetObject("BarButtonExport.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.BarButtonExport.Name = "BarButtonExport"
+        '
         'BarButtonCetak
         '
         Me.BarButtonCetak.Caption = "Cetak"
@@ -214,14 +222,6 @@ Partial Class FormDaftarTransaksi
         Me.GridView1.Name = "GridView1"
         Me.GridView1.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.ShowAlways
         Me.GridView1.OptionsView.ShowGroupPanel = False
-        '
-        'BarButtonExport
-        '
-        Me.BarButtonExport.Caption = "Export"
-        Me.BarButtonExport.Id = 13
-        Me.BarButtonExport.ImageOptions.Image = CType(resources.GetObject("BarButtonItem1.ImageOptions.Image"), System.Drawing.Image)
-        Me.BarButtonExport.ImageOptions.LargeImage = CType(resources.GetObject("BarButtonItem1.ImageOptions.LargeImage"), System.Drawing.Image)
-        Me.BarButtonExport.Name = "BarButtonExport"
         '
         'FormDaftarTransaksi
         '

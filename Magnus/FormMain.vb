@@ -5,7 +5,6 @@ Public Class FormMain
         'Set User Info
         BarStaticItemUsername.Caption = Username
         BarStaticIP.Caption = "Online On : " & Utils.GetLocalIP()
-
         ShowMenuByUserRole(IDRoleUser)
 
     End Sub
@@ -210,7 +209,7 @@ Public Class FormMain
     End Sub
 
     Private Sub BarButtonItem1_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonSettingDatabase.ItemClick
-        Dim f As New FormSetting
+        Dim f As New FormSettingDatabase
         If f.ShowDialog() = DialogResult.OK Then
             MsgBox("Setting behasil di perbarui")
         End If
@@ -326,19 +325,24 @@ Public Class FormMain
     End Sub
 
     Private Sub BarButtonCalcLabel_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonCalcLabel.ItemClick
-        callDaftarTransaksi(FormDaftarTransaksi.IDFormTr.F_KasKeluar, BarButtonCalcLabel.Tag)
+        callDaftarTransaksi(FormDaftarTransaksi.IDFormTr.F_CalcLabel, BarButtonCalcLabel.Tag)
     End Sub
 
     Private Sub BarButtonCalcRibbon_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonCalcRibbon.ItemClick
-        callDaftarTransaksi(FormDaftarTransaksi.IDFormTr.F_KasKeluar, BarButtonCalcRibbon.Tag)
+        callDaftarTransaksi(FormDaftarTransaksi.IDFormTr.F_CalcRibbon, BarButtonCalcRibbon.Tag)
     End Sub
 
     Private Sub BarButtonCalcTaffeta_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonCalcTaffeta.ItemClick
-        callDaftarTransaksi(FormDaftarTransaksi.IDFormTr.F_KasKeluar, BarButtonCalcTaffeta.Tag)
+        callDaftarTransaksi(FormDaftarTransaksi.IDFormTr.F_CalcTaffeta, BarButtonCalcTaffeta.Tag)
     End Sub
 
     Private Sub BarButtonCalcPaket_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonCalcPaket.ItemClick
-        callDaftarTransaksi(FormDaftarTransaksi.IDFormTr.F_KasKeluar, BarButtonCalcPaket.Tag)
+        callDaftarTransaksi(FormDaftarTransaksi.IDFormTr.F_CalcPaket, BarButtonCalcPaket.Tag)
     End Sub
 
+    Private Sub BarButtonItem2_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem2.ItemClick
+        Dim f As New FormSetting
+        f.TopMost = True
+        f.ShowDialog(Me)
+    End Sub
 End Class

@@ -18,7 +18,7 @@ Public Class LoginForm
             Exit Sub
         End If
         Dim psn As New Pesan With {.Hasil = False, .Message = "", .Value = Nothing}
-        If BLL.Login.goLogin(txtUsername.Text.Trim, txtPassword.Text.Trim, psn) = True Then
+        If BLL.Login.goLogin(txtUsername.Text.Trim.ToUpper, txtPassword.Text.Trim, psn) = True Then
             Me.Hide()
             MsgBox(psn.Message & vbCrLf & psn.Value.ToString)
             Dim f As New FormMain
@@ -33,7 +33,7 @@ Public Class LoginForm
     End Sub
 
     Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
-        Using f As New FormSetting
+        Using f As New FormSettingDatabase
             If DialogResult.OK = f.ShowDialog() Then
 
             End If

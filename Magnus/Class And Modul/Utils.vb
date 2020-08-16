@@ -1,5 +1,8 @@
 ﻿
 Imports System.Net
+Imports System.Threading
+Imports DevExpress.XtraEditors
+Imports DevExpress.XtraGrid
 
 Public Class Utils
     Public Shared Function ObjToInt(ByVal Obj As Object) As Integer
@@ -56,6 +59,7 @@ Public Class Utils
             Return Convert.ToDateTime("1/1/1900 00:00")
         End If
     End Function
+
     Public Shared Function ObjToDate(ByVal X As Object) As Date
         If TypeOf X Is Date OrElse IsDate(X) Then
             Return CDate(X)
@@ -110,7 +114,15 @@ Public Class Utils
         End Select
         Return False
     End Function
-
+    Public Shared Function NullToStr(ByVal Value As Object) As String
+        If IsDBNull(Value) Then
+            Return ""
+        ElseIf Value Is Nothing Then
+            Return ""
+        Else
+            Return Value
+        End If
+    End Function
     Public Shared Function FixApostropi(ByVal obj As Object) As String
         Dim x As String = ""
         Try
@@ -128,6 +140,65 @@ Public Class Utils
             x = ""
         End Try
         Return x
+    End Function
+    Public Shared Sub BukaFile(ByVal nmfile As String)
+        Try
+            Dim p As New System.Diagnostics.ProcessStartInfo
+            p.Verb = "Open"
+            p.WindowStyle = ProcessWindowStyle.Normal
+            p.FileName = nmfile
+            p.UseShellExecute = True
+            System.Diagnostics.Process.Start(p)
+        Catch ex As Exception
+            XtraMessageBox.Show("Ada Kesalahan :" & vbCrLf & ex.Message & vbCrLf & "File : " & nmfile, NamaAplikasi, MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End Try
+    End Sub
+
+    Public Shared Function CheckFileFunction(ByVal xFile As String) As Boolean
+        Return System.IO.File.Exists(xFile)
+    End Function
+    Public Shared Function FileExists(ByVal xFile As String, Optional ByVal timeout As Integer = 5000) As Boolean
+        Dim exists As Boolean = True
+        Dim t As New Thread(DirectCast(Function() CheckFileFunction(xFile), ThreadStart))
+        t.Start()
+        Dim completed As Boolean = t.Join(timeout)
+        If Not completed Then
+            exists = False
+            t.Abort()
+        Else
+            exists = CheckFileFunction(xFile)
+        End If
+        Return exists
+    End Function
+
+    Public Shared Function CheckPathFunction(ByVal path As String) As Boolean
+        Return System.IO.Directory.Exists(path)
+    End Function
+    Public Shared Function DirectoryExists(ByVal path As String, Optional ByVal timeout As Integer = 10000) As Boolean 'milisecond
+        Dim exists As Boolean = True
+        Dim t As New Thread(DirectCast(Function() CheckPathFunction(path), ThreadStart))
+        t.Start()
+        Dim completed As Boolean = t.Join(timeout)
+        If Not completed Then
+            exists = False
+            t.Abort()
+        Else
+            exists = CheckPathFunction(path)
+        End If
+        Return exists
+    End Function
+    Public Shared Function GCtoDSRowFiltered(ByVal view As GridControl, Optional ByVal Filter As String = "") As DataSet
+        Using dsX As New DataSet
+            Dim dv As New DataView
+            dv = TryCast(view.DataSource, DataTable).Copy().DefaultView
+            dv.RowFilter = Filter
+            If Not dsX Is Nothing Then
+                dsX.Tables.Clear()
+                dsX.Clear()
+            End If
+            dsX.Tables.Add(dv.ToTable())
+            Return dsX
+        End Using
     End Function
 
     Public Class Ini
