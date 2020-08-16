@@ -8,6 +8,7 @@ Public Module modPub
     Public IDRoleUser As Integer = 0
     Public RoleUser As String = ""
     Public IDTypeLayout As Integer = 0
+    Public KeyPas As String = My.Settings.KeyPass
 
     Public listMenu As New List(Of MenuRoleUser)
 
@@ -15,13 +16,14 @@ Public Module modPub
     Private encryptor As ICryptoTransform
     Private decryptor As ICryptoTransform
 
-    Public Function AES_Encrypt(ByVal input As String, ByVal pass As String) As String
+    ', Optional ByVal pass As String = "Kia"
+    Public Function AES_Encrypt(ByVal input As String) As String
         Dim AES As New System.Security.Cryptography.RijndaelManaged
         Dim Hash_AES As New System.Security.Cryptography.MD5CryptoServiceProvider
         Dim encrypted As String = ""
         Try
             Dim hash(31) As Byte
-            Dim temp As Byte() = Hash_AES.ComputeHash(System.Text.ASCIIEncoding.ASCII.GetBytes(pass))
+            Dim temp As Byte() = Hash_AES.ComputeHash(System.Text.ASCIIEncoding.ASCII.GetBytes(KeyPas))
             Array.Copy(temp, 0, hash, 0, 16)
             Array.Copy(temp, 0, hash, 15, 16)
             AES.Key = hash
@@ -34,14 +36,15 @@ Public Module modPub
             Return input 'If encryption fails, return the unaltered input.
         End Try
     End Function
-    'Decrypt a string with AES
-    Public Function AES_Decrypt(ByVal input As String, ByVal pass As String) As String
+    'Decrypt a string with AES 
+    ', ByVal pass As String
+    Public Function AES_Decrypt(ByVal input As String) As String
         Dim AES As New System.Security.Cryptography.RijndaelManaged
         Dim Hash_AES As New System.Security.Cryptography.MD5CryptoServiceProvider
         Dim decrypted As String = ""
         Try
             Dim hash(31) As Byte
-            Dim temp As Byte() = Hash_AES.ComputeHash(System.Text.ASCIIEncoding.ASCII.GetBytes(pass))
+            Dim temp As Byte() = Hash_AES.ComputeHash(System.Text.ASCIIEncoding.ASCII.GetBytes(KeyPas))
             Array.Copy(temp, 0, hash, 0, 16)
             Array.Copy(temp, 0, hash, 15, 16)
             AES.Key = hash

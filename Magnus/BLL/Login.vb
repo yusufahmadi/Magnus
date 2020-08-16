@@ -4,7 +4,7 @@
             Try
                 If CInt(Query.ExecuteScalar("Select Count(*) From MUser")) = 0 Then
                     Query.Execute("Insert Into MUser(Username,Alias,Password,IsActive,IDRoleUser) " & vbCrLf &
-                                  " Values ('Administrator','Super Admin','" & AES_Encrypt("12345", "Kia") & "',1,1)")
+                                  " Values ('Administrator','Super Admin','" & AES_Encrypt("12345") & "',1,1)")
                 End If
                 If CInt(Query.ExecuteScalar("Select Count(*) From MUser " & vbCrLf &
                                   " Where Username='" & User & "'")) > 0 Then
@@ -12,14 +12,14 @@
                                   " Where Username='" & User & "' and Isnull(IsActive,0)=1")) > 0 Then
                         If CInt(Query.ExecuteScalar("Select Count(*) From MUser " & vbCrLf &
                                       " Where Username='" & User & "' And " & vbCrLf &
-                                      " Password='" & AES_Encrypt(Pwd, "Kia") & "'")) > 0 Then
+                                      " Password='" & AES_Encrypt(Pwd) & "'")) > 0 Then
                             Dim ds As New DataSet
                             ds = Query.ExecuteDataSet("Select MUser.*,MRoleUser.Nama RoleUser, MRoleUser.IDTypeLayout " & vbCrLf &
                                           " From MUser " & vbCrLf &
                                           " Left Join MRoleUser on MUser.IDRoleUser=MRoleUser.ID " & vbCrLf &
                                           " " & vbCrLf &
                                           " Where Username='" & User & "' And " & vbCrLf &
-                                          " Password='" & AES_Encrypt(Pwd, "Kia") & "'")
+                                          " Password='" & AES_Encrypt(Pwd) & "'")
                             If Not ds Is Nothing Then
                                 With ds.Tables(0).Rows(0)
                                     Username = User

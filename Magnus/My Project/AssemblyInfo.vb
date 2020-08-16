@@ -1,15 +1,16 @@
-﻿Imports System.Reflection
+﻿Imports System.Resources
+Imports System.Reflection
 Imports System.Runtime.CompilerServices
 Imports System.Runtime.InteropServices
 
 ' General Information about an assembly is controlled through the following 
 ' set of attributes. Change these attribute values to modify the information
 ' associated with an assembly.
-<Assembly: AssemblyTitle("CsWinFormsBlackApp")>
-<Assembly: AssemblyDescription("")>
+<Assembly: AssemblyTitle("MAGNUS")>
+<Assembly: AssemblyDescription("Maximum Application Gain New Ultimate Solutin")>
 <Assembly: AssemblyConfiguration("")>
-<Assembly: AssemblyCompany("")>
-<Assembly: AssemblyProduct("CsWinFormsBlackApp")>
+<Assembly: AssemblyCompany("Ruwet Solution")>
+<Assembly: AssemblyProduct("MAGNUS")>
 <Assembly: AssemblyCopyright("Copyright ©  2020")>
 <Assembly: AssemblyTrademark("")>
 <Assembly: AssemblyCulture("")>
@@ -34,3 +35,4 @@ Imports System.Runtime.InteropServices
 ' [assembly: AssemblyVersion("1.0.*")]
 <Assembly: AssemblyVersion("1.0.0.0")>
 <Assembly: AssemblyFileVersion("1.0.0.0")>
+<Assembly: NeutralResourcesLanguage("id")>

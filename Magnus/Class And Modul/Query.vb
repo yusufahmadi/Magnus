@@ -146,12 +146,16 @@ Public Class Query
         Else
             If MessageBox.Show("Hapus data dari database (permanen) ?", AppName, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) = DialogResult.Yes Then
                 sql = "Delete " & Table & " Where " & FilterPkColumn_PkValue
-                Query.Execute(sql)
-                With e
+                e = Query.Execute(sql)
+                If e.Hasil Then
                     e.Message = "Data telah di hapus permanen."
-                    e.Value = ""
-                    e.Hasil = True
-                End With
+                Else
+                    If e.Message.Contains("REFERENCE constraint") Then
+                        e.Message = "Data ini telah terpakai/menjadi referensi untuk data lainya." & vbCrLf & e.Message
+                    Else
+                        'Default
+                    End If
+                End If
             Else
                 With e
                     e.Message = "Delete permanen data dibatalkan."

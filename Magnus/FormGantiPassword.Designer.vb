@@ -25,9 +25,9 @@ Partial Class FormGantiPassword
         Me.pictureEdit2 = New DevExpress.XtraEditors.PictureEdit()
         Me.btnGantiPassword = New System.Windows.Forms.Button()
         Me.btnBatal = New System.Windows.Forms.Button()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.txtOldPwd = New System.Windows.Forms.TextBox()
+        Me.txtNewPwd = New System.Windows.Forms.TextBox()
+        Me.txtReEnterNewPwd = New System.Windows.Forms.TextBox()
         Me.btnClose = New System.Windows.Forms.Button()
         Me.btnSimpan = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -70,29 +70,29 @@ Partial Class FormGantiPassword
         Me.btnBatal.Text = "Batal"
         Me.btnBatal.UseVisualStyleBackColor = True
         '
-        'TextBox1
+        'txtOldPwd
         '
-        Me.TextBox1.Location = New System.Drawing.Point(12, 192)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.TextBox1.Size = New System.Drawing.Size(139, 20)
-        Me.TextBox1.TabIndex = 17
+        Me.txtOldPwd.Location = New System.Drawing.Point(12, 192)
+        Me.txtOldPwd.Name = "txtOldPwd"
+        Me.txtOldPwd.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.txtOldPwd.Size = New System.Drawing.Size(139, 20)
+        Me.txtOldPwd.TabIndex = 17
         '
-        'TextBox2
+        'txtNewPwd
         '
-        Me.TextBox2.Location = New System.Drawing.Point(12, 236)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.TextBox2.Size = New System.Drawing.Size(139, 20)
-        Me.TextBox2.TabIndex = 18
+        Me.txtNewPwd.Location = New System.Drawing.Point(12, 236)
+        Me.txtNewPwd.Name = "txtNewPwd"
+        Me.txtNewPwd.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.txtNewPwd.Size = New System.Drawing.Size(139, 20)
+        Me.txtNewPwd.TabIndex = 18
         '
-        'TextBox3
+        'txtReEnterNewPwd
         '
-        Me.TextBox3.Location = New System.Drawing.Point(12, 281)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.TextBox3.Size = New System.Drawing.Size(139, 20)
-        Me.TextBox3.TabIndex = 19
+        Me.txtReEnterNewPwd.Location = New System.Drawing.Point(12, 281)
+        Me.txtReEnterNewPwd.Name = "txtReEnterNewPwd"
+        Me.txtReEnterNewPwd.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.txtReEnterNewPwd.Size = New System.Drawing.Size(139, 20)
+        Me.txtReEnterNewPwd.TabIndex = 19
         '
         'btnClose
         '
@@ -150,9 +150,9 @@ Partial Class FormGantiPassword
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnSimpan)
         Me.Controls.Add(Me.btnClose)
-        Me.Controls.Add(Me.TextBox3)
-        Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.txtReEnterNewPwd)
+        Me.Controls.Add(Me.txtNewPwd)
+        Me.Controls.Add(Me.txtOldPwd)
         Me.Controls.Add(Me.btnBatal)
         Me.Controls.Add(Me.btnGantiPassword)
         Me.Controls.Add(Me.pictureEdit2)
@@ -166,9 +166,9 @@ Partial Class FormGantiPassword
     Private WithEvents pictureEdit2 As DevExpress.XtraEditors.PictureEdit
     Friend WithEvents btnGantiPassword As Button
     Friend WithEvents btnBatal As Button
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents txtOldPwd As TextBox
+    Friend WithEvents txtNewPwd As TextBox
+    Friend WithEvents txtReEnterNewPwd As TextBox
     Friend WithEvents btnClose As Button
     Friend WithEvents btnSimpan As Button
     Friend WithEvents Label1 As Label

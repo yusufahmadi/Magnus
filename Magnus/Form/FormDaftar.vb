@@ -1,4 +1,5 @@
 ﻿Imports DevExpress.XtraGrid.Views.Base
+Imports Magnus.Utils
 
 Partial Public Class FormDaftar
     Inherits DevExpress.XtraEditors.XtraForm
@@ -46,7 +47,7 @@ Partial Public Class FormDaftar
             Case IDForm.F_User
                 sql = "Select A.*,B.Nama As Role,C.Nama As TypeLayout From MUser A Left Join (MRoleUser B Left Join MTypeLayout C on B.IDTypeLayout=C.ID) on A.IDRoleUser=B.ID Order By A.Username"
             Case IDForm.F_RoleUser
-                sql = "Select * From MRoleUser "
+                sql = "Select R.ID,R.Kode,R.Nama,R.Keterangan,R.IsActive,T.Nama TypeLayout,R.MenuSettingUser From MRoleUser R Left Join MTypeLayout T On R.IDTypeLayout=T.ID "
             Case IDForm.F_MBarang
                 If IDTypeLayout = 1 Then
                     sql = "Select A.ID,B.Kode KodeKategori,B.Nama Kategori, A.Kode,A.Nama,A.Catatan,A.HargaBeli,A.P,A.L,A.T,A.Isi,A.TanggalBuat,A.UserBuat,A.TanggalUpdate,A.UserUpdate "
@@ -65,6 +66,11 @@ Partial Public Class FormDaftar
         If Not ds Is Nothing Then
             GridControl1.DataSource = ds.Tables(0)
             ds.Dispose()
+            GridControl1.Refresh()
+
+            GridView1.OptionsView.ColumnAutoWidth = False
+            GridView1.OptionsView.BestFitMaxRowCount = -1
+            GridView1.BestFitColumns()
         End If
     End Sub
 
@@ -81,6 +87,12 @@ Partial Public Class FormDaftar
                 End If
             Case IDForm.F_RoleUser
                 Dim f As New FormRoleUser
+                f._IsNew = True
+                If f.ShowDialog() = DialogResult.OK Then
+                    BarButtonRefresh.PerformClick()
+                End If
+            Case IDForm.F_MBarang
+                Dim f As New FormBarang
                 f._IsNew = True
                 If f.ShowDialog() = DialogResult.OK Then
                     BarButtonRefresh.PerformClick()
@@ -103,13 +115,29 @@ Partial Public Class FormDaftar
                 f._User = view.GetDataRow(GridView1.FocusedRowHandle)("Username").ToString
                 If f.ShowDialog() = DialogResult.OK Then
                     BarButtonRefresh.PerformClick()
+                    GridView1.ClearSelection()
+                    GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("Username"), f._User)
+                    GridView1.SelectRow(GridView1.FocusedRowHandle)
                 End If
             Case IDForm.F_RoleUser
                 Dim f As New FormRoleUser
                 f._IsNew = False
-                f._ID = Utils.ObjToInt(view.GetDataRow(GridView1.FocusedRowHandle)("ID"))
+                f._ID = ObjToInt(view.GetDataRow(GridView1.FocusedRowHandle)("ID"))
                 If f.ShowDialog() = DialogResult.OK Then
                     BarButtonRefresh.PerformClick()
+                    GridView1.ClearSelection()
+                    GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("ID"), f._ID.ToString)
+                    GridView1.SelectRow(GridView1.FocusedRowHandle)
+                End If
+            Case IDForm.F_MBarang
+                Dim f As New FormBarang
+                f._IsNew = True
+                f._ID = ObjToInt(view.GetDataRow(GridView1.FocusedRowHandle)("ID"))
+                If f.ShowDialog() = DialogResult.OK Then
+                    BarButtonRefresh.PerformClick()
+                    GridView1.ClearSelection()
+                    GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("ID"), f._ID.ToString)
+                    GridView1.SelectRow(GridView1.FocusedRowHandle)
                 End If
         End Select
     End Sub
@@ -130,11 +158,39 @@ Partial Public Class FormDaftar
                 If f.Hasil = True Then
                     MsgBox(f.Message)
                     BarButtonRefresh.PerformClick()
+
+                    GridView1.ClearSelection()
+                    GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("Username"), User.ToString)
+                    GridView1.SelectRow(GridView1.FocusedRowHandle)
                 Else
                     MsgBox(f.Message)
                 End If
             Case IDForm.F_RoleUser
-
+                Dim ID As Integer = 0
+                ID = ObjToInt(view.GetDataRow(GridView1.FocusedRowHandle)("ID"))
+                Dim f As Pesan = Query.DeleteDataMaster("MRoleUser", "ID=" & ID & "")
+                If f.Hasil = True Then
+                    MsgBox(f.Message)
+                    BarButtonRefresh.PerformClick()
+                    GridView1.ClearSelection()
+                    GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("ID"), ID.ToString)
+                    GridView1.SelectRow(GridView1.FocusedRowHandle)
+                Else
+                    MsgBox(f.Message)
+                End If
+            Case IDForm.F_MBarang
+                Dim ID As Integer = 0
+                ID = ObjToInt(view.GetDataRow(GridView1.FocusedRowHandle)("ID"))
+                Dim f As Pesan = Query.DeleteDataMaster("MUser", "ID=" & ID & "")
+                If f.Hasil = True Then
+                    MsgBox(f.Message)
+                    BarButtonRefresh.PerformClick()
+                    GridView1.ClearSelection()
+                    GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("ID"), ID.ToString)
+                    GridView1.SelectRow(GridView1.FocusedRowHandle)
+                Else
+                    MsgBox(f.Message)
+                End If
         End Select
     End Sub
 
@@ -144,5 +200,9 @@ Partial Public Class FormDaftar
 
     Private Sub BarButtonCetak_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonCetak.ItemClick
 
+    End Sub
+
+    Private Sub GridView1_DoubleClick(sender As Object, e As EventArgs) Handles GridView1.DoubleClick
+        Ubah()
     End Sub
 End Class
