@@ -174,7 +174,6 @@ Partial Public Class FormCalcRibbon
         If IsValid() AndAlso IsValidOnDB() Then
             Dim sql As String = ""
             Try
-
                 If _IsNew Then
                     sql = "Select Isnull(Max(no),0)+1 From " & TableName
                     Me._ID = ObjToInt(Query.ExecuteScalar(sql))

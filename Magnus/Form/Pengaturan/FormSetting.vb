@@ -1,6 +1,5 @@
 ﻿Imports Magnus.Utils
 Public Class FormSetting
-
     Private Sub WindowsUIButtonPanelMain_ButtonClick(sender As Object, e As DevExpress.XtraBars.Docking2010.ButtonEventArgs) Handles windowsUIButtonPanelMain.ButtonClick
         Dim x As New Pesan With {.Hasil = False, .Message = "", .Value = Nothing}
         Dim _button = (e.Button.ToString().Substring(e.Button.ToString().LastIndexOf("=") + 1).Trim())
@@ -30,6 +29,11 @@ Public Class FormSetting
                 Me.FormSetting_Load(sender, e)
             Case "2", "'Close'"
                 Me.Close()
+            Case "2", "'Setting Calc'"
+                Using d As New FormSettingCalc
+                    d.TopMost = True
+                    d.ShowDialog()
+                End Using
         End Select
     End Sub
 
