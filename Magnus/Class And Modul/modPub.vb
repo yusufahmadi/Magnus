@@ -1,7 +1,25 @@
 ﻿Imports System.IO
 Imports System.Security.Cryptography
 Public Module modPub
-    Public conStr As String = "Server=(local);Database=Magnus;User Id=sa;Password=Sg1;"
+    Public Function conStr(Optional ByVal strCon As String = "") As String '= "Server=(local);Database=Magnus;User Id=sa;Password=Sg1;"
+        If strCon <> "" Then
+            conStr = strCon
+        Else
+            If Utils.ObjToBool(Ini.BacaIni("Application", "WindowsAuth", "False")) Then
+                conStr = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=" & Ini.BacaIni("Application", "Database", "Magnus") &
+                    ";Data Source=" & Ini.BacaIni("Application", "Server", ".") &
+                    ";Connect Timeout=" & Ini.BacaIni("Application", "Timeout", "10") & ";"
+            Else
+                conStr = "Server=" & Ini.BacaIni("Application", "Server", ".") &
+                    ";Database=" & Ini.BacaIni("Application", "Database", "Magnus") &
+                    ";User Id=" & Ini.BacaIni("Application", "User", "sa") &
+                    ";Password=" & AES_Decrypt(Ini.BacaIni("Application", "Password", "")) &
+                    ";Connect Timeout=" & Ini.BacaIni("Application", "Timeout", "10") & ";"
+            End If
+        End If
+        Return conStr
+    End Function
+
 
     Public NamaAplikasi As String = "Magnus"
     Public NamaPerusahaan As String = ""

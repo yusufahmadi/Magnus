@@ -40,7 +40,7 @@ Partial Public Class FormDaftarTransaksi
             BarButtonCetak.Enabled = newList(0).IsCetak
             Me.Text = IIf(newList(0).Caption = "", NamaForm, newList(0).Caption).ToString
         Catch ex As Exception
-            MsgBox(NamaForm & " " & ex.Message)
+            DevExpress.XtraEditors.XtraMessageBox.Show(Me, NamaForm & " " & ex.Message, NamaAplikasi)
         End Try
     End Sub
     Private Sub BarButtonRefresh_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonRefresh.ItemClick
@@ -54,28 +54,38 @@ Partial Public Class FormDaftarTransaksi
     Sub Refresher()
         Dim ds As New DataSet
         Dim sql As String = ""
+        Dim TglDari As String = "", TglSampai As String = ""
         Select Case idFrmTr
             Case IDFormTr.F_StokMasuk
-                sql = "Select * From MStokMasuk "
+                sql = "Select * From MStokMasuk  T '" & vbCrLf
             Case IDFormTr.F_StokKeluar
-                sql = "Select * From MStokKeluar "
+                sql = "Select * From MStokKeluar  T " & vbCrLf
             Case IDFormTr.F_KasMasuk
-                sql = "Select * From MKasMasuk "
+                sql = "Select * From MKasMasuk T '" & vbCrLf
             Case IDFormTr.F_KasKeluar
-                sql = "Select * From MKasKeluar "
+                sql = "Select * From MKasKeluar T '" & vbCrLf
             Case IDFormTr.F_CalcLabel
                 If IDRoleUser = 1 Then
-                    sql = "Select T.No,T.Tgl,T.Dokumen,B.Nama Bahan,T.harga_bahan HargaBahan ,T.Lebar,T.Tinggi,T.Gap,T.Pisau,T.Pembulatan,T.Qty_Order,T.Jual_Sesuai_Order,(Isnull(T.biaya_pisau,0) + Isnull(T.biaya_tinta,0) + Isnull(T.biaya_toyobo,0) + Isnull(T.biaya_operator,0) + Isnull(T.biaya_kirim,0)) TotalBiaya " & vbCrLf
+                    sql = "Select T.No,T.Tgl,T.Dokumen,B.Nama Bahan,T.harga_bahan HargaBahan ,T.Lebar,T.Tinggi,T.Gap,T.Pisau,T.Pembulatan,T.Qty_Order,T.Jual_Sesuai_Order,Cast((Isnull(T.biaya_pisau,0) + Isnull(T.biaya_tinta,0) + Isnull(T.biaya_toyobo,0) + Isnull(T.biaya_operator,0) + Isnull(T.biaya_kirim,0)) as numeric(18, 2))  TotalBiaya " & vbCrLf
                 Else
-                    sql = "Select T.No,T.Tgl,T.Dokumen,B.Nama Bahan,T.Lebar,T.Tinggi,T.Gap,T.Pisau,T.Pembulatan,T.Qty_Order,T.Jual_Sesuai_Order,(Isnull(T.biaya_pisau,0) + Isnull(T.biaya_tinta,0) + Isnull(T.biaya_toyobo,0) + Isnull(T.biaya_operator,0) + Isnull(T.biaya_kirim,0)) TotalBiaya  " & vbCrLf
+                    sql = "Select T.No,T.Tgl,T.Dokumen,B.Nama Bahan,T.Lebar,T.Tinggi,T.Gap,T.Pisau,T.Pembulatan,T.Qty_Order,T.Jual_Sesuai_Order,Cast((Isnull(T.biaya_pisau,0) + Isnull(T.biaya_tinta,0) + Isnull(T.biaya_toyobo,0) + Isnull(T.biaya_operator,0) + Isnull(T.biaya_kirim,0)) as numeric(18, 2))  TotalBiaya  " & vbCrLf
                 End If
-                sql = sql & "From TLabel T Left Join MBarang B On B.ID=T.ID_Bahan "
+                sql = sql & " From TLabel T Left Join MBarang B On B.ID=T.ID_Bahan " & vbCrLf
             Case IDFormTr.F_CalcRibbon
-                sql = "Select * From TRibbon "
+                If IDRoleUser = 1 Then
+                    sql = "Select T.[No],T.Dokumen,T.Tgl,B.Nama Bahan,T.Harga_Bahan,T.Lebar,T.Panjang,T.Modal,T.Qty,T.Jual_Roll,T.Jumlah_Profit_Kotor As Jumlah,T.Transport,T.Komisisalesprosen [Komisi(%)],Cast( (T.Jumlah_Profit_Kotor*T.Komisisalesprosen)/100 as numeric(18, 2)) KomisiSales,T.NetProfit" & vbCrLf
+                Else
+                    sql = "Select T.[No],T.Dokumen,T.Tgl,B.Nama Bahan,T.Lebar,T.Panjang,T.Qty,T.Jual_Roll,T.Jumlah_Profit_Kotor As Jumlah,T.Transport,T.Komisisalesprosen [Komisi(%)]" & vbCrLf
+                End If
+                sql = sql & " From TRibbon T Left Join MBarang B On B.ID=T.ID_Bahan " & vbCrLf
             Case IDFormTr.F_CalcTaffeta
-                sql = "Select * From TTaffeta "
+                sql = "Select * From TTaffeta T " & vbCrLf
             Case IDFormTr.F_CalcTaffeta
         End Select
+        sql = sql & " Where 1=1 "
+        If BarEditTglDari.EditValue.ToString <> "" Then
+            sql = sql & " And T.Tgl between '" & ObjToDate(BarEditTglDari.EditValue) & "' And '" & ObjToDate(BarEditTglSampai.EditValue) & "'"
+        End If
         ds = Query.ExecuteDataSet(sql)
         If Not ds Is Nothing Then
             GridControl1.DataSource = ds.Tables(0)
@@ -87,14 +97,16 @@ Partial Public Class FormDaftarTransaksi
             GridView1.BestFitColumns()
             With GridView1
                 For i As Integer = 0 To .Columns.Count - 1
-                    ' MsgBox(GV1.Columns(i).fieldname.ToString)
                     Select Case GridView1.Columns(i).ColumnType.Name.ToLower
                         Case "int32", "int64", "int"
                             .Columns(i).DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-                            .Columns(i).DisplayFormat.FormatString = "n2"
-                        Case "decimal", "single", "money", "double"
+                            .Columns(i).DisplayFormat.FormatString = "n0"
+                        Case "decimal", "single", "double", "numeric"
                             .Columns(i).DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
                             .Columns(i).DisplayFormat.FormatString = "n2"
+                        Case "money"
+                            .Columns(i).DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+                            .Columns(i).DisplayFormat.FormatString = "c2"
                         Case "string"
                             .Columns(i).DisplayFormat.FormatType = DevExpress.Utils.FormatType.None
                             .Columns(i).DisplayFormat.FormatString = ""
@@ -107,7 +119,7 @@ Partial Public Class FormDaftarTransaksi
                             .Columns(i).OptionsColumn.AllowSort = False
                             .Columns(i).OptionsFilter.AllowFilter = False
                             .Columns(i).ColumnEdit = reppicedit
-                        Case "boolean"
+                        Case "boolean", "bit"
                             .Columns(i).ColumnEdit = repckedit
                     End Select
                     If .Columns(i).FieldName.Length >= 4 AndAlso .Columns(i).FieldName.Substring(0, 4).ToLower = "Kode".ToLower Then
@@ -137,37 +149,41 @@ Partial Public Class FormDaftarTransaksi
             Case IDFormTr.F_KasKeluar
 
             Case IDFormTr.F_CalcLabel
-                Dim f As New FormCalcLabel
-                f._IsNew = True
-                f.FormName = "Label Calculator"
-                f.TableName = "TLabel"
-                If f.ShowDialog() = DialogResult.OK Then
-                    BarButtonRefresh.PerformClick()
-                End If
+                Using f As New FormCalcRibbon
+                    f._IsNew = True
+                    f.FormName = "Label Calculator"
+                    f.TableName = "TLabel"
+                    If f.ShowDialog() = DialogResult.OK Then
+                        BarButtonRefresh.PerformClick()
+                    End If
+                End Using
             Case IDFormTr.F_CalcRibbon
-                Dim f As New FormCalcLabel
-                f._IsNew = True
-                f.FormName = "Ribbon Calculator"
-                f.TableName = "TRibbon"
-                If f.ShowDialog() = DialogResult.OK Then
-                    BarButtonRefresh.PerformClick()
-                End If
+                Using f As New FormCalcRibbon
+                    f._IsNew = True
+                    f.FormName = "Ribbon Calculator"
+                    f.TableName = "TRibbon"
+                    If f.ShowDialog() = DialogResult.OK Then
+                        BarButtonRefresh.PerformClick()
+                    End If
+                End Using
             Case IDFormTr.F_CalcTaffeta
-                Dim f As New FormCalcLabel
-                f._IsNew = True
-                f.FormName = "Taffeta Calculator"
-                f.TableName = "Ttaffeta"
-                If f.ShowDialog() = DialogResult.OK Then
-                    BarButtonRefresh.PerformClick()
-                End If
+                Using f As New FormCalcRibbon
+                    f._IsNew = True
+                    f.FormName = "Taffeta Calculator"
+                    f.TableName = "Ttaffeta"
+                    If f.ShowDialog() = DialogResult.OK Then
+                        BarButtonRefresh.PerformClick()
+                    End If
+                End Using
             Case IDFormTr.F_CalcPaket
-                Dim f As New FormCalcLabel
-                f._IsNew = True
-                f.FormName = "Paket Calculator"
-                f.TableName = "TPaket"
-                If f.ShowDialog() = DialogResult.OK Then
-                    BarButtonRefresh.PerformClick()
-                End If
+                Using f As New FormCalcRibbon
+                    f._IsNew = True
+                    f.FormName = "Paket Calculator"
+                    f.TableName = "TPaket"
+                    If f.ShowDialog() = DialogResult.OK Then
+                        BarButtonRefresh.PerformClick()
+                    End If
+                End Using
         End Select
     End Sub
 
@@ -187,53 +203,57 @@ Partial Public Class FormDaftarTransaksi
             Case IDFormTr.F_KasKeluar
 
             Case IDFormTr.F_CalcLabel
-                Dim f As New FormCalcLabel
-                f._IsNew = False
-                f._ID = ObjToInt(view.GetDataRow(GridView1.FocusedRowHandle)("no"))
-                f.FormName = "Label Calculator"
-                f.TableName = "TLabel"
-                If f.ShowDialog() = DialogResult.OK Then
-                    BarButtonRefresh.PerformClick()
-                    GridView1.ClearSelection()
-                    GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("ID"), f._ID.ToString)
-                    GridView1.SelectRow(GridView1.FocusedRowHandle)
-                End If
+                Using f As New FormCalcRibbon
+                    f._IsNew = False
+                    f._ID = ObjToInt(view.GetDataRow(GridView1.FocusedRowHandle)("no"))
+                    f.FormName = "Label Calculator"
+                    f.TableName = "TLabel"
+                    If f.ShowDialog() = DialogResult.OK Then
+                        BarButtonRefresh.PerformClick()
+                        GridView1.ClearSelection()
+                        GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("ID"), f._ID.ToString)
+                        GridView1.SelectRow(GridView1.FocusedRowHandle)
+                    End If
+                End Using
             Case IDFormTr.F_CalcRibbon
-                Dim f As New FormCalcLabel
-                f._IsNew = False
-                f._ID = ObjToInt(view.GetDataRow(GridView1.FocusedRowHandle)("no"))
-                f.FormName = "Label Calculator"
-                f.TableName = "TLabel"
-                If f.ShowDialog() = DialogResult.OK Then
-                    BarButtonRefresh.PerformClick()
-                    GridView1.ClearSelection()
-                    GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("ID"), f._ID.ToString)
-                    GridView1.SelectRow(GridView1.FocusedRowHandle)
-                End If
+                Using f As New FormCalcRibbon
+                    f._IsNew = False
+                    f._ID = ObjToInt(view.GetDataRow(GridView1.FocusedRowHandle)("no"))
+                    f.FormName = "Ribbon Calculator"
+                    f.TableName = "TRibbon"
+                    If f.ShowDialog() = DialogResult.OK Then
+                        BarButtonRefresh.PerformClick()
+                        GridView1.ClearSelection()
+                        GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("ID"), f._ID.ToString)
+                        GridView1.SelectRow(GridView1.FocusedRowHandle)
+                    End If
+                End Using
             Case IDFormTr.F_CalcTaffeta
-                Dim f As New FormCalcLabel
-                f._IsNew = False
-                f._ID = ObjToInt(view.GetDataRow(GridView1.FocusedRowHandle)("no"))
-                f.FormName = "Label Calculator"
-                f.TableName = "TLabel"
-                If f.ShowDialog() = DialogResult.OK Then
-                    BarButtonRefresh.PerformClick()
-                    GridView1.ClearSelection()
-                    GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("ID"), f._ID.ToString)
-                    GridView1.SelectRow(GridView1.FocusedRowHandle)
-                End If
+                Using f As New FormCalcRibbon
+                    f._IsNew = False
+                    f._ID = ObjToInt(view.GetDataRow(GridView1.FocusedRowHandle)("no"))
+                    f.FormName = "Taffeta Calculator"
+                    f.TableName = "TTaffeta"
+                    If f.ShowDialog() = DialogResult.OK Then
+                        BarButtonRefresh.PerformClick()
+                        GridView1.ClearSelection()
+                        GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("ID"), f._ID.ToString)
+                        GridView1.SelectRow(GridView1.FocusedRowHandle)
+                    End If
+                End Using
             Case IDFormTr.F_CalcPaket
-                Dim f As New FormCalcLabel
-                f._IsNew = False
-                f._ID = ObjToInt(view.GetDataRow(GridView1.FocusedRowHandle)("no"))
-                f.FormName = "Label Calculator"
-                f.TableName = "TLabel"
-                If f.ShowDialog() = DialogResult.OK Then
-                    BarButtonRefresh.PerformClick()
-                    GridView1.ClearSelection()
-                    GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("ID"), f._ID.ToString)
-                    GridView1.SelectRow(GridView1.FocusedRowHandle)
-                End If
+                Using f As New FormCalcRibbon
+                    f._IsNew = False
+                    f._ID = ObjToInt(view.GetDataRow(GridView1.FocusedRowHandle)("no"))
+                    f.FormName = "Paket Calculator"
+                    f.TableName = "TPaket"
+                    If f.ShowDialog() = DialogResult.OK Then
+                        BarButtonRefresh.PerformClick()
+                        GridView1.ClearSelection()
+                        GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("ID"), f._ID.ToString)
+                        GridView1.SelectRow(GridView1.FocusedRowHandle)
+                    End If
+                End Using
         End Select
     End Sub
     Private Sub BarButtonHapus_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonHapus.ItemClick
@@ -256,46 +276,46 @@ Partial Public Class FormDaftarTransaksi
             Case IDFormTr.F_CalcLabel
                 Dim f As Pesan = Query.DeleteDataMaster("TLabel", "no=" & ID & "", False)
                 If f.Hasil = True Then
-                    MsgBox(f.Message)
+                    DevExpress.XtraEditors.XtraMessageBox.Show(Me, f.Message, NamaAplikasi)
                     BarButtonRefresh.PerformClick()
                     GridView1.ClearSelection()
                     GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("ID"), ID.ToString)
                     GridView1.SelectRow(GridView1.FocusedRowHandle)
                 Else
-                    MsgBox(f.Message)
+                    DevExpress.XtraEditors.XtraMessageBox.Show(Me, f.Message, NamaAplikasi)
                 End If
             Case IDFormTr.F_CalcRibbon
                 Dim f As Pesan = Query.DeleteDataMaster("TRibbon", "no=" & ID & "", False)
                 If f.Hasil = True Then
-                    MsgBox(f.Message)
+                    DevExpress.XtraEditors.XtraMessageBox.Show(Me, f.Message, NamaAplikasi)
                     BarButtonRefresh.PerformClick()
                     GridView1.ClearSelection()
                     GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("ID"), ID.ToString)
                     GridView1.SelectRow(GridView1.FocusedRowHandle)
                 Else
-                    MsgBox(f.Message)
+                    DevExpress.XtraEditors.XtraMessageBox.Show(Me, f.Message, NamaAplikasi)
                 End If
             Case IDFormTr.F_CalcTaffeta
                 Dim f As Pesan = Query.DeleteDataMaster("TTaffeta", "no=" & ID & "", False)
                 If f.Hasil = True Then
-                    MsgBox(f.Message)
+                    DevExpress.XtraEditors.XtraMessageBox.Show(Me, f.Message, NamaAplikasi)
                     BarButtonRefresh.PerformClick()
                     GridView1.ClearSelection()
                     GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("ID"), ID.ToString)
                     GridView1.SelectRow(GridView1.FocusedRowHandle)
                 Else
-                    MsgBox(f.Message)
+                    DevExpress.XtraEditors.XtraMessageBox.Show(Me, f.Message, NamaAplikasi)
                 End If
             Case IDFormTr.F_CalcPaket
                 Dim f As Pesan = Query.DeleteDataMaster("TPaket", "no=" & ID & "", False)
                 If f.Hasil = True Then
-                    MsgBox(f.Message)
+                    DevExpress.XtraEditors.XtraMessageBox.Show(Me, f.Message, NamaAplikasi)
                     BarButtonRefresh.PerformClick()
                     GridView1.ClearSelection()
                     GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("ID"), ID.ToString)
                     GridView1.SelectRow(GridView1.FocusedRowHandle)
                 Else
-                    MsgBox(f.Message)
+                    DevExpress.XtraEditors.XtraMessageBox.Show(Me, f.Message, NamaAplikasi)
                 End If
         End Select
     End Sub
@@ -305,14 +325,14 @@ Partial Public Class FormDaftarTransaksi
     End Sub
 
     Sub Export()
-        Dim dlgsave As New SaveFileDialog
-        dlgsave.Title = "Export Daftar ke Excel"
-        dlgsave.Filter = "Excel Files|*.xls"
-        If dlgsave.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
-            GridControl1.ExportToXls(dlgsave.FileName)
-            BukaFile(dlgsave.FileName)
-        End If
-        dlgsave.Dispose()
+        Using dlgsave As New SaveFileDialog
+            dlgsave.Title = "Export Daftar ke Excel"
+            dlgsave.Filter = "Excel Files|*.xls"
+            If dlgsave.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
+                GridControl1.ExportToXls(dlgsave.FileName)
+                BukaFile(dlgsave.FileName)
+            End If
+        End Using
     End Sub
 
     Private Sub BarButtonCetak_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonCetak.ItemClick
@@ -320,7 +340,12 @@ Partial Public Class FormDaftarTransaksi
     End Sub
 
     Sub Cetak()
-        Dim action As ActionReport = IIf(IsEditReport, ActionReport.Edit, ActionReport.Preview)
+        Dim action As ActionReport = Nothing
+        If (IsEditReport) Then
+            action = ActionReport.Edit
+        Else
+            action = ActionReport.Preview
+        End If
         Dim PathFile As String = Application.StartupPath & "\Report\"
         Dim str, operasi As String()
         Dim RgText As String = ""
@@ -341,8 +366,14 @@ Partial Public Class FormDaftarTransaksi
                 '    RgText = "Tampilkan Semua"
                 'End If
             Next
-            RgText = IIf(CalcField <> "", "|", "") & "Radio=String='Status: " & RgText & "'"
-            clsDXReport.ViewXtraReport(Me.MdiParent, action, PathFile, Me.Text, namafile, GCtoDSRowFiltered(GridControl1), , CalcField & RgText)
+
+            If (CalcField) <> "" Then
+                RgText = "|" & "Radio=String='Status: " & RgText & "'"
+            Else
+                RgText = "" & "Radio=String='Status: " & RgText & "'"
+            End If
+            clsDXReport.ViewXtraReport(Me, action, PathFile, Me.Text, namafile, GCtoDSRowFiltered(GridControl1), , CalcField & RgText)
+            'clsDXReport.ViewXtraReport(Me.MdiParent, action, PathFile, Me.Text, namafile, GCtoDSRowFiltered(GridControl1), , CalcField & RgText)
         Else
             clsDXReport.NewPreview(NamaForm, GridControl1, Me.Text)
         End If

@@ -65,8 +65,12 @@
   <ItemGroup>
     <Reference Include="Accessibility" />
     <Reference Include="DevExpress.BonusSkins.v17.1" />
+    <Reference Include="DevExpress.Dashboard.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v17.1" />
-    <Reference Include="DevExpress.Images.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.DataAccess.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Images.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
     <Reference Include="DevExpress.Utils.v17.1" />
     <Reference Include="DevExpress.Sparkline.v17.1.Core" />
     <Reference Include="DevExpress.XtraBars.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -113,10 +117,10 @@
     <Import Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AboutBox1.Designer.vb">
-      <DependentUpon>AboutBox1.vb</DependentUpon>
+    <Compile Include="FormAbout.Designer.vb">
+      <DependentUpon>FormAbout.vb</DependentUpon>
     </Compile>
-    <Compile Include="AboutBox1.vb">
+    <Compile Include="FormAbout.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="BLL\Login.vb" />
@@ -134,52 +138,70 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Class And Modul\clsDXReport.vb" />
-    <Compile Include="FormDetail\Master\FormTaffeta.Designer.vb">
+    <Compile Include="Form\Laporan\Dashboard1.Designer.vb">
+      <DependentUpon>Dashboard1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Laporan\Dashboard1.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Form\Pengaturan\FormOtorisasi.Designer.vb">
+      <DependentUpon>FormOtorisasi.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Pengaturan\FormOtorisasi.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FormDetail\Master\FormTaffeta.Designer.vb">
       <DependentUpon>FormTaffeta.vb</DependentUpon>
     </Compile>
-    <Compile Include="FormDetail\Master\FormTaffeta.vb">
+    <Compile Include="Form\FormDetail\Master\FormTaffeta.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormDetail\Master\FormKaryawan.Designer.vb">
+    <Compile Include="Form\FormDetail\Master\FormKaryawan.Designer.vb">
       <DependentUpon>FormKaryawan.vb</DependentUpon>
     </Compile>
-    <Compile Include="FormDetail\Master\FormKaryawan.vb">
+    <Compile Include="Form\FormDetail\Master\FormKaryawan.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormDetail\Master\FormBasic.Designer.vb">
+    <Compile Include="Form\FormDetail\Master\FormBasic.Designer.vb">
       <DependentUpon>FormBasic.vb</DependentUpon>
     </Compile>
-    <Compile Include="FormDetail\Master\FormBasic.vb">
+    <Compile Include="Form\FormDetail\Master\FormBasic.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormDetail\Master\FormBarang.Designer.vb">
+    <Compile Include="Form\FormDetail\Master\FormBarang.Designer.vb">
       <DependentUpon>FormBarang.vb</DependentUpon>
     </Compile>
-    <Compile Include="FormDetail\Master\FormBarang.vb">
+    <Compile Include="Form\FormDetail\Master\FormBarang.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormDetail\Master\FormRoleUser.Designer.vb">
+    <Compile Include="Form\FormDetail\Master\FormRoleUser.Designer.vb">
       <DependentUpon>FormRoleUser.vb</DependentUpon>
     </Compile>
-    <Compile Include="FormDetail\Master\FormRoleUser.vb">
+    <Compile Include="Form\FormDetail\Master\FormRoleUser.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormDetail\Master\FormUser.Designer.vb">
+    <Compile Include="Form\FormDetail\Master\FormUser.Designer.vb">
       <DependentUpon>FormUser.vb</DependentUpon>
     </Compile>
-    <Compile Include="FormDetail\Master\FormUser.vb">
+    <Compile Include="Form\FormDetail\Master\FormUser.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormDetail\Transaksi\FormCalcLabel.Designer.vb">
+    <Compile Include="Form\FormDetail\Transaksi\Mobile\FormCalcRibbon.Designer.vb">
+      <DependentUpon>FormCalcRibbon.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FormDetail\Transaksi\Mobile\FormCalcRibbon.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FormDetail\Transaksi\Mobile\FormCalcLabel.Designer.vb">
       <DependentUpon>FormCalcLabel.vb</DependentUpon>
     </Compile>
-    <Compile Include="FormDetail\Transaksi\FormCalcLabel.vb">
+    <Compile Include="Form\FormDetail\Transaksi\Mobile\FormCalcLabel.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\FormSetting.Designer.vb">
+    <Compile Include="Form\Pengaturan\FormSetting.Designer.vb">
       <DependentUpon>FormSetting.vb</DependentUpon>
     </Compile>
-    <Compile Include="Form\FormSetting.vb">
+    <Compile Include="Form\Pengaturan\FormSetting.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Model\MenuRoleUser.vb" />
@@ -198,10 +220,10 @@
     <Compile Include="Form\FormDaftar.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\FormSettingDatabase.Designer.vb">
+    <Compile Include="Form\Pengaturan\FormSettingDatabase.Designer.vb">
       <DependentUpon>FormSettingDatabase.vb</DependentUpon>
     </Compile>
-    <Compile Include="Form\FormSettingDatabase.vb">
+    <Compile Include="Form\Pengaturan\FormSettingDatabase.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="LoginForm.Designer.vb">
@@ -221,21 +243,15 @@
     <Compile Include="FormMain.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormGantiPassword.Designer.vb">
+    <Compile Include="Form\Pengaturan\FormGantiPassword.Designer.vb">
       <DependentUpon>FormGantiPassword.vb</DependentUpon>
     </Compile>
-    <Compile Include="FormGantiPassword.vb">
+    <Compile Include="Form\Pengaturan\FormGantiPassword.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Class And Modul\modPub.vb" />
-    <Compile Include="XtraForm1.Designer.vb">
-      <DependentUpon>XtraForm1.vb</DependentUpon>
-    </Compile>
-    <Compile Include="XtraForm1.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <EmbeddedResource Include="AboutBox1.resx">
-      <DependentUpon>AboutBox1.vb</DependentUpon>
+    <EmbeddedResource Include="FormAbout.resx">
+      <DependentUpon>FormAbout.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Class And Modul\AddON\frmCetakMDIDX.resx">
       <DependentUpon>frmCetakMDIDX.vb</DependentUpon>
@@ -243,25 +259,34 @@
     <EmbeddedResource Include="Class And Modul\AddON\frmDesignReportDX.resx">
       <DependentUpon>frmDesignReportDX.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormDetail\Master\FormTaffeta.resx">
+    <EmbeddedResource Include="Form\Laporan\Dashboard1.resx">
+      <DependentUpon>Dashboard1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Pengaturan\FormOtorisasi.resx">
+      <DependentUpon>FormOtorisasi.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FormDetail\Master\FormTaffeta.resx">
       <DependentUpon>FormTaffeta.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormDetail\Master\FormKaryawan.resx">
+    <EmbeddedResource Include="Form\FormDetail\Master\FormKaryawan.resx">
       <DependentUpon>FormKaryawan.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormDetail\Master\FormBasic.resx">
+    <EmbeddedResource Include="Form\FormDetail\Master\FormBasic.resx">
       <DependentUpon>FormBasic.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormDetail\Master\FormBarang.resx">
+    <EmbeddedResource Include="Form\FormDetail\Master\FormBarang.resx">
       <DependentUpon>FormBarang.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormDetail\Master\FormRoleUser.resx">
+    <EmbeddedResource Include="Form\FormDetail\Master\FormRoleUser.resx">
       <DependentUpon>FormRoleUser.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormDetail\Master\FormUser.resx">
+    <EmbeddedResource Include="Form\FormDetail\Master\FormUser.resx">
       <DependentUpon>FormUser.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormDetail\Transaksi\FormCalcLabel.resx">
+    <EmbeddedResource Include="Form\FormDetail\Transaksi\Mobile\FormCalcRibbon.resx">
+      <DependentUpon>FormCalcRibbon.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FormDetail\Transaksi\Mobile\FormCalcLabel.resx">
       <DependentUpon>FormCalcLabel.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\FormDaftarTransaksi.resx">
@@ -270,10 +295,10 @@
     <EmbeddedResource Include="Form\FormDaftar.resx">
       <DependentUpon>FormDaftar.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\FormSetting.resx">
+    <EmbeddedResource Include="Form\Pengaturan\FormSetting.resx">
       <DependentUpon>FormSetting.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\FormSettingDatabase.resx">
+    <EmbeddedResource Include="Form\Pengaturan\FormSettingDatabase.resx">
       <DependentUpon>FormSettingDatabase.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
@@ -294,11 +319,8 @@
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormGantiPassword.resx">
+    <EmbeddedResource Include="Form\Pengaturan\FormGantiPassword.resx">
       <DependentUpon>FormGantiPassword.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="XtraForm1.resx">
-      <DependentUpon>XtraForm1.vb</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="My Project\app.manifest" />
@@ -411,7 +433,8 @@
     <None Include="Resources\borole_32x32.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="FormCustom\" />
+    <Folder Include="Form\Accounting\Finance\" />
+    <Folder Include="Form\FormCustom\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

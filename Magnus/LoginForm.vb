@@ -1,3 +1,6 @@
+Imports System.Globalization
+Imports System.Threading
+
 Public Class LoginForm
 
     ' TODO: Insert code to perform custom authentication using the provided username and password 
@@ -20,11 +23,11 @@ Public Class LoginForm
         Dim psn As New Pesan With {.Hasil = False, .Message = "", .Value = Nothing}
         If BLL.Login.goLogin(txtUsername.Text.Trim.ToUpper, txtPassword.Text.Trim, psn) = True Then
             Me.Hide()
-            MsgBox(psn.Message & vbCrLf & psn.Value.ToString)
+            DevExpress.XtraEditors.XtraMessageBox.Show(Me, psn.Message & vbCrLf & psn.Value.ToString, NamaAplikasi)
             Dim f As New FormMain
             f.Show()
         Else
-            MsgBox(psn.Message)
+            DevExpress.XtraEditors.XtraMessageBox.Show(Me, psn.Message, NamaAplikasi)
         End If
     End Sub
 
@@ -38,5 +41,16 @@ Public Class LoginForm
 
             End If
         End Using
+    End Sub
+
+    Private Sub LoginForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ' Change current culture
+        Dim culture As CultureInfo
+        culture = CultureInfo.CreateSpecificCulture("en-us")
+        Thread.CurrentThread.CurrentCulture = culture
+        Thread.CurrentThread.CurrentUICulture = culture
+        'Dim info As CultureInfo = TryCast(Thread.CurrentThread.CurrentCulture.Clone(), CultureInfo)
+        'info.NumberFormat.NumberGroupSeparator = ","
+        Application.CurrentCulture = culture
     End Sub
 End Class

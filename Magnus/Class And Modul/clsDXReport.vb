@@ -277,13 +277,13 @@ Public Class clsDXReport
             If System.IO.File.Exists(PathLayouts & ".xml") Then
                 If XtraMessageBox.Show("Ingin Load Layouts Kolom dari Cetakan Sebelumnya?", "Load Layout Kolom", MessageBoxButtons.YesNo) = DialogResult.Yes Then
                     GCPrint.DefaultView.RestoreLayoutFromXml(PathLayouts & ".xml")
-                    IsLandscape = ObjToBool(Ini.BacaIniPath(PathLayouts & ".ini", "Page", "Landscape", IsLandscape))
-                    H = NullToStr(Ini.BacaIniPath(PathLayouts & ".ini", "Page", "H", H))
-                    W = NullToStr(Ini.BacaIniPath(PathLayouts & ".ini", "Page", "W", W))
-                    L = NullToStr(Ini.BacaIniPath(PathLayouts & ".ini", "Margin", "L", L))
-                    R = NullToStr(Ini.BacaIniPath(PathLayouts & ".ini", "Margin", "R", R))
-                    T = NullToStr(Ini.BacaIniPath(PathLayouts & ".ini", "Margin", "T", T))
-                    B = NullToStr(Ini.BacaIniPath(PathLayouts & ".ini", "Margin", "B", B))
+                    IsLandscape = ObjToBool(Ini.BacaIniPath(PathLayouts & ".ini", "Page", "Landscape", IsLandscape.ToString))
+                    H = ObjToInt(Ini.BacaIniPath(PathLayouts & ".ini", "Page", "H", H.ToString))
+                    W = ObjToInt(Ini.BacaIniPath(PathLayouts & ".ini", "Page", "W", W.ToString))
+                    L = ObjToInt(Ini.BacaIniPath(PathLayouts & ".ini", "Margin", "L", L.ToString))
+                    R = ObjToInt(Ini.BacaIniPath(PathLayouts & ".ini", "Margin", "R", R.ToString))
+                    T = ObjToInt(Ini.BacaIniPath(PathLayouts & ".ini", "Margin", "T", T.ToString))
+                    B = ObjToInt(Ini.BacaIniPath(PathLayouts & ".ini", "Margin", "B", B.ToString))
                 End If
             End If
             PrintSys = New PrintingSystem
@@ -303,13 +303,13 @@ Public Class clsDXReport
                 GCPrint.DefaultView.RestoreLayoutFromXml(OldLayouts & ".xml")
             End If
             If System.IO.File.Exists(OldLayouts & ".xml") Then System.IO.File.Delete(OldLayouts & ".xml")
-            Ini.TulisIniPath(PathLayouts & ".ini", "Page", "Landscape", PrintableComp.Landscape)
-            Ini.TulisIniPath(PathLayouts & ".ini", "Page", "H", PrintableComp.CustomPaperSize.Height)
-            Ini.TulisIniPath(PathLayouts & ".ini", "Page", "W", PrintableComp.CustomPaperSize.Width)
-            Ini.TulisIniPath(PathLayouts & ".ini", "Margin", "L", PrintableComp.Margins.Left)
-            Ini.TulisIniPath(PathLayouts & ".ini", "Margin", "R", PrintableComp.Margins.Right)
-            Ini.TulisIniPath(PathLayouts & ".ini", "Margin", "T", PrintableComp.Margins.Top)
-            Ini.TulisIniPath(PathLayouts & ".ini", "Margin", "B", PrintableComp.Margins.Bottom)
+            Ini.TulisIniPath(PathLayouts & ".ini", "Page", "Landscape", PrintableComp.Landscape.ToString)
+            Ini.TulisIniPath(PathLayouts & ".ini", "Page", "H", PrintableComp.CustomPaperSize.Height.ToString)
+            Ini.TulisIniPath(PathLayouts & ".ini", "Page", "W", PrintableComp.CustomPaperSize.Width.ToString)
+            Ini.TulisIniPath(PathLayouts & ".ini", "Margin", "L", PrintableComp.Margins.Left.ToString)
+            Ini.TulisIniPath(PathLayouts & ".ini", "Margin", "R", PrintableComp.Margins.Right.ToString)
+            Ini.TulisIniPath(PathLayouts & ".ini", "Margin", "T", PrintableComp.Margins.Top.ToString)
+            Ini.TulisIniPath(PathLayouts & ".ini", "Margin", "B", PrintableComp.Margins.Bottom.ToString)
 
         Catch ex As Exception
             XtraMessageBox.Show("Gagal Preview : " & ex.Message, NamaAplikasi, MessageBoxButtons.OK, MessageBoxIcon.Error)

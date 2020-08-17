@@ -82,55 +82,62 @@ Partial Public Class FormDaftar
     Sub Baru()
         Select Case idFrm
             Case IDForm.F_User
-                Dim f As New FormUser
-                f._IsNew = True
-                If f.ShowDialog() = DialogResult.OK Then
-                    BarButtonRefresh.PerformClick()
-                End If
+                Using f As New FormUser
+                    f._IsNew = True
+                    If f.ShowDialog() = DialogResult.OK Then
+                        BarButtonRefresh.PerformClick()
+                    End If
+                End Using
             Case IDForm.F_RoleUser
-                Dim f As New FormRoleUser
-                f._IsNew = True
-                If f.ShowDialog() = DialogResult.OK Then
-                    BarButtonRefresh.PerformClick()
-                End If
+                Using f As New FormRoleUser
+                    f._IsNew = True
+                    If f.ShowDialog() = DialogResult.OK Then
+                        BarButtonRefresh.PerformClick()
+                    End If
+                End Using
             Case IDForm.F_MBarang
-                Dim f As New FormBarang
-                f._IsNew = True
-                If f.ShowDialog() = DialogResult.OK Then
-                    BarButtonRefresh.PerformClick()
-                End If
+                Using f As New FormBarang
+                    f._IsNew = True
+                    If f.ShowDialog() = DialogResult.OK Then
+                        BarButtonRefresh.PerformClick()
+                    End If
+                End Using
             Case IDForm.F_MKategori
-                Dim f As New FormBasic
-                f._IsNew = True
-                f.FormName = "Kategori"
-                f.TableName = "MKategori"
-                If f.ShowDialog() = DialogResult.OK Then
-                    BarButtonRefresh.PerformClick()
-                End If
+                Using f As New FormBasic
+                    f._IsNew = True
+                    f.FormName = "Kategori"
+                    f.TableName = "MKategori"
+                    If f.ShowDialog() = DialogResult.OK Then
+                        BarButtonRefresh.PerformClick()
+                    End If
+                End Using
             Case IDForm.F_MKategoriBiaya
-                Dim f As New FormBasic
-                f._IsNew = True
-                f.FormName = "Kategori Biaya"
-                f.TableName = "MKategoriBiaya"
-                If f.ShowDialog() = DialogResult.OK Then
-                    BarButtonRefresh.PerformClick()
-                End If
+                Using f As New FormBasic
+                    f._IsNew = True
+                    f.FormName = "Kategori Biaya"
+                    f.TableName = "MKategoriBiaya"
+                    If f.ShowDialog() = DialogResult.OK Then
+                        BarButtonRefresh.PerformClick()
+                    End If
+                End Using
             Case IDForm.F_MKaryawan
-                Dim f As New FormKaryawan
-                f._IsNew = True
-                f.FormName = "Karyawan"
-                f.TableName = "MKaryawan"
-                If f.ShowDialog() = DialogResult.OK Then
-                    BarButtonRefresh.PerformClick()
-                End If
+                Using f As New FormKaryawan
+                    f._IsNew = True
+                    f.FormName = "Karyawan"
+                    f.TableName = "MKaryawan"
+                    If f.ShowDialog() = DialogResult.OK Then
+                        BarButtonRefresh.PerformClick()
+                    End If
+                End Using
             Case IDForm.F_TypeTaffeta
-                Dim f As New FormTaffeta
-                f._IsNew = True
-                f.FormName = "Taffeta"
-                f.TableName = "MTaffeta"
-                If f.ShowDialog() = DialogResult.OK Then
-                    BarButtonRefresh.PerformClick()
-                End If
+                Using f As New FormTaffeta
+                    f._IsNew = True
+                    f.FormName = "Taffeta"
+                    f.TableName = "MTaffeta"
+                    If f.ShowDialog() = DialogResult.OK Then
+                        BarButtonRefresh.PerformClick()
+                    End If
+                End Using
         End Select
     End Sub
 
@@ -144,83 +151,90 @@ Partial Public Class FormDaftar
         Dim view As ColumnView = GridControl1.FocusedView
         Select Case idFrm
             Case IDForm.F_User
-                Dim f As New FormUser
-                f._IsNew = False
-                f._User = view.GetDataRow(GridView1.FocusedRowHandle)("Username").ToString
-                If f.ShowDialog() = DialogResult.OK Then
-                    BarButtonRefresh.PerformClick()
-                    GridView1.ClearSelection()
-                    GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("Username"), f._User)
-                    GridView1.SelectRow(GridView1.FocusedRowHandle)
-                End If
+                Using f As New FormUser
+                    f._IsNew = False
+                    f._User = view.GetDataRow(GridView1.FocusedRowHandle)("Username").ToString
+                    If f.ShowDialog() = DialogResult.OK Then
+                        BarButtonRefresh.PerformClick()
+                        GridView1.ClearSelection()
+                        GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("Username"), f._User)
+                        GridView1.SelectRow(GridView1.FocusedRowHandle)
+                    End If
+                End Using
             Case IDForm.F_RoleUser
-                Dim f As New FormRoleUser
-                f._IsNew = False
-                f._ID = ObjToInt(view.GetDataRow(GridView1.FocusedRowHandle)("ID"))
-                If f.ShowDialog() = DialogResult.OK Then
-                    BarButtonRefresh.PerformClick()
-                    GridView1.ClearSelection()
-                    GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("ID"), f._ID.ToString)
-                    GridView1.SelectRow(GridView1.FocusedRowHandle)
-                End If
+                Using f As New FormRoleUser
+                    f._IsNew = False
+                    f._ID = ObjToInt(view.GetDataRow(GridView1.FocusedRowHandle)("ID"))
+                    If f.ShowDialog() = DialogResult.OK Then
+                        BarButtonRefresh.PerformClick()
+                        GridView1.ClearSelection()
+                        GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("ID"), f._ID.ToString)
+                        GridView1.SelectRow(GridView1.FocusedRowHandle)
+                    End If
+                End Using
             Case IDForm.F_MBarang
-                Dim f As New FormBarang
-                f._IsNew = False
-                f._ID = ObjToInt(view.GetDataRow(GridView1.FocusedRowHandle)("ID"))
-                If f.ShowDialog() = DialogResult.OK Then
-                    BarButtonRefresh.PerformClick()
-                    GridView1.ClearSelection()
-                    GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("ID"), f._ID.ToString)
-                    GridView1.SelectRow(GridView1.FocusedRowHandle)
-                End If
+                Using f As New FormBarang
+                    f._IsNew = False
+                    f._ID = ObjToInt(view.GetDataRow(GridView1.FocusedRowHandle)("ID"))
+                    If f.ShowDialog() = DialogResult.OK Then
+                        BarButtonRefresh.PerformClick()
+                        GridView1.ClearSelection()
+                        GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("ID"), f._ID.ToString)
+                        GridView1.SelectRow(GridView1.FocusedRowHandle)
+                    End If
+                End Using
             Case IDForm.F_MKategori
-                Dim f As New FormBasic
-                f._IsNew = False
-                f.FormName = "Kategori"
-                f.TableName = "MKategori"
-                f._ID = ObjToInt(view.GetDataRow(GridView1.FocusedRowHandle)("ID"))
-                If f.ShowDialog() = DialogResult.OK Then
-                    BarButtonRefresh.PerformClick()
-                    GridView1.ClearSelection()
-                    GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("ID"), f._ID.ToString)
-                    GridView1.SelectRow(GridView1.FocusedRowHandle)
-                End If
+                Using f As New FormBasic
+                    f._IsNew = False
+                    f.FormName = "Kategori"
+                    f.TableName = "MKategori"
+                    f._ID = ObjToInt(view.GetDataRow(GridView1.FocusedRowHandle)("ID"))
+                    If f.ShowDialog() = DialogResult.OK Then
+                        BarButtonRefresh.PerformClick()
+                        GridView1.ClearSelection()
+                        GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("ID"), f._ID.ToString)
+                        GridView1.SelectRow(GridView1.FocusedRowHandle)
+                    End If
+                End Using
             Case IDForm.F_MKategoriBiaya
-                Dim f As New FormBasic
-                f._IsNew = False
-                f.FormName = "Kategori Biaya"
-                f.TableName = "MKategoriBiaya"
-                f._ID = ObjToInt(view.GetDataRow(GridView1.FocusedRowHandle)("ID"))
-                If f.ShowDialog() = DialogResult.OK Then
-                    BarButtonRefresh.PerformClick()
-                    GridView1.ClearSelection()
-                    GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("ID"), f._ID.ToString)
-                    GridView1.SelectRow(GridView1.FocusedRowHandle)
-                End If
+                Using f As New FormBasic
+                    f._IsNew = False
+                    f.FormName = "Kategori Biaya"
+                    f.TableName = "MKategoriBiaya"
+                    f._ID = ObjToInt(view.GetDataRow(GridView1.FocusedRowHandle)("ID"))
+                    If f.ShowDialog() = DialogResult.OK Then
+                        BarButtonRefresh.PerformClick()
+                        GridView1.ClearSelection()
+                        GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("ID"), f._ID.ToString)
+                        GridView1.SelectRow(GridView1.FocusedRowHandle)
+                    End If
+                End Using
             Case IDForm.F_MKaryawan
-                Dim f As New FormKaryawan
-                f._IsNew = False
-                f.FormName = "Karyawan"
-                f.TableName = "MKaryawan"
-                f._ID = ObjToInt(view.GetDataRow(GridView1.FocusedRowHandle)("ID"))
-                If f.ShowDialog() = DialogResult.OK Then
-                    BarButtonRefresh.PerformClick()
-                    GridView1.ClearSelection()
-                    GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("ID"), f._ID.ToString)
-                    GridView1.SelectRow(GridView1.FocusedRowHandle)
-                End If
+                Using f As New FormKaryawan
+                    f._IsNew = False
+                    f.FormName = "Karyawan"
+                    f.TableName = "MKaryawan"
+                    f._ID = ObjToInt(view.GetDataRow(GridView1.FocusedRowHandle)("ID"))
+                    If f.ShowDialog() = DialogResult.OK Then
+                        BarButtonRefresh.PerformClick()
+                        GridView1.ClearSelection()
+                        GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("ID"), f._ID.ToString)
+                        GridView1.SelectRow(GridView1.FocusedRowHandle)
+                    End If
+                End Using
             Case IDForm.F_TypeTaffeta
-                Dim f As New FormTaffeta
-                f._IsNew = False
-                f.FormName = "Taffeta"
-                f.TableName = "MTaffeta"
-                f._ID = ObjToInt(view.GetDataRow(GridView1.FocusedRowHandle)("ID"))
-                If f.ShowDialog() = DialogResult.OK Then
-                    BarButtonRefresh.PerformClick()
-                    GridView1.ClearSelection()
-                    GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("ID"), f._ID.ToString)
-                    GridView1.SelectRow(GridView1.FocusedRowHandle)
-                End If
+                Using f As New FormTaffeta
+                    f._IsNew = False
+                    f.FormName = "Taffeta"
+                    f.TableName = "MTaffeta"
+                    f._ID = ObjToInt(view.GetDataRow(GridView1.FocusedRowHandle)("ID"))
+                    If f.ShowDialog() = DialogResult.OK Then
+                        BarButtonRefresh.PerformClick()
+                        GridView1.ClearSelection()
+                        GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("ID"), f._ID.ToString)
+                        GridView1.SelectRow(GridView1.FocusedRowHandle)
+                    End If
+                End Using
         End Select
     End Sub
 
@@ -240,93 +254,98 @@ Partial Public Class FormDaftar
                 User = View.GetDataRow(GridView1.FocusedRowHandle)("Username").ToString
                 Dim f As Pesan = Query.DeleteDataMaster("MUser", "Username='" & User.Trim & "'")
                 If f.Hasil = True Then
-                    MsgBox(f.Message)
+                    DevExpress.XtraEditors.XtraMessageBox.Show(Me, f.Message, NamaAplikasi)
                     BarButtonRefresh.PerformClick()
 
                     GridView1.ClearSelection()
                     GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("Username"), User.ToString)
                     GridView1.SelectRow(GridView1.FocusedRowHandle)
                 Else
-                    MsgBox(f.Message)
+                    DevExpress.XtraEditors.XtraMessageBox.Show(Me, f.Message, NamaAplikasi)
                 End If
             Case IDForm.F_RoleUser
+                If ID = 1 Then
+                    DevExpress.XtraEditors.XtraMessageBox.Show(Me, "Role user utama tidak dapat dinonaktifkan/dihapus.", NamaAplikasi)
+                    Exit Select
+                End If
                 Dim f As Pesan = Query.DeleteDataMaster("MRoleUser", "ID=" & ID & "")
                 If f.Hasil = True Then
-                    MsgBox(f.Message)
+                    DevExpress.XtraEditors.XtraMessageBox.Show(Me, f.Message, NamaAplikasi)
                     BarButtonRefresh.PerformClick()
                     GridView1.ClearSelection()
                     GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("ID"), ID.ToString)
                     GridView1.SelectRow(GridView1.FocusedRowHandle)
                 Else
-                    MsgBox(f.Message)
+                    DevExpress.XtraEditors.XtraMessageBox.Show(Me, f.Message, NamaAplikasi)
                 End If
             Case IDForm.F_MBarang
                 Dim f As Pesan = Query.DeleteDataMaster("MUser", "ID=" & ID & "")
                 If f.Hasil = True Then
-                    MsgBox(f.Message)
+                    DevExpress.XtraEditors.XtraMessageBox.Show(Me, f.Message, NamaAplikasi)
                     BarButtonRefresh.PerformClick()
                     GridView1.ClearSelection()
                     GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("ID"), ID.ToString)
                     GridView1.SelectRow(GridView1.FocusedRowHandle)
                 Else
-                    MsgBox(f.Message)
+                    DevExpress.XtraEditors.XtraMessageBox.Show(Me, f.Message, NamaAplikasi)
                 End If
             Case IDForm.F_MKategori
                 Dim f As Pesan = Query.DeleteDataMaster("MKategori", "ID=" & ID & "")
                 If f.Hasil = True Then
-                    MsgBox(f.Message)
+                    DevExpress.XtraEditors.XtraMessageBox.Show(Me, f.Message, NamaAplikasi)
                     BarButtonRefresh.PerformClick()
                     GridView1.ClearSelection()
                     GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("ID"), ID.ToString)
                     GridView1.SelectRow(GridView1.FocusedRowHandle)
                 Else
-                    MsgBox(f.Message)
+                    DevExpress.XtraEditors.XtraMessageBox.Show(Me, f.Message, NamaAplikasi)
                 End If
             Case IDForm.F_MKategoriBiaya
                 Dim f As Pesan = Query.DeleteDataMaster("MKategoriBiaya", "ID=" & ID & "")
                 If f.Hasil = True Then
-                    MsgBox(f.Message)
+                    DevExpress.XtraEditors.XtraMessageBox.Show(Me, f.Message, NamaAplikasi)
                     BarButtonRefresh.PerformClick()
                     GridView1.ClearSelection()
                     GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("ID"), ID.ToString)
                     GridView1.SelectRow(GridView1.FocusedRowHandle)
                 Else
-                    MsgBox(f.Message)
+                    DevExpress.XtraEditors.XtraMessageBox.Show(Me, f.Message, NamaAplikasi)
                 End If
             Case IDForm.F_MKaryawan
                 Dim f As Pesan = Query.DeleteDataMaster("MKaryawan", "ID=" & ID & "")
                 If f.Hasil = True Then
-                    MsgBox(f.Message)
+                    DevExpress.XtraEditors.XtraMessageBox.Show(Me, f.Message, NamaAplikasi)
                     BarButtonRefresh.PerformClick()
                     GridView1.ClearSelection()
                     GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("ID"), ID.ToString)
                     GridView1.SelectRow(GridView1.FocusedRowHandle)
                 Else
-                    MsgBox(f.Message)
+                    DevExpress.XtraEditors.XtraMessageBox.Show(Me, f.Message, NamaAplikasi)
                 End If
             Case IDForm.F_TypeTaffeta
                 Dim f As Pesan = Query.DeleteDataMaster("MTaffeta", "ID=" & ID & "")
                 If f.Hasil = True Then
-                    MsgBox(f.Message)
+                    DevExpress.XtraEditors.XtraMessageBox.Show(Me, f.Message, NamaAplikasi)
                     BarButtonRefresh.PerformClick()
                     GridView1.ClearSelection()
                     GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("ID"), ID.ToString)
                     GridView1.SelectRow(GridView1.FocusedRowHandle)
                 Else
-                    MsgBox(f.Message)
+                    DevExpress.XtraEditors.XtraMessageBox.Show(Me, f.Message, NamaAplikasi)
                 End If
         End Select
     End Sub
 
     Private Sub BarButtonExport_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonExport.ItemClick
-        Dim dlgsave As New SaveFileDialog
-        dlgsave.Title = "Export Daftar ke Excel"
-        dlgsave.Filter = "Excel Files|*.xls|*.xlsx"
-        If dlgsave.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
-            GridControl1.ExportToXls(dlgsave.FileName)
-            BukaFile(dlgsave.FileName)
-        End If
-        dlgsave.Dispose()
+        Using dlgsave As New SaveFileDialog
+            dlgsave.Title = "Export Daftar ke Excel"
+            dlgsave.Filter = "Excel Files|*.xls|*.xlsx"
+            If dlgsave.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
+                GridControl1.ExportToXls(dlgsave.FileName)
+                BukaFile(dlgsave.FileName)
+            End If
+            dlgsave.Dispose()
+        End Using
     End Sub
 
     Private Sub BarButtonCetak_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonCetak.ItemClick

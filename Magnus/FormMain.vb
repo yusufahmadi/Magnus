@@ -1,12 +1,13 @@
 ﻿Imports DevExpress.XtraBars.Docking2010.Views.Tabbed
 Imports System.Linq
+
 Public Class FormMain
     Private Sub FormMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Set User Info
         BarStaticItemUsername.Caption = Username
         BarStaticIP.Caption = "Online On : " & Utils.GetLocalIP()
         ShowMenuByUserRole(IDRoleUser)
-
+        Query.GetApplicationSetting()
     End Sub
 
     Sub ShowMenuByUserRole(ByVal _IDRole As Integer)
@@ -204,14 +205,14 @@ Public Class FormMain
                     BarButtonLapPerbandinganBiayaBulanan.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
                 End If
             Case Else
-                MsgBox("Form : " & NamaForm & " Undefined.")
+                DevExpress.XtraEditors.XtraMessageBox.Show(Me, "Form : " & NamaForm & " Undefined.", NamaAplikasi)
         End Select
     End Sub
 
     Private Sub BarButtonItem1_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonSettingDatabase.ItemClick
         Dim f As New FormSettingDatabase
         If f.ShowDialog() = DialogResult.OK Then
-            MsgBox("Setting behasil di perbarui")
+            DevExpress.XtraEditors.XtraMessageBox.Show(Me, "Setting behasil di perbarui", NamaAplikasi)
         End If
     End Sub
     Private TabColor() As Color = {Color.FromArgb(35, 83, 194), Color.FromArgb(64, 168, 19), Color.FromArgb(245, 121, 10), Color.FromArgb(141, 62, 168), Color.FromArgb(70, 155, 183), Color.FromArgb(196, 19, 19)}
@@ -231,7 +232,7 @@ Public Class FormMain
         If frmEntri Is Nothing Then
             frmEntri = New FormDaftar
             frmEntri.idFrm = _idFrm 'FormDaftar.IDForm.F_User
-            frmEntri.NamaForm = _namaForm  '"Daftar User"
+            frmEntri.NamaForm = _namaForm.ToString  '"Daftar User"
             frmEntri.WindowState = FormWindowState.Maximized
             frmEntri.MdiParent = Me
         End If
@@ -284,7 +285,7 @@ Public Class FormMain
         If frmEntri Is Nothing Then
             frmEntri = New FormDaftarTransaksi
             frmEntri.idFrmTr = _idFrmTr 'FormDaftar.IDForm.F_User
-            frmEntri.NamaForm = _namaForm  '"Daftar User"
+            frmEntri.NamaForm = _namaForm.ToString  '"Daftar User"
             frmEntri.WindowState = FormWindowState.Maximized
             frmEntri.MdiParent = Me
         End If
@@ -318,10 +319,11 @@ Public Class FormMain
     End Sub
 
     Private Sub BarStaticItemUsername_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarStaticItemUsername.ItemClick
-        Dim f As New FormGantiPassword
-        f.Location = MousePosition
-        f.ShowDialog()
-        FormMain_Load(sender, e)
+        Using f As New FormGantiPassword
+            f.Location = MousePosition
+            f.ShowDialog()
+            FormMain_Load(sender, e)
+        End Using
     End Sub
 
     Private Sub BarButtonCalcLabel_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonCalcLabel.ItemClick
@@ -341,8 +343,9 @@ Public Class FormMain
     End Sub
 
     Private Sub BarButtonItem2_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem2.ItemClick
-        Dim f As New FormSetting
-        f.TopMost = True
-        f.ShowDialog(Me)
+        Using f As New FormSetting
+            f.TopMost = True
+            f.ShowDialog(Me)
+        End Using
     End Sub
 End Class

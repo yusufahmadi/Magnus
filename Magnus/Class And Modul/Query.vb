@@ -49,7 +49,7 @@ Public Class Query
                     e.Hasil = True
                     e.Message = "Sukses"
                 Catch ex As Exception
-                    MsgBox("Execute Scalar " & ex.Message)
+                    DevExpress.XtraEditors.XtraMessageBox.Show("Execute Scalar " & ex.Message, NamaAplikasi)
                     e.Hasil = False
                     e.Message = ex.Message
                     e.Value = ""
@@ -61,7 +61,7 @@ Public Class Query
             serializer.MaxJsonLength = Int32.MaxValue '; //increase MaxJsonLength.  This could be read in from the web.config if you prefer
             Return serializer.Serialize(e)
         Else
-            Return e.Value
+            Return e.Value.ToString
         End If
     End Function
     Public Shared Function ExecuteDataSet(ByVal sql As String, Optional ByVal strKoneksi As String = "") As DataSet
@@ -166,4 +166,17 @@ Public Class Query
         End If
         Return e
     End Function
+    Public Shared Sub GetApplicationSetting()
+        Dim ds As New DataSet
+        ds = ExecuteDataSet("Select * From MSetting")
+        If Not ds Is Nothing Then
+            With ds.Tables(0).Rows(0)
+                NamaPerusahaan = .Item("NamaPerusahaan").ToString
+                AlamatPerusahaan = .Item("AlamatPerusahaan").ToString
+                KotaPerusahaan = .Item("KotaPerusahaan").ToString
+                FolderLayouts = .Item("PathLayout").ToString
+            End With
+            ds.Dispose()
+        End If
+    End Sub
 End Class

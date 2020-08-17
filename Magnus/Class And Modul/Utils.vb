@@ -1,5 +1,4 @@
-﻿
-Imports System.Net
+﻿Imports System.Net
 Imports System.Threading
 Imports DevExpress.XtraEditors
 Imports DevExpress.XtraGrid
@@ -34,7 +33,7 @@ Public Class Utils
         Try
             ObjToBool = Convert.ToBoolean(Obj)
         Catch ex As Exception
-            ObjToBool = 0
+            ObjToBool = False
         End Try
         Return ObjToBool
     End Function
@@ -120,7 +119,7 @@ Public Class Utils
         ElseIf Value Is Nothing Then
             Return ""
         Else
-            Return Value
+            Return Value.ToString
         End If
     End Function
     Public Shared Function FixApostropi(ByVal obj As Object) As String
@@ -201,7 +200,8 @@ Public Class Utils
         End Using
     End Function
 
-    Public Class Ini
+End Class
+Public Class Ini
         Public Shared appini As String = System.Windows.Forms.Application.StartupPath & "\System\Setting.ini"
 #Region "API Calls"
 
@@ -291,4 +291,3 @@ ByVal lpFileName As String) As Int32
     End Class
 
 
-End Class
