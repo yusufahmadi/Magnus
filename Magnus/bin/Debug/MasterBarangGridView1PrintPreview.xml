@@ -1,0 +1,76 @@
+﻿<XtraSerializer version="1.0" application="View">
+  <property name="#LayoutVersion" />
+  <property name="OptionsView" isnull="true" iskey="true">
+    <property name="ColumnAutoWidth">false</property>
+    <property name="ShowGroupPanel">false</property>
+    <property name="ShowFilterPanelMode">ShowAlways</property>
+  </property>
+  <property name="ActiveFilterEnabled">true</property>
+  <property name="Columns" iskey="true" value="10">
+    <property name="Item1" isnull="true" iskey="true">
+      <property name="Name">colID</property>
+      <property name="VisibleIndex">3</property>
+      <property name="Visible">true</property>
+      <property name="Width">31</property>
+    </property>
+    <property name="Item2" isnull="true" iskey="true">
+      <property name="Name">colKodeKategori</property>
+      <property name="VisibleIndex">0</property>
+      <property name="Visible">true</property>
+      <property name="Width">112</property>
+    </property>
+    <property name="Item3" isnull="true" iskey="true">
+      <property name="Name">colKode</property>
+      <property name="VisibleIndex">1</property>
+      <property name="Visible">true</property>
+      <property name="Width">91</property>
+    </property>
+    <property name="Item4" isnull="true" iskey="true">
+      <property name="Name">colNama</property>
+      <property name="VisibleIndex">2</property>
+      <property name="Visible">true</property>
+      <property name="Width">138</property>
+    </property>
+    <property name="Item5" isnull="true" iskey="true">
+      <property name="Name">colCatatan</property>
+      <property name="VisibleIndex">4</property>
+      <property name="Visible">true</property>
+      <property name="Width">122</property>
+    </property>
+    <property name="Item6" isnull="true" iskey="true">
+      <property name="Name">colHargaBeli</property>
+      <property name="VisibleIndex">5</property>
+      <property name="Visible">true</property>
+      <property name="Width">68</property>
+    </property>
+    <property name="Item7" isnull="true" iskey="true">
+      <property name="Name">colTanggalBuat</property>
+      <property name="VisibleIndex">6</property>
+      <property name="Visible">true</property>
+      <property name="Width">83</property>
+    </property>
+    <property name="Item8" isnull="true" iskey="true">
+      <property name="Name">colUserBuat</property>
+      <property name="VisibleIndex">7</property>
+      <property name="Visible">true</property>
+      <property name="Width">67</property>
+    </property>
+    <property name="Item9" isnull="true" iskey="true">
+      <property name="Name">colTanggalUpdate</property>
+      <property name="VisibleIndex">8</property>
+      <property name="Visible">true</property>
+      <property name="Width">96</property>
+    </property>
+    <property name="Item10" isnull="true" iskey="true">
+      <property name="Name">colUserUpdate</property>
+      <property name="VisibleIndex">9</property>
+      <property name="Visible">true</property>
+      <property name="Width">80</property>
+    </property>
+  </property>
+  <property name="ActiveFilterString">[KodeKategori] = 'BL - BAHAN LABEL'</property>
+  <property name="MRUFilters">~Xtra#Base64AAEAAAD/////AQAAAAAAAAAMAgAAAF1EZXZFeHByZXNzLlh0cmFHcmlkLnYxNy4xLCBWZXJzaW9uPTE3LjEuMy4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI4OGQxNzU0ZDcwMGU0OWEFAQAAADZEZXZFeHByZXNzLlh0cmFHcmlkLlZpZXdzLkJhc2UuTVJVVmlld0ZpbHRlckNvbGxlY3Rpb24BAAAAE0NvbGxlY3Rpb25CYXNlK2xpc3QDHFN5c3RlbS5Db2xsZWN0aW9ucy5BcnJheUxpc3QCAAAACQMAAAAEAwAAABxTeXN0ZW0uQ29sbGVjdGlvbnMuQXJyYXlMaXN0AwAAAAZfaXRlbXMFX3NpemUIX3ZlcnNpb24FAAAICAkEAAAAAQAAAAMAAAAQBAAAAAQAAAAJBQAAAA0DDAYAAABZRGV2RXhwcmVzcy5EYXRhLnYxNy4xLCBWZXJzaW9uPTE3LjEuMy4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI4OGQxNzU0ZDcwMGU0OWEFBQAAAClEZXZFeHByZXNzLlh0cmFHcmlkLlZpZXdzLkJhc2UuVmlld0ZpbHRlcgIAAAAYZk5vbkNvbHVtbkZpbHRlckNyaXRlcmlhE0NvbGxlY3Rpb25CYXNlK2xpc3QEAypEZXZFeHByZXNzLkRhdGEuRmlsdGVyaW5nLkNyaXRlcmlhT3BlcmF0b3IGAAAAHFN5c3RlbS5Db2xsZWN0aW9ucy5BcnJheUxpc3QCAAAACgkHAAAAAQcAAAADAAAACQgAAAABAAAAAwAAABAIAAAABAAAAAkJAAAADQMMCgAAABlEZXZFeHByZXNzLlh0cmFHcmlkLnYxNy4xBQkAAAAzRGV2RXhwcmVzcy5YdHJhR3JpZC5WaWV3cy5CYXNlLlZpZXdDb2x1bW5GaWx0ZXJJbmZvAgAAAAZGaWx0ZXIGQ29sdW1uBAEsRGV2RXhwcmVzcy5YdHJhR3JpZC5Db2x1bW5zLkNvbHVtbkZpbHRlckluZm8KAAAACgAAAAkLAAAABgwAAAAPY29sS29kZUthdGVnb3JpBQsAAAAsRGV2RXhwcmVzcy5YdHJhR3JpZC5Db2x1bW5zLkNvbHVtbkZpbHRlckluZm8FAAAABFR5cGUES2luZAtEaXNwbGF5VGV4dAxGaWx0ZXJTdHJpbmcFVmFsdWUAAAEBAggICgAAAAEAAAAAAAAABg0AAAAABg4AAAAjW0tvZGVLYXRlZ29yaV0gPSAnQkwgLSBCQUhBTiBMQUJFTCcKCw==</property>
+  <property name="GroupSummarySortInfoState" />
+  <property name="FindFilterText" />
+  <property name="FindPanelVisible">false</property>
+</XtraSerializer>

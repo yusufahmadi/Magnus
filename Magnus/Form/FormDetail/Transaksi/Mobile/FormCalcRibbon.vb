@@ -9,7 +9,7 @@ Partial Public Class FormCalcRibbon
     Public _IsNew As Boolean
     Public _ID As Integer = 0
     Public FormName As String = "Undefined"
-    Public TableName As String = "TLabel"
+    Public TableName As String = "TRibbon"
     Public Sub New()
         InitializeComponent()
     End Sub

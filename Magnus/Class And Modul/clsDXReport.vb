@@ -238,7 +238,7 @@ Public Class clsDXReport
             designForm.Form.Focus()
         End If
     End Sub
-    Public Shared Sub NewPreview(ByVal NamaFormPemanggil As String, ByVal GCPrint As DevExpress.XtraGrid.GridControl, ByVal Caption As String)
+    Public Shared Sub NewPreview(ByVal NamaFormPemanggil As String, ByVal GCPrint As DevExpress.XtraGrid.GridControl, ByVal Caption As String, Optional ByVal Filter1 As String = "", Optional ByVal Filter2 As String = "")
         Try
             Dim PrintSys As PrintingSystem = Nothing
             Dim PrintableComp As PrintableComponentLink = Nothing
@@ -258,15 +258,15 @@ Public Class clsDXReport
 
             HeadArea = New PageHeaderArea
             HeadArea.LineAlignment = BrickAlignment.Near
-            HeadArea.Content.Add(NamaPerusahaan)
+            HeadArea.Content.Add(NamaPerusahaan & vbCrLf & Caption & vbCrLf & Filter1) 'NamaPerusahaan
             HeadArea.Content.Add(Nothing)
-            HeadArea.Content.Add("." & vbCrLf & Caption)
-            HeadArea.Font = New Font("Arial", 16, FontStyle.Bold)
+            HeadArea.Content.Add(" " & vbCrLf & " " & vbCrLf & Filter2) '"." & vbCrLf & Caption
+            HeadArea.Font = New Font("Arial", 11, FontStyle.Bold)
 
             FootArea = New PageFooterArea
             FootArea.LineAlignment = BrickAlignment.Near
             FootArea.Content.Add("Printed on : [Date Printed] [Time Printed]")
-            FootArea.Content.Add(Nothing)
+            FootArea.Content.Add("Printed by : " & Username)
             FootArea.Content.Add("[Page # of Pages #]")
 
             FH = New DevExpress.XtraPrinting.PageHeaderFooter(HeadArea, FootArea)

@@ -64,10 +64,10 @@ Public Class Query
             Return e.Value.ToString
         End If
     End Function
-    Public Shared Function ExecuteDataSet(ByVal sql As String, Optional ByVal strKoneksi As String = "") As DataSet
+    Public Shared Function ExecuteDataSet(ByVal sql As String, Optional ByVal TableName As String = "Data", Optional ByVal strKoneksi As String = "") As DataSet
         Dim ds As New DataSet
         If strKoneksi = "" Then
-            strKoneksi = conStr
+            strKoneksi = conStr()
         End If
         Using cn As New SqlConnection(strKoneksi)
             Using cm As New SqlCommand()
@@ -78,7 +78,7 @@ Public Class Query
                         cm.CommandTimeout = cn.ConnectionTimeout
                         da.SelectCommand = cm
                         cm.CommandText = sql
-                        da.Fill(ds)
+                        da.Fill(ds, TableName)
                     Catch ex As Exception
                         ds = Nothing
                     End Try

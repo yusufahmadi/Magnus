@@ -1,4 +1,6 @@
-﻿Imports DevExpress.XtraGrid.Views.Base
+﻿Imports DevExpress.XtraEditors.Repository
+Imports DevExpress.XtraGrid.Columns
+Imports DevExpress.XtraGrid.Views.Base
 Imports Magnus.Utils
 
 Partial Public Class FormDaftar
@@ -40,6 +42,10 @@ Partial Public Class FormDaftar
         Refresher()
     End Sub
 
+    Dim repckedit As New RepositoryItemCheckEdit
+    Dim repdateedit As New RepositoryItemDateEdit
+    Dim reptextedit As New RepositoryItemTextEdit
+    Dim reppicedit As New RepositoryItemPictureEdit
     Sub Refresher()
         Dim ds As New DataSet
         Dim sql As String = ""
@@ -49,12 +55,12 @@ Partial Public Class FormDaftar
             Case IDForm.F_RoleUser
                 sql = "Select R.ID,R.Kode,R.Nama,R.Keterangan,R.IsActive,T.Nama TypeLayout,R.MenuSettingUser From MRoleUser R Left Join MTypeLayout T On R.IDTypeLayout=T.ID "
             Case IDForm.F_MBarang
-                If IDTypeLayout = 1 Then
-                    sql = "Select A.ID,B.Kode KodeKategori,B.Nama Kategori, A.Kode,A.Nama,A.Catatan,A.HargaBeli,A.P,A.L,A.T,A.Isi,A.TanggalBuat,A.UserBuat,A.TanggalUpdate,A.UserUpdate "
+                If IDTypeLayout = 1 Then 'A.P,A.L,A.T,A.Isi,
+                    sql = "Select A.ID,B.Kode + ' - ' + B.Nama KodeKategori, A.Kode,A.Nama,A.Catatan,A.HargaBeli,A.TanggalBuat,A.UserBuat,A.TanggalUbah,A.UserUbah "
                 Else
-                    sql = "Select A.ID,B.Kode KodeKategori,B.Nama Kategori, A.Kode,A.Nama,A.Catatan,A.P,A.L,A.T,A.Isi,A.TanggalBuat,A.UserBuat,A.TanggalUpdate,A.UserUpdate "
+                    sql = "Select A.ID,B.Kode KodeKategori,B.Nama Kategori, A.Kode,A.Nama,A.Catatan,A.TanggalBuat,A.UserBuat,A.TanggalUbah,A.UserUbah "
                 End If
-                sql = sql & " From MBarang A Left Join MKategori B on A.IDKategori=B.ID"
+                sql = sql & " From MBarang A Left Join MKategori B on A.IDKategori=B.ID "
             Case IDForm.F_MKategori
                 sql = "Select * From MKategori "
             Case IDForm.F_MKategoriBiaya
@@ -73,6 +79,43 @@ Partial Public Class FormDaftar
             GridView1.OptionsView.ColumnAutoWidth = False
             GridView1.OptionsView.BestFitMaxRowCount = -1
             GridView1.BestFitColumns()
+            With GridView1
+                For i As Integer = 0 To .Columns.Count - 1
+                    Select Case GridView1.Columns(i).ColumnType.Name.ToLower
+                        Case "int32", "int64", "int"
+                            .Columns(i).DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+                            .Columns(i).DisplayFormat.FormatString = "n0"
+                        Case "decimal", "single", "double", "numeric"
+                            .Columns(i).DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+                            .Columns(i).DisplayFormat.FormatString = "n2"
+                        Case "money"
+                            .Columns(i).DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+                            .Columns(i).DisplayFormat.FormatString = "c2"
+                        Case "string"
+                            .Columns(i).DisplayFormat.FormatType = DevExpress.Utils.FormatType.None
+                            .Columns(i).DisplayFormat.FormatString = ""
+                        Case "date", "datetime"
+                            .Columns(i).DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
+                            .Columns(i).DisplayFormat.FormatString = "dd-MM-yyyy"
+                        Case "byte[]"
+                            reppicedit.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze
+                            .Columns(i).OptionsColumn.AllowGroup = False
+                            .Columns(i).OptionsColumn.AllowSort = False
+                            .Columns(i).OptionsFilter.AllowFilter = False
+                            .Columns(i).ColumnEdit = reppicedit
+                        Case "boolean", "bit"
+                            .Columns(i).ColumnEdit = repckedit
+                    End Select
+                    If .Columns(i).FieldName.Length >= 4 AndAlso .Columns(i).FieldName.Substring(0, 4).ToLower = "Kode".ToLower Then
+                        .Columns(i).Fixed = FixedStyle.Left
+                    ElseIf .Columns(i).FieldName.ToLower = "Nama".ToLower Then
+                        .Columns(i).Fixed = FixedStyle.Left
+                    ElseIf .Columns(i).FieldName.ToLower = "Kurs" Then
+                        .Columns(i).DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+                        .Columns(i).DisplayFormat.FormatString = "n4"
+                    End If
+                Next
+            End With
         End If
     End Sub
 
@@ -247,11 +290,13 @@ Partial Public Class FormDaftar
     Sub Hapus()
         Dim view As ColumnView = GridControl1.FocusedView
         Dim ID As Integer = 0
-        ID = ObjToInt(view.GetDataRow(GridView1.FocusedRowHandle)("ID"))
+        If IDForm.F_User <> idFrm Then
+            ID = ObjToInt(view.GetDataRow(GridView1.FocusedRowHandle)("ID"))
+        End If
         Select Case idFrm
             Case IDForm.F_User
                 Dim User As String = ""
-                User = View.GetDataRow(GridView1.FocusedRowHandle)("Username").ToString
+                User = view.GetDataRow(GridView1.FocusedRowHandle)("Username").ToString
                 Dim f As Pesan = Query.DeleteDataMaster("MUser", "Username='" & User.Trim & "'")
                 If f.Hasil = True Then
                     DevExpress.XtraEditors.XtraMessageBox.Show(Me, f.Message, NamaAplikasi)
@@ -279,6 +324,7 @@ Partial Public Class FormDaftar
                     DevExpress.XtraEditors.XtraMessageBox.Show(Me, f.Message, NamaAplikasi)
                 End If
             Case IDForm.F_MBarang
+
                 Dim f As Pesan = Query.DeleteDataMaster("MUser", "ID=" & ID & "")
                 If f.Hasil = True Then
                     DevExpress.XtraEditors.XtraMessageBox.Show(Me, f.Message, NamaAplikasi)
@@ -339,7 +385,7 @@ Partial Public Class FormDaftar
     Private Sub BarButtonExport_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonExport.ItemClick
         Using dlgsave As New SaveFileDialog
             dlgsave.Title = "Export Daftar ke Excel"
-            dlgsave.Filter = "Excel Files|*.xls|*.xlsx"
+            dlgsave.Filter = "Excel Files|*.xls"
             If dlgsave.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
                 GridControl1.ExportToXls(dlgsave.FileName)
                 BukaFile(dlgsave.FileName)
@@ -349,10 +395,43 @@ Partial Public Class FormDaftar
     End Sub
 
     Private Sub BarButtonCetak_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonCetak.ItemClick
-
+        Cetak()
     End Sub
+    Sub Cetak()
+        Dim action As ActionReport = Nothing
+        If (IsEditReport) Then
+            action = ActionReport.Edit
+        Else
+            action = ActionReport.Preview
+        End If
+        Dim PathFile As String = Application.StartupPath & "\Report\"
+        Dim str, operasi As String()
+        Dim RgText As String = ""
+        Dim CalcRb As String = ""
+        Dim CalcField As String = ""
 
+        Dim namafile As String = "Print" & NamaForm & ".repx"
+        PathFile &= namafile
+        If IO.File.Exists(PathFile) OrElse action = ActionReport.Edit Then
+            Refresher()
+            str = (CalcRb).ToString().Split("|")
+            For i = 0 To UBound(str)
+                operasi = str(i).Split(";")
+            Next
+
+            If (CalcField) <> "" Then
+                RgText = "|" & "Radio=String='Status: " & RgText & "'"
+            Else
+                RgText = "" & "Radio=String='Status: " & RgText & "'"
+            End If
+            clsDXReport.ViewXtraReport(Me.MdiParent, action, PathFile, NamaPerusahaan, namafile, GCtoDSRowFiltered(GridControl1), , CalcField & RgText)
+        Else
+            clsDXReport.NewPreview(NamaForm, GridControl1, Me.Text, GridView1.ActiveFilterString.Replace("[", "").Replace("]", ""))
+        End If
+    End Sub
     Private Sub GridView1_DoubleClick(sender As Object, e As EventArgs) Handles GridView1.DoubleClick
-        Ubah()
+        If BarButtonUbah.Enabled Then
+            Ubah()
+        End If
     End Sub
 End Class

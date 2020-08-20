@@ -29,8 +29,8 @@ Public Class FormSetting
                 Me.FormSetting_Load(sender, e)
             Case "2", "'Close'"
                 Me.Close()
-            Case "2", "'Setting Calc'"
-                Using d As New FormSettingCalc
+            Case "2", "'Menu'"
+                Using d As New FormSettingLainya
                     d.TopMost = True
                     d.ShowDialog()
                 End Using

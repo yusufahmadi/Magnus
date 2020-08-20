@@ -37,7 +37,7 @@ Partial Public Class FormBarang
             'WAJIB DISABLE
             LayoutControlItemHargaBeli.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
             LayoutControlItemProsenUp.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
-
+            LayoutControlItemHargaJual.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
             txtHargaJual.Properties.ReadOnly = True
         End If
         'Not Ready
@@ -80,8 +80,8 @@ Partial Public Class FormBarang
 
                     txtUserBuat.EditValue = .Item("UserBuat").ToString
                     txtTanggalBuat.EditValue = ObjToDate(.Item("TanggalBuat"))
-                    txtUserUbah.EditValue = .Item("UserUpdate").ToString
-                    txtTanggalUbah.EditValue = ObjToDate(.Item("TanggalUpdate"))
+                    txtUserUbah.EditValue = .Item("UserUbah").ToString
+                    txtTanggalUbah.EditValue = ObjToDate(.Item("TanggalUbah"))
 
                     ckIsActive.Checked = CBool(.Item("IsActive"))
                     ckIsNonStok.Checked = CBool(.Item("IsNonStok"))
@@ -222,13 +222,13 @@ Partial Public Class FormBarang
                                     ,[P],[L],[T]
                                     ,[IDSatuanTerbesar],[Isi],[IDSatuanTerkecil]
                                     ,[HargaBeli],[ProsenUp],[HargaJual]
-                                    ,[UserBuat],[TanggalBuat],[TanggalUpdate]
-                                    ,[UserUpdate],[IsActive],[IsNonStok]) " & vbCrLf &
+                                    ,[UserBuat],[TanggalBuat],[TanggalUbah]
+                                    ,[UserUbah],[IsActive],[IsNonStok]) " & vbCrLf &
                                     " Values (" & Me._ID & "," & vbCrLf &
                                     ObjToInt(txtIDKategori.EditValue) & "," & vbCrLf &
-                                    " '" & txtKode.Text.Trim & "'," & vbCrLf &
-                                    " '" & txtNama.Text.Trim & "'," & vbCrLf &
-                                    " '" & txtCatatan.Text.Trim & "'," & vbCrLf &
+                                    " '" & FixApostropi(txtKode.Text.Trim) & "'," & vbCrLf &
+                                    " '" & FixApostropi(txtNama.Text.Trim) & "'," & vbCrLf &
+                                    " '" & FixApostropi(txtCatatan.Text.Trim) & "'," & vbCrLf &
                                     " '" & txtP.Text.Trim & "'," & vbCrLf &
                                     " '" & txtL.Text.Trim & "'," & vbCrLf &
                                     " '" & txtT.Text.Trim & "'," & vbCrLf &
@@ -258,8 +258,8 @@ Partial Public Class FormBarang
                                             ,[IDSatuan],[Barcode]
                                             ,[Isi],[ProsenUp]
                                             ,[HargaJual],[UserBuat]
-                                            ,[TanggalBuat],[UserUpdate]
-                                            ,[TanggalUpdate]) " & vbCrLf &
+                                            ,[TanggalBuat],[UserUbah]
+                                            ,[TanggalUbah]) " & vbCrLf &
                                   " Select " & IDBarangD & " ID," & Me._ID & " As IDBarang, " & vbCrLf &
                                             ObjToInt(txtIDSatuanTerkecil.EditValue) & " As IDSatuan," & vbCrLf &
                                             "'" & txtKode.Text & "' As Barcode," & vbCrLf &
@@ -268,16 +268,16 @@ Partial Public Class FormBarang
                                             ObjToInt(txtHargaJual.EditValue) & " As HargaJual," & vbCrLf &
                                             "'" & Username & "' As UserBuat," & vbCrLf &
                                             "GetDate() As TanggalBuat," & vbCrLf &
-                                            "Null UserUpdate," & vbCrLf &
-                                            "Null As TanggalUpdate "
+                                            "Null UserUbah," & vbCrLf &
+                                            "Null As TanggalUbah "
                             com.CommandText = sql
                             com.ExecuteNonQuery()
                         Else
                             sql = "UPDATE MBarang SET " & vbCrLf &
                                     " [IDKategori] =" & ObjToInt(txtIDKategori.EditValue) & "," & vbCrLf &
-                                    " [Kode] = '" & txtKode.Text.Trim & "'," & vbCrLf &
-                                    " [Nama] = '" & txtNama.Text.Trim & "'," & vbCrLf &
-                                    " [Catatan] = '" & txtCatatan.Text.Trim & "'," & vbCrLf &
+                                    " [Kode] = '" & FixApostropi(txtKode.Text.Trim) & "'," & vbCrLf &
+                                    " [Nama] = '" & FixApostropi(txtNama.Text.Trim) & "'," & vbCrLf &
+                                    " [Catatan] = '" & FixApostropi(txtCatatan.Text.Trim) & "'," & vbCrLf &
                                     " [P] = '" & txtP.Text.Trim & "'," & vbCrLf &
                                     " [L] = '" & txtL.Text.Trim & "'," & vbCrLf &
                                     " [T] = '" & txtT.Text.Trim & "'," & vbCrLf &
@@ -287,8 +287,8 @@ Partial Public Class FormBarang
                                     " [HargaBeli] = " & ObjToDbl(txtHargaBeli.EditValue) & "," & vbCrLf &
                                     " [ProsenUp] = " & ObjToDbl(txtProsenUp.EditValue) & "," & vbCrLf &
                                     " [HargaJual] = " & ObjToDbl(txtHargaJual.EditValue) & "," & vbCrLf &
-                                    " [TanggalUpdate] = GetDate() ," & vbCrLf &
-                                    " [UserUpdate] = '" & Username & "'," & vbCrLf &
+                                    " [TanggalUbah] = GetDate() ," & vbCrLf &
+                                    " [UserUbah] = '" & Username & "'," & vbCrLf &
                                     " [IsActive] = " & ObjToBit(ckIsActive.Checked) & "," & vbCrLf &
                                     " [IsNonStok] = " & ObjToBit(ckIsNonStok.Checked) & "" & vbCrLf &
                                 "Where [ID]=" & Me._ID
@@ -301,8 +301,8 @@ Partial Public Class FormBarang
                                 " [Barcode] = '" & txtKode.Text.Trim & "'," & vbCrLf &
                                 " [ProsenUp] = " & ObjToDbl(txtProsenUp.EditValue) & "," & vbCrLf &
                                 " [HargaJual] = " & ObjToDbl(txtHargaJual.EditValue) & "," & vbCrLf &
-                                " [TanggalUpdate] = GetDate() ," & vbCrLf &
-                                " [UserUpdate] = '" & Username & "'" & vbCrLf &
+                                " [TanggalUbah] = GetDate() ," & vbCrLf &
+                                " [UserUbah] = '" & Username & "'" & vbCrLf &
                                 " Where [IDBarang]=" & Me._ID & " AND [Barcode] = '" & txtKode.Text.Trim & "' And Isi=1"
                             com.CommandText = sql
                             com.ExecuteNonQuery()
@@ -319,8 +319,8 @@ Partial Public Class FormBarang
                                                         ,[IDSatuan],[Barcode]
                                                         ,[Isi],[ProsenUp]
                                                         ,[HargaJual],[UserBuat]
-                                                        ,[TanggalBuat],[UserUpdate]
-                                                        ,[TanggalUpdate]) " & vbCrLf &
+                                                        ,[TanggalBuat],[UserUbah]
+                                                        ,[TanggalUbah]) " & vbCrLf &
                                                 " Values (" & IDBarangD & "," & vbCrLf &
                                                         " @IDBarang," & vbCrLf &
                                                         " @IDSatuan," & vbCrLf &
@@ -340,8 +340,8 @@ Partial Public Class FormBarang
                                                   ,[Isi] = @Isi
                                                   ,[ProsenUp] = @ProsenUp
                                                   ,[HargaJual] = @HargaJual
-                                                  ,[UserUpdate] = @Username
-                                                  ,[TanggalUpdate] = GetDate() " & vbCrLf &
+                                                  ,[UserUbah] = @Username
+                                                  ,[TanggalUbah] = GetDate() " & vbCrLf &
                                                 " WHERE [ID]=@ID"
                                         End If
                                         com.CommandText = sql
@@ -423,7 +423,7 @@ Partial Public Class FormBarang
     End Sub
 
     Private Sub txtProsenUp_LostFocus(sender As Object, e As EventArgs) Handles txtProsenUp.LostFocus
-        If ObjToDbl(txtHargaBeli.EditValue) = 0 OrElse ObjToDbl(txtProsenUp.EditValue) = 0 Then
+        If ObjToDbl(txtHargaBeli.EditValue) = 0 Then
             Exit Sub
         Else
             txtHargaJual.EditValue = ObjToDbl(txtHargaBeli.EditValue) * (1 + (ObjToDbl(txtProsenUp.EditValue) / 100))
@@ -435,7 +435,7 @@ Partial Public Class FormBarang
     End Sub
 
     Private Sub txtHargaJual_LostFocus(sender As Object, e As EventArgs) Handles txtHargaJual.LostFocus
-        If ObjToDbl(txtHargaBeli.EditValue) = 0 OrElse ObjToDbl(txtHargaJual.EditValue) = 0 Then
+        If ObjToDbl(txtHargaBeli.EditValue) = 0 Then
             Exit Sub
         Else
             txtProsenUp.EditValue = (100 * (ObjToDbl(txtHargaJual.EditValue) / ObjToDbl(txtHargaBeli.EditValue))) - 100

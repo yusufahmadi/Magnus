@@ -31,7 +31,11 @@ Partial Public Class FormKaryawan
                 With ds.Tables(0).Rows(0)
                     txtKode.Text = .Item("Kode").ToString
                     txtNama.Text = .Item("Nama").ToString
-                    txtAlias.Text = .Item("Keterangan").ToString
+                    txtAlias.Text = .Item("Alias").ToString
+                    txtKeterangan.Text = .Item("Keterangan").ToString
+                    txtAlamat.Text = .Item("Alamat").ToString
+                    txtAlamat2.Text = .Item("Alamat2").ToString
+                    txtHP.Text = .Item("HP").ToString
                     ckIsActive.Checked = CBool(.Item("IsActive"))
                 End With
                 ds.Dispose()
@@ -67,21 +71,26 @@ Partial Public Class FormKaryawan
         txtKode.Focus()
         txtNama.Text = ""
         txtAlias.Text = ""
+        txtKeterangan.Text = ""
+        txtAlamat.Text = ""
+        txtAlamat2.Text = ""
+        txtHP.Text = ""
         ckIsActive.Checked = True
     End Sub
     Function IsValid() As Boolean
         IsValid = True
         If txtKode.Text = "" Then
             txtKode.Focus()
+            DxErrorProvider1.SetError(txtKode, "Kode harus di isi.")
             IsValid = False
             Exit Function
         End If
         If txtNama.Text = "" Then
+            DxErrorProvider1.SetError(txtNama, "Nama harus di isi.")
             txtNama.Focus()
             IsValid = False
             Exit Function
         End If
-
         If Not CBool(ckIsActive.Checked) Then
             If DialogResult.No = MessageBox.Show("Set " & FormName & " Non Aktif", NamaAplikasi, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) Then
                 ckIsActive.Focus()
@@ -96,12 +105,14 @@ Partial Public Class FormKaryawan
         If CInt(Query.ExecuteScalar("Select Count(*) From " & TableName & " Where ID<> " & Me._ID & " AND Kode ='" & txtKode.Text & "'")) > 0 Then
             MessageBox.Show("Kode sudah ada.", NamaAplikasi, MessageBoxButtons.OK, MessageBoxIcon.Information)
             txtKode.Focus()
+            DxErrorProvider1.SetError(txtKode, "Kode sudah ada/terpakai.")
             IsValidOnDB = False
             Exit Function
         End If
         If CInt(Query.ExecuteScalar("Select Count(*) From " & TableName & " Where ID<> " & Me._ID & " AND Nama ='" & txtNama.Text & "'")) > 0 Then
             MessageBox.Show("Nama sudah ada.", NamaAplikasi, MessageBoxButtons.OK, MessageBoxIcon.Information)
-            txtKode.Focus()
+            txtNama.Focus()
+            DxErrorProvider1.SetError(txtNama, "Nama sudah ada/terpakai.")
             IsValidOnDB = False
             Exit Function
         End If
@@ -112,23 +123,30 @@ Partial Public Class FormKaryawan
         If IsValid() AndAlso IsValidOnDB() Then
             Dim sql As String = ""
             Try
-
                 If _IsNew Then
                     sql = "Select Isnull(Max(ID),0)+1 From " & TableName
                     Me._ID = ObjToInt(Query.ExecuteScalar(sql))
-                    sql = "Insert Into " & TableName & " (ID,Kode,Nama,Keterangan,IsActive) " & vbCrLf &
-                          " Values (" & Me._ID & ",'" & txtKode.Text.Trim & "'," & vbCrLf &
-                            " '" & txtNama.Text.Trim & "'," & vbCrLf &
-                            " '" & txtAlias.Text.Trim & "'," & vbCrLf &
+                    sql = "Insert Into " & TableName & " (ID,Kode,Nama,Alias,Keterangan,Alamat,Alamat2,HP,IsActive) " & vbCrLf &
+                          " Values (" & Me._ID & ",'" & FixApostropi(txtKode.Text.Trim) & "'," & vbCrLf &
+                            " '" & FixApostropi(txtNama.Text.Trim) & "'," & vbCrLf &
+                            " '" & FixApostropi(txtAlias.Text.Trim) & "'," & vbCrLf &
+                            " '" & FixApostropi(txtKeterangan.Text.Trim) & "'," & vbCrLf &
+                            " '" & FixApostropi(txtAlamat.Text.Trim) & "'," & vbCrLf &
+                            " '" & FixApostropi(txtAlamat2.Text.Trim) & "'," & vbCrLf &
+                            " '" & FixApostropi(txtHP.Text.Trim) & "'," & vbCrLf &
                             Utils.ObjToBit(ckIsActive.Checked) & ")"
 
                 Else
                     sql = "Update " & TableName & " Set " & vbCrLf &
-                            " Kode ='" & txtKode.Text.Trim & "',  " & vbCrLf &
-                            " Nama ='" & txtNama.Text.Trim & "',  " & vbCrLf &
-                            " Keterangan ='" & txtAlias.Text.Trim & "',  " & vbCrLf &
+                            " Kode ='" & FixApostropi(txtKode.Text.Trim) & "',  " & vbCrLf &
+                            " Nama ='" & FixApostropi(txtNama.Text.Trim) & "',  " & vbCrLf &
+                            " Alias ='" & FixApostropi(txtAlias.Text.Trim) & "',  " & vbCrLf &
+                            " Keterangan ='" & FixApostropi(txtKeterangan.Text.Trim) & "',  " & vbCrLf &
+                            " Alamat ='" & FixApostropi(txtAlamat.Text.Trim) & "',  " & vbCrLf &
+                            " Alamat2 ='" & FixApostropi(txtAlamat2.Text.Trim) & "',  " & vbCrLf &
+                            " HP ='" & FixApostropi(txtHP.Text.Trim) & "',  " & vbCrLf &
                             " IsActive= " & Utils.ObjToBit(ckIsActive.Checked) & " " & vbCrLf &
-                            " Where ID ='" & Me._ID & "'"
+                            " Where ID =" & Me._ID.ToString
                 End If
                 If sql <> "" Then
                     e = Query.Execute(sql)

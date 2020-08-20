@@ -4,7 +4,7 @@ Imports DevExpress.XtraEditors.Controls
 Imports Magnus.Ini
 Imports Magnus.Utils
 
-Public Class FormSettingCalc
+Public Class FormSettingLainya
     Private Sub FormSettingCalc_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim ds As New DataSet
         Try
@@ -29,6 +29,18 @@ Public Class FormSettingCalc
                             TxtIDKategoriBahanLabel.EditValue = ObjToInt(.Item(0))
                             TxtIDKategoriBahanRibbon.EditValue = ObjToInt(.Item(1))
                             TxtIDKategoriBahanTaffeta.EditValue = ObjToInt(.Item(2))
+                        End With
+                    End If
+                    ds.Dispose()
+                End If
+
+                ds = Query.ExecuteDataSet("Select * From MSettingLainya")
+                If Not ds Is Nothing Then
+                    If ds.Tables(0).Rows.Count > 0 Then
+                        With ds.Tables(0).Rows(0)
+                            ComboBox1.SelectedIndex = ObjToInt(.Item(0))
+                            CheckEdit1.Checked = ObjToBool(.Item(1))
+                            CheckEdit2.Checked = ObjToBool(.Item(2))
                         End With
                     End If
                     ds.Dispose()
@@ -59,16 +71,35 @@ Public Class FormSettingCalc
                           " [Df_IDKategoriBahanRibbon] ='" & ObjToInt(TxtIDKategoriBahanRibbon.EditValue) & "'," & vbCrLf &
                           " [Df_IDKategoriBahanTaffeta] ='" & ObjToInt(TxtIDKategoriBahanTaffeta.EditValue) & "'"
                     End If
-                    Dim ee As Pesan = Query.Execute(sql)
-                    If ee.Hasil Then
+                    x = Query.Execute(sql)
+                    If x.Hasil = False Then
+                        DevExpress.XtraEditors.XtraMessageBox.Show(Me, x.Message, NamaAplikasi)
+                        Exit Sub
+                    End If
+
+                    sql = "Select Count(*) From MSettingLainya"
+                    If ObjToInt(Query.ExecuteScalar(sql)) = 0 Then
+                        sql = "Insert Into [MSettingLainya] ([TipeTanggal] ," & vbCrLf &
+                          " [IsLockTglInHeader] ,[IsLockTglInDetail]) " & vbCrLf &
+                          " Values (" & ObjToInt(ComboBox1.SelectedIndex) & "," & vbCrLf &
+                          " " & ObjToBit(CheckEdit1.Checked) & "," & vbCrLf &
+                          " " & ObjToBit(CheckEdit2.Checked) & ")"
+                    Else
+                        sql = "Update [MSettingLainya] Set " & vbCrLf &
+                          " [TipeTanggal] =" & ObjToInt(ComboBox1.SelectedIndex) & "," & vbCrLf &
+                          " [IsLockTglInHeader] =" & ObjToBit(CheckEdit1.Checked) & "," & vbCrLf &
+                          " [IsLockTglInDetail] =" & ObjToBit(CheckEdit2.Checked) & ""
+                    End If
+                    x = Query.Execute(sql)
+                    If x.Hasil Then
                         DialogResult = DialogResult.OK
                         Me.Close()
                     Else
-                        DevExpress.XtraEditors.XtraMessageBox.Show(Me, ee.Message, NamaAplikasi)
+                        DevExpress.XtraEditors.XtraMessageBox.Show(Me, x.Message, NamaAplikasi)
                     End If
                 Catch ex As Exception
                     DevExpress.XtraEditors.XtraMessageBox.Show(Me, ex.Message, NamaAplikasi)
-                    End Try
+                End Try
             Case "1", "'Reset'"
                 Me.FormSettingCalc_Load(sender, e)
             Case "2", "'Close'"

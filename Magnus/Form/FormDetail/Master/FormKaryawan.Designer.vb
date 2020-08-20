@@ -24,8 +24,9 @@ Partial Public Class FormKaryawan
     ''' the contents of this method with the code editor.
     ''' </summary>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.dataLayoutControl1 = New DevExpress.XtraDataLayout.DataLayoutControl()
-        Me.ckIsActive = New DevExpress.XtraEditors.CheckEdit()
+        Me.txtKeterangan = New DevExpress.XtraEditors.MemoEdit()
         Me.mainRibbonControl = New DevExpress.XtraBars.Ribbon.RibbonControl()
         Me.bbiSave = New DevExpress.XtraBars.BarButtonItem()
         Me.bbiSaveAndClose = New DevExpress.XtraBars.BarButtonItem()
@@ -35,57 +36,59 @@ Partial Public Class FormKaryawan
         Me.bbiClose = New DevExpress.XtraBars.BarButtonItem()
         Me.mainRibbonPage = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.mainRibbonPageGroup = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
+        Me.ckIsActive = New DevExpress.XtraEditors.CheckEdit()
         Me.txtAlias = New DevExpress.XtraEditors.TextEdit()
         Me.txtNama = New DevExpress.XtraEditors.TextEdit()
         Me.txtKode = New DevExpress.XtraEditors.TextEdit()
+        Me.txtAlamat = New DevExpress.XtraEditors.TextEdit()
+        Me.txtAlamat2 = New DevExpress.XtraEditors.TextEdit()
+        Me.txtHP = New DevExpress.XtraEditors.TextEdit()
         Me.layoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup()
         Me.layoutControlGroup2 = New DevExpress.XtraLayout.LayoutControlGroup()
         Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem3 = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.LayoutControlItem6 = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.LayoutControlItem2 = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.textEdit1 = New DevExpress.XtraEditors.TextEdit()
-        Me.textEdit2 = New DevExpress.XtraEditors.TextEdit()
-        Me.textEdit3 = New DevExpress.XtraEditors.TextEdit()
         Me.LayoutControlItem4 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem5 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem7 = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.MemoEdit1 = New DevExpress.XtraEditors.MemoEdit()
+        Me.LayoutControlItem6 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem8 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItem2 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.DxErrorProvider1 = New DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(Me.components)
         CType(Me.dataLayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.dataLayoutControl1.SuspendLayout()
-        CType(Me.ckIsActive.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtKeterangan.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.mainRibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ckIsActive.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtAlias.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtNama.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtKode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtAlamat.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtAlamat2.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtHP.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.layoutControlGroup1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.layoutControlGroup2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlItem6, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.textEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.textEdit2.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.textEdit3.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem7, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.MemoEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem8, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DxErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'dataLayoutControl1
         '
         Me.dataLayoutControl1.AllowCustomization = False
-        Me.dataLayoutControl1.Controls.Add(Me.MemoEdit1)
+        Me.dataLayoutControl1.Controls.Add(Me.txtKeterangan)
         Me.dataLayoutControl1.Controls.Add(Me.ckIsActive)
         Me.dataLayoutControl1.Controls.Add(Me.txtAlias)
         Me.dataLayoutControl1.Controls.Add(Me.txtNama)
         Me.dataLayoutControl1.Controls.Add(Me.txtKode)
-        Me.dataLayoutControl1.Controls.Add(Me.textEdit1)
-        Me.dataLayoutControl1.Controls.Add(Me.textEdit2)
-        Me.dataLayoutControl1.Controls.Add(Me.textEdit3)
+        Me.dataLayoutControl1.Controls.Add(Me.txtAlamat)
+        Me.dataLayoutControl1.Controls.Add(Me.txtAlamat2)
+        Me.dataLayoutControl1.Controls.Add(Me.txtHP)
         Me.dataLayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dataLayoutControl1.Location = New System.Drawing.Point(0, 143)
         Me.dataLayoutControl1.Name = "dataLayoutControl1"
@@ -94,15 +97,14 @@ Partial Public Class FormKaryawan
         Me.dataLayoutControl1.Size = New System.Drawing.Size(324, 381)
         Me.dataLayoutControl1.TabIndex = 0
         '
-        'ckIsActive
+        'txtKeterangan
         '
-        Me.ckIsActive.Location = New System.Drawing.Point(12, 350)
-        Me.ckIsActive.MenuManager = Me.mainRibbonControl
-        Me.ckIsActive.Name = "ckIsActive"
-        Me.ckIsActive.Properties.Caption = "Aktif"
-        Me.ckIsActive.Size = New System.Drawing.Size(300, 19)
-        Me.ckIsActive.StyleController = Me.dataLayoutControl1
-        Me.ckIsActive.TabIndex = 9
+        Me.txtKeterangan.Location = New System.Drawing.Point(12, 148)
+        Me.txtKeterangan.MenuManager = Me.mainRibbonControl
+        Me.txtKeterangan.Name = "txtKeterangan"
+        Me.txtKeterangan.Size = New System.Drawing.Size(300, 78)
+        Me.txtKeterangan.StyleController = Me.dataLayoutControl1
+        Me.txtKeterangan.TabIndex = 10
         '
         'mainRibbonControl
         '
@@ -179,6 +181,16 @@ Partial Public Class FormKaryawan
         Me.mainRibbonPageGroup.ShowCaptionButton = False
         Me.mainRibbonPageGroup.Text = "Tasks"
         '
+        'ckIsActive
+        '
+        Me.ckIsActive.Location = New System.Drawing.Point(12, 350)
+        Me.ckIsActive.MenuManager = Me.mainRibbonControl
+        Me.ckIsActive.Name = "ckIsActive"
+        Me.ckIsActive.Properties.Caption = "Aktif"
+        Me.ckIsActive.Size = New System.Drawing.Size(300, 19)
+        Me.ckIsActive.StyleController = Me.dataLayoutControl1
+        Me.ckIsActive.TabIndex = 9
+        '
         'txtAlias
         '
         Me.txtAlias.Location = New System.Drawing.Point(12, 108)
@@ -205,6 +217,30 @@ Partial Public Class FormKaryawan
         Me.txtKode.Size = New System.Drawing.Size(300, 20)
         Me.txtKode.StyleController = Me.dataLayoutControl1
         Me.txtKode.TabIndex = 4
+        '
+        'txtAlamat
+        '
+        Me.txtAlamat.Location = New System.Drawing.Point(12, 246)
+        Me.txtAlamat.Name = "txtAlamat"
+        Me.txtAlamat.Size = New System.Drawing.Size(300, 20)
+        Me.txtAlamat.StyleController = Me.dataLayoutControl1
+        Me.txtAlamat.TabIndex = 4
+        '
+        'txtAlamat2
+        '
+        Me.txtAlamat2.Location = New System.Drawing.Point(12, 286)
+        Me.txtAlamat2.Name = "txtAlamat2"
+        Me.txtAlamat2.Size = New System.Drawing.Size(300, 20)
+        Me.txtAlamat2.StyleController = Me.dataLayoutControl1
+        Me.txtAlamat2.TabIndex = 5
+        '
+        'txtHP
+        '
+        Me.txtHP.Location = New System.Drawing.Point(12, 326)
+        Me.txtHP.Name = "txtHP"
+        Me.txtHP.Size = New System.Drawing.Size(300, 20)
+        Me.txtHP.StyleController = Me.dataLayoutControl1
+        Me.txtHP.TabIndex = 6
         '
         'layoutControlGroup1
         '
@@ -245,54 +281,9 @@ Partial Public Class FormKaryawan
         Me.LayoutControlItem3.TextLocation = DevExpress.Utils.Locations.Top
         Me.LayoutControlItem3.TextSize = New System.Drawing.Size(56, 13)
         '
-        'LayoutControlItem6
-        '
-        Me.LayoutControlItem6.Control = Me.ckIsActive
-        Me.LayoutControlItem6.Location = New System.Drawing.Point(0, 338)
-        Me.LayoutControlItem6.Name = "LayoutControlItem6"
-        Me.LayoutControlItem6.Size = New System.Drawing.Size(304, 23)
-        Me.LayoutControlItem6.TextSize = New System.Drawing.Size(0, 0)
-        Me.LayoutControlItem6.TextVisible = False
-        '
-        'LayoutControlItem2
-        '
-        Me.LayoutControlItem2.Control = Me.txtNama
-        Me.LayoutControlItem2.Location = New System.Drawing.Point(0, 40)
-        Me.LayoutControlItem2.Name = "LayoutControlItem2"
-        Me.LayoutControlItem2.Size = New System.Drawing.Size(304, 40)
-        Me.LayoutControlItem2.Text = "Nama"
-        Me.LayoutControlItem2.TextLocation = DevExpress.Utils.Locations.Top
-        Me.LayoutControlItem2.TextSize = New System.Drawing.Size(56, 13)
-        '
-        'textEdit1
-        '
-        Me.textEdit1.Location = New System.Drawing.Point(12, 246)
-        Me.textEdit1.Name = "textEdit1"
-        Me.textEdit1.Size = New System.Drawing.Size(300, 20)
-        Me.textEdit1.StyleController = Me.dataLayoutControl1
-        Me.textEdit1.TabIndex = 4
-        '
-        'textEdit2
-        '
-        Me.textEdit2.Location = New System.Drawing.Point(12, 286)
-        Me.textEdit2.Name = "textEdit2"
-        Me.textEdit2.Size = New System.Drawing.Size(300, 20)
-        Me.textEdit2.StyleController = Me.dataLayoutControl1
-        Me.textEdit2.TabIndex = 5
-        '
-        'textEdit3
-        '
-        Me.textEdit3.Location = New System.Drawing.Point(12, 326)
-        Me.textEdit3.Name = "textEdit3"
-        Me.textEdit3.Properties.Mask.EditMask = "[a-zA-Z]+"
-        Me.textEdit3.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx
-        Me.textEdit3.Size = New System.Drawing.Size(300, 20)
-        Me.textEdit3.StyleController = Me.dataLayoutControl1
-        Me.textEdit3.TabIndex = 6
-        '
         'LayoutControlItem4
         '
-        Me.LayoutControlItem4.Control = Me.textEdit1
+        Me.LayoutControlItem4.Control = Me.txtAlamat
         Me.LayoutControlItem4.CustomizationFormText = "Address line 1:"
         Me.LayoutControlItem4.Location = New System.Drawing.Point(0, 218)
         Me.LayoutControlItem4.MaxSize = New System.Drawing.Size(404, 0)
@@ -306,7 +297,7 @@ Partial Public Class FormKaryawan
         '
         'LayoutControlItem5
         '
-        Me.LayoutControlItem5.Control = Me.textEdit2
+        Me.LayoutControlItem5.Control = Me.txtAlamat2
         Me.LayoutControlItem5.CustomizationFormText = "Address line 2:"
         Me.LayoutControlItem5.Location = New System.Drawing.Point(0, 258)
         Me.LayoutControlItem5.MaxSize = New System.Drawing.Size(404, 0)
@@ -320,7 +311,7 @@ Partial Public Class FormKaryawan
         '
         'LayoutControlItem7
         '
-        Me.LayoutControlItem7.Control = Me.textEdit3
+        Me.LayoutControlItem7.Control = Me.txtHP
         Me.LayoutControlItem7.CustomizationFormText = "City:"
         Me.LayoutControlItem7.Location = New System.Drawing.Point(0, 298)
         Me.LayoutControlItem7.MaxSize = New System.Drawing.Size(404, 0)
@@ -332,24 +323,38 @@ Partial Public Class FormKaryawan
         Me.LayoutControlItem7.TextLocation = DevExpress.Utils.Locations.Top
         Me.LayoutControlItem7.TextSize = New System.Drawing.Size(56, 13)
         '
-        'MemoEdit1
+        'LayoutControlItem6
         '
-        Me.MemoEdit1.Location = New System.Drawing.Point(12, 148)
-        Me.MemoEdit1.MenuManager = Me.mainRibbonControl
-        Me.MemoEdit1.Name = "MemoEdit1"
-        Me.MemoEdit1.Size = New System.Drawing.Size(300, 78)
-        Me.MemoEdit1.StyleController = Me.dataLayoutControl1
-        Me.MemoEdit1.TabIndex = 10
+        Me.LayoutControlItem6.Control = Me.ckIsActive
+        Me.LayoutControlItem6.Location = New System.Drawing.Point(0, 338)
+        Me.LayoutControlItem6.Name = "LayoutControlItem6"
+        Me.LayoutControlItem6.Size = New System.Drawing.Size(304, 23)
+        Me.LayoutControlItem6.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem6.TextVisible = False
         '
         'LayoutControlItem8
         '
-        Me.LayoutControlItem8.Control = Me.MemoEdit1
+        Me.LayoutControlItem8.Control = Me.txtKeterangan
         Me.LayoutControlItem8.Location = New System.Drawing.Point(0, 120)
         Me.LayoutControlItem8.Name = "LayoutControlItem8"
         Me.LayoutControlItem8.Size = New System.Drawing.Size(304, 98)
         Me.LayoutControlItem8.Text = "Keterangan"
         Me.LayoutControlItem8.TextLocation = DevExpress.Utils.Locations.Top
         Me.LayoutControlItem8.TextSize = New System.Drawing.Size(56, 13)
+        '
+        'LayoutControlItem2
+        '
+        Me.LayoutControlItem2.Control = Me.txtNama
+        Me.LayoutControlItem2.Location = New System.Drawing.Point(0, 40)
+        Me.LayoutControlItem2.Name = "LayoutControlItem2"
+        Me.LayoutControlItem2.Size = New System.Drawing.Size(304, 40)
+        Me.LayoutControlItem2.Text = "Nama"
+        Me.LayoutControlItem2.TextLocation = DevExpress.Utils.Locations.Top
+        Me.LayoutControlItem2.TextSize = New System.Drawing.Size(56, 13)
+        '
+        'DxErrorProvider1
+        '
+        Me.DxErrorProvider1.ContainerControl = Me
         '
         'FormKaryawan
         '
@@ -365,25 +370,26 @@ Partial Public Class FormKaryawan
         Me.Text = "Karyawan"
         CType(Me.dataLayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.dataLayoutControl1.ResumeLayout(False)
-        CType(Me.ckIsActive.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtKeterangan.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.mainRibbonControl, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ckIsActive.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtAlias.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtNama.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtKode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtAlamat.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtAlamat2.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtHP.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.layoutControlGroup1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.layoutControlGroup2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlItem6, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.textEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.textEdit2.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.textEdit3.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem7, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.MemoEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem8, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DxErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -410,12 +416,13 @@ Partial Public Class FormKaryawan
     Friend WithEvents LayoutControlItem3 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents ckIsActive As DevExpress.XtraEditors.CheckEdit
     Friend WithEvents LayoutControlItem6 As DevExpress.XtraLayout.LayoutControlItem
-    Friend WithEvents textEdit1 As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents textEdit2 As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents textEdit3 As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents txtAlamat As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents txtAlamat2 As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents txtHP As DevExpress.XtraEditors.TextEdit
     Friend WithEvents LayoutControlItem4 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents LayoutControlItem5 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents LayoutControlItem7 As DevExpress.XtraLayout.LayoutControlItem
-    Friend WithEvents MemoEdit1 As DevExpress.XtraEditors.MemoEdit
+    Friend WithEvents txtKeterangan As DevExpress.XtraEditors.MemoEdit
     Friend WithEvents LayoutControlItem8 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents DxErrorProvider1 As DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider
 End Class

@@ -64,6 +64,18 @@ Partial Friend NotInheritable Class Settings
             Me("KeyPass") = value
         End Set
     End Property
+    
+    <Global.System.Configuration.UserScopedSettingAttribute(),  _
+     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+    Public Property ApplicationSkinName() As String
+        Get
+            Return CType(Me("ApplicationSkinName"),String)
+        End Get
+        Set
+            Me("ApplicationSkinName") = value
+        End Set
+    End Property
 End Class
 
 Namespace My

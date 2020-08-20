@@ -1,13 +1,18 @@
-﻿Imports DevExpress.XtraBars.Docking2010.Views.Tabbed
+﻿Imports DevExpress.LookAndFeel
+Imports DevExpress.XtraBars.Docking2010.Views.Tabbed
 Imports System.Linq
 
 Public Class FormMain
     Private Sub FormMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        UserLookAndFeel.Default.SkinName = My.Settings.ApplicationSkinName
         'Set User Info
         BarStaticItemUsername.Caption = Username
         BarStaticIP.Caption = "Online On : " & Utils.GetLocalIP()
         ShowMenuByUserRole(IDRoleUser)
         Query.GetApplicationSetting()
+        BarStaticItem1.Caption = "Server : " & Ini.BacaIni("Application", "Server", "-")
+        BarStaticItem2.Caption = "Database : " & Ini.BacaIni("Application", "Database", "-")
     End Sub
 
     Sub ShowMenuByUserRole(ByVal _IDRole As Integer)
@@ -213,6 +218,7 @@ Public Class FormMain
         Dim f As New FormSettingDatabase
         If f.ShowDialog() = DialogResult.OK Then
             DevExpress.XtraEditors.XtraMessageBox.Show(Me, "Setting behasil di perbarui", NamaAplikasi)
+            Me.FormMain_Load(sender, e)
         End If
     End Sub
     Private TabColor() As Color = {Color.FromArgb(35, 83, 194), Color.FromArgb(64, 168, 19), Color.FromArgb(245, 121, 10), Color.FromArgb(141, 62, 168), Color.FromArgb(70, 155, 183), Color.FromArgb(196, 19, 19)}
@@ -315,6 +321,8 @@ Public Class FormMain
     End Sub
 
     Private Sub FormMain_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
+        My.Settings.ApplicationSkinName = UserLookAndFeel.Default.SkinName
+        My.Settings.Save()
         Application.Exit()
     End Sub
 
@@ -347,5 +355,9 @@ Public Class FormMain
             f.TopMost = True
             f.ShowDialog(Me)
         End Using
+    End Sub
+
+    Private Sub BarCheckItem1_CheckedChanged(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarCheckItem1.CheckedChanged
+        IsEditReport = BarCheckItem1.Checked
     End Sub
 End Class

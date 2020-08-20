@@ -1,5 +1,6 @@
 Imports System.Globalization
 Imports System.Threading
+Imports DevExpress.LookAndFeel
 
 Public Class LoginForm
 
@@ -52,5 +53,7 @@ Public Class LoginForm
         'Dim info As CultureInfo = TryCast(Thread.CurrentThread.CurrentCulture.Clone(), CultureInfo)
         'info.NumberFormat.NumberGroupSeparator = ","
         Application.CurrentCulture = culture
+
+        UserLookAndFeel.Default.SkinName = My.Settings.ApplicationSkinName
     End Sub
 End Class

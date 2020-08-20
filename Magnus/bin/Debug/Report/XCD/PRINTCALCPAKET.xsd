@@ -1,0 +1,27 @@
+<?xml version="1.0" standalone="yes"?>
+<xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Table" msdata:CaseSensitive="False" msdata:Locale="en-US">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="No" type="xs:int" minOccurs="0" />
+              <xs:element name="Dokumen" type="xs:string" minOccurs="0" />
+              <xs:element name="Tgl" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Customer_Minta_Bikin_Jadinya_Line" type="xs:int" minOccurs="0" />
+              <xs:element name="Qty_Order_Customer_Pcs" type="xs:int" minOccurs="0" />
+              <xs:element name="Isi_Roll" type="xs:int" minOccurs="0" />
+              <xs:element name="Lebar" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Tinggi" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Pisau_Yang_Digunakan" type="xs:int" minOccurs="0" />
+              <xs:element name="Dibulatkan" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Lebar_Ribbon" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Panjang_Ribbon" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

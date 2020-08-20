@@ -115,10 +115,10 @@ Partial Public Class FormUser
             If Not ds Is Nothing Then
                 With ds.Tables(0).Rows(0)
                     txtAlias.Text = .Item("Alias").ToString
-                    txtPwd.Text = .Item("Password").ToString
-                    cbRoleUser.EditValue = CInt(.Item("IDRoleUser"))
-                    ckIsActive.Checked = CBool(.Item("IsActive"))
-                    ckIsSupervisor.Checked = CBool(.Item("IsSupervisor"))
+                    txtPwd.Text = AES_Decrypt(.Item("Password").ToString)
+                    cbRoleUser.EditValue = Utils.ObjToInt(.Item("IDRoleUser"))
+                    ckIsActive.Checked = Utils.ObjToBool(.Item("IsActive"))
+                    ckIsSupervisor.Checked = Utils.ObjToBool(.Item("IsSupervisor"))
                 End With
                 ds.Dispose()
             End If
@@ -204,10 +204,10 @@ Partial Public Class FormUser
             Try
 
                 If _IsNew Then
-                    sql = "Insert Into MUser (Username,Alias,Password,IsActive,IDRoleUser,IsSupervisor) " & vbCrLf &
+                    sql = "Insert Into MUser (Username,Alias,Password,IDRoleUser,IsActive,IsSupervisor) " & vbCrLf &
                           " Values ('" & txtUser.Text.Trim & "'," & vbCrLf &
                             " '" & txtAlias.Text.Trim & "'," & vbCrLf &
-                            " '" & AES_Encrypt(txtUser.Text.Trim) & "'," & vbCrLf &
+                            " '" & AES_Encrypt(txtPwd.Text.Trim) & "'," & vbCrLf &
                             Utils.ObjToInt(cbRoleUser.EditValue) & "," & vbCrLf &
                             Utils.ObjToBit(ckIsActive.Checked) & "," & vbCrLf &
                             Utils.ObjToBit(ckIsSupervisor.Checked) & ")"
@@ -215,7 +215,7 @@ Partial Public Class FormUser
                 Else
                     sql = "Update MUser Set " & vbCrLf &
                             " Alias ='" & txtAlias.Text.Trim & "',  " & vbCrLf &
-                            " Password ='" & AES_Encrypt(txtUser.Text.Trim) & "', " & vbCrLf &
+                            " Password ='" & AES_Encrypt(txtPwd.Text.Trim) & "', " & vbCrLf &
                             " IsActive= " & Utils.ObjToBit(ckIsActive.Checked) & ", " & vbCrLf &
                             " IsSupervisor= " & Utils.ObjToBit(ckIsSupervisor.Checked) & ", " & vbCrLf &
                             " IDRoleUser =" & Utils.ObjToInt(cbRoleUser.EditValue) & vbCrLf &

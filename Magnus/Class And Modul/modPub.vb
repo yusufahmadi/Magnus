@@ -1,4 +1,5 @@
-﻿Imports System.IO
+﻿Imports System.Data.SqlClient
+Imports System.IO
 Imports System.Security.Cryptography
 Public Module modPub
     Public Function conStr(Optional ByVal strCon As String = "") As String '= "Server=(local);Database=Magnus;User Id=sa;Password=Sg1;"
@@ -86,4 +87,7 @@ Public Module modPub
             Return input 'If decryption fails, return the unaltered input.
         End Try
     End Function
+
+
+
 End Module

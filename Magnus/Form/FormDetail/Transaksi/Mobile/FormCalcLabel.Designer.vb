@@ -95,7 +95,6 @@ Partial Public Class FormCalcLabel
         Me.LayoutControlItem16 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem26 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem27 = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.layoutControlGroup2 = New DevExpress.XtraLayout.LayoutControlGroup()
         Me.TabbedControlGroupProfit = New DevExpress.XtraLayout.TabbedControlGroup()
         Me.LayoutControlGroup6 = New DevExpress.XtraLayout.LayoutControlGroup()
         Me.LayoutControlItem25 = New DevExpress.XtraLayout.LayoutControlItem()
@@ -179,7 +178,6 @@ Partial Public Class FormCalcLabel
         CType(Me.LayoutControlItem16, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem26, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem27, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.layoutControlGroup2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TabbedControlGroupProfit, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlGroup6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem25, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -240,11 +238,11 @@ Partial Public Class FormCalcLabel
         Me.dataLayoutControl1.Controls.Add(Me.textView200Persen)
         Me.dataLayoutControl1.Controls.Add(Me.textView225Persen)
         Me.dataLayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dataLayoutControl1.Location = New System.Drawing.Point(0, 146)
+        Me.dataLayoutControl1.Location = New System.Drawing.Point(0, 83)
         Me.dataLayoutControl1.Name = "dataLayoutControl1"
         Me.dataLayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(558, 176, 450, 400)
         Me.dataLayoutControl1.Root = Me.layoutControlGroup1
-        Me.dataLayoutControl1.Size = New System.Drawing.Size(403, 678)
+        Me.dataLayoutControl1.Size = New System.Drawing.Size(522, 650)
         Me.dataLayoutControl1.TabIndex = 0
         '
         'txtTanggal
@@ -259,7 +257,7 @@ Partial Public Class FormCalcLabel
         Me.txtTanggal.Properties.Mask.EditMask = "dd-MMM-yyyy"
         Me.txtTanggal.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret
         Me.txtTanggal.Properties.MinValue = New Date(2020, 1, 1, 0, 0, 0, 0)
-        Me.txtTanggal.Size = New System.Drawing.Size(109, 20)
+        Me.txtTanggal.Size = New System.Drawing.Size(137, 20)
         Me.txtTanggal.StyleController = Me.dataLayoutControl1
         Me.txtTanggal.TabIndex = 13
         '
@@ -271,9 +269,9 @@ Partial Public Class FormCalcLabel
         Me.mainRibbonControl.MaxItemId = 10
         Me.mainRibbonControl.Name = "mainRibbonControl"
         Me.mainRibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.mainRibbonPage})
-        Me.mainRibbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013
+        Me.mainRibbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.OfficeUniversal
         Me.mainRibbonControl.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.[False]
-        Me.mainRibbonControl.Size = New System.Drawing.Size(403, 146)
+        Me.mainRibbonControl.Size = New System.Drawing.Size(522, 83)
         Me.mainRibbonControl.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden
         '
         'bbiSave
@@ -321,6 +319,7 @@ Partial Public Class FormCalcLabel
         'mainRibbonPage
         '
         Me.mainRibbonPage.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.mainRibbonPageGroup})
+        Me.mainRibbonPage.ImageAlign = DevExpress.Utils.HorzAlignment.Center
         Me.mainRibbonPage.MergeOrder = 0
         Me.mainRibbonPage.Name = "mainRibbonPage"
         Me.mainRibbonPage.Text = "Action"
@@ -346,13 +345,13 @@ Partial Public Class FormCalcLabel
         Me.editTextLebar.Properties.Mask.EditMask = "n2"
         Me.editTextLebar.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.editTextLebar.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.editTextLebar.Size = New System.Drawing.Size(140, 20)
+        Me.editTextLebar.Size = New System.Drawing.Size(121, 20)
         Me.editTextLebar.StyleController = Me.dataLayoutControl1
         Me.editTextLebar.TabIndex = 12
         '
         'editTextHargaModal
         '
-        Me.editTextHargaModal.Location = New System.Drawing.Point(168, 99)
+        Me.editTextHargaModal.Location = New System.Drawing.Point(149, 99)
         Me.editTextHargaModal.MenuManager = Me.mainRibbonControl
         Me.editTextHargaModal.Name = "editTextHargaModal"
         Me.editTextHargaModal.Properties.DisplayFormat.FormatString = "n2"
@@ -361,7 +360,7 @@ Partial Public Class FormCalcLabel
         Me.editTextHargaModal.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.editTextHargaModal.Properties.Mask.UseMaskAsDisplayFormat = True
         Me.editTextHargaModal.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.editTextHargaModal.Size = New System.Drawing.Size(211, 20)
+        Me.editTextHargaModal.Size = New System.Drawing.Size(349, 20)
         Me.editTextHargaModal.StyleController = Me.dataLayoutControl1
         Me.editTextHargaModal.TabIndex = 11
         '
@@ -374,7 +373,7 @@ Partial Public Class FormCalcLabel
         Me.txtIDBahan.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.txtIDBahan.Properties.NullText = ""
         Me.txtIDBahan.Properties.View = Me.SearchLookUpEdit1View
-        Me.txtIDBahan.Size = New System.Drawing.Size(140, 20)
+        Me.txtIDBahan.Size = New System.Drawing.Size(121, 20)
         Me.txtIDBahan.StyleController = Me.dataLayoutControl1
         Me.txtIDBahan.TabIndex = 10
         '
@@ -387,18 +386,18 @@ Partial Public Class FormCalcLabel
         '
         'editTextLebarBahanBelanja
         '
-        Me.editTextLebarBahanBelanja.Location = New System.Drawing.Point(24, 219)
+        Me.editTextLebarBahanBelanja.Location = New System.Drawing.Point(24, 179)
         Me.editTextLebarBahanBelanja.MenuManager = Me.mainRibbonControl
         Me.editTextLebarBahanBelanja.Name = "editTextLebarBahanBelanja"
         Me.editTextLebarBahanBelanja.Properties.ReadOnly = True
         Me.editTextLebarBahanBelanja.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.editTextLebarBahanBelanja.Size = New System.Drawing.Size(140, 20)
+        Me.editTextLebarBahanBelanja.Size = New System.Drawing.Size(239, 20)
         Me.editTextLebarBahanBelanja.StyleController = Me.dataLayoutControl1
         Me.editTextLebarBahanBelanja.TabIndex = 6
         '
         'editText1RollPcs
         '
-        Me.editText1RollPcs.Location = New System.Drawing.Point(168, 219)
+        Me.editText1RollPcs.Location = New System.Drawing.Point(267, 179)
         Me.editText1RollPcs.MenuManager = Me.mainRibbonControl
         Me.editText1RollPcs.Name = "editText1RollPcs"
         Me.editText1RollPcs.Properties.DisplayFormat.FormatString = "n2"
@@ -406,71 +405,71 @@ Partial Public Class FormCalcLabel
         Me.editText1RollPcs.Properties.Mask.UseMaskAsDisplayFormat = True
         Me.editText1RollPcs.Properties.ReadOnly = True
         Me.editText1RollPcs.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.editText1RollPcs.Size = New System.Drawing.Size(211, 20)
+        Me.editText1RollPcs.Size = New System.Drawing.Size(231, 20)
         Me.editText1RollPcs.StyleController = Me.dataLayoutControl1
         Me.editText1RollPcs.TabIndex = 5
         '
         'editTextPisau
         '
-        Me.editTextPisau.Location = New System.Drawing.Point(168, 179)
+        Me.editTextPisau.Location = New System.Drawing.Point(385, 139)
         Me.editTextPisau.MenuManager = Me.mainRibbonControl
         Me.editTextPisau.Name = "editTextPisau"
         Me.editTextPisau.Properties.Mask.EditMask = "n0"
         Me.editTextPisau.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.editTextPisau.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.editTextPisau.Size = New System.Drawing.Size(211, 20)
+        Me.editTextPisau.Size = New System.Drawing.Size(113, 20)
         Me.editTextPisau.StyleController = Me.dataLayoutControl1
         Me.editTextPisau.TabIndex = 4
         '
         'editTextTinggi
         '
-        Me.editTextTinggi.Location = New System.Drawing.Point(168, 139)
+        Me.editTextTinggi.Location = New System.Drawing.Point(149, 139)
         Me.editTextTinggi.Name = "editTextTinggi"
         Me.editTextTinggi.Properties.Mask.EditMask = "n2"
         Me.editTextTinggi.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.editTextTinggi.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.editTextTinggi.Size = New System.Drawing.Size(211, 20)
+        Me.editTextTinggi.Size = New System.Drawing.Size(114, 20)
         Me.editTextTinggi.StyleController = Me.dataLayoutControl1
         Me.editTextTinggi.TabIndex = 12
         '
         'editTextGap
         '
-        Me.editTextGap.Location = New System.Drawing.Point(24, 179)
+        Me.editTextGap.Location = New System.Drawing.Point(267, 139)
         Me.editTextGap.Name = "editTextGap"
         Me.editTextGap.Properties.Mask.EditMask = "n2"
         Me.editTextGap.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.editTextGap.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.editTextGap.Size = New System.Drawing.Size(140, 20)
+        Me.editTextGap.Size = New System.Drawing.Size(114, 20)
         Me.editTextGap.StyleController = Me.dataLayoutControl1
         Me.editTextGap.TabIndex = 12
         '
         'editTextQtyOrderPcs
         '
-        Me.editTextQtyOrderPcs.Location = New System.Drawing.Point(24, 304)
+        Me.editTextQtyOrderPcs.Location = New System.Drawing.Point(24, 262)
         Me.editTextQtyOrderPcs.Name = "editTextQtyOrderPcs"
         Me.editTextQtyOrderPcs.Properties.Mask.EditMask = "n0"
         Me.editTextQtyOrderPcs.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.editTextQtyOrderPcs.Properties.Mask.UseMaskAsDisplayFormat = True
         Me.editTextQtyOrderPcs.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.editTextQtyOrderPcs.Size = New System.Drawing.Size(140, 20)
+        Me.editTextQtyOrderPcs.Size = New System.Drawing.Size(219, 20)
         Me.editTextQtyOrderPcs.StyleController = Me.dataLayoutControl1
         Me.editTextQtyOrderPcs.TabIndex = 4
         '
         'editTextPembulatanRoll
         '
-        Me.editTextPembulatanRoll.Location = New System.Drawing.Point(168, 304)
+        Me.editTextPembulatanRoll.Location = New System.Drawing.Point(247, 262)
         Me.editTextPembulatanRoll.Name = "editTextPembulatanRoll"
         Me.editTextPembulatanRoll.Properties.Mask.EditMask = "n2"
         Me.editTextPembulatanRoll.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.editTextPembulatanRoll.Properties.Mask.UseMaskAsDisplayFormat = True
         Me.editTextPembulatanRoll.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.editTextPembulatanRoll.Size = New System.Drawing.Size(211, 20)
+        Me.editTextPembulatanRoll.Size = New System.Drawing.Size(251, 20)
         Me.editTextPembulatanRoll.StyleController = Me.dataLayoutControl1
         Me.editTextPembulatanRoll.TabIndex = 12
         '
         'editTextKebutuhanRoll
         '
-        Me.editTextKebutuhanRoll.Location = New System.Drawing.Point(24, 344)
+        Me.editTextKebutuhanRoll.Location = New System.Drawing.Point(24, 302)
         Me.editTextKebutuhanRoll.Name = "editTextKebutuhanRoll"
         Me.editTextKebutuhanRoll.Properties.DisplayFormat.FormatString = "n2"
         Me.editTextKebutuhanRoll.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
@@ -479,13 +478,13 @@ Partial Public Class FormCalcLabel
         Me.editTextKebutuhanRoll.Properties.Mask.UseMaskAsDisplayFormat = True
         Me.editTextKebutuhanRoll.Properties.ReadOnly = True
         Me.editTextKebutuhanRoll.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.editTextKebutuhanRoll.Size = New System.Drawing.Size(140, 20)
+        Me.editTextKebutuhanRoll.Size = New System.Drawing.Size(219, 20)
         Me.editTextKebutuhanRoll.StyleController = Me.dataLayoutControl1
         Me.editTextKebutuhanRoll.TabIndex = 12
         '
         'editTextSaranOrderPcs
         '
-        Me.editTextSaranOrderPcs.Location = New System.Drawing.Point(168, 344)
+        Me.editTextSaranOrderPcs.Location = New System.Drawing.Point(247, 302)
         Me.editTextSaranOrderPcs.Name = "editTextSaranOrderPcs"
         Me.editTextSaranOrderPcs.Properties.DisplayFormat.FormatString = "n2"
         Me.editTextSaranOrderPcs.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
@@ -494,282 +493,282 @@ Partial Public Class FormCalcLabel
         Me.editTextSaranOrderPcs.Properties.Mask.UseMaskAsDisplayFormat = True
         Me.editTextSaranOrderPcs.Properties.ReadOnly = True
         Me.editTextSaranOrderPcs.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.editTextSaranOrderPcs.Size = New System.Drawing.Size(211, 20)
+        Me.editTextSaranOrderPcs.Size = New System.Drawing.Size(251, 20)
         Me.editTextSaranOrderPcs.StyleController = Me.dataLayoutControl1
         Me.editTextSaranOrderPcs.TabIndex = 12
         '
         'editTextBiayaPisau
         '
-        Me.editTextBiayaPisau.Location = New System.Drawing.Point(24, 427)
+        Me.editTextBiayaPisau.Location = New System.Drawing.Point(24, 385)
         Me.editTextBiayaPisau.Name = "editTextBiayaPisau"
         Me.editTextBiayaPisau.Properties.Mask.EditMask = "n0"
         Me.editTextBiayaPisau.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.editTextBiayaPisau.Properties.Mask.UseMaskAsDisplayFormat = True
         Me.editTextBiayaPisau.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.editTextBiayaPisau.Size = New System.Drawing.Size(109, 20)
+        Me.editTextBiayaPisau.Size = New System.Drawing.Size(129, 20)
         Me.editTextBiayaPisau.StyleController = Me.dataLayoutControl1
         Me.editTextBiayaPisau.TabIndex = 12
         '
         'editTextBiayaTinta
         '
-        Me.editTextBiayaTinta.Location = New System.Drawing.Point(137, 427)
+        Me.editTextBiayaTinta.Location = New System.Drawing.Point(157, 385)
         Me.editTextBiayaTinta.Name = "editTextBiayaTinta"
         Me.editTextBiayaTinta.Properties.Mask.EditMask = "n0"
         Me.editTextBiayaTinta.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.editTextBiayaTinta.Properties.Mask.UseMaskAsDisplayFormat = True
         Me.editTextBiayaTinta.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.editTextBiayaTinta.Size = New System.Drawing.Size(109, 20)
+        Me.editTextBiayaTinta.Size = New System.Drawing.Size(138, 20)
         Me.editTextBiayaTinta.StyleController = Me.dataLayoutControl1
         Me.editTextBiayaTinta.TabIndex = 12
         '
         'editTextBiayaOperator
         '
-        Me.editTextBiayaOperator.Location = New System.Drawing.Point(24, 467)
+        Me.editTextBiayaOperator.Location = New System.Drawing.Point(24, 425)
         Me.editTextBiayaOperator.Name = "editTextBiayaOperator"
         Me.editTextBiayaOperator.Properties.Mask.EditMask = "n0"
         Me.editTextBiayaOperator.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.editTextBiayaOperator.Properties.Mask.UseMaskAsDisplayFormat = True
         Me.editTextBiayaOperator.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.editTextBiayaOperator.Size = New System.Drawing.Size(109, 20)
+        Me.editTextBiayaOperator.Size = New System.Drawing.Size(129, 20)
         Me.editTextBiayaOperator.StyleController = Me.dataLayoutControl1
         Me.editTextBiayaOperator.TabIndex = 12
         '
         'editTextBiayaKirim
         '
-        Me.editTextBiayaKirim.Location = New System.Drawing.Point(137, 467)
+        Me.editTextBiayaKirim.Location = New System.Drawing.Point(157, 425)
         Me.editTextBiayaKirim.Name = "editTextBiayaKirim"
         Me.editTextBiayaKirim.Properties.Mask.EditMask = "n0"
         Me.editTextBiayaKirim.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.editTextBiayaKirim.Properties.Mask.UseMaskAsDisplayFormat = True
         Me.editTextBiayaKirim.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.editTextBiayaKirim.Size = New System.Drawing.Size(109, 20)
+        Me.editTextBiayaKirim.Size = New System.Drawing.Size(138, 20)
         Me.editTextBiayaKirim.StyleController = Me.dataLayoutControl1
         Me.editTextBiayaKirim.TabIndex = 12
         '
         'editTextBiayaToyobo
         '
-        Me.editTextBiayaToyobo.Location = New System.Drawing.Point(250, 427)
+        Me.editTextBiayaToyobo.Location = New System.Drawing.Point(299, 385)
         Me.editTextBiayaToyobo.Name = "editTextBiayaToyobo"
         Me.editTextBiayaToyobo.Properties.Mask.EditMask = "n0"
         Me.editTextBiayaToyobo.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.editTextBiayaToyobo.Properties.Mask.UseMaskAsDisplayFormat = True
         Me.editTextBiayaToyobo.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.editTextBiayaToyobo.Size = New System.Drawing.Size(129, 20)
+        Me.editTextBiayaToyobo.Size = New System.Drawing.Size(199, 20)
         Me.editTextBiayaToyobo.StyleController = Me.dataLayoutControl1
         Me.editTextBiayaToyobo.TabIndex = 12
         '
         'editTextBiayaTotal
         '
-        Me.editTextBiayaTotal.Location = New System.Drawing.Point(250, 467)
+        Me.editTextBiayaTotal.Location = New System.Drawing.Point(299, 425)
         Me.editTextBiayaTotal.Name = "editTextBiayaTotal"
         Me.editTextBiayaTotal.Properties.Mask.EditMask = "n0"
         Me.editTextBiayaTotal.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.editTextBiayaTotal.Properties.Mask.UseMaskAsDisplayFormat = True
         Me.editTextBiayaTotal.Properties.ReadOnly = True
         Me.editTextBiayaTotal.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.editTextBiayaTotal.Size = New System.Drawing.Size(129, 20)
+        Me.editTextBiayaTotal.Size = New System.Drawing.Size(199, 20)
         Me.editTextBiayaTotal.StyleController = Me.dataLayoutControl1
         Me.editTextBiayaTotal.TabIndex = 12
         '
         'editTextModalBahanUtuh
         '
-        Me.editTextModalBahanUtuh.Location = New System.Drawing.Point(24, 554)
+        Me.editTextModalBahanUtuh.Location = New System.Drawing.Point(24, 512)
         Me.editTextModalBahanUtuh.Name = "editTextModalBahanUtuh"
         Me.editTextModalBahanUtuh.Properties.Mask.EditMask = "n2"
         Me.editTextModalBahanUtuh.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.editTextModalBahanUtuh.Properties.Mask.UseMaskAsDisplayFormat = True
         Me.editTextModalBahanUtuh.Properties.ReadOnly = True
         Me.editTextModalBahanUtuh.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.editTextModalBahanUtuh.Size = New System.Drawing.Size(151, 20)
+        Me.editTextModalBahanUtuh.Size = New System.Drawing.Size(207, 20)
         Me.editTextModalBahanUtuh.StyleController = Me.dataLayoutControl1
         Me.editTextModalBahanUtuh.TabIndex = 12
         '
         'editTextModalPerPcs
         '
-        Me.editTextModalPerPcs.Location = New System.Drawing.Point(179, 554)
+        Me.editTextModalPerPcs.Location = New System.Drawing.Point(235, 512)
         Me.editTextModalPerPcs.Name = "editTextModalPerPcs"
         Me.editTextModalPerPcs.Properties.Mask.EditMask = "n2"
         Me.editTextModalPerPcs.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.editTextModalPerPcs.Properties.Mask.UseMaskAsDisplayFormat = True
         Me.editTextModalPerPcs.Properties.ReadOnly = True
         Me.editTextModalPerPcs.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.editTextModalPerPcs.Size = New System.Drawing.Size(200, 20)
+        Me.editTextModalPerPcs.Size = New System.Drawing.Size(263, 20)
         Me.editTextModalPerPcs.StyleController = Me.dataLayoutControl1
         Me.editTextModalPerPcs.TabIndex = 12
         '
         'editTextJualSesuaiOrder
         '
-        Me.editTextJualSesuaiOrder.Location = New System.Drawing.Point(24, 594)
+        Me.editTextJualSesuaiOrder.Location = New System.Drawing.Point(24, 552)
         Me.editTextJualSesuaiOrder.Name = "editTextJualSesuaiOrder"
         Me.editTextJualSesuaiOrder.Properties.Mask.EditMask = "n2"
         Me.editTextJualSesuaiOrder.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.editTextJualSesuaiOrder.Properties.Mask.UseMaskAsDisplayFormat = True
         Me.editTextJualSesuaiOrder.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.editTextJualSesuaiOrder.Size = New System.Drawing.Size(151, 20)
+        Me.editTextJualSesuaiOrder.Size = New System.Drawing.Size(207, 20)
         Me.editTextJualSesuaiOrder.StyleController = Me.dataLayoutControl1
         Me.editTextJualSesuaiOrder.TabIndex = 12
         '
         'editTextProfit1
         '
-        Me.editTextProfit1.Location = New System.Drawing.Point(179, 594)
+        Me.editTextProfit1.Location = New System.Drawing.Point(235, 552)
         Me.editTextProfit1.Name = "editTextProfit1"
         Me.editTextProfit1.Properties.Mask.EditMask = "n2"
         Me.editTextProfit1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.editTextProfit1.Properties.Mask.UseMaskAsDisplayFormat = True
         Me.editTextProfit1.Properties.ReadOnly = True
         Me.editTextProfit1.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.editTextProfit1.Size = New System.Drawing.Size(200, 20)
+        Me.editTextProfit1.Size = New System.Drawing.Size(263, 20)
         Me.editTextProfit1.StyleController = Me.dataLayoutControl1
         Me.editTextProfit1.TabIndex = 12
         '
         'editTextJualSesuaiSaran
         '
-        Me.editTextJualSesuaiSaran.Location = New System.Drawing.Point(24, 634)
+        Me.editTextJualSesuaiSaran.Location = New System.Drawing.Point(24, 592)
         Me.editTextJualSesuaiSaran.Name = "editTextJualSesuaiSaran"
         Me.editTextJualSesuaiSaran.Properties.Mask.EditMask = "n2"
         Me.editTextJualSesuaiSaran.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.editTextJualSesuaiSaran.Properties.Mask.UseMaskAsDisplayFormat = True
         Me.editTextJualSesuaiSaran.Properties.ReadOnly = True
         Me.editTextJualSesuaiSaran.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.editTextJualSesuaiSaran.Size = New System.Drawing.Size(151, 20)
+        Me.editTextJualSesuaiSaran.Size = New System.Drawing.Size(207, 20)
         Me.editTextJualSesuaiSaran.StyleController = Me.dataLayoutControl1
         Me.editTextJualSesuaiSaran.TabIndex = 12
         '
         'editTextProfit2
         '
-        Me.editTextProfit2.Location = New System.Drawing.Point(179, 634)
+        Me.editTextProfit2.Location = New System.Drawing.Point(235, 592)
         Me.editTextProfit2.Name = "editTextProfit2"
         Me.editTextProfit2.Properties.Mask.EditMask = "n2"
         Me.editTextProfit2.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.editTextProfit2.Properties.Mask.UseMaskAsDisplayFormat = True
         Me.editTextProfit2.Properties.ReadOnly = True
         Me.editTextProfit2.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.editTextProfit2.Size = New System.Drawing.Size(200, 20)
+        Me.editTextProfit2.Size = New System.Drawing.Size(263, 20)
         Me.editTextProfit2.StyleController = Me.dataLayoutControl1
         Me.editTextProfit2.TabIndex = 12
         '
         'txtDocument
         '
-        Me.txtDocument.Location = New System.Drawing.Point(125, 28)
+        Me.txtDocument.Location = New System.Drawing.Point(153, 28)
         Me.txtDocument.Name = "txtDocument"
-        Me.txtDocument.Size = New System.Drawing.Size(266, 20)
+        Me.txtDocument.Size = New System.Drawing.Size(357, 20)
         Me.txtDocument.StyleController = Me.dataLayoutControl1
         Me.txtDocument.TabIndex = 11
         '
         'textView50Persen
         '
-        Me.textView50Persen.Location = New System.Drawing.Point(137, 554)
+        Me.textView50Persen.Location = New System.Drawing.Point(146, 512)
         Me.textView50Persen.Name = "textView50Persen"
         Me.textView50Persen.Properties.Mask.EditMask = "n2"
         Me.textView50Persen.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.textView50Persen.Properties.Mask.UseMaskAsDisplayFormat = True
         Me.textView50Persen.Properties.ReadOnly = True
         Me.textView50Persen.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.textView50Persen.Size = New System.Drawing.Size(109, 20)
+        Me.textView50Persen.Size = New System.Drawing.Size(117, 20)
         Me.textView50Persen.StyleController = Me.dataLayoutControl1
         Me.textView50Persen.TabIndex = 12
         '
         'textView30Persen
         '
-        Me.textView30Persen.Location = New System.Drawing.Point(24, 554)
+        Me.textView30Persen.Location = New System.Drawing.Point(24, 512)
         Me.textView30Persen.Name = "textView30Persen"
         Me.textView30Persen.Properties.Mask.EditMask = "n2"
         Me.textView30Persen.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.textView30Persen.Properties.Mask.UseMaskAsDisplayFormat = True
         Me.textView30Persen.Properties.ReadOnly = True
         Me.textView30Persen.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.textView30Persen.Size = New System.Drawing.Size(109, 20)
+        Me.textView30Persen.Size = New System.Drawing.Size(118, 20)
         Me.textView30Persen.StyleController = Me.dataLayoutControl1
         Me.textView30Persen.TabIndex = 12
         '
         'textView75Persen
         '
-        Me.textView75Persen.Location = New System.Drawing.Point(250, 554)
+        Me.textView75Persen.Location = New System.Drawing.Point(267, 512)
         Me.textView75Persen.Name = "textView75Persen"
         Me.textView75Persen.Properties.Mask.EditMask = "n2"
         Me.textView75Persen.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.textView75Persen.Properties.Mask.UseMaskAsDisplayFormat = True
         Me.textView75Persen.Properties.ReadOnly = True
         Me.textView75Persen.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.textView75Persen.Size = New System.Drawing.Size(129, 20)
+        Me.textView75Persen.Size = New System.Drawing.Size(231, 20)
         Me.textView75Persen.StyleController = Me.dataLayoutControl1
         Me.textView75Persen.TabIndex = 12
         '
         'textView125Persen
         '
-        Me.textView125Persen.Location = New System.Drawing.Point(137, 594)
+        Me.textView125Persen.Location = New System.Drawing.Point(146, 552)
         Me.textView125Persen.Name = "textView125Persen"
         Me.textView125Persen.Properties.Mask.EditMask = "n2"
         Me.textView125Persen.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.textView125Persen.Properties.Mask.UseMaskAsDisplayFormat = True
         Me.textView125Persen.Properties.ReadOnly = True
         Me.textView125Persen.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.textView125Persen.Size = New System.Drawing.Size(109, 20)
+        Me.textView125Persen.Size = New System.Drawing.Size(117, 20)
         Me.textView125Persen.StyleController = Me.dataLayoutControl1
         Me.textView125Persen.TabIndex = 12
         '
         'textView100Persen
         '
-        Me.textView100Persen.Location = New System.Drawing.Point(24, 594)
+        Me.textView100Persen.Location = New System.Drawing.Point(24, 552)
         Me.textView100Persen.Name = "textView100Persen"
         Me.textView100Persen.Properties.Mask.EditMask = "n2"
         Me.textView100Persen.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.textView100Persen.Properties.Mask.UseMaskAsDisplayFormat = True
         Me.textView100Persen.Properties.ReadOnly = True
         Me.textView100Persen.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.textView100Persen.Size = New System.Drawing.Size(109, 20)
+        Me.textView100Persen.Size = New System.Drawing.Size(118, 20)
         Me.textView100Persen.StyleController = Me.dataLayoutControl1
         Me.textView100Persen.TabIndex = 12
         '
         'textView150Persen
         '
-        Me.textView150Persen.Location = New System.Drawing.Point(250, 594)
+        Me.textView150Persen.Location = New System.Drawing.Point(267, 552)
         Me.textView150Persen.Name = "textView150Persen"
         Me.textView150Persen.Properties.Mask.EditMask = "n2"
         Me.textView150Persen.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.textView150Persen.Properties.Mask.UseMaskAsDisplayFormat = True
         Me.textView150Persen.Properties.ReadOnly = True
         Me.textView150Persen.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.textView150Persen.Size = New System.Drawing.Size(129, 20)
+        Me.textView150Persen.Size = New System.Drawing.Size(231, 20)
         Me.textView150Persen.StyleController = Me.dataLayoutControl1
         Me.textView150Persen.TabIndex = 12
         '
         'textView175Persen
         '
-        Me.textView175Persen.Location = New System.Drawing.Point(24, 634)
+        Me.textView175Persen.Location = New System.Drawing.Point(24, 592)
         Me.textView175Persen.Name = "textView175Persen"
         Me.textView175Persen.Properties.Mask.EditMask = "n2"
         Me.textView175Persen.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.textView175Persen.Properties.Mask.UseMaskAsDisplayFormat = True
         Me.textView175Persen.Properties.ReadOnly = True
         Me.textView175Persen.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.textView175Persen.Size = New System.Drawing.Size(109, 20)
+        Me.textView175Persen.Size = New System.Drawing.Size(118, 20)
         Me.textView175Persen.StyleController = Me.dataLayoutControl1
         Me.textView175Persen.TabIndex = 12
         '
         'textView200Persen
         '
-        Me.textView200Persen.Location = New System.Drawing.Point(137, 634)
+        Me.textView200Persen.Location = New System.Drawing.Point(146, 592)
         Me.textView200Persen.Name = "textView200Persen"
         Me.textView200Persen.Properties.Mask.EditMask = "n2"
         Me.textView200Persen.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.textView200Persen.Properties.Mask.UseMaskAsDisplayFormat = True
         Me.textView200Persen.Properties.ReadOnly = True
         Me.textView200Persen.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.textView200Persen.Size = New System.Drawing.Size(109, 20)
+        Me.textView200Persen.Size = New System.Drawing.Size(117, 20)
         Me.textView200Persen.StyleController = Me.dataLayoutControl1
         Me.textView200Persen.TabIndex = 12
         '
         'textView225Persen
         '
-        Me.textView225Persen.Location = New System.Drawing.Point(250, 634)
+        Me.textView225Persen.Location = New System.Drawing.Point(267, 592)
         Me.textView225Persen.Name = "textView225Persen"
         Me.textView225Persen.Properties.Mask.EditMask = "n2"
         Me.textView225Persen.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.textView225Persen.Properties.Mask.UseMaskAsDisplayFormat = True
         Me.textView225Persen.Properties.ReadOnly = True
         Me.textView225Persen.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.textView225Persen.Size = New System.Drawing.Size(129, 20)
+        Me.textView225Persen.Size = New System.Drawing.Size(231, 20)
         Me.textView225Persen.StyleController = Me.dataLayoutControl1
         Me.textView225Persen.TabIndex = 12
         '
@@ -777,108 +776,108 @@ Partial Public Class FormCalcLabel
         '
         Me.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.layoutControlGroup1.GroupBordersVisible = False
-        Me.layoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlGroup3, Me.LayoutControlGroup4, Me.LayoutControlGroup5, Me.LayoutControlItem26, Me.LayoutControlItem27, Me.layoutControlGroup2, Me.TabbedControlGroupProfit})
+        Me.layoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlGroup3, Me.LayoutControlGroup4, Me.LayoutControlGroup5, Me.LayoutControlItem26, Me.LayoutControlItem27, Me.TabbedControlGroupProfit})
         Me.layoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.layoutControlGroup1.Name = "Root"
-        Me.layoutControlGroup1.Size = New System.Drawing.Size(403, 678)
+        Me.layoutControlGroup1.Size = New System.Drawing.Size(522, 650)
         Me.layoutControlGroup1.TextVisible = False
         '
         'LayoutControlGroup3
         '
-        Me.LayoutControlGroup3.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem8, Me.LayoutControlItem7, Me.LayoutControlItem1, Me.LayoutControlItem3, Me.LayoutControlItem4, Me.LayoutControlItemHargaInc, Me.LayoutControlItem2, Me.LayoutControlItem9})
+        Me.LayoutControlGroup3.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem8, Me.LayoutControlItem7, Me.LayoutControlItem3, Me.LayoutControlItem4, Me.LayoutControlItemHargaInc, Me.LayoutControlItem2, Me.LayoutControlItem9, Me.LayoutControlItem1})
         Me.LayoutControlGroup3.Location = New System.Drawing.Point(0, 40)
         Me.LayoutControlGroup3.Name = "LayoutControlGroup3"
-        Me.LayoutControlGroup3.Size = New System.Drawing.Size(383, 203)
+        Me.LayoutControlGroup3.Size = New System.Drawing.Size(502, 163)
         Me.LayoutControlGroup3.Text = "SETUP LABEL"
         '
         'LayoutControlItem8
         '
         Me.LayoutControlItem8.Control = Me.editTextTinggi
         Me.LayoutControlItem8.CustomizationFormText = "Lebar"
-        Me.LayoutControlItem8.Location = New System.Drawing.Point(144, 40)
+        Me.LayoutControlItem8.Location = New System.Drawing.Point(125, 40)
         Me.LayoutControlItem8.Name = "LayoutControlItem8"
-        Me.LayoutControlItem8.Size = New System.Drawing.Size(215, 40)
+        Me.LayoutControlItem8.Size = New System.Drawing.Size(118, 40)
         Me.LayoutControlItem8.Text = "Tinggi (mm)"
         Me.LayoutControlItem8.TextLocation = DevExpress.Utils.Locations.Top
-        Me.LayoutControlItem8.TextSize = New System.Drawing.Size(109, 13)
+        Me.LayoutControlItem8.TextSize = New System.Drawing.Size(113, 13)
         '
         'LayoutControlItem7
         '
         Me.LayoutControlItem7.Control = Me.editTextLebar
         Me.LayoutControlItem7.Location = New System.Drawing.Point(0, 40)
         Me.LayoutControlItem7.Name = "LayoutControlItem7"
-        Me.LayoutControlItem7.Size = New System.Drawing.Size(144, 40)
+        Me.LayoutControlItem7.Size = New System.Drawing.Size(125, 40)
         Me.LayoutControlItem7.Text = "Lebar (mm)"
         Me.LayoutControlItem7.TextLocation = DevExpress.Utils.Locations.Top
-        Me.LayoutControlItem7.TextSize = New System.Drawing.Size(109, 13)
+        Me.LayoutControlItem7.TextSize = New System.Drawing.Size(113, 13)
         '
         'LayoutControlItem1
         '
         Me.LayoutControlItem1.Control = Me.editTextPisau
-        Me.LayoutControlItem1.Location = New System.Drawing.Point(144, 80)
+        Me.LayoutControlItem1.Location = New System.Drawing.Point(361, 40)
         Me.LayoutControlItem1.Name = "LayoutControlItem1"
-        Me.LayoutControlItem1.Size = New System.Drawing.Size(215, 40)
+        Me.LayoutControlItem1.Size = New System.Drawing.Size(117, 40)
         Me.LayoutControlItem1.Text = "Qty Mata Pisau"
         Me.LayoutControlItem1.TextLocation = DevExpress.Utils.Locations.Top
-        Me.LayoutControlItem1.TextSize = New System.Drawing.Size(109, 13)
+        Me.LayoutControlItem1.TextSize = New System.Drawing.Size(113, 13)
         '
         'LayoutControlItem3
         '
         Me.LayoutControlItem3.Control = Me.editTextLebarBahanBelanja
-        Me.LayoutControlItem3.Location = New System.Drawing.Point(0, 120)
+        Me.LayoutControlItem3.Location = New System.Drawing.Point(0, 80)
         Me.LayoutControlItem3.Name = "LayoutControlItem3"
-        Me.LayoutControlItem3.Size = New System.Drawing.Size(144, 40)
+        Me.LayoutControlItem3.Size = New System.Drawing.Size(243, 40)
         Me.LayoutControlItem3.Text = "Lebar Bahan Belanja"
         Me.LayoutControlItem3.TextLocation = DevExpress.Utils.Locations.Top
-        Me.LayoutControlItem3.TextSize = New System.Drawing.Size(109, 13)
+        Me.LayoutControlItem3.TextSize = New System.Drawing.Size(113, 13)
         '
         'LayoutControlItem4
         '
         Me.LayoutControlItem4.Control = Me.txtIDBahan
         Me.LayoutControlItem4.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlItem4.Name = "LayoutControlItem4"
-        Me.LayoutControlItem4.Size = New System.Drawing.Size(144, 40)
+        Me.LayoutControlItem4.Size = New System.Drawing.Size(125, 40)
         Me.LayoutControlItem4.Text = "Bahan"
         Me.LayoutControlItem4.TextLocation = DevExpress.Utils.Locations.Top
-        Me.LayoutControlItem4.TextSize = New System.Drawing.Size(109, 13)
+        Me.LayoutControlItem4.TextSize = New System.Drawing.Size(113, 13)
         '
         'LayoutControlItemHargaInc
         '
         Me.LayoutControlItemHargaInc.Control = Me.editTextHargaModal
-        Me.LayoutControlItemHargaInc.Location = New System.Drawing.Point(144, 0)
+        Me.LayoutControlItemHargaInc.Location = New System.Drawing.Point(125, 0)
         Me.LayoutControlItemHargaInc.Name = "LayoutControlItemHargaInc"
-        Me.LayoutControlItemHargaInc.Size = New System.Drawing.Size(215, 40)
+        Me.LayoutControlItemHargaInc.Size = New System.Drawing.Size(353, 40)
         Me.LayoutControlItemHargaInc.Text = "Harga Inc"
         Me.LayoutControlItemHargaInc.TextLocation = DevExpress.Utils.Locations.Top
-        Me.LayoutControlItemHargaInc.TextSize = New System.Drawing.Size(109, 13)
+        Me.LayoutControlItemHargaInc.TextSize = New System.Drawing.Size(113, 13)
         '
         'LayoutControlItem2
         '
         Me.LayoutControlItem2.Control = Me.editText1RollPcs
-        Me.LayoutControlItem2.Location = New System.Drawing.Point(144, 120)
+        Me.LayoutControlItem2.Location = New System.Drawing.Point(243, 80)
         Me.LayoutControlItem2.Name = "LayoutControlItem2"
-        Me.LayoutControlItem2.Size = New System.Drawing.Size(215, 40)
+        Me.LayoutControlItem2.Size = New System.Drawing.Size(235, 40)
         Me.LayoutControlItem2.Text = "1 Roll Bahan (Jadi Pcs)"
         Me.LayoutControlItem2.TextLocation = DevExpress.Utils.Locations.Top
-        Me.LayoutControlItem2.TextSize = New System.Drawing.Size(109, 13)
+        Me.LayoutControlItem2.TextSize = New System.Drawing.Size(113, 13)
         '
         'LayoutControlItem9
         '
         Me.LayoutControlItem9.Control = Me.editTextGap
         Me.LayoutControlItem9.CustomizationFormText = "Lebar (mm)"
-        Me.LayoutControlItem9.Location = New System.Drawing.Point(0, 80)
+        Me.LayoutControlItem9.Location = New System.Drawing.Point(243, 40)
         Me.LayoutControlItem9.Name = "LayoutControlItem9"
-        Me.LayoutControlItem9.Size = New System.Drawing.Size(144, 40)
+        Me.LayoutControlItem9.Size = New System.Drawing.Size(118, 40)
         Me.LayoutControlItem9.Text = "Gap (mm)"
         Me.LayoutControlItem9.TextLocation = DevExpress.Utils.Locations.Top
-        Me.LayoutControlItem9.TextSize = New System.Drawing.Size(109, 13)
+        Me.LayoutControlItem9.TextSize = New System.Drawing.Size(113, 13)
         '
         'LayoutControlGroup4
         '
         Me.LayoutControlGroup4.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem10, Me.LayoutControlItem11, Me.LayoutControlItem12, Me.LayoutControlItem13})
-        Me.LayoutControlGroup4.Location = New System.Drawing.Point(0, 245)
+        Me.LayoutControlGroup4.Location = New System.Drawing.Point(0, 203)
         Me.LayoutControlGroup4.Name = "LayoutControlGroup4"
-        Me.LayoutControlGroup4.Size = New System.Drawing.Size(383, 123)
+        Me.LayoutControlGroup4.Size = New System.Drawing.Size(502, 123)
         Me.LayoutControlGroup4.Text = "PO"
         '
         'LayoutControlItem10
@@ -887,21 +886,21 @@ Partial Public Class FormCalcLabel
         Me.LayoutControlItem10.CustomizationFormText = "Qty Mata Pisau"
         Me.LayoutControlItem10.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlItem10.Name = "LayoutControlItem10"
-        Me.LayoutControlItem10.Size = New System.Drawing.Size(144, 40)
+        Me.LayoutControlItem10.Size = New System.Drawing.Size(223, 40)
         Me.LayoutControlItem10.Text = "Qty Order (Pcs)"
         Me.LayoutControlItem10.TextLocation = DevExpress.Utils.Locations.Top
-        Me.LayoutControlItem10.TextSize = New System.Drawing.Size(109, 13)
+        Me.LayoutControlItem10.TextSize = New System.Drawing.Size(113, 13)
         '
         'LayoutControlItem11
         '
         Me.LayoutControlItem11.Control = Me.editTextPembulatanRoll
         Me.LayoutControlItem11.CustomizationFormText = "Lebar (mm)"
-        Me.LayoutControlItem11.Location = New System.Drawing.Point(144, 0)
+        Me.LayoutControlItem11.Location = New System.Drawing.Point(223, 0)
         Me.LayoutControlItem11.Name = "LayoutControlItem11"
-        Me.LayoutControlItem11.Size = New System.Drawing.Size(215, 40)
+        Me.LayoutControlItem11.Size = New System.Drawing.Size(255, 40)
         Me.LayoutControlItem11.Text = "Pembulatan (Roll)"
         Me.LayoutControlItem11.TextLocation = DevExpress.Utils.Locations.Top
-        Me.LayoutControlItem11.TextSize = New System.Drawing.Size(109, 13)
+        Me.LayoutControlItem11.TextSize = New System.Drawing.Size(113, 13)
         '
         'LayoutControlItem12
         '
@@ -909,28 +908,28 @@ Partial Public Class FormCalcLabel
         Me.LayoutControlItem12.CustomizationFormText = "Lebar (mm)"
         Me.LayoutControlItem12.Location = New System.Drawing.Point(0, 40)
         Me.LayoutControlItem12.Name = "LayoutControlItem12"
-        Me.LayoutControlItem12.Size = New System.Drawing.Size(144, 40)
+        Me.LayoutControlItem12.Size = New System.Drawing.Size(223, 40)
         Me.LayoutControlItem12.Text = "Kebutuhan (Roll)"
         Me.LayoutControlItem12.TextLocation = DevExpress.Utils.Locations.Top
-        Me.LayoutControlItem12.TextSize = New System.Drawing.Size(109, 13)
+        Me.LayoutControlItem12.TextSize = New System.Drawing.Size(113, 13)
         '
         'LayoutControlItem13
         '
         Me.LayoutControlItem13.Control = Me.editTextSaranOrderPcs
         Me.LayoutControlItem13.CustomizationFormText = "Lebar (mm)"
-        Me.LayoutControlItem13.Location = New System.Drawing.Point(144, 40)
+        Me.LayoutControlItem13.Location = New System.Drawing.Point(223, 40)
         Me.LayoutControlItem13.Name = "LayoutControlItem13"
-        Me.LayoutControlItem13.Size = New System.Drawing.Size(215, 40)
+        Me.LayoutControlItem13.Size = New System.Drawing.Size(255, 40)
         Me.LayoutControlItem13.Text = "Saran Order (Pcs)"
         Me.LayoutControlItem13.TextLocation = DevExpress.Utils.Locations.Top
-        Me.LayoutControlItem13.TextSize = New System.Drawing.Size(109, 13)
+        Me.LayoutControlItem13.TextSize = New System.Drawing.Size(113, 13)
         '
         'LayoutControlGroup5
         '
         Me.LayoutControlGroup5.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem14, Me.LayoutControlItem15, Me.LayoutControlItem18, Me.LayoutControlItem19, Me.LayoutControlItem17, Me.LayoutControlItem16})
-        Me.LayoutControlGroup5.Location = New System.Drawing.Point(0, 368)
+        Me.LayoutControlGroup5.Location = New System.Drawing.Point(0, 326)
         Me.LayoutControlGroup5.Name = "LayoutControlGroup5"
-        Me.LayoutControlGroup5.Size = New System.Drawing.Size(383, 123)
+        Me.LayoutControlGroup5.Size = New System.Drawing.Size(502, 123)
         Me.LayoutControlGroup5.Text = "BIAYA"
         '
         'LayoutControlItem14
@@ -939,54 +938,54 @@ Partial Public Class FormCalcLabel
         Me.LayoutControlItem14.CustomizationFormText = "Lebar (mm)"
         Me.LayoutControlItem14.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlItem14.Name = "LayoutControlItem14"
-        Me.LayoutControlItem14.Size = New System.Drawing.Size(113, 40)
+        Me.LayoutControlItem14.Size = New System.Drawing.Size(133, 40)
         Me.LayoutControlItem14.Text = "B. Pisau"
         Me.LayoutControlItem14.TextLocation = DevExpress.Utils.Locations.Top
-        Me.LayoutControlItem14.TextSize = New System.Drawing.Size(109, 13)
+        Me.LayoutControlItem14.TextSize = New System.Drawing.Size(113, 13)
         '
         'LayoutControlItem15
         '
         Me.LayoutControlItem15.Control = Me.editTextBiayaTinta
         Me.LayoutControlItem15.CustomizationFormText = "Lebar (mm)"
-        Me.LayoutControlItem15.Location = New System.Drawing.Point(113, 0)
+        Me.LayoutControlItem15.Location = New System.Drawing.Point(133, 0)
         Me.LayoutControlItem15.Name = "LayoutControlItem15"
-        Me.LayoutControlItem15.Size = New System.Drawing.Size(113, 40)
+        Me.LayoutControlItem15.Size = New System.Drawing.Size(142, 40)
         Me.LayoutControlItem15.Text = "B. Tinta"
         Me.LayoutControlItem15.TextLocation = DevExpress.Utils.Locations.Top
-        Me.LayoutControlItem15.TextSize = New System.Drawing.Size(109, 13)
+        Me.LayoutControlItem15.TextSize = New System.Drawing.Size(113, 13)
         '
         'LayoutControlItem18
         '
         Me.LayoutControlItem18.Control = Me.editTextBiayaToyobo
         Me.LayoutControlItem18.CustomizationFormText = "Lebar (mm)"
-        Me.LayoutControlItem18.Location = New System.Drawing.Point(226, 0)
+        Me.LayoutControlItem18.Location = New System.Drawing.Point(275, 0)
         Me.LayoutControlItem18.Name = "LayoutControlItem18"
-        Me.LayoutControlItem18.Size = New System.Drawing.Size(133, 40)
+        Me.LayoutControlItem18.Size = New System.Drawing.Size(203, 40)
         Me.LayoutControlItem18.Text = "B. Toyobo"
         Me.LayoutControlItem18.TextLocation = DevExpress.Utils.Locations.Top
-        Me.LayoutControlItem18.TextSize = New System.Drawing.Size(109, 13)
+        Me.LayoutControlItem18.TextSize = New System.Drawing.Size(113, 13)
         '
         'LayoutControlItem19
         '
         Me.LayoutControlItem19.Control = Me.editTextBiayaTotal
         Me.LayoutControlItem19.CustomizationFormText = "Lebar (mm)"
-        Me.LayoutControlItem19.Location = New System.Drawing.Point(226, 40)
+        Me.LayoutControlItem19.Location = New System.Drawing.Point(275, 40)
         Me.LayoutControlItem19.Name = "LayoutControlItem19"
-        Me.LayoutControlItem19.Size = New System.Drawing.Size(133, 40)
+        Me.LayoutControlItem19.Size = New System.Drawing.Size(203, 40)
         Me.LayoutControlItem19.Text = "Total"
         Me.LayoutControlItem19.TextLocation = DevExpress.Utils.Locations.Top
-        Me.LayoutControlItem19.TextSize = New System.Drawing.Size(109, 13)
+        Me.LayoutControlItem19.TextSize = New System.Drawing.Size(113, 13)
         '
         'LayoutControlItem17
         '
         Me.LayoutControlItem17.Control = Me.editTextBiayaKirim
         Me.LayoutControlItem17.CustomizationFormText = "Lebar (mm)"
-        Me.LayoutControlItem17.Location = New System.Drawing.Point(113, 40)
+        Me.LayoutControlItem17.Location = New System.Drawing.Point(133, 40)
         Me.LayoutControlItem17.Name = "LayoutControlItem17"
-        Me.LayoutControlItem17.Size = New System.Drawing.Size(113, 40)
+        Me.LayoutControlItem17.Size = New System.Drawing.Size(142, 40)
         Me.LayoutControlItem17.Text = "B. Kirim"
         Me.LayoutControlItem17.TextLocation = DevExpress.Utils.Locations.Top
-        Me.LayoutControlItem17.TextSize = New System.Drawing.Size(109, 13)
+        Me.LayoutControlItem17.TextSize = New System.Drawing.Size(113, 13)
         '
         'LayoutControlItem16
         '
@@ -994,47 +993,39 @@ Partial Public Class FormCalcLabel
         Me.LayoutControlItem16.CustomizationFormText = "Lebar (mm)"
         Me.LayoutControlItem16.Location = New System.Drawing.Point(0, 40)
         Me.LayoutControlItem16.Name = "LayoutControlItem16"
-        Me.LayoutControlItem16.Size = New System.Drawing.Size(113, 40)
+        Me.LayoutControlItem16.Size = New System.Drawing.Size(133, 40)
         Me.LayoutControlItem16.Text = "B. Wantu x Operator"
         Me.LayoutControlItem16.TextLocation = DevExpress.Utils.Locations.Top
-        Me.LayoutControlItem16.TextSize = New System.Drawing.Size(109, 13)
+        Me.LayoutControlItem16.TextSize = New System.Drawing.Size(113, 13)
         '
         'LayoutControlItem26
         '
         Me.LayoutControlItem26.Control = Me.txtDocument
         Me.LayoutControlItem26.CustomizationFormText = "Harga Inc"
-        Me.LayoutControlItem26.Location = New System.Drawing.Point(113, 0)
+        Me.LayoutControlItem26.Location = New System.Drawing.Point(141, 0)
         Me.LayoutControlItem26.Name = "LayoutControlItem26"
-        Me.LayoutControlItem26.Size = New System.Drawing.Size(270, 40)
-        Me.LayoutControlItem26.Text = "No Dokumen / Catatan"
+        Me.LayoutControlItem26.Size = New System.Drawing.Size(361, 40)
+        Me.LayoutControlItem26.Text = "No Document / Catatan"
         Me.LayoutControlItem26.TextLocation = DevExpress.Utils.Locations.Top
-        Me.LayoutControlItem26.TextSize = New System.Drawing.Size(109, 13)
+        Me.LayoutControlItem26.TextSize = New System.Drawing.Size(113, 13)
         '
         'LayoutControlItem27
         '
         Me.LayoutControlItem27.Control = Me.txtTanggal
         Me.LayoutControlItem27.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlItem27.Name = "LayoutControlItem27"
-        Me.LayoutControlItem27.Size = New System.Drawing.Size(113, 40)
+        Me.LayoutControlItem27.Size = New System.Drawing.Size(141, 40)
         Me.LayoutControlItem27.Text = "Tanggal"
         Me.LayoutControlItem27.TextLocation = DevExpress.Utils.Locations.Top
-        Me.LayoutControlItem27.TextSize = New System.Drawing.Size(109, 13)
-        '
-        'layoutControlGroup2
-        '
-        Me.layoutControlGroup2.AllowDrawBackground = False
-        Me.layoutControlGroup2.GroupBordersVisible = False
-        Me.layoutControlGroup2.Location = New System.Drawing.Point(0, 243)
-        Me.layoutControlGroup2.Name = "autoGeneratedGroup0"
-        Me.layoutControlGroup2.Size = New System.Drawing.Size(383, 2)
+        Me.LayoutControlItem27.TextSize = New System.Drawing.Size(113, 13)
         '
         'TabbedControlGroupProfit
         '
-        Me.TabbedControlGroupProfit.Location = New System.Drawing.Point(0, 491)
+        Me.TabbedControlGroupProfit.Location = New System.Drawing.Point(0, 449)
         Me.TabbedControlGroupProfit.Name = "TabbedControlGroupProfit"
         Me.TabbedControlGroupProfit.SelectedTabPage = Me.LayoutControlGroup6
         Me.TabbedControlGroupProfit.SelectedTabPageIndex = 0
-        Me.TabbedControlGroupProfit.Size = New System.Drawing.Size(383, 167)
+        Me.TabbedControlGroupProfit.Size = New System.Drawing.Size(502, 181)
         Me.TabbedControlGroupProfit.TabPages.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlGroup6, Me.LayoutControlGroup7})
         '
         'LayoutControlGroup6
@@ -1042,41 +1033,41 @@ Partial Public Class FormCalcLabel
         Me.LayoutControlGroup6.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem25, Me.LayoutControlItem23, Me.LayoutControlItem21, Me.LayoutControlItem24, Me.LayoutControlItem22, Me.LayoutControlItem20})
         Me.LayoutControlGroup6.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup6.Name = "LayoutControlGroup6"
-        Me.LayoutControlGroup6.Size = New System.Drawing.Size(359, 120)
+        Me.LayoutControlGroup6.Size = New System.Drawing.Size(478, 134)
         Me.LayoutControlGroup6.Text = "NET PROFIT"
         '
         'LayoutControlItem25
         '
         Me.LayoutControlItem25.Control = Me.editTextProfit2
         Me.LayoutControlItem25.CustomizationFormText = "Lebar (mm)"
-        Me.LayoutControlItem25.Location = New System.Drawing.Point(155, 80)
+        Me.LayoutControlItem25.Location = New System.Drawing.Point(211, 80)
         Me.LayoutControlItem25.Name = "LayoutControlItem25"
-        Me.LayoutControlItem25.Size = New System.Drawing.Size(204, 40)
+        Me.LayoutControlItem25.Size = New System.Drawing.Size(267, 54)
         Me.LayoutControlItem25.Text = "Net Profit"
         Me.LayoutControlItem25.TextLocation = DevExpress.Utils.Locations.Top
-        Me.LayoutControlItem25.TextSize = New System.Drawing.Size(109, 13)
+        Me.LayoutControlItem25.TextSize = New System.Drawing.Size(113, 13)
         '
         'LayoutControlItem23
         '
         Me.LayoutControlItem23.Control = Me.editTextProfit1
         Me.LayoutControlItem23.CustomizationFormText = "Lebar (mm)"
-        Me.LayoutControlItem23.Location = New System.Drawing.Point(155, 40)
+        Me.LayoutControlItem23.Location = New System.Drawing.Point(211, 40)
         Me.LayoutControlItem23.Name = "LayoutControlItem23"
-        Me.LayoutControlItem23.Size = New System.Drawing.Size(204, 40)
+        Me.LayoutControlItem23.Size = New System.Drawing.Size(267, 40)
         Me.LayoutControlItem23.Text = "Net Profit"
         Me.LayoutControlItem23.TextLocation = DevExpress.Utils.Locations.Top
-        Me.LayoutControlItem23.TextSize = New System.Drawing.Size(109, 13)
+        Me.LayoutControlItem23.TextSize = New System.Drawing.Size(113, 13)
         '
         'LayoutControlItem21
         '
         Me.LayoutControlItem21.Control = Me.editTextModalPerPcs
         Me.LayoutControlItem21.CustomizationFormText = "Lebar (mm)"
-        Me.LayoutControlItem21.Location = New System.Drawing.Point(155, 0)
+        Me.LayoutControlItem21.Location = New System.Drawing.Point(211, 0)
         Me.LayoutControlItem21.Name = "LayoutControlItem21"
-        Me.LayoutControlItem21.Size = New System.Drawing.Size(204, 40)
+        Me.LayoutControlItem21.Size = New System.Drawing.Size(267, 40)
         Me.LayoutControlItem21.Text = "Modal Per Pcs"
         Me.LayoutControlItem21.TextLocation = DevExpress.Utils.Locations.Top
-        Me.LayoutControlItem21.TextSize = New System.Drawing.Size(109, 13)
+        Me.LayoutControlItem21.TextSize = New System.Drawing.Size(113, 13)
         '
         'LayoutControlItem24
         '
@@ -1084,10 +1075,10 @@ Partial Public Class FormCalcLabel
         Me.LayoutControlItem24.CustomizationFormText = "Lebar (mm)"
         Me.LayoutControlItem24.Location = New System.Drawing.Point(0, 80)
         Me.LayoutControlItem24.Name = "LayoutControlItem24"
-        Me.LayoutControlItem24.Size = New System.Drawing.Size(155, 40)
+        Me.LayoutControlItem24.Size = New System.Drawing.Size(211, 54)
         Me.LayoutControlItem24.Text = "Jual Sesuai Saran"
         Me.LayoutControlItem24.TextLocation = DevExpress.Utils.Locations.Top
-        Me.LayoutControlItem24.TextSize = New System.Drawing.Size(109, 13)
+        Me.LayoutControlItem24.TextSize = New System.Drawing.Size(113, 13)
         '
         'LayoutControlItem22
         '
@@ -1095,10 +1086,10 @@ Partial Public Class FormCalcLabel
         Me.LayoutControlItem22.CustomizationFormText = "Lebar (mm)"
         Me.LayoutControlItem22.Location = New System.Drawing.Point(0, 40)
         Me.LayoutControlItem22.Name = "LayoutControlItem22"
-        Me.LayoutControlItem22.Size = New System.Drawing.Size(155, 40)
+        Me.LayoutControlItem22.Size = New System.Drawing.Size(211, 40)
         Me.LayoutControlItem22.Text = "Jual Sesuai Order"
         Me.LayoutControlItem22.TextLocation = DevExpress.Utils.Locations.Top
-        Me.LayoutControlItem22.TextSize = New System.Drawing.Size(109, 13)
+        Me.LayoutControlItem22.TextSize = New System.Drawing.Size(113, 13)
         '
         'LayoutControlItem20
         '
@@ -1106,29 +1097,29 @@ Partial Public Class FormCalcLabel
         Me.LayoutControlItem20.CustomizationFormText = "Lebar (mm)"
         Me.LayoutControlItem20.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlItem20.Name = "LayoutControlItem20"
-        Me.LayoutControlItem20.Size = New System.Drawing.Size(155, 40)
+        Me.LayoutControlItem20.Size = New System.Drawing.Size(211, 40)
         Me.LayoutControlItem20.Text = "Modal Bahan Utuh"
         Me.LayoutControlItem20.TextLocation = DevExpress.Utils.Locations.Top
-        Me.LayoutControlItem20.TextSize = New System.Drawing.Size(109, 13)
+        Me.LayoutControlItem20.TextSize = New System.Drawing.Size(113, 13)
         '
         'LayoutControlGroup7
         '
         Me.LayoutControlGroup7.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem6, Me.LayoutControlItem28, Me.LayoutControlItem31, Me.LayoutControlItem29, Me.LayoutControlItem30, Me.LayoutControlItem32, Me.LayoutControlItem5, Me.LayoutControlItem33, Me.LayoutControlItem34})
         Me.LayoutControlGroup7.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup7.Name = "LayoutControlGroup7"
-        Me.LayoutControlGroup7.Size = New System.Drawing.Size(359, 120)
+        Me.LayoutControlGroup7.Size = New System.Drawing.Size(478, 134)
         Me.LayoutControlGroup7.Text = "MARGIN INFO"
         '
         'LayoutControlItem6
         '
         Me.LayoutControlItem6.Control = Me.textView50Persen
         Me.LayoutControlItem6.CustomizationFormText = "Lebar (mm)"
-        Me.LayoutControlItem6.Location = New System.Drawing.Point(113, 0)
+        Me.LayoutControlItem6.Location = New System.Drawing.Point(122, 0)
         Me.LayoutControlItem6.Name = "LayoutControlItem6"
-        Me.LayoutControlItem6.Size = New System.Drawing.Size(113, 40)
+        Me.LayoutControlItem6.Size = New System.Drawing.Size(121, 40)
         Me.LayoutControlItem6.Text = "50%"
         Me.LayoutControlItem6.TextLocation = DevExpress.Utils.Locations.Top
-        Me.LayoutControlItem6.TextSize = New System.Drawing.Size(109, 13)
+        Me.LayoutControlItem6.TextSize = New System.Drawing.Size(113, 13)
         '
         'LayoutControlItem28
         '
@@ -1136,10 +1127,10 @@ Partial Public Class FormCalcLabel
         Me.LayoutControlItem28.CustomizationFormText = "Lebar (mm)"
         Me.LayoutControlItem28.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlItem28.Name = "LayoutControlItem28"
-        Me.LayoutControlItem28.Size = New System.Drawing.Size(113, 40)
+        Me.LayoutControlItem28.Size = New System.Drawing.Size(122, 40)
         Me.LayoutControlItem28.Text = "30%"
         Me.LayoutControlItem28.TextLocation = DevExpress.Utils.Locations.Top
-        Me.LayoutControlItem28.TextSize = New System.Drawing.Size(109, 13)
+        Me.LayoutControlItem28.TextSize = New System.Drawing.Size(113, 13)
         '
         'LayoutControlItem31
         '
@@ -1147,43 +1138,43 @@ Partial Public Class FormCalcLabel
         Me.LayoutControlItem31.CustomizationFormText = "Lebar (mm)"
         Me.LayoutControlItem31.Location = New System.Drawing.Point(0, 40)
         Me.LayoutControlItem31.Name = "LayoutControlItem31"
-        Me.LayoutControlItem31.Size = New System.Drawing.Size(113, 40)
+        Me.LayoutControlItem31.Size = New System.Drawing.Size(122, 40)
         Me.LayoutControlItem31.Text = "100%"
         Me.LayoutControlItem31.TextLocation = DevExpress.Utils.Locations.Top
-        Me.LayoutControlItem31.TextSize = New System.Drawing.Size(109, 13)
+        Me.LayoutControlItem31.TextSize = New System.Drawing.Size(113, 13)
         '
         'LayoutControlItem29
         '
         Me.LayoutControlItem29.Control = Me.textView75Persen
         Me.LayoutControlItem29.CustomizationFormText = "Lebar (mm)"
-        Me.LayoutControlItem29.Location = New System.Drawing.Point(226, 0)
+        Me.LayoutControlItem29.Location = New System.Drawing.Point(243, 0)
         Me.LayoutControlItem29.Name = "LayoutControlItem29"
-        Me.LayoutControlItem29.Size = New System.Drawing.Size(133, 40)
+        Me.LayoutControlItem29.Size = New System.Drawing.Size(235, 40)
         Me.LayoutControlItem29.Text = "75%"
         Me.LayoutControlItem29.TextLocation = DevExpress.Utils.Locations.Top
-        Me.LayoutControlItem29.TextSize = New System.Drawing.Size(109, 13)
+        Me.LayoutControlItem29.TextSize = New System.Drawing.Size(113, 13)
         '
         'LayoutControlItem30
         '
         Me.LayoutControlItem30.Control = Me.textView125Persen
         Me.LayoutControlItem30.CustomizationFormText = "Lebar (mm)"
-        Me.LayoutControlItem30.Location = New System.Drawing.Point(113, 40)
+        Me.LayoutControlItem30.Location = New System.Drawing.Point(122, 40)
         Me.LayoutControlItem30.Name = "LayoutControlItem30"
-        Me.LayoutControlItem30.Size = New System.Drawing.Size(113, 40)
+        Me.LayoutControlItem30.Size = New System.Drawing.Size(121, 40)
         Me.LayoutControlItem30.Text = "125%"
         Me.LayoutControlItem30.TextLocation = DevExpress.Utils.Locations.Top
-        Me.LayoutControlItem30.TextSize = New System.Drawing.Size(109, 13)
+        Me.LayoutControlItem30.TextSize = New System.Drawing.Size(113, 13)
         '
         'LayoutControlItem32
         '
         Me.LayoutControlItem32.Control = Me.textView150Persen
         Me.LayoutControlItem32.CustomizationFormText = "Lebar (mm)"
-        Me.LayoutControlItem32.Location = New System.Drawing.Point(226, 40)
+        Me.LayoutControlItem32.Location = New System.Drawing.Point(243, 40)
         Me.LayoutControlItem32.Name = "LayoutControlItem32"
-        Me.LayoutControlItem32.Size = New System.Drawing.Size(133, 40)
+        Me.LayoutControlItem32.Size = New System.Drawing.Size(235, 40)
         Me.LayoutControlItem32.Text = "150%"
         Me.LayoutControlItem32.TextLocation = DevExpress.Utils.Locations.Top
-        Me.LayoutControlItem32.TextSize = New System.Drawing.Size(109, 13)
+        Me.LayoutControlItem32.TextSize = New System.Drawing.Size(113, 13)
         '
         'LayoutControlItem5
         '
@@ -1191,39 +1182,39 @@ Partial Public Class FormCalcLabel
         Me.LayoutControlItem5.CustomizationFormText = "Lebar (mm)"
         Me.LayoutControlItem5.Location = New System.Drawing.Point(0, 80)
         Me.LayoutControlItem5.Name = "LayoutControlItem5"
-        Me.LayoutControlItem5.Size = New System.Drawing.Size(113, 40)
+        Me.LayoutControlItem5.Size = New System.Drawing.Size(122, 54)
         Me.LayoutControlItem5.Text = "175%"
         Me.LayoutControlItem5.TextLocation = DevExpress.Utils.Locations.Top
-        Me.LayoutControlItem5.TextSize = New System.Drawing.Size(109, 13)
+        Me.LayoutControlItem5.TextSize = New System.Drawing.Size(113, 13)
         '
         'LayoutControlItem33
         '
         Me.LayoutControlItem33.Control = Me.textView200Persen
         Me.LayoutControlItem33.CustomizationFormText = "Lebar (mm)"
-        Me.LayoutControlItem33.Location = New System.Drawing.Point(113, 80)
+        Me.LayoutControlItem33.Location = New System.Drawing.Point(122, 80)
         Me.LayoutControlItem33.Name = "LayoutControlItem33"
-        Me.LayoutControlItem33.Size = New System.Drawing.Size(113, 40)
+        Me.LayoutControlItem33.Size = New System.Drawing.Size(121, 54)
         Me.LayoutControlItem33.Text = "200%"
         Me.LayoutControlItem33.TextLocation = DevExpress.Utils.Locations.Top
-        Me.LayoutControlItem33.TextSize = New System.Drawing.Size(109, 13)
+        Me.LayoutControlItem33.TextSize = New System.Drawing.Size(113, 13)
         '
         'LayoutControlItem34
         '
         Me.LayoutControlItem34.Control = Me.textView225Persen
         Me.LayoutControlItem34.CustomizationFormText = "Lebar (mm)"
-        Me.LayoutControlItem34.Location = New System.Drawing.Point(226, 80)
+        Me.LayoutControlItem34.Location = New System.Drawing.Point(243, 80)
         Me.LayoutControlItem34.Name = "LayoutControlItem34"
-        Me.LayoutControlItem34.Size = New System.Drawing.Size(133, 40)
+        Me.LayoutControlItem34.Size = New System.Drawing.Size(235, 54)
         Me.LayoutControlItem34.Text = "225%"
         Me.LayoutControlItem34.TextLocation = DevExpress.Utils.Locations.Top
-        Me.LayoutControlItem34.TextSize = New System.Drawing.Size(109, 13)
+        Me.LayoutControlItem34.TextSize = New System.Drawing.Size(113, 13)
         '
         'FormCalcLabel
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange
-        Me.ClientSize = New System.Drawing.Size(403, 824)
+        Me.ClientSize = New System.Drawing.Size(522, 733)
         Me.Controls.Add(Me.dataLayoutControl1)
         Me.Controls.Add(Me.mainRibbonControl)
         Me.Name = "FormCalcLabel"
@@ -1294,7 +1285,6 @@ Partial Public Class FormCalcLabel
         CType(Me.LayoutControlItem16, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem26, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem27, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.layoutControlGroup2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TabbedControlGroupProfit, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlGroup6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem25, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1331,7 +1321,6 @@ Partial Public Class FormCalcLabel
     Private WithEvents bbiReset As DevExpress.XtraBars.BarButtonItem
     Private WithEvents bbiDelete As DevExpress.XtraBars.BarButtonItem
     Private WithEvents bbiClose As DevExpress.XtraBars.BarButtonItem
-    Private WithEvents layoutControlGroup2 As DevExpress.XtraLayout.LayoutControlGroup
     Friend WithEvents editTextPisau As DevExpress.XtraEditors.TextEdit
     Friend WithEvents LayoutControlItem1 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents editTextLebarBahanBelanja As DevExpress.XtraEditors.TextEdit

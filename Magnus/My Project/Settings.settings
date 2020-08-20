@@ -5,5 +5,8 @@
     <Setting Name="KeyPass" Type="System.String" Scope="User">
       <Value Profile="(Default)">Kia</Value>
     </Setting>
+    <Setting Name="ApplicationSkinName" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

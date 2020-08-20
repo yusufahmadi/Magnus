@@ -26,6 +26,7 @@
                                     IDRoleUser = CInt(.Item("IDRoleUser"))
                                     RoleUser = .Item("RoleUser").ToString()
                                     IDTypeLayout = CInt(.Item("IDTypeLayout"))
+                                    UpdateDBVersion()
                                 End With
                                 With e
                                     e.Message = "Login Berhasil"

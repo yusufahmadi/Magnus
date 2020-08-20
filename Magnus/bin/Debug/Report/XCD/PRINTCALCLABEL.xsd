@@ -16,8 +16,8 @@
               <xs:element name="Gap" type="xs:decimal" minOccurs="0" />
               <xs:element name="Pisau" type="xs:int" minOccurs="0" />
               <xs:element name="Pembulatan" type="xs:decimal" minOccurs="0" />
-              <xs:element name="Qty_Order" type="xs:int" minOccurs="0" />
-              <xs:element name="Jual_Sesuai_Order" type="xs:int" minOccurs="0" />
+              <xs:element name="Qty_Order" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Jual_Sesuai_Order" type="xs:decimal" minOccurs="0" />
               <xs:element name="TotalBiaya" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>

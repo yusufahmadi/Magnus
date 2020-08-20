@@ -69,7 +69,7 @@
     <Reference Include="DevExpress.Data.v17.1" />
     <Reference Include="DevExpress.DataAccess.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Images.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <Private>False</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.Utils.v17.1" />
     <Reference Include="DevExpress.Sparkline.v17.1.Core" />
@@ -117,6 +117,20 @@
     <Import Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\GlobalFunc.vb" />
+    <Compile Include="BLL\modDBVersion.vb" />
+    <Compile Include="Demo\EditPopupForm.Designer.vb">
+      <DependentUpon>EditPopupForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Demo\EditPopupForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Demo\FormDemoGridLookup.Designer.vb">
+      <DependentUpon>FormDemoGridLookup.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Demo\FormDemoGridLookup.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormAbout.Designer.vb">
       <DependentUpon>FormAbout.vb</DependentUpon>
     </Compile>
@@ -138,10 +152,52 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Class And Modul\clsDXReport.vb" />
-    <Compile Include="Form\FormDetail\Transaksi\Mobile\FormSettingCalc.Designer.vb">
-      <DependentUpon>FormSettingCalc.vb</DependentUpon>
+    <Compile Include="Demo\FormDemo.Designer.vb">
+      <DependentUpon>FormDemo.vb</DependentUpon>
     </Compile>
-    <Compile Include="Form\FormDetail\Transaksi\Mobile\FormSettingCalc.vb">
+    <Compile Include="Demo\FormDemo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FormDetail\Transaksi\Stok\FormStokKeluar.Designer.vb">
+      <DependentUpon>FormStokKeluar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FormDetail\Transaksi\Stok\FormStokKeluar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FormDetail\Transaksi\Mobile\FormCalcPaket.Designer.vb">
+      <DependentUpon>FormCalcPaket.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FormDetail\Transaksi\Mobile\FormCalcPaket.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FormDetail\Transaksi\Mobile\FormCalcTaffeta.Designer.vb">
+      <DependentUpon>FormCalcTaffeta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FormDetail\Transaksi\Mobile\FormCalcTaffeta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FormDetail\Transaksi\Stok\FormStokMasuk.Designer.vb">
+      <DependentUpon>FormStokMasuk.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FormDetail\Transaksi\Stok\FormStokMasuk.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FormDetail\Transaksi\Stok\FormStokMasukErr.Designer.vb">
+      <DependentUpon>FormStokMasukErr.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FormDetail\Transaksi\Stok\FormStokMasukErr.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\LookUp\frmLookUp.Designer.vb">
+      <DependentUpon>frmLookUp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\LookUp\frmLookUp.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Pengaturan\FormSettingLainya.Designer.vb">
+      <DependentUpon>FormSettingLainya.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Pengaturan\FormSettingLainya.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form\Laporan\Dashboard1.Designer.vb">
@@ -210,6 +266,7 @@
     <Compile Include="Form\Pengaturan\FormSetting.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Model\Barang.vb" />
     <Compile Include="Model\MenuRoleUser.vb" />
     <Compile Include="Model\Pesan.vb" />
     <Compile Include="Class And Modul\Query.vb" />
@@ -256,6 +313,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Class And Modul\modPub.vb" />
+    <EmbeddedResource Include="Demo\EditPopupForm.resx">
+      <DependentUpon>EditPopupForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\FormDemoGridLookup.resx">
+      <DependentUpon>FormDemoGridLookup.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormAbout.resx">
       <DependentUpon>FormAbout.vb</DependentUpon>
     </EmbeddedResource>
@@ -265,8 +328,29 @@
     <EmbeddedResource Include="Class And Modul\AddON\frmDesignReportDX.resx">
       <DependentUpon>frmDesignReportDX.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\FormDetail\Transaksi\Mobile\FormSettingCalc.resx">
-      <DependentUpon>FormSettingCalc.vb</DependentUpon>
+    <EmbeddedResource Include="Demo\FormDemo.resx">
+      <DependentUpon>FormDemo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FormDetail\Transaksi\Stok\FormStokKeluar.resx">
+      <DependentUpon>FormStokKeluar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FormDetail\Transaksi\Mobile\FormCalcPaket.resx">
+      <DependentUpon>FormCalcPaket.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FormDetail\Transaksi\Mobile\FormCalcTaffeta.resx">
+      <DependentUpon>FormCalcTaffeta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FormDetail\Transaksi\Stok\FormStokMasuk.resx">
+      <DependentUpon>FormStokMasuk.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FormDetail\Transaksi\Stok\FormStokMasukErr.resx">
+      <DependentUpon>FormStokMasukErr.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\LookUp\frmLookUp.resx">
+      <DependentUpon>frmLookUp.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Pengaturan\FormSettingLainya.resx">
+      <DependentUpon>FormSettingLainya.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\Laporan\Dashboard1.resx">
       <DependentUpon>Dashboard1.vb</DependentUpon>
