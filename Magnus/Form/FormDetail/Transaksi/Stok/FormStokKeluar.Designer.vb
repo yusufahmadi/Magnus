@@ -86,7 +86,7 @@ Partial Class FormStokKeluar
         Me.GC1.MainView = Me.gridView1
         Me.GC1.Name = "GC1"
         Me.GC1.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.txtQty, Me.RepositoryItemSearchLookUpEdit1})
-        Me.GC1.Size = New System.Drawing.Size(776, 295)
+        Me.GC1.Size = New System.Drawing.Size(776, 299)
         Me.GC1.TabIndex = 1
         Me.GC1.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gridView1})
         '
@@ -273,7 +273,7 @@ Partial Class FormStokKeluar
         Me.mainRibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.mainRibbonPage})
         Me.mainRibbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.OfficeUniversal
         Me.mainRibbonControl.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.[False]
-        Me.mainRibbonControl.Size = New System.Drawing.Size(800, 83)
+        Me.mainRibbonControl.Size = New System.Drawing.Size(800, 79)
         Me.mainRibbonControl.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden
         '
         'bbiSave
@@ -361,10 +361,10 @@ Partial Class FormStokKeluar
         Me.LayoutControl1.Controls.Add(Me.txtKeterangan)
         Me.LayoutControl1.Controls.Add(Me.txtTgl)
         Me.LayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LayoutControl1.Location = New System.Drawing.Point(0, 83)
+        Me.LayoutControl1.Location = New System.Drawing.Point(0, 79)
         Me.LayoutControl1.Name = "LayoutControl1"
         Me.LayoutControl1.Root = Me.LayoutControlGroup1
-        Me.LayoutControl1.Size = New System.Drawing.Size(800, 367)
+        Me.LayoutControl1.Size = New System.Drawing.Size(800, 371)
         Me.LayoutControl1.TabIndex = 14
         Me.LayoutControl1.Text = "LayoutControl1"
         '
@@ -393,7 +393,7 @@ Partial Class FormStokKeluar
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem2, Me.EmptySpaceItem1, Me.LayoutControlItem4, Me.LayoutControlItem3})
         Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "LayoutControlGroup1"
-        Me.LayoutControlGroup1.Size = New System.Drawing.Size(800, 367)
+        Me.LayoutControlGroup1.Size = New System.Drawing.Size(800, 371)
         Me.LayoutControlGroup1.TextVisible = False
         '
         'LayoutControlItem1
@@ -427,7 +427,7 @@ Partial Class FormStokKeluar
         Me.LayoutControlItem4.Control = Me.GC1
         Me.LayoutControlItem4.Location = New System.Drawing.Point(0, 48)
         Me.LayoutControlItem4.Name = "LayoutControlItem4"
-        Me.LayoutControlItem4.Size = New System.Drawing.Size(780, 299)
+        Me.LayoutControlItem4.Size = New System.Drawing.Size(780, 303)
         Me.LayoutControlItem4.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem4.TextVisible = False
         '
@@ -454,7 +454,7 @@ Partial Class FormStokKeluar
         Me.Controls.Add(Me.mainRibbonControl)
         Me.Name = "FormStokKeluar"
         Me.Ribbon = Me.mainRibbonControl
-        Me.Text = "FormDemo2"
+        Me.Text = "Stok Keluar"
         CType(Me.GC1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.gridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemSearchLookUpEdit1, System.ComponentModel.ISupportInitialize).EndInit()

@@ -158,6 +158,12 @@
     <Compile Include="Demo\FormDemo.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Form\FormDetail\Transaksi\Finance\FormKasBankMasuk.Designer.vb">
+      <DependentUpon>FormKasBankMasuk.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FormDetail\Transaksi\Finance\FormKasBankMasuk.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form\FormDetail\Transaksi\Stok\FormStokKeluar.Designer.vb">
       <DependentUpon>FormStokKeluar.vb</DependentUpon>
     </Compile>
@@ -330,6 +336,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Demo\FormDemo.resx">
       <DependentUpon>FormDemo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FormDetail\Transaksi\Finance\FormKasBankMasuk.resx">
+      <DependentUpon>FormKasBankMasuk.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\FormDetail\Transaksi\Stok\FormStokKeluar.resx">
       <DependentUpon>FormStokKeluar.vb</DependentUpon>

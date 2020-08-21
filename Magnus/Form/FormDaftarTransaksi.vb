@@ -65,36 +65,44 @@ Partial Public Class FormDaftarTransaksi
         Dim TglDari As String = "", TglSampai As String = ""
         Select Case idFrmTr
             Case IDFormTr.F_StokMasuk
-                sql = "Select * From StokMasuk  T " & vbCrLf
+                sql = "Select * From StokMasuk (NOLOCK)  T " & vbCrLf
             Case IDFormTr.F_StokKeluar
-                sql = "Select * From StokKeluar  T " & vbCrLf
+                sql = "Select * From StokKeluar (NOLOCK)  T " & vbCrLf
             Case IDFormTr.F_KasMasuk
-                sql = "Select * From KasMasuk T '" & vbCrLf
+                sql = "Select T.ID,T.IsPosted,T.Tgl,MAkun.Nama [Kas/Bank],T.Kode,T.KodeReff,IsNull(TD.Total,0) As Total," & vbCrLf &
+                       "T.Keterangan, T.IsBG, T.NoGiro, T.JTBG, T.UserBuat, T.TanggalBuat, T.UserUbah, T.TanggalUbah  " & vbCrLf
+                sql &= " From KasBankMasuk (NOLOCK) T " & vbCrLf &
+                       "Left Join (Select IDKasBankMasuk,Sum(IsNull(Nominal,0)*IsNull(Kurs,1)) Total From KasBankMasukD (NOLOCK) Group By IDKasBankMasuk) TD on TD.IDKasBankMasuk=T.ID " & vbCrLf &
+                       "Left Join MAkun (NOLOCK) On Makun.ID=T.IDKasBank" & vbCrLf
             Case IDFormTr.F_KasKeluar
-                sql = "Select * From KasKeluar T '" & vbCrLf
+                sql = "Select T.ID,T.IsPosted,T.Tgl,MAkun.Nama [Kas/Bank],T.Kode,T.KodeReff,IsNull(TD.Total,0) As Total," & vbCrLf &
+                       "T.Keterangan, T.IsBG, T.NoGiro, T.JTBG, T.UserBuat, T.TanggalBuat, T.UserUbah, T.TanggalUbah  " & vbCrLf
+                sql &= " From KasBankKeluar (NOLOCK) T " & vbCrLf &
+                       "Left Join (Select IDKasBankKeluar,Sum(IsNull(Nominal,0)*IsNull(Kurs,1)) Total From KasBankKeluarD (NOLOCK) Group By IDKasBankKeluar) TD on TD.IDKasBankKeluar=T.ID " & vbCrLf &
+                       "Left Join MAkun (NOLOCK) On Makun.ID=T.IDKasBank" & vbCrLf
             Case IDFormTr.F_CalcLabel
                 If IDRoleUser = 1 Then
                     sql = "Select T.No,T.Tgl,T.Dokumen,B.Nama Bahan,T.harga_bahan HargaBahan ,T.Lebar,T.Tinggi,T.Gap,T.Pisau,T.Pembulatan,T.Qty_Order,T.Jual_Sesuai_Order,Cast((Isnull(T.biaya_pisau,0) + Isnull(T.biaya_tinta,0) + Isnull(T.biaya_toyobo,0) + Isnull(T.biaya_operator,0) + Isnull(T.biaya_kirim,0)) as numeric(18, 2))  TotalBiaya " & vbCrLf
                 Else
                     sql = "Select T.No,T.Tgl,T.Dokumen,B.Nama Bahan,T.Lebar,T.Tinggi,T.Gap,T.Pisau,T.Pembulatan,T.Qty_Order,T.Jual_Sesuai_Order,Cast((Isnull(T.biaya_pisau,0) + Isnull(T.biaya_tinta,0) + Isnull(T.biaya_toyobo,0) + Isnull(T.biaya_operator,0) + Isnull(T.biaya_kirim,0)) as numeric(18, 2))  TotalBiaya  " & vbCrLf
                 End If
-                sql = sql & " From TLabel T Left Join MBarang B On B.ID=T.ID_Bahan " & vbCrLf
+                sql = sql & " From TLabel (NOLOCK) T Left Join MBarang (NOLOCK) B On B.ID=T.ID_Bahan " & vbCrLf
             Case IDFormTr.F_CalcRibbon
                 If IDRoleUser = 1 Then
                     sql = "Select T.[No],T.Dokumen,T.Tgl,B.Nama Bahan,T.Harga_Bahan,T.Lebar,T.Panjang,T.Modal,T.Qty,T.Jual_Roll,T.Jumlah_Profit_Kotor As Jumlah,T.Transport,T.Komisisalesprosen [Komisi(%)],Cast( (T.Jumlah_Profit_Kotor*T.Komisisalesprosen)/100 as numeric(18, 2)) KomisiSales,T.NetProfit" & vbCrLf
                 Else
                     sql = "Select T.[No],T.Dokumen,T.Tgl,B.Nama Bahan,T.Lebar,T.Panjang,T.Qty,T.Jual_Roll,T.Jumlah_Profit_Kotor As Jumlah,T.Transport,T.Komisisalesprosen [Komisi(%)]" & vbCrLf
                 End If
-                sql = sql & " From TRibbon T Left Join MBarang B On B.ID=T.ID_Bahan " & vbCrLf
+                sql = sql & " From TRibbon (NOLOCK) T Left Join MBarang (NOLOCK) B On B.ID=T.ID_Bahan " & vbCrLf
             Case IDFormTr.F_CalcTaffeta
                 If IDRoleUser = 1 Then
                     sql = "Select T.[No],T.Dokumen,T.Tgl,B.Nama Bahan,T.Harga_Bahan,T.Kurs,T.Lebar,T.Panjang,T.Modal,T.Qty,T.Jual_Roll,T.Jumlah_Profit_Kotor As Jumlah,T.Transport,T.Komisisalesprosen [Komisi(%)],Cast( (T.Jumlah_Profit_Kotor*T.Komisisalesprosen)/100 as numeric(18, 2)) KomisiSales,T.NetProfit" & vbCrLf
                 Else
                     sql = "Select T.[No],T.Dokumen,T.Tgl,B.Nama Bahan,T.Lebar,T.Panjang,T.Qty,T.Jual_Roll,T.Jumlah_Profit_Kotor As Jumlah,T.Transport,T.Komisisalesprosen [Komisi(%)]" & vbCrLf
                 End If
-                sql &= " From TTaffeta T Left Join MBarang B On B.ID=T.ID_Bahan " & vbCrLf
+                sql &= " From TTaffeta (NOLOCK) T Left Join MBarang (NOLOCK) B On B.ID=T.ID_Bahan " & vbCrLf
             Case IDFormTr.F_CalcPaket
-                sql = "Select * From TPaket T " & vbCrLf
+                sql = "Select * From TPaket (NOLOCK) T " & vbCrLf
         End Select
         sql = sql & " Where 1=1 "
         If BarEditTglDari.EditValue.ToString <> "" Then
@@ -169,7 +177,12 @@ Partial Public Class FormDaftarTransaksi
                     End If
                 End Using
             Case IDFormTr.F_KasMasuk
-
+                Using f As New FormKasBankMasuk
+                    f._IsNew = True
+                    If f.ShowDialog() = DialogResult.OK Then
+                        BarButtonRefresh.PerformClick()
+                    End If
+                End Using
             Case IDFormTr.F_KasKeluar
 
             Case IDFormTr.F_CalcLabel
@@ -241,7 +254,16 @@ Partial Public Class FormDaftarTransaksi
                     End If
                 End Using
             Case IDFormTr.F_KasMasuk
-
+                Using f As New FormKasBankMasuk
+                    f._IsNew = False
+                    f._ID = ObjToInt(view.GetDataRow(GridView1.FocusedRowHandle)("ID"))
+                    If f.ShowDialog() = DialogResult.OK Then
+                        BarButtonRefresh.PerformClick()
+                        GridView1.ClearSelection()
+                        GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("ID"), f._ID.ToString)
+                        GridView1.SelectRow(GridView1.FocusedRowHandle)
+                    End If
+                End Using
             Case IDFormTr.F_KasKeluar
 
             Case IDFormTr.F_CalcLabel
@@ -333,7 +355,7 @@ Partial Public Class FormDaftarTransaksi
                 End If
             Case IDFormTr.F_KasMasuk
                 ID = ObjToInt(view.GetDataRow(GridView1.FocusedRowHandle)("ID"))
-                Dim f As Pesan = Query.DeleteDataMaster("TKasMasuk", "ID=" & ID & "", False)
+                Dim f As Pesan = Query.DeleteDataMaster("KasBankMasuk", "ID=" & ID & "", False)
                 If f.Hasil = True Then
                     DevExpress.XtraEditors.XtraMessageBox.Show(Me, f.Message, NamaAplikasi)
                     BarButtonRefresh.PerformClick()
@@ -345,7 +367,7 @@ Partial Public Class FormDaftarTransaksi
                 End If
             Case IDFormTr.F_KasKeluar
                 ID = ObjToInt(view.GetDataRow(GridView1.FocusedRowHandle)("ID"))
-                Dim f As Pesan = Query.DeleteDataMaster("TKasKeluar", "ID=" & ID & "", False)
+                Dim f As Pesan = Query.DeleteDataMaster("KasBankKeluar", "ID=" & ID & "", False)
                 If f.Hasil = True Then
                     DevExpress.XtraEditors.XtraMessageBox.Show(Me, f.Message, NamaAplikasi)
                     BarButtonRefresh.PerformClick()

@@ -298,7 +298,7 @@ Public Class FormStokMasuk
                                 "[Tgl] =" & Utils.ObjToStrDateSql(txtTgl.DateTime) & "," & vbCrLf &
                                 "[Kode] ='" & FixApostropi(txtKode.Text.Trim) & "'," & vbCrLf &
                                 "[Keterangan] ='" & FixApostropi(txtKeterangan.Text.Trim) & "'," & vbCrLf &
-                                "[TanggalUbah]=Getdate(),[UserBuat]= '" & Username & "'" & vbCrLf &
+                                "[TanggalUbah]=Getdate(),[UserUbah]= '" & Username & "'" & vbCrLf &
                                 " Where [ID]=" & Me._ID
 
                             com.CommandText = sql

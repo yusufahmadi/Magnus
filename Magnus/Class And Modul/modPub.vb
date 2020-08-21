@@ -33,6 +33,8 @@ Public Module modPub
     Public IDTypeLayout As Integer = 0
     Public KeyPas As String = My.Settings.KeyPass
 
+    Public LevelPerkiraan As Integer = 3
+
     Public listMenu As New List(Of MenuRoleUser)
 
     Private enc As System.Text.UTF8Encoding

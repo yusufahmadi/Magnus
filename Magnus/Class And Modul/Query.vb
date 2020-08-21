@@ -45,7 +45,7 @@ Public Class Query
                     cm.CommandTimeout = cn.ConnectionTimeout
 
                     cm.CommandText = sql
-                    e.Value = cm.ExecuteScalar()
+                    e.Value = Utils.NullToStr(cm.ExecuteScalar())
                     e.Hasil = True
                     e.Message = "Sukses"
                 Catch ex As Exception
