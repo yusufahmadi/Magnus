@@ -30,10 +30,10 @@ Partial Public Class FormBasic
             ds = Query.ExecuteDataSet("Select * from " & TableName & " WHere ID='" & Me._ID & "'")
             If Not ds Is Nothing Then
                 With ds.Tables(0).Rows(0)
-                    txtKode.Text = .Item("Kode").ToString
-                    txtNama.Text = .Item("Nama").ToString
-                    txtKeterangan.Text = .Item("Keterangan").ToString
-                    ckIsActive.Checked = CBool(.Item("IsActive"))
+                    txtKode.Text = NullToStr(.Item("Kode"))
+                    txtNama.Text = NullToStr(.Item("Nama"))
+                    txtKeterangan.Text = NullToStr(.Item("Keterangan"))
+                    ckIsActive.Checked = ObjToBool(.Item("IsActive"))
                 End With
                 ds.Dispose()
             End If
@@ -122,16 +122,16 @@ Partial Public Class FormBasic
                     sql = "Select Isnull(Max(ID),0)+1 From " & TableName
                     Me._ID = ObjToInt(Query.ExecuteScalar(sql))
                     sql = "Insert Into " & TableName & " (ID,Kode,Nama,Keterangan,IsActive) " & vbCrLf &
-                          " Values (" & Me._ID & ",'" & txtKode.Text.Trim & "'," & vbCrLf &
-                            " '" & txtNama.Text.Trim & "'," & vbCrLf &
-                            " '" & txtKeterangan.Text.Trim & "'," & vbCrLf &
+                          " Values (" & Me._ID & ",'" & FixApostropi(txtKode.Text).Trim & "'," & vbCrLf &
+                            " '" & FixApostropi(txtNama.Text).Trim & "'," & vbCrLf &
+                            " '" & FixApostropi(txtKeterangan.Text).Trim & "'," & vbCrLf &
                             Utils.ObjToBit(ckIsActive.Checked) & ")"
 
                 Else
                     sql = "Update " & TableName & " Set " & vbCrLf &
-                            " Kode ='" & txtKode.Text.Trim & "',  " & vbCrLf &
-                            " Nama ='" & txtNama.Text.Trim & "',  " & vbCrLf &
-                            " Keterangan ='" & txtKeterangan.Text.Trim & "',  " & vbCrLf &
+                            " Kode ='" & FixApostropi(txtKode.Text).Trim & "',  " & vbCrLf &
+                            " Nama ='" & FixApostropi(txtNama.Text).Trim & "',  " & vbCrLf &
+                            " Keterangan ='" & FixApostropi(txtKeterangan.Text).Trim & "',  " & vbCrLf &
                             " IsActive= " & Utils.ObjToBit(ckIsActive.Checked) & " " & vbCrLf &
                             " Where ID ='" & Me._ID & "'"
                 End If
@@ -155,7 +155,7 @@ Partial Public Class FormBasic
     End Sub
 
     Private Sub bbiDelete_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles bbiDelete.ItemClick
-        Dim f As Pesan = Query.DeleteDataMaster("MUser", "Username='" & txtKode.Text.Trim & "'")
+        Dim f As Pesan = Query.DeleteDataMaster(TableName, "ID='" & Me._ID & "'")
         If f.Hasil = True Then
             DevExpress.XtraEditors.XtraMessageBox.Show(Me,f.Message)
             DialogResult = DialogResult.OK

@@ -444,10 +444,11 @@ Partial Public Class FormBarang
 
     Private Sub txtKode_KeyDown(sender As Object, e As KeyEventArgs) Handles txtKode.KeyDown
         If e.KeyCode = Keys.F2 AndAlso txtKode.Properties.ReadOnly Then
-            Dim x As New FormOtorisasi
-            If x.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
-                txtKode.Properties.ReadOnly = False
-            End If
+            Using x As New FormOtorisasi
+                If x.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
+                    txtKode.Properties.ReadOnly = False
+                End If
+            End Using
         End If
     End Sub
 End Class

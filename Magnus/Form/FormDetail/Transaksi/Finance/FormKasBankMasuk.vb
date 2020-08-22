@@ -12,11 +12,13 @@ Public Class FormKasBankMasuk
     Public TableMaster As String = "KasBankMasuk"
     Public TipeForm As Integer = 0
 
-    Private qty As Double = 0.0
-    Private amount As Double = 0.0
-    Private vat As Double = 0.0
-    Private price As Double = 0.0
-    Private list As List(Of Barang) = Nothing
+    Private nominal As Double = 0.0
+    'Private amount As Double = 0.0
+    'Private vat As Double = 0.0
+    'Private price As Double = 0.0
+    Private listAkun As List(Of Akun) = Nothing
+    Private listRekanan As List(Of Rekanan) = Nothing
+    Private listHutangPiutang As List(Of HutangPiutang) = Nothing
     Public Sub New()
         InitializeComponent()
 
@@ -42,13 +44,14 @@ Public Class FormKasBankMasuk
             If Not ds Is Nothing Then
                 With ds.Tables(0).Rows(0)
                     txtTgl.EditValue = ObjToDate(.Item("Tgl")).ToString("yyyy-MM-dd")
-                    txtIDKasBank.EditValue = .Item("IDKasBank").ToString
+                    txtIDKasBank.EditValue = NullToStr(.Item("IDKasBank"))
+                    txtIDRekanan.EditValue = (.Item("IDRekanan"))
                     cbTipeForm.SelectedIndex = ObjToInt(.Item("TipeForm"))
-                    txtKode.Text = .Item("Kode").ToString
-                    txtKodeReff.Text = .Item("KodeReff").ToString
-                    txtKeterangan.Text = .Item("Keterangan").ToString
+                    txtKode.Text = NullToStr(.Item("Kode"))
+                    txtKodeReff.Text = NullToStr(.Item("KodeReff"))
+                    txtKeterangan.Text = NullToStr(.Item("Keterangan"))
                     ckIsBG.Checked = ObjToBool(.Item("IsBG"))
-                    txtNoGiro.Text = .Item("NoGiro").ToString
+                    txtNoGiro.Text = NullToStr(.Item("NoGiro"))
                     txtJTBG.EditValue = ObjToDate(.Item("JTBG")).ToString("yyyy-MM-dd")
                     'Lock
                     txtTgl.Properties.ReadOnly = True
@@ -76,10 +79,8 @@ Public Class FormKasBankMasuk
         Dim ds As New DataSet
         Dim tblGrid As String = "[Order Details]"
         Try
-            Sql = "Select TD.ID ,TD.NoUrut, TD.IDBarang ,MB.Nama NamaBarang,MS.Kode Unit,TD.Qty,TD.Harga,TD.Jumlah,TD.Catatan 
+            Sql = "Select TD.ID,TD.IDKasBankMasuk,TD.IDAkun,TD.IDRekanan,TD.IDReff,TD.Nominal,TD.Kurs,TD.Catatan
                     From " & TableMaster & " T Inner Join " & TableMaster & "D TD on T.ID=TD.[ID" & TableMaster & "] 
-                    Inner Join MBarang MB on MB.ID=TD.IDBarang 
-                    Left Join MSatuan MS On MS.ID=MB.IDSatuanTerkecil
                     Where T.ID= " & Me._ID
             ds = Query.ExecuteDataSet(Sql, tblGrid)
             Dim dvManager As DataViewManager = New DataViewManager(ds)
@@ -139,76 +140,213 @@ Public Class FormKasBankMasuk
     Private Sub LoadItems()
         Dim ds As DataSet = New DataSet()
         Dim tblLookUp As String = "Products"
-        Using d As New WaitDialogForm("Loading Look up...")
+        Using d As New WaitDialogForm("Loading Akun Kas Bank...", "Mohon Tunggu")
+            Try ',Keterangan
+                Sql = "SELECT ID,Nama  " &
+                               " From MAkun (NoLock) " &
+                               " Where IsActive=1 And [IDJenisBukuPembantu]=1  ORDER BY ID ASC" 'And [Level]=" & LevelPerkiraan & "
+                ds = Query.ExecuteDataSet(Sql, "KasBank")
+                If Not ds Is Nothing Then
+                    txtIDKasBank.Properties.DataSource = ds.Tables("KasBank")
+                    txtIDKasBank.Properties.ValueMember = "ID"
+                    txtIDKasBank.Properties.DisplayMember = "Nama"
+                    ds.Dispose()
+                End If
+                txtIDKasBank.Properties.NullText = "Pilih Kas / Bank"
 
-            Sql = "SELECT ID,Nama,Keterangan  " &
-                               " From MAkun " &
-                               " Where IsActive=1 And [IDJenisBukuPembantu]=1 And [Level]=" & LevelPerkiraan & " ORDER BY ID ASC"
-            ds = Query.ExecuteDataSet(Sql)
-            If Not ds Is Nothing Then
-                txtIDKasBank.Properties.DataSource = ds.Tables(0)
-                txtIDKasBank.Properties.ValueMember = "ID"
-                txtIDKasBank.Properties.DisplayMember = "Nama"
-                ds.Dispose()
-            End If
-            txtIDKasBank.Properties.NullText = ""
+                d.SetCaption("Loading Rekanan ...")
+                Sql = "SELECT MR.ID,MR.Kode + '|' + MR.Nama Rekanan,MR.Alamat " &
+                               " From MRekanan MR (NoLock) Left Join MJenisRekanan MJR on MJR.ID=IsNull(MR.IDJenisRekanan,0) " &
+                               " Where MR.IsActive=1 ORDER BY MR.ID ASC"
+                ds = Query.ExecuteDataSet(Sql, "Rekanan")
+                If Not ds Is Nothing Then
+                    txtIDRekanan.Properties.DataSource = ds.Tables("Rekanan")
+                    txtIDRekanan.Properties.ValueMember = "ID"
+                    txtIDRekanan.Properties.DisplayMember = "Rekanan"
+                    ds.Dispose()
+                End If
+                txtIDRekanan.Properties.NullText = "Pilih Rekanan"
 
-            d.SetCaption("Loading Products...")
-            Sql = "SELECT MB.ID ID,MB.Kode,MB.Nama,MS.Kode Satuan  " &
-                               " From MBarang MB Left Join MSatuan MS on MS.ID=MB.IDSatuanTerkecil " &
-                               " Where MB.IsActive=1 ORDER BY MB.Nama ASC"
-            ds = Query.ExecuteDataSet(Sql, tblLookUp)
+                d.SetCaption("Loading Detail Akun ...")
+                Sql = "SELECT ID,Nama From MAkun " & vbCrLf &
+                      " Where IsActive=1  ORDER BY ID ASC" 'And [Level]=" & LevelPerkiraan & "
+                ds = Query.ExecuteDataSet(Sql, "Akun")
+                If Not ds Is Nothing Then
+                    If ds.Tables("Akun").Rows.Count > 0 Then
+                        listAkun = New List(Of Akun)
+                        Dim e As Akun = Nothing
+                        listAkun.Clear()
+                        For i As Integer = 0 To ds.Tables(0).Rows.Count - 1
+                            e = New Akun
+                            With e
+                                .ID = Utils.NullToStr(ds.Tables(0).Rows(i).Item("ID"))
+                                .Nama = Utils.NullToStr(ds.Tables(0).Rows(i).Item("Nama"))
+                            End With
+                            listAkun.Add(e)
+                        Next
+                    End If
+                    RepositoryItemSearchLookUpAkun.DataSource = ds.Tables("Akun")
+                    RepositoryItemSearchLookUpAkun.ValueMember = "ID"
+                    RepositoryItemSearchLookUpAkun.DisplayMember = "Nama"
+                    ds.Dispose()
+                End If
+                RepositoryItemSearchLookUpAkun.NullText = "* Pilih Akun / Perkiraan"
+                GColIDAkun.ColumnEdit = RepositoryItemSearchLookUpAkun
 
-            If Not ds Is Nothing Then
-                Dim myData = ds.Tables(tblLookUp).AsEnumerable().[Select](Function(r) New Barang With {
-                    .ID = r.Field(Of Integer)("ID"),
-                    .Kode = r.Field(Of String)("Kode"),
-                    .Nama = r.Field(Of String)("Nama"),
-                    .SatuanTerkecil = r.Field(Of String)("Satuan")
-                })
-                list = myData.ToList()
-                RepositoryItemSearchLookUpEdit1.DataSource = list 'ds.Tables(tblLookUp)
-                RepositoryItemSearchLookUpEdit1.ValueMember = "ID"
-                RepositoryItemSearchLookUpEdit1.DisplayMember = "Kode"
-                ds.Dispose()
-            End If
-            RepositoryItemSearchLookUpEdit1.NullText = "Pilih Barang"
-            GColIDBarang.ColumnEdit = RepositoryItemSearchLookUpEdit1
+
+                d.SetCaption("Loading Detail Rekanan ...")
+                Sql = "SELECT ID,Kode,Nama,Alamat From MRekanan " &
+                      " Where IsActive=1 ORDER BY ID ASC"
+                ds = Query.ExecuteDataSet(Sql, "Rekanan")
+                If Not ds Is Nothing Then
+                    If ds.Tables("Rekanan").Rows.Count > 0 Then
+                        listRekanan = New List(Of Rekanan)
+                        Dim e As Rekanan = Nothing
+                        listRekanan.Clear()
+                        For i As Integer = 0 To ds.Tables("Rekanan").Rows.Count - 1
+                            e = New Rekanan
+                            With e
+                                .ID = Utils.ObjToInt(ds.Tables(0).Rows(i).Item("ID"))
+                                .IDJenisRekanan = Utils.ObjToInt(ds.Tables(0).Rows(i).Item("IDJenisRekanan"))
+                                .Kode = Utils.NullToStr(ds.Tables(0).Rows(i).Item("Kode"))
+                                .Nama = Utils.NullToStr(ds.Tables(0).Rows(i).Item("Nama"))
+                                .Alamat = Utils.NullToStr(ds.Tables(0).Rows(i).Item("Alamat"))
+                            End With
+                            listRekanan.Add(e)
+                        Next
+                    End If
+
+                    RepositoryItemSearchLookUpRekanan.DataSource = ds.Tables("Rekanan")
+                    RepositoryItemSearchLookUpRekanan.ValueMember = "ID"
+                    RepositoryItemSearchLookUpRekanan.DisplayMember = "Nama"
+                    ds.Dispose()
+                End If
+                RepositoryItemSearchLookUpRekanan.NullText = "Pilih Rekanan"
+                GColIDRekanan.ColumnEdit = RepositoryItemSearchLookUpRekanan
+
+
+                d.SetCaption("Loading Detail Transaksi ...")
+                Sql = "Select HP.ID,HP.Kode,HP.Tgl,HP.KodeReff,HP.IDAkun,HP.IDRekanan, " & vbCrLf &
+                      "IsNull(HP.Nominal,0) - Sum(IsNull(PL.Nominal,0)) Nominal " & vbCrLf &
+                      "From MHutangPiutang HP Left Join MHutangPiutang PL on HP.ID=PL.IDReff " & vbCrLf &
+                      "Where HP.IDReff>0 " & vbCrLf & 'And HP.IDAkun=" & Utils.NullToStr() & " And HP.IDRekanan=" & 
+                      "Group By HP.ID,HP.Kode,HP.Tgl,HP.KodeReff,HP.IDAkun,HP.IDRekanan,HP.TglJT,IsNull(HP.Nominal,0) " & vbCrLf &
+                      "Having IsNull(HP.Nominal,0) - Sum(IsNull(PL.Nominal,0)) <> 0 " & vbCrLf &
+                      "ORDER BY HP.ID ASC"
+                ds = Query.ExecuteDataSet(Sql, "HutangPiutang")
+                If Not ds Is Nothing Then
+                    'Unset : .TglJT .Keterangan .IDJenisTransaksi  .IDTransaksi  .IDReff .Kurs 
+                    If ds.Tables("HutangPiutang").Rows.Count > 0 Then
+                        listHutangPiutang = New List(Of HutangPiutang)
+                        Dim e As HutangPiutang = Nothing
+                        listHutangPiutang.Clear()
+                        For i As Integer = 0 To ds.Tables("HutangPiutang").Rows.Count - 1
+                            e = New HutangPiutang
+                            With e
+                                .ID = Utils.ObjToInt(ds.Tables(0).Rows(i).Item("ID"))
+                                .Tgl = Utils.ObjToDate(ds.Tables(0).Rows(i).Item("Tgl"))
+                                .Kode = Utils.NullToStr(ds.Tables(0).Rows(i).Item("Kode"))
+                                .Nama = Utils.NullToStr(ds.Tables(0).Rows(i).Item("Nama"))
+                                .KodeReff = Utils.NullToStr(ds.Tables(0).Rows(i).Item("KodeReff"))
+                                .IDAkun = Utils.NullToStr(ds.Tables(0).Rows(i).Item("IDAkun"))
+                                .IDRekanan = Utils.ObjToInt(ds.Tables(0).Rows(i).Item("IDRekanan"))
+                                .Nominal = Utils.ObjToDbl(ds.Tables(0).Rows(i).Item("Nominal"))
+                            End With
+                            listHutangPiutang.Add(e)
+                        Next
+                    End If
+
+                    RepositoryItemSearchLookUpTransaksi.DataSource = ds.Tables("HutangPiutang")
+                    RepositoryItemSearchLookUpTransaksi.ValueMember = "ID"
+                    RepositoryItemSearchLookUpTransaksi.DisplayMember = "Nama"
+                    ds.Dispose()
+                End If
+                RepositoryItemSearchLookUpTransaksi.NullText = "Pilih Referensi Transaksi"
+                GCollIDReff.ColumnEdit = RepositoryItemSearchLookUpTransaksi
+
+
+            Catch ex As Exception
+
+            End Try
         End Using
     End Sub
 
     Private Sub gridView1_CellValueChanged(ByVal sender As Object, ByVal e As DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs) Handles gridView1.CellValueChanged
-        If e.Column.FieldName = "IDBarang" Then
-            Dim value = gridView1.GetRowCellValue(e.RowHandle, e.Column)
-            Dim dt = list.AsEnumerable.FirstOrDefault(Function(x) x.ID = Utils.ObjToInt(value))
+        Dim value As Object = Nothing
+        If e.Column.FieldName = "IDAkun" Then
+            value = gridView1.GetRowCellValue(e.RowHandle, e.Column)
+            If Utils.NullToStr(value) = Utils.NullToStr(txtIDKasBank.EditValue) Then
+                XtraMessageBox.Show("Akun Kas Bank dan Detil Akun Perkiraan Tidak boleh sama.")
+                Exit Sub
+            End If
+            Dim dta = listAkun.AsEnumerable.FirstOrDefault(Function(x) x.ID = Utils.NullToStr(value))
 
-            If dt IsNot Nothing Then
+            If dta IsNot Nothing Then
                 If Utils.ObjToInt(gridView1.GetFocusedRowCellValue(GColID)) < 1 Then
                     gridView1.SetRowCellValue(e.RowHandle, "ID", -1)
                 End If
-                gridView1.SetRowCellValue(e.RowHandle, "NamaBarang", dt.Nama)
-                gridView1.SetRowCellValue(e.RowHandle, "Unit", dt.SatuanTerkecil)
-                gridView1.SetRowCellValue(e.RowHandle, "Harga", 1)
+                If Utils.ObjToInt(gridView1.GetFocusedRowCellValue(GColKurs)) < 1 Then
+                    gridView1.SetRowCellValue(e.RowHandle, "Kurs", 1)
+                End If
                 gridView1.SetRowCellValue(e.RowHandle, "NoUrut", gridView1.RowCount)
 
-                If Utils.NullToStr(gridView1.GetFocusedRowCellValue(GColQty)) = "" Then
-                    qty = 0.0
+                If Utils.NullToStr(gridView1.GetFocusedRowCellValue(GColNominal)) = "" Then
+                    nominal = 0.0
                 Else
-                    qty = Utils.ObjToDbl(gridView1.GetFocusedRowCellValue(GColQty))
-                    price = Utils.ObjToDbl(gridView1.GetFocusedRowCellValue(GColHarga))
-                    amount = qty * price
-                    gridView1.SetFocusedRowCellValue(GColJumlah, amount)
-                    'vat = amount / 10
-                    'gridView1.SetFocusedRowCellValue(colVat, vat)
+                    nominal = Utils.ObjToDbl(gridView1.GetFocusedRowCellValue(GColNominal))
                 End If
             End If
         End If
 
-        If e.Column.Name = GColQty.Name Then
-            qty = Utils.ObjToDbl(gridView1.GetFocusedRowCellValue(GColQty))
-            price = Utils.ObjToDbl(gridView1.GetFocusedRowCellValue(GColHarga))
-            amount = qty * price
-            gridView1.SetFocusedRowCellValue(GColJumlah, amount)
+        If e.Column.FieldName = "IDRekanan" Then
+            value = gridView1.GetRowCellValue(e.RowHandle, e.Column)
+            Dim dta = listRekanan.AsEnumerable.FirstOrDefault(Function(x) x.ID = Utils.ObjToInt(value))
+
+            If dta IsNot Nothing Then
+                If Utils.ObjToInt(gridView1.GetFocusedRowCellValue(GColID)) < 1 Then
+                    gridView1.SetRowCellValue(e.RowHandle, "ID", -1)
+                End If
+                If Utils.ObjToInt(gridView1.GetFocusedRowCellValue(GColKurs)) < 1 Then
+                    gridView1.SetRowCellValue(e.RowHandle, "Kurs", 1)
+                End If
+                gridView1.SetRowCellValue(e.RowHandle, "NoUrut", gridView1.RowCount)
+
+                If Utils.NullToStr(gridView1.GetFocusedRowCellValue(GColNominal)) = "" Then
+                    nominal = 0.0
+                Else
+                    nominal = Utils.ObjToDbl(gridView1.GetFocusedRowCellValue(GColNominal))
+                End If
+            End If
+        End If
+
+        If e.Column.FieldName = "IDReff" Then
+            value = gridView1.GetRowCellValue(e.RowHandle, e.Column)
+            Dim dta = listHutangPiutang.AsEnumerable.FirstOrDefault(Function(x) x.ID = Utils.ObjToInt(value))
+
+            If dta IsNot Nothing Then
+                If Utils.ObjToInt(gridView1.GetFocusedRowCellValue(GColID)) < 1 Then
+                    gridView1.SetRowCellValue(e.RowHandle, "ID", -1)
+                End If
+                If Utils.ObjToInt(gridView1.GetFocusedRowCellValue(GColKurs)) < 1 Then
+                    gridView1.SetRowCellValue(e.RowHandle, "Kurs", 1)
+                End If
+
+                gridView1.SetRowCellValue(e.RowHandle, "Nominal", dta.Nominal)
+                gridView1.SetRowCellValue(e.RowHandle, "NoUrut", gridView1.RowCount)
+
+                If Utils.NullToStr(gridView1.GetFocusedRowCellValue(GColNominal)) = "" Then
+                    nominal = 0.0
+                Else
+                    nominal = Utils.ObjToDbl(gridView1.GetFocusedRowCellValue(GColNominal))
+                End If
+            End If
+        End If
+
+        If e.Column.Name = GColNominal.Name Then
+            nominal = Utils.ObjToDbl(gridView1.GetFocusedRowCellValue(GColNominal))
+            'price = Utils.ObjToDbl(gridView1.GetFocusedRowCellValue(GColKurs))
+            'amount = nominal * price
+            'gridView1.SetFocusedRowCellValue(GColJumlah, amount)
             'vat = amount / 10
             'gridView1.SetFocusedRowCellValue(colVat, vat)
         End If
@@ -274,7 +412,7 @@ Public Class FormKasBankMasuk
             DxErrorProvider1.SetError(txtTgl, "")
         End If
 
-        If ObjToInt(txtIDKasBank.EditValue) < 1 AndAlso NullToStr(txtIDKasBank.Text) < "" Then
+        If NullToStr(txtIDKasBank.EditValue) = "" OrElse NullToStr(txtIDKasBank.Text) = "" Then
             txtIDKasBank.Focus()
             DxErrorProvider1.SetError(txtIDKasBank, "Kas / Bank tidak boleh kosong")
             IsValid = False
@@ -293,6 +431,14 @@ Public Class FormKasBankMasuk
         End If
 
         If ckIsBG.Checked Then
+            If ObjToInt(txtIDRekanan.EditValue) < 1 Then
+                txtIDRekanan.Focus()
+                DxErrorProvider1.SetError(txtIDRekanan, "Anda memilih Giro, Rekanan wajib di isi")
+                IsValid = False
+                Exit Function
+            Else
+                DxErrorProvider1.SetError(txtNoGiro, "")
+            End If
             If txtNoGiro.Text = "" Then
                 txtNoGiro.Focus()
                 DxErrorProvider1.SetError(txtNoGiro, "Anda memilih Giro, No Giro tidak boleh kosong")
@@ -319,18 +465,6 @@ Public Class FormKasBankMasuk
         Else
             DxErrorProvider1.SetError(txtKeterangan, "")
         End If
-        'If CInt(cbTypeLayout.EditValue) <= 0 Then
-        '    cbTypeLayout.Focus()
-        '    IsValid = False
-        '    Exit Function
-        'End If
-        'If Not CBool(ckIsActive.Checked) Then
-        '    If DialogResult.No = MessageBox.Show("Set Role Non Aktif", NamaAplikasi, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) Then
-        '        ckIsActive.Focus()
-        '        IsValid = False
-        '        Exit Function
-        '    End If
-        'End If
         Return IsValid
     End Function
 
@@ -346,12 +480,6 @@ Public Class FormKasBankMasuk
                 Exit Function
             End If
         End If
-        'If CInt(Query.ExecuteScalar("Select Count(*) From MRoleUser Where ID<>" & Me._ID & " And Nama ='" & txtNama.Text & "'")) > 0 Then
-        '    MessageBox.Show("Nama sudah ada/terpakai.", NamaAplikasi, MessageBoxButtons.OK, MessageBoxIcon.Information)
-        '    txtKode.Focus()
-        '    IsValidOnDB = False
-        '    Exit Function
-        'End If
         Return IsValidOnDB
     End Function
     Private Function SaveData() As Boolean
@@ -372,6 +500,7 @@ Public Class FormKasBankMasuk
                                             ,[Tgl]
                                             ,[Kode]
                                             ,[IDKasBank]
+                                            ,[IDRekanan]
                                             ,[TipeForm]
                                             ,[KodeReff]
                                             ,[Keterangan]
@@ -379,7 +508,8 @@ Public Class FormKasBankMasuk
                                             ,[NoGiro]
                                             ,[JTBG],[UserBuat],[TanggalBuat]) " & vbCrLf &
                                   " Values (" & Me._ID & "," & Utils.ObjToStrDateSql(txtTgl.DateTime) & ",'" & FixApostropi(txtKode.Text.Trim) & "'," & vbCrLf &
-                                  " '" & txtIDKasBank.EditValue.ToString & "'," & vbCrLf &
+                                  " '" & NullToStr(txtIDKasBank.EditValue) & "'," & vbCrLf &
+                                  " " & ObjToInt(txtIDRekanan.EditValue) & "," & vbCrLf &
                                   " " & ObjToInt(cbTipeForm.SelectedIndex) & "," & vbCrLf &
                                   " '" & FixApostropi(txtKodeReff.Text.Trim) & "'," & vbCrLf &
                                   " '" & FixApostropi(txtKeterangan.Text.Trim) & "'," & vbCrLf &
@@ -394,7 +524,8 @@ Public Class FormKasBankMasuk
                             sql = "Update " & TableMaster & " Set " & vbCrLf &
                                 "[Tgl] =" & Utils.ObjToStrDateSql(txtTgl.DateTime) & ", " & vbCrLf &
                                 "[Kode] ='" & FixApostropi(txtKode.Text.Trim) & "', " & vbCrLf &
-                                "[IDKasBank] = '" & txtIDKasBank.EditValue.ToString & "', " & vbCrLf &
+                                "[IDKasBank] = '" & NullToStr(txtIDKasBank.EditValue) & "', " & vbCrLf &
+                                "[IDRekanan] = '" & ObjToInt(txtIDRekanan.EditValue) & "', " & vbCrLf &
                                 "[TipeForm]  = " & ObjToInt(cbTipeForm.SelectedIndex) & "," & vbCrLf &
                                 "[KodeReff] = '" & FixApostropi(txtKodeReff.Text.Trim) & "', " & vbCrLf &
                                 "[Keterangan] ='" & FixApostropi(txtKeterangan.Text.Trim) & "', " & vbCrLf &
@@ -412,46 +543,40 @@ Public Class FormKasBankMasuk
                         If Me._ID > 0 Then
                             If gridView1.RowCount > 0 Then
                                 For i As Integer = 0 To gridView1.RowCount - 1
-                                    If ObjToInt(gridView1.GetRowCellValue(i, "IDBarang")) > 0 AndAlso ObjToInt(gridView1.GetRowCellValue(i, "Qty")) > 0 Then
+                                    If ObjToInt(gridView1.GetRowCellValue(i, "IDAkun")) > 0 AndAlso ObjToInt(gridView1.GetRowCellValue(i, "Nominal")) <> 0 Then
                                         If ObjToInt(gridView1.GetRowCellValue(i, "ID")) <= 0 Then
                                             Dim IDDetail As Long = 0
                                             com.CommandText = "Select Isnull(Max(ID),0)+1 From " & TableMaster & "D"
                                             IDDetail = ObjToLong(com.ExecuteScalar())
                                             com.CommandText = "INSERT INTO [" & TableMaster & "D]
                                                             ([ID]
-                                                            ,[IDKasMasuk]
-                                                            ,[NoUrut]
-                                                            ,[IDBarang]
-                                                            ,[Qty]
-                                                            ,[IDSatuan]
-                                                            ,[Isi]
-                                                            ,[Harga]
-                                                            ,[Jumlah]
+                                                            ,[IDKasBankMasuk]
+                                                            ,[IDAkun]
+                                                            ,[IDRekanan]
+                                                            ,[IDReff]
+                                                            ,[Nominal]
+                                                            ,[Kurs]
                                                             ,[Catatan]) 
-                                                            VALUES (@ID,@IDKasMasuk,@NoUrut,@IDBarang,@Qty,@IDSatuan,@Isi,@Harga,@Jumlah,@Catatan)"
+                                                            VALUES (@ID,@IDKasBankMasuk,@IDAkun,@IDRekanan,@IDReff,@Nominal,@Kurs,@Catatan)"
                                             com.Parameters.AddWithValue("@ID", IDDetail)
                                         Else
                                             com.CommandText = "UPDATE [" & TableMaster & "D] SET
-                                                            [IDKasMasuk]=@IDKasMasuk
-                                                            ,[NoUrut]=@NoUrut
-                                                            ,[IDBarang]=@IDBarang
-                                                            ,[Qty]=@Qty
-                                                            ,[IDSatuan]= @IDSatuan
-                                                            ,[Isi] =@Isi
-                                                            ,[Harga] =Harga
-                                                            ,[Jumlah] =@Jumlah
+                                                            [IDKasBankMasuk]=@IDKasBankMasuk
+                                                            ,[IDAkun] =@IDAkun
+                                                            ,[IDRekanan] =@IDRekanan
+                                                            ,[IDReff] =@IDReff
+                                                            ,[Nominal] = @Nominal
+                                                            ,[Kurs] = @Kurs
                                                             ,[Catatan] =@Catatan
                                                             Where [ID]=@ID"
                                             com.Parameters.AddWithValue("@ID", ObjToInt(gridView1.GetRowCellValue(i, "ID")))
                                         End If
-                                        com.Parameters.AddWithValue("@IDKasMasuk", Me._ID)
-                                        com.Parameters.AddWithValue("@NoUrut", ObjToInt(gridView1.GetRowCellValue(i, "NoUrut")))
-                                        com.Parameters.AddWithValue("@IDBarang", ObjToInt(gridView1.GetRowCellValue(i, "IDBarang")))
-                                        com.Parameters.AddWithValue("@Qty", ObjToInt(gridView1.GetRowCellValue(i, "Qty")))
-                                        com.Parameters.AddWithValue("@IDSatuan", 1) 'ObjToInt(gridView1.GetRowCellValue(i, "IDSatuan"))
-                                        com.Parameters.AddWithValue("@Isi", 1) 'ObjToInt(gridView1.GetRowCellValue(i, "Isi"))
-                                        com.Parameters.AddWithValue("@Harga", ObjToInt(gridView1.GetRowCellValue(i, "Harga")))
-                                        com.Parameters.AddWithValue("@Jumlah", ObjToInt(gridView1.GetRowCellValue(i, "Jumlah")))
+                                        com.Parameters.AddWithValue("@IDKasBankMasuk", Me._ID)
+                                        com.Parameters.AddWithValue("@IDAkun", NullToStr(gridView1.GetRowCellValue(i, "IDAkun")))
+                                        com.Parameters.AddWithValue("@IDRekanan", ObjToInt(gridView1.GetRowCellValue(i, "IDRekanan")))
+                                        com.Parameters.AddWithValue("@IDReff", ObjToInt(gridView1.GetRowCellValue(i, "IDReff")))
+                                        com.Parameters.AddWithValue("@Nominal", ObjToInt(gridView1.GetRowCellValue(i, "Nominal")))
+                                        com.Parameters.AddWithValue("@Kurs", ObjToInt(gridView1.GetRowCellValue(i, "Kurs")))
                                         com.Parameters.AddWithValue("@Catatan", NullToStr(gridView1.GetRowCellValue(i, "Catatan")))
 
                                         com.ExecuteNonQuery()

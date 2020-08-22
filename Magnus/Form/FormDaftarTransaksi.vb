@@ -69,17 +69,19 @@ Partial Public Class FormDaftarTransaksi
             Case IDFormTr.F_StokKeluar
                 sql = "Select * From StokKeluar (NOLOCK)  T " & vbCrLf
             Case IDFormTr.F_KasMasuk
-                sql = "Select T.ID,T.IsPosted,T.Tgl,MAkun.Nama [Kas/Bank],T.Kode,T.KodeReff,IsNull(TD.Total,0) As Total," & vbCrLf &
+                sql = "Select T.ID,T.IsPosted,T.Tgl,MAkun.Nama [Kas/Bank],T.Kode,MR.Nama Rekanan,T.KodeReff,IsNull(TD.Total,0) As Total," & vbCrLf &
                        "T.Keterangan, T.IsBG, T.NoGiro, T.JTBG, T.UserBuat, T.TanggalBuat, T.UserUbah, T.TanggalUbah  " & vbCrLf
                 sql &= " From KasBankMasuk (NOLOCK) T " & vbCrLf &
                        "Left Join (Select IDKasBankMasuk,Sum(IsNull(Nominal,0)*IsNull(Kurs,1)) Total From KasBankMasukD (NOLOCK) Group By IDKasBankMasuk) TD on TD.IDKasBankMasuk=T.ID " & vbCrLf &
-                       "Left Join MAkun (NOLOCK) On Makun.ID=T.IDKasBank" & vbCrLf
+                       "Left Join MAkun (NOLOCK) On Makun.ID=T.IDKasBank " & vbCrLf &
+                       "Left Join MRekanan (NOLOCK) MR On MR.ID=T.IDRekanan " & vbCrLf
             Case IDFormTr.F_KasKeluar
-                sql = "Select T.ID,T.IsPosted,T.Tgl,MAkun.Nama [Kas/Bank],T.Kode,T.KodeReff,IsNull(TD.Total,0) As Total," & vbCrLf &
+                sql = "Select T.ID,T.IsPosted,T.Tgl,MAkun.Nama [Kas/Bank],T.Kode,MR.Nama Rekanan,T.KodeReff,IsNull(TD.Total,0) As Total," & vbCrLf &
                        "T.Keterangan, T.IsBG, T.NoGiro, T.JTBG, T.UserBuat, T.TanggalBuat, T.UserUbah, T.TanggalUbah  " & vbCrLf
                 sql &= " From KasBankKeluar (NOLOCK) T " & vbCrLf &
                        "Left Join (Select IDKasBankKeluar,Sum(IsNull(Nominal,0)*IsNull(Kurs,1)) Total From KasBankKeluarD (NOLOCK) Group By IDKasBankKeluar) TD on TD.IDKasBankKeluar=T.ID " & vbCrLf &
-                       "Left Join MAkun (NOLOCK) On Makun.ID=T.IDKasBank" & vbCrLf
+                       "Left Join MAkun (NOLOCK) On Makun.ID=T.IDKasBank" & vbCrLf &
+                       "Left Join MRekanan (NOLOCK) MR On MR.ID=T.IDRekanan " & vbCrLf
             Case IDFormTr.F_CalcLabel
                 If IDRoleUser = 1 Then
                     sql = "Select T.No,T.Tgl,T.Dokumen,B.Nama Bahan,T.harga_bahan HargaBahan ,T.Lebar,T.Tinggi,T.Gap,T.Pisau,T.Pembulatan,T.Qty_Order,T.Jual_Sesuai_Order,Cast((Isnull(T.biaya_pisau,0) + Isnull(T.biaya_tinta,0) + Isnull(T.biaya_toyobo,0) + Isnull(T.biaya_operator,0) + Isnull(T.biaya_kirim,0)) as numeric(18, 2))  TotalBiaya " & vbCrLf

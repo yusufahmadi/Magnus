@@ -64,7 +64,7 @@ Partial Public Class FormDaftar
             Case IDForm.F_MKategori
                 sql = "Select * From MKategori "
             Case IDForm.F_MKategoriBiaya
-                sql = "Select * From MKategoriBiaya "
+                sql = "Select ID,ID Kode,Nama,Keterangan,IsActive From MAkun Where IDAkunLv2='0601' "
             Case IDForm.F_MKaryawan
                 sql = "Select * From MKaryawan "
             Case IDForm.F_TypeTaffeta
@@ -155,10 +155,10 @@ Partial Public Class FormDaftar
                     End If
                 End Using
             Case IDForm.F_MKategoriBiaya
-                Using f As New FormBasic
+                Using f As New FormKategoriBiaya
                     f._IsNew = True
                     f.FormName = "Kategori Biaya"
-                    f.TableName = "MKategoriBiaya"
+                    f.TableName = "MAkun"
                     If f.ShowDialog() = DialogResult.OK Then
                         BarButtonRefresh.PerformClick()
                     End If
@@ -240,11 +240,11 @@ Partial Public Class FormDaftar
                     End If
                 End Using
             Case IDForm.F_MKategoriBiaya
-                Using f As New FormBasic
+                Using f As New FormKategoriBiaya
                     f._IsNew = False
                     f.FormName = "Kategori Biaya"
-                    f.TableName = "MKategoriBiaya"
-                    f._ID = ObjToInt(view.GetDataRow(GridView1.FocusedRowHandle)("ID"))
+                    f.TableName = "MAkun"
+                    f._ID = NullToStr(view.GetDataRow(GridView1.FocusedRowHandle)("ID"))
                     If f.ShowDialog() = DialogResult.OK Then
                         BarButtonRefresh.PerformClick()
                         GridView1.ClearSelection()
