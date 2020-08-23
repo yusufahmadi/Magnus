@@ -11,25 +11,25 @@
       <property name="Name">colID</property>
       <property name="VisibleIndex">2</property>
       <property name="Visible">true</property>
-      <property name="Width">31</property>
+      <property name="Width">45</property>
     </property>
     <property name="Item2" isnull="true" iskey="true">
       <property name="Name">colKode</property>
       <property name="VisibleIndex">0</property>
       <property name="Visible">true</property>
-      <property name="Width">44</property>
+      <property name="Width">45</property>
     </property>
     <property name="Item3" isnull="true" iskey="true">
       <property name="Name">colNama</property>
       <property name="VisibleIndex">1</property>
       <property name="Visible">true</property>
-      <property name="Width">80</property>
+      <property name="Width">112</property>
     </property>
     <property name="Item4" isnull="true" iskey="true">
       <property name="Name">colKeterangan</property>
       <property name="VisibleIndex">3</property>
       <property name="Visible">true</property>
-      <property name="Width">80</property>
+      <property name="Width">76</property>
     </property>
     <property name="Item5" isnull="true" iskey="true">
       <property name="Name">colIsActive</property>

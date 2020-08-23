@@ -23,7 +23,7 @@
       <property name="Name">colTgl</property>
       <property name="VisibleIndex">2</property>
       <property name="Visible">true</property>
-      <property name="Width">72</property>
+      <property name="Width">65</property>
     </property>
     <property name="Item4" isnull="true" iskey="true">
       <property name="Name">colCustomer_Minta_Bikin_Jadinya_Line</property>

@@ -39,8 +39,6 @@
     </property>
     <property name="Item6" isnull="true" iskey="true">
       <property name="Name">colIDParent</property>
-      <property name="VisibleIndex">5</property>
-      <property name="Visible">true</property>
       <property name="Width">66</property>
     </property>
   </property>

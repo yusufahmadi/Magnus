@@ -158,10 +158,16 @@
     <Compile Include="Demo\FormDemo.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\FormCustom\FormKategoriBiaya.Designer.vb">
+    <Compile Include="Form\FormDetail\Transaksi\Finance\FormKasBankKeluar.Designer.vb">
+      <DependentUpon>FormKasBankKeluar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FormDetail\Transaksi\Finance\FormKasBankKeluar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FormDetail\Master\FormKategoriBiaya.Designer.vb">
       <DependentUpon>FormKategoriBiaya.vb</DependentUpon>
     </Compile>
-    <Compile Include="Form\FormCustom\FormKategoriBiaya.vb">
+    <Compile Include="Form\FormDetail\Master\FormKategoriBiaya.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form\FormDetail\Transaksi\Finance\FormKasBankMasuk.Designer.vb">
@@ -344,7 +350,10 @@
     <EmbeddedResource Include="Demo\FormDemo.resx">
       <DependentUpon>FormDemo.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\FormCustom\FormKategoriBiaya.resx">
+    <EmbeddedResource Include="Form\FormDetail\Transaksi\Finance\FormKasBankKeluar.resx">
+      <DependentUpon>FormKasBankKeluar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FormDetail\Master\FormKategoriBiaya.resx">
       <DependentUpon>FormKategoriBiaya.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\FormDetail\Transaksi\Finance\FormKasBankMasuk.resx">
@@ -546,6 +555,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Form\Accounting\Finance\" />
+    <Folder Include="Form\FormCustom\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

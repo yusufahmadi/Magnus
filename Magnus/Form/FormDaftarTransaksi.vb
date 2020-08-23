@@ -186,9 +186,14 @@ Partial Public Class FormDaftarTransaksi
                     End If
                 End Using
             Case IDFormTr.F_KasKeluar
-
+                Using f As New FormKasBankKeluar
+                    f._IsNew = True
+                    If f.ShowDialog() = DialogResult.OK Then
+                        BarButtonRefresh.PerformClick()
+                    End If
+                End Using
             Case IDFormTr.F_CalcLabel
-                Using f As New FormCalcRibbon
+                Using f As New FormCalcLabel
                     f._IsNew = True
                     f.FormName = "Label Calculator"
                     f.TableName = "TLabel"
@@ -267,9 +272,18 @@ Partial Public Class FormDaftarTransaksi
                     End If
                 End Using
             Case IDFormTr.F_KasKeluar
-
+                Using f As New FormKasBankKeluar
+                    f._IsNew = False
+                    f._ID = ObjToInt(view.GetDataRow(GridView1.FocusedRowHandle)("ID"))
+                    If f.ShowDialog() = DialogResult.OK Then
+                        BarButtonRefresh.PerformClick()
+                        GridView1.ClearSelection()
+                        GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("ID"), f._ID.ToString)
+                        GridView1.SelectRow(GridView1.FocusedRowHandle)
+                    End If
+                End Using
             Case IDFormTr.F_CalcLabel
-                Using f As New FormCalcRibbon
+                Using f As New FormCalcLabel
                     f._IsNew = False
                     f._ID = ObjToInt(view.GetDataRow(GridView1.FocusedRowHandle)("no"))
                     f.FormName = "Label Calculator"
@@ -436,7 +450,7 @@ Partial Public Class FormDaftarTransaksi
 
     Sub Export()
         Using dlgsave As New SaveFileDialog
-            dlgsave.Title = "Export Daftar ke Excel"
+            dlgsave.Title = "Export " & NamaForm & " ke Excel"
             dlgsave.Filter = "Excel Files|*.xls"
             If dlgsave.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
                 GridControl1.ExportToXls(dlgsave.FileName)

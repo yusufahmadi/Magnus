@@ -134,7 +134,7 @@ Partial Public Class FormKategoriBiaya
             Try
 
                 If _IsNew Then
-                    sql = "Select Isnull(Max(Substring(ID," & NullToStr(txtIDAkunLv2.EditValue).Length + 1 & ",2)),0)+1 From " & TableName & " Where LEFT(ID," & NullToStr(txtIDAkunLv2.EditValue).Length & ")= '" & NullToStr(txtIDAkunLv2.EditValue) & "'"
+                    sql = "Select Isnull(Max(Substring(ID," & NullToStr(txtIDAkunLv2.EditValue).Length + 1 & ",2)),0)+1 From " & TableName & " Where Right(ID,2)<>'99' And LEFT(ID," & NullToStr(txtIDAkunLv2.EditValue).Length & ")= '" & NullToStr(txtIDAkunLv2.EditValue) & "'"
                     Me._ID = NullToStr(txtIDAkunLv2.EditValue) & Format(ObjToInt(Query.ExecuteScalar(sql)), "00")
                     sql = "Insert Into " & TableName & " (ID,IDAkunLv2,IDParent,Nama,Keterangan,IsActive,LevelPerkiraan) " & vbCrLf &
                           " Values ('" & Me._ID & "','" & NullToStr(txtIDAkunLv2.EditValue) & "','" & NullToStr(txtParent.EditValue) & "'," & vbCrLf &

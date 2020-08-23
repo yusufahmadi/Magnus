@@ -262,15 +262,96 @@ Public Module modDBVersion
                                     ALTER TABLE [dbo].[MAkun] ADD  CONSTRAINT [DF_MAkun_IsKas]  DEFAULT ((0)) FOR [IsKas];" & vbCrLf &
                                   "" & vbCrLf &
                                   "INSERT [dbo].[MAkun] ([IDAkunLv2], [IDParent], [ID], [Nama], [Keterangan], [IDJenisBukuPembantu], [IsActive], [Level], [IsKas]) VALUES 
-                                    (N'0101', N'0', N'010101', N'Kas', NULL, 1, 1, 3, 1),(N'0101', N'0', N'0101020000', N'Bank', NULL, 1, 0, 3, 0),
-                                    (N'0601', N'0', N'060101', N'Bensin, Tol dan Parkir', NULL, 0, 1, 3, 0),(N'0601', N'0', N'060102', N'Komisi & Fee', NULL, 0, 0, 0, 0),
-                                    (N'0601', N'0', N'060103', N'Biaya Atk', NULL, 0, 0, 0, 0),(N'0601', N'0', N'060104', N'Biaya Kirim', NULL, 0, 1, 3, 0),
+                                    (N'0101', N'0', N'010101', N'Kas', NULL, 1, 1, 3, 1),
+                                    (N'0101', N'0', N'010102', N'Bank', NULL, 1, 0, 3, 0),
+                                    (N'0201', N'0', N'020101', N'Hutang', NULL, 0, 1, 3, 0),
+                                    (N'0301', N'0', N'030101', N'Modal', NULL, 0, 1, 3, 0),
+                                    (N'0601', N'0', N'060101', N'Bensin, Tol dan Parkir', NULL, 0, 1, 3, 0),
+                                    (N'0601', N'0', N'060102', N'Komisi & Fee', NULL, 0, 1, 3, 0),
+                                    (N'0601', N'0', N'060103', N'Biaya Atk', NULL, 0, 0, 0, 0),
+                                    (N'0601', N'0', N'060104', N'Biaya Kirim', NULL, 0, 1, 3, 0),
                                     (N'0601', N'0', N'060199', N'Biaya Lain-Lain', NULL, 0, 0, 0, 0) " & vbCrLf &
                                   " " & vbCrLf &
                                   "END"
                             com.CommandText = sql
                             com.ExecuteNonQuery()
 
+
+                            sql = "CREATE TABLE [dbo].[KasBankKeluar]([ID] [int] NOT NULL,[IsPosted] [bit] NULL,
+                                    [Tgl] [date] NOT NULL,[Kode] [nvarchar](15) NOT NULL,[IDKasBank] [nvarchar](15) NOT NULL,
+                                    [IDRekanan] [int] NULL,[TipeForm] [smallint] NULL,[KodeReff] [nvarchar](50) NULL,
+                                    [Keterangan] [nvarchar](150) NULL,[IsBG] [bit] NULL,[NoGiro] [nvarchar](15) NULL,
+                                    [JTBG] [date] NULL,[UserBuat] [nvarchar](50) NULL,[TanggalBuat] [datetime] NULL,
+                                    [UserUbah] [nvarchar](50) NULL,[TanggalUbah] [datetime] NULL,
+                                    CONSTRAINT [PK_KasBankKeluar] PRIMARY KEY CLUSTERED 
+                                    ([ID] ASC )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, 
+                                    ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]) ON [PRIMARY];
+                                    EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'0 All 1 Mutasi Kas Bank Keluar 2 Pelunasan Piutang' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'KasBankKeluar', @level2type=N'COLUMN',@level2name=N'TipeForm';
+                                    ALTER TABLE [dbo].[KasBankKeluar] ADD  CONSTRAINT [DF_KasBankKeluar_IsPosted]  DEFAULT ((0)) FOR [IsPosted];
+                                    ALTER TABLE [dbo].[KasBankKeluar] ADD  CONSTRAINT [DF_KasBankKeluar_IDRekanan]  DEFAULT ((0)) FOR [IDRekanan];
+                                    ALTER TABLE [dbo].[KasBankKeluar] ADD  CONSTRAINT [DF_KasBankKeluar_TipeKasKeluar]  DEFAULT ((0)) FOR [TipeForm];
+                                    ALTER TABLE [dbo].[KasBankKeluar] ADD  CONSTRAINT [DF_KasBankKeluar_IsBG]  DEFAULT ((0)) FOR [IsBG];"
+                            com.CommandText = sql
+                            com.ExecuteNonQuery()
+
+                            sql = "CREATE TABLE [dbo].[KasBankKeluarD](
+                                    [ID] [bigint] NOT NULL,
+                                    [IDKasBankKeluar] [int] NOT NULL,
+                                    [IDAkun] [nvarchar](15) NOT NULL,
+                                    [IDRekanan] [int] NOT NULL,
+                                    [IDReff] [int] NOT NULL,
+                                    [Nominal] [money] NOT NULL,
+                                    [Kurs] [money] NOT NULL,
+                                    [Catatan] [nvarchar](50) NULL,
+                                    CONSTRAINT [PK_KasBankKeluarD] PRIMARY KEY CLUSTERED 
+                                    ( [ID] ASC )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+                                    ) ON [PRIMARY];
+                                    EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'ID Supplier Karyawan Customer' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'KasBankKeluarD', @level2type=N'COLUMN',@level2name=N'IDRekanan';
+                                    ALTER TABLE [dbo].[KasBankKeluarD]  WITH CHECK ADD  CONSTRAINT [FK_KasBankKeluarD_KasBankKeluar] FOREIGN KEY([IDKasBankKeluar])
+                                    REFERENCES [dbo].[KasBankKeluar] ([ID])
+                                    ON DELETE CASCADE;
+                                    ALTER TABLE [dbo].[KasBankKeluarD] CHECK CONSTRAINT [FK_KasBankKeluarD_KasBankKeluar];
+                                    ALTER TABLE [dbo].[KasBankKeluarD] ADD  CONSTRAINT [DF_KasBankKeluarD_IDReferensi]  DEFAULT ((0)) FOR [IDRekanan];
+                                    ALTER TABLE [dbo].[KasBankKeluarD] ADD  CONSTRAINT [DF_KasBankKeluarD_IDTransaksi]  DEFAULT ((0)) FOR [IDReff];
+                                    ALTER TABLE [dbo].[KasBankKeluarD] ADD  CONSTRAINT [DF_KasBankKeluarD_Kurs]  DEFAULT ((1)) FOR [Kurs];"
+                            com.CommandText = sql
+                            com.ExecuteNonQuery()
+
+                            sql = "CREATE VIEW [dbo].[vStokMasuk]
+                                    AS
+                                    SELECT 'In' AS Jenis, M.ID, M.Tgl, M.Kode, M.Keterangan, MB.Kode AS KodeBarang, MB.Nama AS NamaBarang, D.Qty, dbo.MSatuan.Nama AS Unit, D.Catatan, M.UserBuat, M.TanggalBuat, M.TanggalUbah, 
+                                    M.UserUbah, D.IDBarang
+                                    FROM dbo.StokMasuk AS M INNER JOIN
+                                    dbo.StokMasukD AS D ON M.ID = D.IDStokMasuk INNER JOIN
+                                    dbo.MBarang AS MB ON MB.ID = D.IDBarang LEFT OUTER JOIN
+                                    dbo.MSatuan ON D.IDSatuan = dbo.MSatuan.ID"
+                            com.CommandText = sql
+                            com.ExecuteNonQuery()
+                            sql = "CREATE VIEW [dbo].[vStokKeluar]
+                                    AS
+                                    SELECT 'Out' AS Jenis, M.ID, M.Tgl, M.Kode, M.Keterangan, MB.Kode AS KodeBarang, MB.Nama AS NamaBarang, D.Qty, dbo.MSatuan.Nama AS Unit, D.Catatan, M.UserBuat, M.TanggalBuat, 
+                                    M.TanggalUbah, M.UserUbah, D.IDBarang
+                                    FROM dbo.StokKeluar AS M INNER JOIN
+                                    dbo.StokKeluarD AS D ON M.ID = D.IDStokKeluar INNER JOIN
+                                    dbo.MBarang AS MB ON MB.ID = D.IDBarang LEFT OUTER JOIN
+                                    dbo.MSatuan ON D.IDSatuan = dbo.MSatuan.ID"
+                            com.CommandText = sql
+                            com.ExecuteNonQuery()
+
+                            sql = "Create Procedure spLapKartuStok(@T1 as Date='2020-01-01',@T2 as Date='2020-08-31',@IDBarang as Int=0)
+                                    As Begin
+                                        Select * From
+                                        (
+                                        Select * From vStokMasuk
+                                        Union All 
+                                        Select * From vStokKeluar
+                                        ) As S
+                                        Where S.Tgl Between @T1 And Dateadd(day,1,@T2) And
+                                        Case when @IDBarang=0 then @IDBarang else S.IDBarang end= @IDBarang
+                                        Order By S.Tgl,S.Jenis
+                                    End"
+                            com.CommandText = sql
+                            com.ExecuteNonQuery()
                             ''-- Kategori Biaya Ganti View
                             'sql = "IF OBJECT_ID(N'MKategoriBiaya', N'U') IS NOT NULL" & vbCrLf &
                             '        "BEGIN " & vbCrLf &

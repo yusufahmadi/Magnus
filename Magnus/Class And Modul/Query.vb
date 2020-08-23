@@ -1,5 +1,6 @@
 ﻿Imports System.Data.SqlClient
 Imports System.Web.Script.Serialization
+Imports DevExpress.XtraEditors
 Imports Newtonsoft.Json
 
 Public Class Query
@@ -128,7 +129,7 @@ Public Class Query
         Dim sql As String = ""
         sql = "Select IsActive From " & Table & " Where " & FilterPkColumn_PkValue
         If CheckIsActive AndAlso Utils.ObjToBool(Query.ExecuteScalar(sql)) Then
-            If MessageBox.Show("Nonaktifkan data ?", NamaAplikasi, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) = DialogResult.Yes Then
+            If XtraMessageBox.Show("Nonaktifkan data ?", NamaAplikasi, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) = DialogResult.Yes Then
                 sql = "Update " & Table & " Set IsActive=0 Where " & FilterPkColumn_PkValue
                 Query.Execute(sql)
                 With e
@@ -144,7 +145,7 @@ Public Class Query
                 End With
             End If
         Else
-            If MessageBox.Show("Hapus data dari database (permanen) ?", NamaAplikasi, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) = DialogResult.Yes Then
+            If XtraMessageBox.Show("Hapus data dari database (permanen) ?", NamaAplikasi, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) = DialogResult.Yes Then
                 sql = "Delete " & Table & " Where " & FilterPkColumn_PkValue
                 e = Query.Execute(sql)
                 If e.Hasil Then

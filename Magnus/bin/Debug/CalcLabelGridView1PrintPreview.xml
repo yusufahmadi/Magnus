@@ -11,7 +11,7 @@
       <property name="Name">colNo</property>
       <property name="VisibleIndex">0</property>
       <property name="Visible">true</property>
-      <property name="Width">33</property>
+      <property name="Width">34</property>
     </property>
     <property name="Item2" isnull="true" iskey="true">
       <property name="Name">colTgl</property>
@@ -23,7 +23,7 @@
       <property name="Name">colDokumen</property>
       <property name="VisibleIndex">2</property>
       <property name="Visible">true</property>
-      <property name="Width">64</property>
+      <property name="Width">74</property>
     </property>
     <property name="Item4" isnull="true" iskey="true">
       <property name="Name">colBahan</property>
@@ -35,55 +35,55 @@
       <property name="Name">colHargaBahan</property>
       <property name="VisibleIndex">4</property>
       <property name="Visible">true</property>
-      <property name="Width">82</property>
+      <property name="Width">92</property>
     </property>
     <property name="Item6" isnull="true" iskey="true">
       <property name="Name">colLebar</property>
       <property name="VisibleIndex">5</property>
       <property name="Visible">true</property>
-      <property name="Width">47</property>
+      <property name="Width">52</property>
     </property>
     <property name="Item7" isnull="true" iskey="true">
       <property name="Name">colTinggi</property>
       <property name="VisibleIndex">6</property>
       <property name="Visible">true</property>
-      <property name="Width">48</property>
+      <property name="Width">54</property>
     </property>
     <property name="Item8" isnull="true" iskey="true">
       <property name="Name">colGap</property>
       <property name="VisibleIndex">7</property>
       <property name="Visible">true</property>
-      <property name="Width">39</property>
+      <property name="Width">42</property>
     </property>
     <property name="Item9" isnull="true" iskey="true">
       <property name="Name">colPisau</property>
       <property name="VisibleIndex">8</property>
       <property name="Visible">true</property>
-      <property name="Width">45</property>
+      <property name="Width">50</property>
     </property>
     <property name="Item10" isnull="true" iskey="true">
       <property name="Name">colPembulatan</property>
       <property name="VisibleIndex">9</property>
       <property name="Visible">true</property>
-      <property name="Width">76</property>
+      <property name="Width">88</property>
     </property>
     <property name="Item11" isnull="true" iskey="true">
       <property name="Name">colQty_Order</property>
       <property name="VisibleIndex">10</property>
       <property name="Visible">true</property>
-      <property name="Width">72</property>
+      <property name="Width">79</property>
     </property>
     <property name="Item12" isnull="true" iskey="true">
       <property name="Name">colJual_Sesuai_Order</property>
       <property name="VisibleIndex">11</property>
       <property name="Visible">true</property>
-      <property name="Width">110</property>
+      <property name="Width">126</property>
     </property>
     <property name="Item13" isnull="true" iskey="true">
       <property name="Name">colTotalBiaya</property>
       <property name="VisibleIndex">12</property>
       <property name="Visible">true</property>
-      <property name="Width">73</property>
+      <property name="Width">83</property>
     </property>
   </property>
   <property name="ActiveFilterString" />

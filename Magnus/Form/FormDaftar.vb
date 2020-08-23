@@ -56,9 +56,9 @@ Partial Public Class FormDaftar
                 sql = "Select R.ID,R.Kode,R.Nama,R.Keterangan,R.IsActive,T.Nama TypeLayout,R.MenuSettingUser From MRoleUser R Left Join MTypeLayout T On R.IDTypeLayout=T.ID "
             Case IDForm.F_MBarang
                 If IDTypeLayout = 1 Then 'A.P,A.L,A.T,A.Isi,
-                    sql = "Select A.ID,B.Kode + ' - ' + B.Nama KodeKategori, A.Kode,A.Nama,A.Catatan,A.HargaBeli,A.TanggalBuat,A.UserBuat,A.TanggalUbah,A.UserUbah "
+                    sql = "Select A.ID,B.Kode + ' - ' + B.Nama KodeKategori, A.Kode,A.Nama,A.Catatan,A.IsActive,A.HargaBeli,A.TanggalBuat,A.UserBuat,A.TanggalUbah,A.UserUbah "
                 Else
-                    sql = "Select A.ID,B.Kode KodeKategori,B.Nama Kategori, A.Kode,A.Nama,A.Catatan,A.TanggalBuat,A.UserBuat,A.TanggalUbah,A.UserUbah "
+                    sql = "Select A.ID,B.Kode KodeKategori,B.Nama Kategori, A.Kode,A.Nama,A.Catatan,A.IsActive,A.TanggalBuat,A.UserBuat,A.TanggalUbah,A.UserUbah "
                 End If
                 sql = sql & " From MBarang A Left Join MKategori B on A.IDKategori=B.ID "
             Case IDForm.F_MKategori
@@ -324,8 +324,7 @@ Partial Public Class FormDaftar
                     DevExpress.XtraEditors.XtraMessageBox.Show(Me, f.Message, NamaAplikasi)
                 End If
             Case IDForm.F_MBarang
-
-                Dim f As Pesan = Query.DeleteDataMaster("MUser", "ID=" & ID & "")
+                Dim f As Pesan = Query.DeleteDataMaster("MBarang", "ID=" & ID & "")
                 If f.Hasil = True Then
                     DevExpress.XtraEditors.XtraMessageBox.Show(Me, f.Message, NamaAplikasi)
                     BarButtonRefresh.PerformClick()
@@ -384,7 +383,7 @@ Partial Public Class FormDaftar
 
     Private Sub BarButtonExport_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonExport.ItemClick
         Using dlgsave As New SaveFileDialog
-            dlgsave.Title = "Export Daftar ke Excel"
+            dlgsave.Title = "Export " & Me.Text & " ke Excel"
             dlgsave.Filter = "Excel Files|*.xls"
             If dlgsave.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
                 GridControl1.ExportToXls(dlgsave.FileName)
