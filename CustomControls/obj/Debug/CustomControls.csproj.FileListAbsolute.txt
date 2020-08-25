@@ -1,0 +1,170 @@
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\CustomControls.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\CustomControls.pdb
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\DevExpress.Data.v17.1.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\DevExpress.Printing.v17.1.Core.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\DevExpress.Utils.v17.1.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\DevExpress.XtraEditors.v17.1.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\DevExpress.XtraGrid.v17.1.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\DevExpress.XtraLayout.v17.1.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\DevExpress.XtraPrinting.v17.1.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\DevExpress.Pdf.v17.1.Core.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\DevExpress.Sparkline.v17.1.Core.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\DevExpress.RichEdit.v17.1.Core.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\DevExpress.XtraBars.v17.1.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\DevExpress.XtraTreeList.v17.1.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\DevExpress.Office.v17.1.Core.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\DevExpress.Data.v17.1.xml
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\DevExpress.Printing.v17.1.Core.xml
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\DevExpress.Utils.v17.1.xml
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\DevExpress.XtraEditors.v17.1.xml
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\DevExpress.XtraGrid.v17.1.xml
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\DevExpress.XtraLayout.v17.1.xml
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\DevExpress.XtraPrinting.v17.1.xml
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\DevExpress.Pdf.v17.1.Core.xml
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\DevExpress.Sparkline.v17.1.Core.xml
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\DevExpress.RichEdit.v17.1.Core.xml
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\DevExpress.XtraBars.v17.1.xml
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\DevExpress.XtraTreeList.v17.1.xml
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\DevExpress.Office.v17.1.Core.xml
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\de\DevExpress.Data.v17.1.resources.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\es\DevExpress.Data.v17.1.resources.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\ja\DevExpress.Data.v17.1.resources.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\ru\DevExpress.Data.v17.1.resources.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\de\DevExpress.Printing.v17.1.Core.resources.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\es\DevExpress.Printing.v17.1.Core.resources.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\ja\DevExpress.Printing.v17.1.Core.resources.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\ru\DevExpress.Printing.v17.1.Core.resources.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\de\DevExpress.Utils.v17.1.resources.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\es\DevExpress.Utils.v17.1.resources.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\ja\DevExpress.Utils.v17.1.resources.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\ru\DevExpress.Utils.v17.1.resources.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\de\DevExpress.XtraEditors.v17.1.resources.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\es\DevExpress.XtraEditors.v17.1.resources.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\ja\DevExpress.XtraEditors.v17.1.resources.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\ru\DevExpress.XtraEditors.v17.1.resources.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\de\DevExpress.XtraGrid.v17.1.resources.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\es\DevExpress.XtraGrid.v17.1.resources.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\ja\DevExpress.XtraGrid.v17.1.resources.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\ru\DevExpress.XtraGrid.v17.1.resources.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\de\DevExpress.XtraLayout.v17.1.resources.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\es\DevExpress.XtraLayout.v17.1.resources.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\ja\DevExpress.XtraLayout.v17.1.resources.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\ru\DevExpress.XtraLayout.v17.1.resources.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\de\DevExpress.XtraPrinting.v17.1.resources.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\es\DevExpress.XtraPrinting.v17.1.resources.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\ja\DevExpress.XtraPrinting.v17.1.resources.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\ru\DevExpress.XtraPrinting.v17.1.resources.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\de\DevExpress.Pdf.v17.1.Core.resources.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\es\DevExpress.Pdf.v17.1.Core.resources.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\ja\DevExpress.Pdf.v17.1.Core.resources.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\ru\DevExpress.Pdf.v17.1.Core.resources.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\de\DevExpress.Sparkline.v17.1.Core.resources.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\es\DevExpress.Sparkline.v17.1.Core.resources.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\ja\DevExpress.Sparkline.v17.1.Core.resources.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\ru\DevExpress.Sparkline.v17.1.Core.resources.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\de\DevExpress.RichEdit.v17.1.Core.resources.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\es\DevExpress.RichEdit.v17.1.Core.resources.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\ja\DevExpress.RichEdit.v17.1.Core.resources.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\ru\DevExpress.RichEdit.v17.1.Core.resources.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\de\DevExpress.XtraBars.v17.1.resources.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\es\DevExpress.XtraBars.v17.1.resources.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\ja\DevExpress.XtraBars.v17.1.resources.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\ru\DevExpress.XtraBars.v17.1.resources.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\de\DevExpress.XtraTreeList.v17.1.resources.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\es\DevExpress.XtraTreeList.v17.1.resources.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\ja\DevExpress.XtraTreeList.v17.1.resources.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\ru\DevExpress.XtraTreeList.v17.1.resources.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\de\DevExpress.Office.v17.1.Core.resources.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\es\DevExpress.Office.v17.1.Core.resources.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\ja\DevExpress.Office.v17.1.Core.resources.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\bin\Debug\ru\DevExpress.Office.v17.1.Core.resources.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\obj\Debug\CustomControls.csprojAssemblyReference.cache
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\obj\Debug\CustomControls.csproj.CoreCompileInputs.cache
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\obj\Debug\CustomControls.csproj.CopyComplete
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\obj\Debug\CustomControls.dll
+E:\ANCIENT\A GIT\2018-SEAMART-KIMMART-EX\VPOINT\CustomControls\obj\Debug\CustomControls.pdb
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\CustomControls.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\CustomControls.pdb
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\DevExpress.Data.v17.1.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\DevExpress.Printing.v17.1.Core.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\DevExpress.Utils.v17.1.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\DevExpress.XtraEditors.v17.1.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\DevExpress.XtraGrid.v17.1.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\DevExpress.XtraLayout.v17.1.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\DevExpress.XtraPrinting.v17.1.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\DevExpress.Pdf.v17.1.Core.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\DevExpress.Sparkline.v17.1.Core.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\DevExpress.RichEdit.v17.1.Core.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\DevExpress.XtraBars.v17.1.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\DevExpress.XtraTreeList.v17.1.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\DevExpress.Office.v17.1.Core.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\DevExpress.Data.v17.1.xml
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\DevExpress.Printing.v17.1.Core.xml
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\DevExpress.Utils.v17.1.xml
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\DevExpress.XtraEditors.v17.1.xml
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\DevExpress.XtraGrid.v17.1.xml
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\DevExpress.XtraLayout.v17.1.xml
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\DevExpress.XtraPrinting.v17.1.xml
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\DevExpress.Pdf.v17.1.Core.xml
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\DevExpress.Sparkline.v17.1.Core.xml
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\DevExpress.RichEdit.v17.1.Core.xml
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\DevExpress.XtraBars.v17.1.xml
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\DevExpress.XtraTreeList.v17.1.xml
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\DevExpress.Office.v17.1.Core.xml
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\de\DevExpress.Data.v17.1.resources.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\es\DevExpress.Data.v17.1.resources.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\ja\DevExpress.Data.v17.1.resources.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\ru\DevExpress.Data.v17.1.resources.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\de\DevExpress.Printing.v17.1.Core.resources.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\es\DevExpress.Printing.v17.1.Core.resources.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\ja\DevExpress.Printing.v17.1.Core.resources.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\ru\DevExpress.Printing.v17.1.Core.resources.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\de\DevExpress.Utils.v17.1.resources.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\es\DevExpress.Utils.v17.1.resources.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\ja\DevExpress.Utils.v17.1.resources.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\ru\DevExpress.Utils.v17.1.resources.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\de\DevExpress.XtraEditors.v17.1.resources.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\es\DevExpress.XtraEditors.v17.1.resources.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\ja\DevExpress.XtraEditors.v17.1.resources.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\ru\DevExpress.XtraEditors.v17.1.resources.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\de\DevExpress.XtraGrid.v17.1.resources.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\es\DevExpress.XtraGrid.v17.1.resources.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\ja\DevExpress.XtraGrid.v17.1.resources.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\ru\DevExpress.XtraGrid.v17.1.resources.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\de\DevExpress.XtraLayout.v17.1.resources.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\es\DevExpress.XtraLayout.v17.1.resources.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\ja\DevExpress.XtraLayout.v17.1.resources.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\ru\DevExpress.XtraLayout.v17.1.resources.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\de\DevExpress.XtraPrinting.v17.1.resources.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\es\DevExpress.XtraPrinting.v17.1.resources.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\ja\DevExpress.XtraPrinting.v17.1.resources.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\ru\DevExpress.XtraPrinting.v17.1.resources.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\de\DevExpress.Pdf.v17.1.Core.resources.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\es\DevExpress.Pdf.v17.1.Core.resources.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\ja\DevExpress.Pdf.v17.1.Core.resources.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\ru\DevExpress.Pdf.v17.1.Core.resources.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\de\DevExpress.Sparkline.v17.1.Core.resources.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\es\DevExpress.Sparkline.v17.1.Core.resources.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\ja\DevExpress.Sparkline.v17.1.Core.resources.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\ru\DevExpress.Sparkline.v17.1.Core.resources.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\de\DevExpress.RichEdit.v17.1.Core.resources.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\es\DevExpress.RichEdit.v17.1.Core.resources.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\ja\DevExpress.RichEdit.v17.1.Core.resources.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\ru\DevExpress.RichEdit.v17.1.Core.resources.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\de\DevExpress.XtraBars.v17.1.resources.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\es\DevExpress.XtraBars.v17.1.resources.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\ja\DevExpress.XtraBars.v17.1.resources.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\ru\DevExpress.XtraBars.v17.1.resources.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\de\DevExpress.XtraTreeList.v17.1.resources.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\es\DevExpress.XtraTreeList.v17.1.resources.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\ja\DevExpress.XtraTreeList.v17.1.resources.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\ru\DevExpress.XtraTreeList.v17.1.resources.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\de\DevExpress.Office.v17.1.Core.resources.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\es\DevExpress.Office.v17.1.Core.resources.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\ja\DevExpress.Office.v17.1.Core.resources.dll
+E:\GITHUB\Me\Magnus\CustomControls\bin\Debug\ru\DevExpress.Office.v17.1.Core.resources.dll
+E:\GITHUB\Me\Magnus\CustomControls\obj\Debug\CustomControls.csprojAssemblyReference.cache
+E:\GITHUB\Me\Magnus\CustomControls\obj\Debug\CustomControls.csproj.CoreCompileInputs.cache
+E:\GITHUB\Me\Magnus\CustomControls\obj\Debug\CustomControls.csproj.CopyComplete
+E:\GITHUB\Me\Magnus\CustomControls\obj\Debug\CustomControls.dll
+E:\GITHUB\Me\Magnus\CustomControls\obj\Debug\CustomControls.pdb

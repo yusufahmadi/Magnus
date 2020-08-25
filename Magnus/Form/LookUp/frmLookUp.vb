@@ -15,6 +15,7 @@ Public Class frmLookup
     Dim oda2 As SqlDataAdapter
     Public Shared ds As New DataSet
     Public FormName As String = ""
+    Public NamaFormPemanggil As String = ""
     Public repckedit As New RepositoryItemCheckEdit
     Public BolehAmbilData As Boolean = False
     Public row As System.Data.DataRow

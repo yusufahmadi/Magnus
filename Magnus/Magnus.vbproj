@@ -119,6 +119,10 @@
   <ItemGroup>
     <Compile Include="BLL\GlobalFunc.vb" />
     <Compile Include="BLL\modDBVersion.vb" />
+    <Compile Include="Class And Modul\FungsiControl.vb" />
+    <Compile Include="Class And Modul\Ini.vb" />
+    <Compile Include="Class And Modul\modParser.vb" />
+    <Compile Include="Class And Modul\TimeZone.vb" />
     <Compile Include="Demo\EditPopupForm.Designer.vb">
       <DependentUpon>EditPopupForm.vb</DependentUpon>
     </Compile>
@@ -129,6 +133,12 @@
       <DependentUpon>FormDemoGridLookup.vb</DependentUpon>
     </Compile>
     <Compile Include="Demo\FormDemoGridLookup.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Demo\FormMain2.Designer.vb">
+      <DependentUpon>FormMain2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Demo\FormMain2.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormAbout.Designer.vb">
@@ -204,6 +214,24 @@
       <DependentUpon>FormStokMasukErr.vb</DependentUpon>
     </Compile>
     <Compile Include="Form\FormDetail\Transaksi\Stok\FormStokMasukErr.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Laporan\FormLap.Designer.vb">
+      <DependentUpon>FormLap.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Laporan\FormLap.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Laporan\FormLaporan.Designer.vb">
+      <DependentUpon>FormLaporan.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Laporan\FormLaporan.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Form\Laporan\Sample\frmLaporanFramework.Designer.vb">
+      <DependentUpon>frmLaporanFramework.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Laporan\Sample\frmLaporanFramework.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form\LookUp\frmLookUp.Designer.vb">
@@ -338,6 +366,9 @@
     <EmbeddedResource Include="Demo\FormDemoGridLookup.resx">
       <DependentUpon>FormDemoGridLookup.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Demo\FormMain2.resx">
+      <DependentUpon>FormMain2.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormAbout.resx">
       <DependentUpon>FormAbout.vb</DependentUpon>
     </EmbeddedResource>
@@ -373,6 +404,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form\FormDetail\Transaksi\Stok\FormStokMasukErr.resx">
       <DependentUpon>FormStokMasukErr.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Laporan\FormLap.resx">
+      <DependentUpon>FormLap.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Laporan\FormLaporan.resx">
+      <DependentUpon>FormLaporan.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Laporan\Sample\frmLaporanFramework.resx">
+      <DependentUpon>frmLaporanFramework.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\LookUp\frmLookUp.resx">
       <DependentUpon>frmLookUp.vb</DependentUpon>
@@ -556,6 +596,12 @@
   <ItemGroup>
     <Folder Include="Form\Accounting\Finance\" />
     <Folder Include="Form\FormCustom\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CustomControls\CustomControls.csproj">
+      <Project>{102a4057-a228-4567-a6af-46730ca87af8}</Project>
+      <Name>CustomControls</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

@@ -1,10 +1,42 @@
-﻿Imports System.Net
+﻿Imports System.Data.SqlClient
+Imports System.Net
 Imports System.Threading
 Imports DevExpress.XtraEditors
 Imports DevExpress.XtraGrid
+Imports Magnus.modParser
 
-Public Class Utils
-    Public Shared Function ObjToInt(ByVal Obj As Object) As Integer
+Public Module Utils
+    Public Property DefIDDepartemen As Object
+    Public Property DefIDSupplier As Object
+    Public Property DefIDSatuanfrmBarang As Object
+    Public Property DefIDCustomer As Object
+    Public Property DefIDPegawai As Object
+    Public Property DefIDSatuan As Object
+    Public Property DefIDGudang As Object
+    Public Property DefIDWilayah As Object
+    Public Parser As New modParser
+
+    Public Function GetTableNamebyFormname(ByVal Value As Object, ByRef strCaption As String) As String
+        Dim SQLconnect As New SqlConnection(conStr)
+        Dim SQLcommand As SqlCommand
+        Dim odr As SqlDataReader
+        Dim hasil As String = ""
+        SQLconnect.Open()
+        SQLcommand = SQLconnect.CreateCommand
+        SQLcommand.CommandText = "SELECT namatabel,namatabeldetil,caption FROM sysformheader where namaform='" & NullToStr(Value) & "'"
+        odr = SQLcommand.ExecuteReader
+        If odr.Read Then
+            hasil = NullToStr(odr.GetValue(0)) & IIf(NullToStr(odr.GetValue(1)).Trim = "", "", "," & NullToStr(odr.GetValue(1)))
+            strCaption = NullToStr(odr.GetValue(2))
+        End If
+        odr.Close()
+        SQLcommand.Dispose()
+        SQLconnect.Close()
+        SQLconnect.Dispose()
+
+        Return hasil
+    End Function
+    Public Function ObjToInt(ByVal Obj As Object) As Integer
         Try
             ObjToInt = Convert.ToInt32(Obj)
         Catch ex As Exception
@@ -13,7 +45,7 @@ Public Class Utils
         Return ObjToInt
     End Function
 
-    Public Shared Function ObjToLong(ByVal Obj As Object) As Long
+    Public Function ObjToLong(ByVal Obj As Object) As Long
         Try
             ObjToLong = Convert.ToInt64(Obj)
         Catch ex As Exception
@@ -21,7 +53,7 @@ Public Class Utils
         End Try
         Return ObjToLong
     End Function
-    Public Shared Function ObjToDbl(ByVal Obj As Object) As Double
+    Public Function ObjToDbl(ByVal Obj As Object) As Double
         Try
             ObjToDbl = Convert.ToDouble(Obj)
         Catch ex As Exception
@@ -29,7 +61,7 @@ Public Class Utils
         End Try
         Return ObjToDbl
     End Function
-    Public Shared Function ObjToBool(ByVal Obj As Object) As Boolean
+    Public Function ObjToBool(ByVal Obj As Object) As Boolean
         Try
             ObjToBool = Convert.ToBoolean(Obj)
         Catch ex As Exception
@@ -38,7 +70,7 @@ Public Class Utils
         Return ObjToBool
     End Function
 
-    Public Shared Function ObjToBit(ByVal Obj As Object) As Short
+    Public Function ObjToBit(ByVal Obj As Object) As Short
         Try
             If Convert.ToBoolean(Obj) Then
                 ObjToBit = 1
@@ -51,7 +83,7 @@ Public Class Utils
         Return ObjToBit
     End Function
 
-    Public Shared Function ObjToDateTime(ByVal X As Object) As DateTime
+    Public Function ObjToDateTime(ByVal X As Object) As DateTime
         If TypeOf X Is Date OrElse IsDate(X) Then
             Return Convert.ToDateTime(X)
         Else
@@ -59,14 +91,14 @@ Public Class Utils
         End If
     End Function
 
-    Public Shared Function ObjToDate(ByVal X As Object) As Date
+    Public Function ObjToDate(ByVal X As Object) As Date
         If TypeOf X Is Date OrElse IsDate(X) Then
             Return CDate(X)
         Else
             Return CDate("1/1/1900")
         End If
     End Function
-    Public Shared Function ObjToStrDateSql(ByVal X As Object) As String
+    Public Function ObjToStrDateSql(ByVal X As Object) As String
         If TypeOf X Is Date Then
             Return "'" & Format(CDate(X), "yyyy-MM-dd") & "'"
         Else
@@ -74,7 +106,7 @@ Public Class Utils
         End If
     End Function
 
-    Public Shared Function ObjToDateMDB(ByVal X As Object) As String
+    Public Function ObjToDateMDB(ByVal X As Object) As String
         If TypeOf X Is Date Then
             Return "#" & Format(CDate(X), "MM/dd/yyyy") & "#"
         Else
@@ -82,7 +114,7 @@ Public Class Utils
         End If
     End Function
 
-    Public Shared Function GetLocalIP() As String
+    Public Function GetLocalIP() As String
         Dim result As String = ""
         Dim IPList As System.Net.IPHostEntry = System.Net.Dns.GetHostEntry(System.Net.Dns.GetHostName)
         For Each IPaddress In IPList.AddressList
@@ -98,7 +130,7 @@ Public Class Utils
         Return result
     End Function
 
-    Public Shared Function IsPrivateIP(ByVal CheckIP As String) As Boolean
+    Public Function IsPrivateIP(ByVal CheckIP As String) As Boolean
         Dim Quad1, Quad2 As Integer
 
         Quad1 = CInt(CheckIP.Substring(0, CheckIP.IndexOf(".")))
@@ -113,7 +145,7 @@ Public Class Utils
         End Select
         Return False
     End Function
-    Public Shared Function NullToStr(ByVal Value As Object) As String
+    Public Function NullToStr(ByVal Value As Object) As String
         If IsDBNull(Value) Then
             Return ""
         ElseIf Value Is Nothing Then
@@ -122,7 +154,7 @@ Public Class Utils
             Return Value.ToString
         End If
     End Function
-    Public Shared Function FixApostropi(ByVal obj As Object) As String
+    Public Function FixApostropi(ByVal obj As Object) As String
         Dim x As String = ""
         Try
             x = obj.ToString.Replace("'", "''")
@@ -131,7 +163,7 @@ Public Class Utils
         End Try
         Return x
     End Function
-    Public Shared Function FixKoma(ByVal obj As Object) As String
+    Public Function FixKoma(ByVal obj As Object) As String
         Dim x As String = ""
         Try
             x = obj.ToString.Replace(",", ".")
@@ -140,7 +172,7 @@ Public Class Utils
         End Try
         Return x
     End Function
-    Public Shared Sub BukaFile(ByVal nmfile As String)
+    Public Sub BukaFile(ByVal nmfile As String)
         Try
             Dim p As New System.Diagnostics.ProcessStartInfo
             p.Verb = "Open"
@@ -153,10 +185,10 @@ Public Class Utils
         End Try
     End Sub
 
-    Public Shared Function CheckFileFunction(ByVal xFile As String) As Boolean
+    Public Function CheckFileFunction(ByVal xFile As String) As Boolean
         Return System.IO.File.Exists(xFile)
     End Function
-    Public Shared Function FileExists(ByVal xFile As String, Optional ByVal timeout As Integer = 5000) As Boolean
+    Public Function FileExists(ByVal xFile As String, Optional ByVal timeout As Integer = 5000) As Boolean
         Dim exists As Boolean = True
         Dim t As New Thread(DirectCast(Function() CheckFileFunction(xFile), ThreadStart))
         t.Start()
@@ -170,10 +202,10 @@ Public Class Utils
         Return exists
     End Function
 
-    Public Shared Function CheckPathFunction(ByVal path As String) As Boolean
+    Public Function CheckPathFunction(ByVal path As String) As Boolean
         Return System.IO.Directory.Exists(path)
     End Function
-    Public Shared Function DirectoryExists(ByVal path As String, Optional ByVal timeout As Integer = 10000) As Boolean 'milisecond
+    Public Function DirectoryExists(ByVal path As String, Optional ByVal timeout As Integer = 10000) As Boolean 'milisecond
         Dim exists As Boolean = True
         Dim t As New Thread(DirectCast(Function() CheckPathFunction(path), ThreadStart))
         t.Start()
@@ -186,7 +218,7 @@ Public Class Utils
         End If
         Return exists
     End Function
-    Public Shared Function GCtoDSRowFiltered(ByVal view As GridControl, Optional ByVal Filter As String = "") As DataSet
+    Public Function GCtoDSRowFiltered(ByVal view As GridControl, Optional ByVal Filter As String = "") As DataSet
         Using dsX As New DataSet
             Dim dv As New DataView
             dv = TryCast(view.DataSource, DataTable).Copy().DefaultView
@@ -200,94 +232,114 @@ Public Class Utils
         End Using
     End Function
 
-End Class
-Public Class Ini
-        Public Shared appini As String = System.Windows.Forms.Application.StartupPath & "\System\Setting.ini"
-#Region "API Calls"
+    Public Function GetDBType(ByVal SysType As Type) As SqlDbType
+        Dim Par As SqlClient.SqlParameter
+        Dim TConv As System.ComponentModel.TypeConverter
 
-        Private Declare Unicode Function WritePrivateProfileString Lib "kernel32" Alias "WritePrivateProfileStringW" (ByVal lpApplicationName As String,
-ByVal lpKeyName As String, ByVal lpString As String,
-ByVal lpFileName As String) As Int32
+        Par = New SqlClient.SqlParameter()
+        TConv = System.ComponentModel.TypeDescriptor.GetConverter(Par.DbType)
+        If TConv.CanConvertFrom(SysType) Then
+            Par.DbType = TConv.ConvertFrom(SysType.Name)
+        Else
+            Try
+                Par.DbType = TConv.ConvertFrom(SysType.Name)
+            Catch ex As Exception
 
-        Private Declare Unicode Function GetPrivateProfileString Lib "kernel32" Alias "GetPrivateProfileStringW" (ByVal lpApplicationName As String,
-ByVal lpKeyName As String, ByVal lpDefault As String,
-ByVal lpReturnedString As String, ByVal nSize As Int32,
-ByVal lpFileName As String) As Int32
+            End Try
+        End If
+        Return Par.DbType
+    End Function
 
-#End Region
-#Region "INIRead Overloads"
+    Public Function IsiVariabelDef(ByVal strsql As String) As String
+        Dim strsql1 As String = strsql
+        If InStr(strsql.ToLower, "{DefIDDepartemen}".ToLower, CompareMethod.Text) > 0 Then
+            strsql1 = Replace(strsql1, "{DefIDDepartemen}", DefIDDepartemen.ToString)
+        End If
+        If InStr(strsql1, "{DefIDWilayah}".ToLower, CompareMethod.Text) > 0 Then
+            strsql1 = Replace(strsql1, "{DefIDWilayah}", DefIDWilayah.ToString)
+        End If
+        If InStr(strsql1, "{DefIDGudang}".ToLower, CompareMethod.Text) > 0 Then
+            strsql1 = Replace(strsql1, "{DefIDGudang}", DefIDGudang.ToString)
+        End If
+        If InStr(strsql1, "{DefIDSatuan}".ToLower, CompareMethod.Text) > 0 Then
+            strsql1 = Replace(strsql1, "{DefIDSatuan}", DefIDSatuan.ToString)
+        End If
+        If InStr(strsql1, "{DefIDPegawai}".ToLower, CompareMethod.Text) > 0 Then
+            strsql1 = Replace(strsql1, "{DefIDPegawai}", DefIDPegawai.ToString)
+        End If
+        If InStr(strsql1, "{DefIDCustomer}".ToLower, CompareMethod.Text) > 0 Then
+            strsql1 = Replace(strsql1, "{DefIDCustomer}", DefIDCustomer.ToString)
+        End If
+        If InStr(strsql1, "{DefIDSatuanfrmBarang}", CompareMethod.Text) > 0 Then
+            strsql1 = Replace(strsql1, "{DefIDSatuanfrmBarang}", DefIDSatuanfrmBarang.ToString)
+        End If
+        If InStr(strsql1, "{DefIDSupplier}".ToLower, CompareMethod.Text) > 0 Then
+            strsql1 = Replace(strsql1, "{DefIDSupplier}", DefIDSupplier.ToString)
+        End If
+        'If InStr(strsql1, "{iduseraktif}".ToLower, CompareMethod.Text) > 0 Then
+        '    strsql1 = Replace(strsql1, "{iduseraktif}", IDUserAktif.ToString)
+        'End If
+        If InStr(strsql1, "{namauseraktif}".ToLower, CompareMethod.Text) > 0 Then
+            strsql1 = Replace(strsql1, "{namauseraktif}", Username.ToString)
+        End If
+        Return strsql1
+    End Function
 
-        Private Overloads Function INIRead(ByVal INIPath As String,
-    ByVal SectionName As String, ByVal KeyName As String) As String
-
-            Return INIRead(INIPath, SectionName, KeyName, "")
-
-        End Function
-
-        Private Overloads Function INIRead(ByVal INIPath As String,
-    ByVal SectionName As String) As String
-
-            Return INIRead(INIPath, SectionName, Nothing, "")
-
-        End Function
-
-        Private Overloads Function INIRead(ByVal INIPath As String) As String
-            Return INIRead(INIPath, Nothing, Nothing, "")
-        End Function
-
-#End Region
-        Private Overloads Shared Function INIRead(ByVal INIPath As String,
-        ByVal SectionName As String, ByVal KeyName As String,
-        ByVal DefaultValue As String) As String
-            Dim n As Int32
-            Dim sData As String = Space$(1024)
-
-            n = GetPrivateProfileString(SectionName, KeyName, DefaultValue,
-        sData, sData.Length, INIPath)
-
-            If n > 0 Then
-
-                INIRead = sData.Substring(0, n)
-
+    Public Function CekUnique(ByVal Kode As String, ByVal KodeOld As String, ByVal NamaTabel As String, ByVal Field As String, ByVal IsEdit As Boolean, Optional ByVal Filternya As String = "", Optional ByRef NoID As Long = -1, Optional ByRef FieldNoID As String = "NoID") As Boolean
+        Dim x As Boolean
+        Dim dbs As New DataSet
+        Dim rs As String
+        Try
+            If IsEdit Then
+                rs = "SELECT " & Field & " FROM " & NamaTabel &
+                     " WHERE " & Field & "='" & Replace(Kode, "'", "''") & "' and " & FieldNoID & "<>" & NoID & " " & Filternya
+                '" WHERE " & Field & "='" & Replace(Kode, "'", "''") & "' and " & Field & "<>'" & Replace(KodeOld, "'", "''") & "'" & " " & Filternya
             Else
-
-                INIRead = ""
-
+                rs = "SELECT " & Field & " FROM " & NamaTabel &
+                     " WHERE " & Field & "='" & Replace(Kode, "'", "''") & "'" & " " & Filternya
             End If
+            dbs = Query.ExecuteDataSet(NamaTabel, rs)
+            If dbs.Tables(NamaTabel).Rows.Count >= 1 Then
+                x = True
+            Else
+                x = False
+            End If
+        Catch ex As Exception
+            x = False
+        Finally
+            dbs.Dispose()
+        End Try
+        Return x
+    End Function
+    Public Function Evaluate(ByVal kalimat As String) As Double
+        Dim DecSep As String
+        Dim Nfi As System.Globalization.NumberFormatInfo = System.Globalization.CultureInfo.InstalledUICulture.NumberFormat
+        DecSep = Nfi.NumberDecimalSeparator
+        kalimat = kalimat.Replace(".", DecSep).Replace(",", DecSep)
+        Parser.Function = kalimat
+        Parser.BuildFunctionTree()
+        Return Parser.Result
+    End Function
 
-        End Function
-        Private Shared Sub INIWrite(ByVal INIPath As String, ByVal SectionName As String,
-    ByVal KeyName As String, ByVal TheValue As String)
-
-            Call WritePrivateProfileString(SectionName, KeyName, TheValue, INIPath)
-
-        End Sub
-        Private Overloads Sub INIDelete(ByVal INIPath As String, ByVal SectionName As String,
-    ByVal KeyName As String)
-
-            Call WritePrivateProfileString(SectionName, KeyName, Nothing, INIPath)
-
-        End Sub
-        Private Overloads Sub INIDelete(ByVal INIPath As String, ByVal SectionName As String)
-            Call WritePrivateProfileString(SectionName, Nothing, Nothing, INIPath)
-        End Sub
-        Public Shared Function BacaIni(ByVal Section As String, ByVal Kunci As String, ByVal IsiDefault As String) As String
-            Dim Sisi As String = INIRead(appini, Section, Kunci, IsiDefault)
-            Return Sisi
-
-        End Function
-        Public Shared Sub TulisIni(ByVal Section As String, ByVal Kunci As String, ByVal Datanya As String)
-            INIWrite(appini, Section, Kunci, Datanya)
-
-        End Sub
-        Public Shared Function BacaIniPath(ByVal Path As String, ByVal Section As String, ByVal Kunci As String, ByVal IsiDefault As String) As String
-            Dim Sisi As String = INIRead(Path, Section, Kunci, IsiDefault)
-            Return Sisi
-        End Function
-        Public Shared Sub TulisIniPath(ByVal Path As String, ByVal Section As String, ByVal Kunci As String, ByVal Datanya As String)
-            INIWrite(Path, Section, Kunci, Datanya)
-
-        End Sub
-    End Class
+    Public Function getValueFromLookup(ByVal sender As Object, ByVal fieldname As String) As String
+        Dim lu As SearchLookUpEdit = CType(sender, SearchLookUpEdit) 'DXSample.Custom
+        Dim strtablefield As String() = Split(fieldname, ".")
+        Dim row As System.Data.DataRow
+        Dim val As String = ""
+        Try
+            If lu.Properties.View.Columns Is Nothing Or lu.Properties.View.DataRowCount = 0 Then
+                If strtablefield(0) <> "" And strtablefield(1) <> "" Then
+                    val = NullToStr(Query.ExecuteScalar("SELECT " & strtablefield(1).ToString & " from " & strtablefield(0).ToString & " where " & lu.Properties.ValueMember.ToString & "=" & lu.EditValue))
+                End If
+            Else
+                row = lu.Properties.View.GetDataRow(lu.Properties.View.FocusedRowHandle)
+                val = NullToStr(row(strtablefield(1)))
+            End If
+        Catch ex As Exception
+            val = ""
+        End Try
+        Return val
+    End Function
+End Module
 
 

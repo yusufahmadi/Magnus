@@ -27,6 +27,10 @@
                                     RoleUser = .Item("RoleUser").ToString()
                                     IDTypeLayout = CInt(.Item("IDTypeLayout"))
                                     UpdateDBVersion()
+                                    TanggalSystem = Query.ExecuteScalar("DECLARE @TZ SMALLINT; " & vbCrLf &
+                                                 "SELECT @TZ=DATEPART(TZ, SYSDATETIMEOFFSET()); " & vbCrLf &
+                                                 "SELECT DATEADD(HOUR, -1*@TZ/60, GETDATE()) AS Tanggal")
+                                    TimeZoneInformation.TimeZoneFunctionality.SetTime(System.TimeZone.CurrentTimeZone.ToLocalTime(TanggalSystem))
                                 End With
                                 With e
                                     e.Message = "Login Berhasil"
@@ -66,6 +70,7 @@
             End Try
             Return e.Hasil
         End Function
+
 
     End Class
 End Namespace

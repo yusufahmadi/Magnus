@@ -31,9 +31,9 @@ Public Module modPub
     Public RoleUser As String = ""
     Public IDTypeLayout As Integer = 0
     Public KeyPas As String = My.Settings.KeyPass
-
+    Public TanggalSystem As DateTime = Date.Now
     Public LevelPerkiraan As Integer = 3
-
+    Public IsEditLayout As Boolean = False
     Public listMenu As New List(Of MenuRoleUser)
     Public listAkunFull As New List(Of Akun)
     Public listAkunLv2 As New List(Of AkunLv2)
@@ -42,6 +42,12 @@ Public Module modPub
     Private enc As System.Text.UTF8Encoding
     Private encryptor As ICryptoTransform
     Private decryptor As ICryptoTransform
+
+    Public TipePencarianLookup As pTipePencarianLookup = 0
+    Public Enum pTipePencarianLookup
+        DepanBelakang = 0
+        MulaiDari = 1
+    End Enum
 
     Public IsEditReport As Boolean = False
     Public Enum ActionReport
