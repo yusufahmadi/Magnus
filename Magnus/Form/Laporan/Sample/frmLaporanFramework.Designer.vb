@@ -37,9 +37,11 @@ Partial Class frmLaporanFramework
         Me.barDockControlBottom = New DevExpress.XtraBars.BarDockControl()
         Me.barDockControlLeft = New DevExpress.XtraBars.BarDockControl()
         Me.barDockControlRight = New DevExpress.XtraBars.BarDockControl()
+        Me.barPreview2 = New DevExpress.XtraBars.BarButtonItem()
         Me.PanelControl3 = New DevExpress.XtraEditors.PanelControl()
-        Me.btnPreview = New DevExpress.XtraEditors.SimpleButton()
+        Me.btnPreview2 = New DevExpress.XtraEditors.SimpleButton()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
+        Me.btnPreview = New DevExpress.XtraEditors.SimpleButton()
         Me.SimpleButton4 = New DevExpress.XtraEditors.SimpleButton()
         Me.SimpleButton6 = New DevExpress.XtraEditors.SimpleButton()
         Me.SimpleButton8 = New DevExpress.XtraEditors.SimpleButton()
@@ -53,8 +55,6 @@ Partial Class frmLaporanFramework
         Me.TabGrid = New DevExpress.XtraLayout.LayoutControlItem()
         Me.PrintDialog1 = New System.Windows.Forms.PrintDialog()
         Me.PrintDialog2 = New System.Windows.Forms.PrintDialog()
-        Me.btnPreview2 = New DevExpress.XtraEditors.SimpleButton()
-        Me.barPreview2 = New DevExpress.XtraBars.BarButtonItem()
         CType(Me.GC1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GV1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -79,7 +79,7 @@ Partial Class frmLaporanFramework
         Me.GC1.Location = New System.Drawing.Point(0, 0)
         Me.GC1.MainView = Me.GV1
         Me.GC1.Name = "GC1"
-        Me.GC1.Size = New System.Drawing.Size(1156, 392)
+        Me.GC1.Size = New System.Drawing.Size(1160, 393)
         Me.GC1.TabIndex = 5
         Me.GC1.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GV1})
         '
@@ -98,7 +98,7 @@ Partial Class frmLaporanFramework
         '
         Me.PanelControl1.Controls.Add(Me.lbDaftar)
         Me.PanelControl1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.PanelControl1.Location = New System.Drawing.Point(0, 22)
+        Me.PanelControl1.Location = New System.Drawing.Point(0, 24)
         Me.PanelControl1.Name = "PanelControl1"
         Me.PanelControl1.Size = New System.Drawing.Size(1186, 28)
         Me.PanelControl1.TabIndex = 0
@@ -187,7 +187,7 @@ Partial Class frmLaporanFramework
         Me.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top
         Me.barDockControlTop.Location = New System.Drawing.Point(0, 0)
         Me.barDockControlTop.Manager = Me.BarManager1
-        Me.barDockControlTop.Size = New System.Drawing.Size(1186, 22)
+        Me.barDockControlTop.Size = New System.Drawing.Size(1186, 24)
         '
         'barDockControlBottom
         '
@@ -201,17 +201,24 @@ Partial Class frmLaporanFramework
         '
         Me.barDockControlLeft.CausesValidation = False
         Me.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left
-        Me.barDockControlLeft.Location = New System.Drawing.Point(0, 22)
+        Me.barDockControlLeft.Location = New System.Drawing.Point(0, 24)
         Me.barDockControlLeft.Manager = Me.BarManager1
-        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 518)
+        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 516)
         '
         'barDockControlRight
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.barDockControlRight.Location = New System.Drawing.Point(1186, 22)
+        Me.barDockControlRight.Location = New System.Drawing.Point(1186, 24)
         Me.barDockControlRight.Manager = Me.BarManager1
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 518)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 516)
+        '
+        'barPreview2
+        '
+        Me.barPreview2.Caption = "Preview2"
+        Me.barPreview2.Id = 24
+        Me.barPreview2.ItemShortcut = New DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.F9)
+        Me.barPreview2.Name = "barPreview2"
         '
         'PanelControl3
         '
@@ -226,19 +233,19 @@ Partial Class frmLaporanFramework
         Me.PanelControl3.Size = New System.Drawing.Size(1186, 46)
         Me.PanelControl3.TabIndex = 2
         '
-        'btnPreview
+        'btnPreview2
         '
-        Me.btnPreview.Appearance.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnPreview.Appearance.ForeColor = System.Drawing.Color.Blue
-        Me.btnPreview.Appearance.Options.UseFont = True
-        Me.btnPreview.Appearance.Options.UseForeColor = True
-        Me.btnPreview.ImageOptions.ImageIndex = 7
-        Me.btnPreview.ImageOptions.ImageList = Me.ImageList1
-        Me.btnPreview.Location = New System.Drawing.Point(199, 11)
-        Me.btnPreview.Name = "btnPreview"
-        Me.btnPreview.Size = New System.Drawing.Size(154, 31)
-        Me.btnPreview.TabIndex = 11
-        Me.btnPreview.Text = "&Preview"
+        Me.btnPreview2.Appearance.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPreview2.Appearance.ForeColor = System.Drawing.Color.Blue
+        Me.btnPreview2.Appearance.Options.UseFont = True
+        Me.btnPreview2.Appearance.Options.UseForeColor = True
+        Me.btnPreview2.ImageOptions.ImageIndex = 8
+        Me.btnPreview2.ImageOptions.ImageList = Me.ImageList1
+        Me.btnPreview2.Location = New System.Drawing.Point(359, 11)
+        Me.btnPreview2.Name = "btnPreview2"
+        Me.btnPreview2.Size = New System.Drawing.Size(154, 31)
+        Me.btnPreview2.TabIndex = 12
+        Me.btnPreview2.Text = "&Preview 2"
         '
         'ImageList1
         '
@@ -256,6 +263,20 @@ Partial Class frmLaporanFramework
         Me.ImageList1.Images.SetKeyName(9, "F10.png")
         Me.ImageList1.Images.SetKeyName(10, "F11.png")
         Me.ImageList1.Images.SetKeyName(11, "F12.png")
+        '
+        'btnPreview
+        '
+        Me.btnPreview.Appearance.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPreview.Appearance.ForeColor = System.Drawing.Color.Blue
+        Me.btnPreview.Appearance.Options.UseFont = True
+        Me.btnPreview.Appearance.Options.UseForeColor = True
+        Me.btnPreview.ImageOptions.ImageIndex = 7
+        Me.btnPreview.ImageOptions.ImageList = Me.ImageList1
+        Me.btnPreview.Location = New System.Drawing.Point(199, 11)
+        Me.btnPreview.Name = "btnPreview"
+        Me.btnPreview.Size = New System.Drawing.Size(154, 31)
+        Me.btnPreview.TabIndex = 11
+        Me.btnPreview.Text = "&Preview"
         '
         'SimpleButton4
         '
@@ -305,7 +326,7 @@ Partial Class frmLaporanFramework
         Me.XtraTabControl1.Location = New System.Drawing.Point(12, 12)
         Me.XtraTabControl1.Name = "XtraTabControl1"
         Me.XtraTabControl1.SelectedTabPage = Me.XtraTabPage1
-        Me.XtraTabControl1.Size = New System.Drawing.Size(1162, 420)
+        Me.XtraTabControl1.Size = New System.Drawing.Size(1162, 418)
         Me.XtraTabControl1.TabIndex = 8
         Me.XtraTabControl1.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.XtraTabPage1})
         '
@@ -313,7 +334,7 @@ Partial Class frmLaporanFramework
         '
         Me.XtraTabPage1.Controls.Add(Me.GC1)
         Me.XtraTabPage1.Name = "XtraTabPage1"
-        Me.XtraTabPage1.Size = New System.Drawing.Size(1156, 392)
+        Me.XtraTabPage1.Size = New System.Drawing.Size(1160, 393)
         Me.XtraTabPage1.Text = "Laporan"
         '
         'LayoutControlItem19
@@ -338,7 +359,7 @@ Partial Class frmLaporanFramework
         '
         Me.SplitterControl1.Location = New System.Drawing.Point(1, 23)
         Me.SplitterControl1.Name = "SplitterControl1"
-        Me.SplitterControl1.Size = New System.Drawing.Size(5, 385)
+        Me.SplitterControl1.Size = New System.Drawing.Size(12, 385)
         Me.SplitterControl1.TabIndex = 1
         Me.SplitterControl1.TabStop = False
         '
@@ -346,11 +367,11 @@ Partial Class frmLaporanFramework
         '
         Me.LC1.Controls.Add(Me.XtraTabControl1)
         Me.LC1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LC1.Location = New System.Drawing.Point(0, 50)
+        Me.LC1.Location = New System.Drawing.Point(0, 52)
         Me.LC1.Name = "LC1"
         Me.LC1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(647, 447, 450, 389)
         Me.LC1.Root = Me.LayoutControlGroup1
-        Me.LC1.Size = New System.Drawing.Size(1186, 444)
+        Me.LC1.Size = New System.Drawing.Size(1186, 442)
         Me.LC1.TabIndex = 13
         Me.LC1.Text = "LayoutControl1"
         '
@@ -361,7 +382,7 @@ Partial Class frmLaporanFramework
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.TabGrid})
         Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
-        Me.LayoutControlGroup1.Size = New System.Drawing.Size(1186, 444)
+        Me.LayoutControlGroup1.Size = New System.Drawing.Size(1186, 442)
         Me.LayoutControlGroup1.TextVisible = False
         '
         'TabGrid
@@ -369,7 +390,7 @@ Partial Class frmLaporanFramework
         Me.TabGrid.Control = Me.XtraTabControl1
         Me.TabGrid.Location = New System.Drawing.Point(0, 0)
         Me.TabGrid.Name = "TabGrid"
-        Me.TabGrid.Size = New System.Drawing.Size(1166, 424)
+        Me.TabGrid.Size = New System.Drawing.Size(1166, 422)
         Me.TabGrid.TextLocation = DevExpress.Utils.Locations.Top
         Me.TabGrid.TextSize = New System.Drawing.Size(0, 0)
         Me.TabGrid.TextVisible = False
@@ -381,27 +402,6 @@ Partial Class frmLaporanFramework
         'PrintDialog2
         '
         Me.PrintDialog2.UseEXDialog = True
-        '
-        'btnPreview2
-        '
-        Me.btnPreview2.Appearance.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnPreview2.Appearance.ForeColor = System.Drawing.Color.Blue
-        Me.btnPreview2.Appearance.Options.UseFont = True
-        Me.btnPreview2.Appearance.Options.UseForeColor = True
-        Me.btnPreview2.ImageOptions.ImageIndex = 8
-        Me.btnPreview2.ImageOptions.ImageList = Me.ImageList1
-        Me.btnPreview2.Location = New System.Drawing.Point(359, 11)
-        Me.btnPreview2.Name = "btnPreview2"
-        Me.btnPreview2.Size = New System.Drawing.Size(154, 31)
-        Me.btnPreview2.TabIndex = 12
-        Me.btnPreview2.Text = "&Preview 2"
-        '
-        'barPreview2
-        '
-        Me.barPreview2.Caption = "Preview2"
-        Me.barPreview2.Id = 24
-        Me.barPreview2.ItemShortcut = New DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.F9)
-        Me.barPreview2.Name = "barPreview2"
         '
         'frmLaporanFramework
         '

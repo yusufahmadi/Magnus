@@ -41,7 +41,6 @@ Public Class FormLaporan
     Sub GenerateForm()
         'Try
         On Error GoTo 0
-        Dim ds As New DataSet
         Dim con As New SqlConnection(conStr)
         Dim cmd As New SqlCommand
         Dim itemLC As LayoutControlItem
@@ -66,6 +65,11 @@ Public Class FormLaporan
         cmd.CommandText = sql
         da = New SqlDataAdapter(cmd)
         da.Fill(ds, "Master")
+
+        ds.Tables.Add("Edit")
+        If ds.Tables("Edit").Rows.Count <= 0 Then
+            ds.Tables("Edit").Rows.Add()
+        End If
         Dim ObjName As String = ""
         Dim FldName As String = ""
         Dim Prec As Integer = 0 'MaxLength

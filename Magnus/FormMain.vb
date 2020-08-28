@@ -360,4 +360,55 @@ Public Class FormMain
     Private Sub BarCheckItem1_CheckedChanged(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarCheckItem1.CheckedChanged
         IsEditReport = BarCheckItem1.Checked
     End Sub
+
+
+    Sub callLaporanSp(ByVal _namaForm As String, ByVal SpName As Object, Optional IsAllowSort As Boolean = False)
+        Dim frmEntri As FormLapSP = Nothing
+        Dim F As Object
+        For Each F In MdiChildren
+            If TypeOf F Is FormLapSP Then
+                If DirectCast(F, Magnus.FormLapSP).Formname = _namaForm.ToString Then
+                    frmEntri = F
+                    Exit For
+                End If
+            End If
+        Next
+        If frmEntri Is Nothing Then
+            frmEntri = New FormLapSP
+            frmEntri.spName = SpName 'FormDaftar.IDForm.F_User
+            frmEntri.Formname = _namaForm.ToString  '"Daftar User"
+            frmEntri.WindowState = FormWindowState.Maximized
+            frmEntri.MdiParent = Me
+        End If
+        frmEntri.Show()
+        frmEntri.Focus()
+
+        'Dim doc As Document = TabbedView1.Documents.OfType(Of Document)().Where(Function(d) d.Control = frmEntri).FirstOrDefault()
+        'doc.Appearance.HeaderActive.BackColor = TabColor((formCount - 1) Mod 6)
+        'doc.Appearance.Header.BackColor = TabColor((formCount - 1) Mod 6)
+        'doc.Appearance.HeaderHotTracked.BackColor = TabColor((formCount - 1) Mod 6)
+    End Sub
+    Private Sub BarButtonLapKartuStok_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonLapKartuStok.ItemClick
+        callLaporanSp("Laporan Kartu Stok", "spLapKartuStok")
+    End Sub
+
+    Private Sub BarButtonLapSaldoStok_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonLapSaldoStok.ItemClick
+        callLaporanSp("Laporan Saldo Stok", "spLapSaldoStok", True)
+    End Sub
+
+    Private Sub BarButtonLapTopItem_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonLapTopItem.ItemClick
+        callLaporanSp("Laporan Top Item", "spLapTopItem")
+    End Sub
+
+    Private Sub BarButtonLapKasHarian_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonLapKasHarian.ItemClick
+        callLaporanSp("Laporan Kas Harian", "spLapKasHarian")
+    End Sub
+
+    Private Sub BarButtonLapKasPerKategori_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonLapKasPerKategori.ItemClick
+        callLaporanSp("Laporan Kas Per Kategori", "spLapKasPerKategori")
+    End Sub
+
+    Private Sub BarButtonLapPerbandinganBiayaBulanan_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonLapPerbandinganBiayaBulanan.ItemClick
+        callLaporanSp("Laporan Perbandingan Biaya Bulanan", "spLapPerbandinganBiayaBulanan")
+    End Sub
 End Class

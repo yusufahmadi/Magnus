@@ -216,10 +216,10 @@
     <Compile Include="Form\FormDetail\Transaksi\Stok\FormStokMasukErr.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\Laporan\FormLap.Designer.vb">
-      <DependentUpon>FormLap.vb</DependentUpon>
+    <Compile Include="Form\Laporan\FormLapSP.Designer.vb">
+      <DependentUpon>FormLapSP.vb</DependentUpon>
     </Compile>
-    <Compile Include="Form\Laporan\FormLap.vb">
+    <Compile Include="Form\Laporan\FormLapSP.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form\Laporan\FormLaporan.Designer.vb">
@@ -405,8 +405,8 @@
     <EmbeddedResource Include="Form\FormDetail\Transaksi\Stok\FormStokMasukErr.resx">
       <DependentUpon>FormStokMasukErr.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\Laporan\FormLap.resx">
-      <DependentUpon>FormLap.vb</DependentUpon>
+    <EmbeddedResource Include="Form\Laporan\FormLapSP.resx">
+      <DependentUpon>FormLapSP.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\Laporan\FormLaporan.resx">
       <DependentUpon>FormLaporan.vb</DependentUpon>
