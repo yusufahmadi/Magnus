@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XtraReportsLayoutSerializer SerializerVersion="17.1.3.0" Ref="1" ControlType="DevExpress.XtraReports.UI.XtraReport, DevExpress.XtraReports.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Name="xtraReport1" DisplayName="CetakReportLaporan Kas Per Kategori.repx" SnapGridSize="25" DataSourceSchema="E:\GITHUB\Me\Magnus\Magnus\bin\Debug\Report\XCD\CETAKREPORTLAPORAN KAS PER KATEGORI.xsd" ReportUnit="TenthsOfAMillimeter" Margins="254, 254, 273, 101" PaperKind="Custom" PageWidth="2159" PageHeight="2794" ScriptLanguage="VisualBasic" Version="17.1" DataMember="Data" DataSource="#Ref-0" Dpi="254">
+  <CalculatedFields>
+    <Item1 Ref="2" Name="cIDAKun" Expression="''" DataMember="Edit" />
+    <Item2 Ref="3" Name="NamaPerusahaan" Expression="'PT. BERKARYA BERSAMA HATI'" DataMember="Edit" />
+    <Item3 Ref="4" Name="cT1" Expression="#2020-08-01#" DataMember="Edit" />
+    <Item4 Ref="5" Name="cT2" Expression="#2020-08-30#" DataMember="Edit" />
+  </CalculatedFields>
+  <Bands>
+    <Item1 Ref="6" ControlType="TopMarginBand" Name="topMarginBand1" HeightF="273.173279" Dpi="254">
+      <Controls>
+        <Item1 Ref="7" ControlType="XRLabel" Name="label16" Text="label16" SizeF="254,44.173233" LocationFloat="508, 184.826813" Dpi="254" Padding="5,5,0,0,254">
+          <DataBindings>
+            <Item1 Ref="8" FormatString="{0:dd/MMM/yyyy}" PropertyName="Text" DataMember="Edit.cT2" />
+          </DataBindings>
+        </Item1>
+        <Item2 Ref="9" ControlType="XRLabel" Name="label15" Text="label15" SizeF="254,44.173233" LocationFloat="254, 184.826813" Dpi="254" Padding="5,5,0,0,254">
+          <DataBindings>
+            <Item1 Ref="10" FormatString="{0:dd/MMM/yyyy}" PropertyName="Text" DataMember="Edit.cT1" />
+          </DataBindings>
+        </Item2>
+        <Item3 Ref="11" ControlType="XRLabel" Name="label14" Text="label14" SizeF="886.354248,58.41999" LocationFloat="0, 98.1075058" Dpi="254" Padding="5,5,0,0,254">
+          <DataBindings>
+            <Item1 Ref="12" PropertyName="Text" DataMember="Edit.NamaPerusahaan" />
+          </DataBindings>
+        </Item3>
+        <Item4 Ref="13" ControlType="XRLabel" Name="label13" Text="label13" SizeF="404.812561,44.1732178" LocationFloat="254, 229.000046" Dpi="254" Padding="5,5,0,0,254">
+          <DataBindings>
+            <Item1 Ref="14" PropertyName="Text" DataMember="Edit.cIDAKun" />
+          </DataBindings>
+        </Item4>
+        <Item5 Ref="15" ControlType="XRLabel" Name="label12" Text="LAPORAN BIAYA PER KATEGORI" SizeF="886.3542,58.42" LocationFloat="0, 39.6875" Dpi="254" Font="Times New Roman, 12pt, style=Bold" Padding="5,5,0,0,254">
+          <StylePriority Ref="16" UseFont="false" />
+        </Item5>
+        <Item6 Ref="17" ControlType="XRLabel" Name="label3" Text="Kategori Biaya" SizeF="254,44.1732178" LocationFloat="0, 229.000046" Dpi="254" Padding="5,5,0,0,254" />
+        <Item7 Ref="18" ControlType="XRLabel" Name="label1" Text="Periode" SizeF="254,44.173233" LocationFloat="0, 184.826813" Dpi="254" Padding="5,5,0,0,254" />
+      </Controls>
+    </Item1>
+    <Item2 Ref="19" ControlType="DetailBand" Name="detailBand1" HeightF="58.42" Dpi="254">
+      <Controls>
+        <Item1 Ref="20" ControlType="XRLabel" Name="label7" Text="label7" TextAlignment="MiddleRight" SizeF="254,58.42" LocationFloat="915.4583, 0" Dpi="254" Padding="5,5,0,0,254">
+          <DataBindings>
+            <Item1 Ref="21" FormatString="{0:n2}" PropertyName="Text" DataMember="Data.Total" />
+          </DataBindings>
+          <StylePriority Ref="22" UseTextAlignment="false" />
+        </Item1>
+        <Item2 Ref="23" ControlType="XRLabel" Name="label6" Text="label6" TextAlignment="MiddleLeft" SizeF="582.0833,58.42" LocationFloat="333.375, 0" Dpi="254" Padding="5,5,0,0,254">
+          <DataBindings>
+            <Item1 Ref="24" PropertyName="Text" DataMember="Data.Akun" />
+          </DataBindings>
+          <StylePriority Ref="25" UseTextAlignment="false" />
+        </Item2>
+        <Item3 Ref="26" ControlType="XRLabel" Name="label5" Text="label5" TextAlignment="MiddleCenter" SizeF="134.9375,58.42" LocationFloat="198.4375, 0" Dpi="254" Padding="5,5,0,0,254">
+          <DataBindings>
+            <Item1 Ref="27" PropertyName="Text" DataMember="Data.Bulan" />
+          </DataBindings>
+          <StylePriority Ref="28" UseTextAlignment="false" />
+        </Item3>
+        <Item4 Ref="29" ControlType="XRLabel" Name="label4" Text="label4" TextAlignment="MiddleCenter" SizeF="198.4375,58.42" LocationFloat="0, 0" Dpi="254" Padding="5,5,0,0,254">
+          <DataBindings>
+            <Item1 Ref="30" PropertyName="Text" DataMember="Data.Tahun" />
+          </DataBindings>
+          <StylePriority Ref="31" UseTextAlignment="false" />
+        </Item4>
+      </Controls>
+    </Item2>
+    <Item3 Ref="32" ControlType="BottomMarginBand" Name="bottomMarginBand1" HeightF="101" Dpi="254" />
+    <Item4 Ref="33" ControlType="PageHeaderBand" Name="PageHeader" HeightF="83.4200058" Dpi="254">
+      <Controls>
+        <Item1 Ref="34" ControlType="XRLabel" Name="label11" Text="TOTAL" TextAlignment="MiddleCenter" SizeF="254.000122,58.42" LocationFloat="915.458252, 25.0000076" Dpi="254" Padding="5,5,0,0,254" Borders="Bottom">
+          <StylePriority Ref="35" UseBorders="false" UseTextAlignment="false" />
+        </Item1>
+        <Item2 Ref="36" ControlType="XRLabel" Name="label10" Text="AKUN/KATEGORI BIAYA" TextAlignment="MiddleLeft" SizeF="582.083252,58.42" LocationFloat="333.375, 25.0000076" Dpi="254" Padding="5,5,0,0,254" Borders="Bottom">
+          <StylePriority Ref="37" UseBorders="false" UseTextAlignment="false" />
+        </Item2>
+        <Item3 Ref="38" ControlType="XRLabel" Name="label9" Text="BULAN" TextAlignment="MiddleLeft" SizeF="134.9375,58.42" LocationFloat="198.4375, 25.0000076" Dpi="254" Padding="5,5,0,0,254" Borders="Bottom">
+          <StylePriority Ref="39" UseBorders="false" UseTextAlignment="false" />
+        </Item3>
+        <Item4 Ref="40" ControlType="XRLabel" Name="label8" Text="TAHUN" TextAlignment="MiddleCenter" SizeF="198.4375,58.42" LocationFloat="0, 25.0000076" Dpi="254" Padding="5,5,0,0,254" Borders="Bottom">
+          <StylePriority Ref="41" UseBorders="false" UseTextAlignment="false" />
+        </Item4>
+      </Controls>
+    </Item4>
+    <Item5 Ref="42" ControlType="ReportFooterBand" Name="ReportFooter" HeightF="124.354164" Dpi="254">
+      <Controls>
+        <Item1 Ref="43" ControlType="XRLabel" Name="label17" Text="TOTAL" TextAlignment="MiddleCenter" SizeF="915.4583,58.42" LocationFloat="0, 0" Dpi="254" Padding="5,5,0,0,254" Borders="Top">
+          <StylePriority Ref="44" UseBorders="false" UseTextAlignment="false" />
+        </Item1>
+        <Item2 Ref="45" ControlType="XRLabel" Name="label2" TextAlignment="MiddleRight" SizeF="254,58.42" LocationFloat="915.458252, 0" Dpi="254" Padding="5,5,0,0,254" Borders="Top">
+          <Summary Ref="46" FormatString="{0:n2}" Running="Report" />
+          <DataBindings>
+            <Item1 Ref="47" PropertyName="Text" DataMember="Data.Total" />
+          </DataBindings>
+          <StylePriority Ref="48" UseBorders="false" UseTextAlignment="false" />
+        </Item2>
+      </Controls>
+    </Item5>
+  </Bands>
+  <ObjectStorage>
+    <Item1 ObjectType="DevExpress.XtraReports.Serialization.ObjectStorageInfo, DevExpress.XtraReports.v17.1" Ref="0" Content="~Xtra#NULL" Type="System.Data.DataSet" />
+  </ObjectStorage>
+</XtraReportsLayoutSerializer>

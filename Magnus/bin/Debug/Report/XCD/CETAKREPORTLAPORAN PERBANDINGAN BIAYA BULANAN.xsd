@@ -1,0 +1,40 @@
+<?xml version="1.0" standalone="yes"?>
+<xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Edit">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="T1" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="T2" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Master">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Parameter_name" type="xs:string" minOccurs="0" />
+              <xs:element name="Type" type="xs:string" minOccurs="0" />
+              <xs:element name="Length" type="xs:short" minOccurs="0" />
+              <xs:element name="Prec" type="xs:int" minOccurs="0" />
+              <xs:element name="Scale" type="xs:int" minOccurs="0" />
+              <xs:element name="Param_order" type="xs:int" minOccurs="0" />
+              <xs:element name="Collation" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Data">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Tahun" type="xs:int" minOccurs="0" />
+              <xs:element name="Bulan" type="xs:int" minOccurs="0" />
+              <xs:element name="Akun" type="xs:string" minOccurs="0" />
+              <xs:element name="Total" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

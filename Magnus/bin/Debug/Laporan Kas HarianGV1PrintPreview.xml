@@ -12,49 +12,45 @@
       <property name="Name">colTgl</property>
       <property name="VisibleIndex">0</property>
       <property name="Visible">true</property>
-      <property name="Width">65</property>
+      <property name="Width">84</property>
     </property>
     <property name="Item3" isnull="true" iskey="true">
       <property name="Name">colKode</property>
-      <property name="VisibleIndex">1</property>
-      <property name="Visible">true</property>
-      <property name="Width">85</property>
+      <property name="Width">106</property>
     </property>
     <property name="Item4" isnull="true" iskey="true">
       <property name="Name">colAkun</property>
-      <property name="VisibleIndex">2</property>
-      <property name="Visible">true</property>
-      <property name="Width">95</property>
+      <property name="Width">126</property>
     </property>
     <property name="Item5" isnull="true" iskey="true">
       <property name="Name">colKeterangan</property>
-      <property name="VisibleIndex">3</property>
+      <property name="VisibleIndex">1</property>
       <property name="Visible">true</property>
-      <property name="Width">279</property>
+      <property name="Width">779</property>
     </property>
     <property name="Item6" isnull="true" iskey="true">
       <property name="Name">colSaldoAwal</property>
-      <property name="VisibleIndex">4</property>
+      <property name="VisibleIndex">2</property>
       <property name="Visible">true</property>
-      <property name="Width">72</property>
+      <property name="Width">177</property>
     </property>
     <property name="Item7" isnull="true" iskey="true">
       <property name="Name">colDebet</property>
-      <property name="VisibleIndex">5</property>
+      <property name="VisibleIndex">3</property>
       <property name="Visible">true</property>
-      <property name="Width">65</property>
+      <property name="Width">185</property>
     </property>
     <property name="Item8" isnull="true" iskey="true">
       <property name="Name">colKredit</property>
-      <property name="VisibleIndex">6</property>
+      <property name="VisibleIndex">4</property>
       <property name="Visible">true</property>
-      <property name="Width">65</property>
+      <property name="Width">185</property>
     </property>
     <property name="Item9" isnull="true" iskey="true">
       <property name="Name">colSaldoAkhir</property>
-      <property name="VisibleIndex">7</property>
+      <property name="VisibleIndex">5</property>
       <property name="Visible">true</property>
-      <property name="Width">73</property>
+      <property name="Width">228</property>
     </property>
     <property name="Item10" isnull="true" iskey="true">
       <property name="Name">colUserBuat</property>

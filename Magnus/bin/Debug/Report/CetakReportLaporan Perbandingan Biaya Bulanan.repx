@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XtraReportsLayoutSerializer SerializerVersion="17.1.3.0" Ref="1" ControlType="DevExpress.XtraReports.UI.XtraReport, DevExpress.XtraReports.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Name="xtraReport1" DisplayName="CetakReportLaporan Perbandingan Biaya Bulanan.repx" SnapGridSize="25" DataSourceSchema="E:\GITHUB\Me\Magnus\Magnus\bin\Debug\Report\XCD\CETAKREPORTLAPORAN PERBANDINGAN BIAYA BULANAN.xsd" ReportUnit="TenthsOfAMillimeter" Margins="156, 169, 254, 254" PaperKind="Custom" PageWidth="2159" PageHeight="2794" ScriptLanguage="VisualBasic" Version="17.1" DataSource="#Ref-0" Dpi="254">
+  <Bands>
+    <Item1 Ref="2" ControlType="TopMarginBand" Name="topMarginBand1" HeightF="254" Dpi="254" />
+    <Item2 Ref="3" ControlType="DetailBand" Name="detailBand1" HeightF="1796.52087" Dpi="254">
+      <Controls>
+        <Item1 Ref="4" ControlType="XRChart" Name="chart1" SizeF="1809,507.999817" LocationFloat="0, 664.1042" Dpi="254" BorderColor="Black" Borders="None">
+          <Chart Ref="5">
+            <DataContainer Ref="6" DataMember="Data" SeriesDataMember="Akun">
+              <SeriesTemplate Ref="7" LegendName="Default Legend" ArgumentDataMember="Bulan" ValueDataMembersSerializable="Total">
+                <View Ref="8" TypeNameSerializable="FullStackedLineSeriesView" />
+              </SeriesTemplate>
+            </DataContainer>
+            <OptionsPrint Ref="9" ImageFormat="Metafile" />
+            <Diagram Ref="10" TypeNameSerializable="XYDiagram">
+              <AxisX Ref="11" VisibleInPanesSerializable="-1" />
+              <AxisY Ref="12" VisibleInPanesSerializable="-1" />
+              <DefaultPane Ref="13" EnableAxisXScrolling="False" EnableAxisYScrolling="False" EnableAxisXZooming="False" EnableAxisYZooming="False" />
+            </Diagram>
+          </Chart>
+        </Item1>
+        <Item2 Ref="14" ControlType="XRChart" Name="chart2" SizeF="1834,590.0208" LocationFloat="0, 0" Dpi="254" BorderColor="Black" Borders="None">
+          <Chart Ref="15">
+            <DataContainer Ref="16" SeriesDataMember="Data.Akun">
+              <SeriesTemplate Ref="17" ArgumentDataMember="Data.Bulan" ValueDataMembersSerializable="Data.Total" />
+            </DataContainer>
+            <Legend Ref="18" Visibility="True" Name="Default Legend" />
+            <Titles>
+              <Item1 Ref="19" Text="Kategori Biaya Bulanan" />
+            </Titles>
+            <OptionsPrint Ref="20" ImageFormat="Metafile" />
+            <Diagram Ref="21" TypeNameSerializable="XYDiagram">
+              <AxisX Ref="22" VisibleInPanesSerializable="-1" />
+              <AxisY Ref="23" VisibleInPanesSerializable="-1" />
+              <DefaultPane Ref="24" EnableAxisXScrolling="False" EnableAxisYScrolling="False" EnableAxisXZooming="False" EnableAxisYZooming="False" />
+            </Diagram>
+          </Chart>
+        </Item2>
+      </Controls>
+    </Item2>
+    <Item3 Ref="25" ControlType="BottomMarginBand" Name="bottomMarginBand1" HeightF="254" Dpi="254" />
+  </Bands>
+  <ObjectStorage>
+    <Item1 ObjectType="DevExpress.XtraReports.Serialization.ObjectStorageInfo, DevExpress.XtraReports.v17.1" Ref="0" Content="~Xtra#NULL" Type="System.Data.DataSet" />
+  </ObjectStorage>
+</XtraReportsLayoutSerializer>

@@ -22,13 +22,12 @@
       <property name="Name">colAkun</property>
       <property name="VisibleIndex">2</property>
       <property name="Visible">true</property>
-      <property name="Width">100</property>
+      <property name="Width">95</property>
     </property>
     <property name="Item4" isnull="true" iskey="true">
       <property name="Name">colTotal</property>
       <property name="VisibleIndex">3</property>
       <property name="Visible">true</property>
-      <property name="Width">65</property>
     </property>
   </property>
   <property name="ActiveFilterString" />

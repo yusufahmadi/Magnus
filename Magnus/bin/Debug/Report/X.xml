@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ChartXmlSerializer version="17.1.3.0">
+  <Chart AppearanceNameSerializable="Default" SelectionMode="None" SeriesSelectionMode="Series">
+    <DataContainer DataMember="Data" SeriesDataMember="Akun" BoundSeriesSorting="None">
+      <SeriesTemplate ArgumentDataMember="Bulan" ValueDataMembersSerializable="Total" LabelsVisibility="True" />
+    </DataContainer>
+    <Legend Visibility="True" Name="Default Legend" />
+    <OptionsPrint ImageFormat="Metafile" />
+    <Diagram TypeNameSerializable="XYDiagram">
+      <AxisX VisibleInPanesSerializable="-1">
+        <WholeRange Auto="false" AutoSideMargins="false" SideMarginsValue="0.1" MinValueSerializable="1" MaxValueSerializable="12" />
+      </AxisX>
+      <AxisY Visibility="True" VisibleInPanesSerializable="-1" />
+      <DefaultPane EnableAxisXScrolling="False" EnableAxisYScrolling="False" EnableAxisXZooming="False" EnableAxisYZooming="False" />
+    </Diagram>
+  </Chart>
+</ChartXmlSerializer>
