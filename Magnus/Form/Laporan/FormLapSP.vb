@@ -7,7 +7,7 @@ Imports DevExpress.XtraGrid.Views.Grid
 Imports DevExpress.XtraLayout
 Public Class FormLapSP
     Public spName As String = "spTest"
-    Public Formname As String = ""
+    Public FormName As String = ""
     Public IsAllowSort As Boolean = False
 
     Private sql As String = ""
@@ -15,11 +15,11 @@ Public Class FormLapSP
     Private ds As New DataSet
     Dim BS As New BindingSource
     Private Sub FormLaporan_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        If Formname = "" Then
-            Formname = "laporan" & spName
+        If FormName = "" Then
+            FormName = "laporan" & spName
         End If
-        Me.Text = Formname
-        XtraTabPage1.Text = Formname
+        Me.Text = FormName
+        XtraTabPage1.Text = FormName
         If IsAllowSort Then
             GV1.OptionsCustomization.AllowSort = True
         End If
@@ -56,7 +56,7 @@ Public Class FormLapSP
 
         con.Open()
         cmd.Connection = con
-        Sql = "declare @spname as nvarchar(250)='" & spName & "'" & vbCrLf &
+        sql = "declare @spname as nvarchar(250)='" & spName & "'" & vbCrLf &
                "select " & vbCrLf &
                "'Parameter_name' = name, " & vbCrLf &
                "'Type'   = type_name(user_type_id), " & vbCrLf &
@@ -173,45 +173,79 @@ Public Class FormLapSP
                         AddHandler clcEdit.GotFocus, AddressOf clcEdit_GotFocus
                     End If
                 Case "varchar", "nvarchar", "char"
-                    txtEdit = New DevExpress.XtraEditors.TextEdit
-                    txtEdit.Properties.CharacterCasing = CharacterCasing.Normal
-                    txtEdit.Name = "txt" + ObjName
+                    If ObjName.Length > 1 AndAlso ObjName.Substring(0, 2) = "ID" Then
+                        'Lookup
+                        Dim dsLookUp As New DataSet
+                        cb.Kind = DevExpress.XtraEditors.Controls.ButtonPredefines.Delete
+                        lkEdit = New DXSample.CustomSearchLookUpEdit
+                        lkEdit.Properties.Buttons.Add(New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis))
+                        lkEdit.Properties.Buttons.Add(cb)
+                        lkEdit.Properties.NullText = ""
+                        lkEdit.Name = "txt" + ObjName
+                        lkEdit.Properties.DisplayMember = "Nama"
+                        lkEdit.Properties.ValueMember = "ID"
+                        lkEdit.Properties.View.Name = "GV" + ObjName
+                        lkEdit.EnterMoveNextControl = True
+                        lkEdit.EditValue = -1
+                        lkEdit.TabStop = Not lkEdit.Properties.ReadOnly
+                        itemLC = New LayoutControlItem
+                        itemLC.Name = ObjName
+                        itemLC.Parent = LC1.Root
+                        itemLC.Control = lkEdit
+                        AddHandler itemLC.Click, AddressOf itemLC_Click
 
-                    txtEdit.EnterMoveNextControl = True
-                    txtEdit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
+                        cmd.CommandText = "Select ID,Nama,IsActive from M" & ObjName.Substring(2, ObjName.Length - 2)
+                        da = New SqlDataAdapter(cmd)
+                        da.Fill(dsLookUp, ObjName)
 
-                    If False Then 'Jika ada masking -> Nomasking
-                        txtEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple
-                        txtEdit.Properties.Mask.EditMask = "" 'ds.Tables("Master").Rows(i).Item("format")
-                        'If NullToStr(ds.Tables("Master").Rows(i).Item("format")).ToLower = "alphanumeric" Then
-                        '    txtEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx
-                        '    txtEdit.Properties.Mask.EditMask = "[a-z|A-Z|0-9]+"
-                        'End If
-                        txtEdit.Properties.Mask.UseMaskAsDisplayFormat = True
-                        txtEdit.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False
-                        txtEdit.EditValue = ""
+                        lkEdit.Properties.DataSource = dsLookUp.Tables(ObjName)
+                        AddHandler lkEdit.EditValueChanged, AddressOf lkEdit_EditValueChanged
+                        AddHandler lkEdit.ButtonClick, AddressOf lkEdit_ButtonClick
+                        AddHandler lkEdit.Click, AddressOf lkEdit_Click
+                        AddHandler lkEdit.Popup, AddressOf lkEdit_Popup
+                        AddHandler lkEdit.Properties.View.DataSourceChanged, AddressOf GV_DataSourceChanged
+
+                        dsLookUp.Dispose()
                     Else
-                        txtEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None
-                        txtEdit.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False
-                        txtEdit.EditValue = ""
+
+                        txtEdit = New DevExpress.XtraEditors.TextEdit
+                        txtEdit.Properties.CharacterCasing = CharacterCasing.Normal
+                        txtEdit.Name = "txt" + ObjName
+
+                        txtEdit.EnterMoveNextControl = True
+                        txtEdit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
+
+                        If False Then 'Jika ada masking -> Nomasking
+                            txtEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple
+                            txtEdit.Properties.Mask.EditMask = "" 'ds.Tables("Master").Rows(i).Item("format")
+                            'If NullToStr(ds.Tables("Master").Rows(i).Item("format")).ToLower = "alphanumeric" Then
+                            '    txtEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx
+                            '    txtEdit.Properties.Mask.EditMask = "[a-z|A-Z|0-9]+"
+                            'End If
+                            txtEdit.Properties.Mask.UseMaskAsDisplayFormat = True
+                            txtEdit.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False
+                            txtEdit.EditValue = ""
+                        Else
+                            txtEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None
+                            txtEdit.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False
+                            txtEdit.EditValue = ""
+                        End If
+                        txtEdit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
+
+
+                        txtEdit.TabStop = Not txtEdit.Properties.ReadOnly
+
+                        txtEdit.Properties.MaxLength = Prec
+
+                        itemLC = New LayoutControlItem
+                        itemLC.Name = ObjName
+                        itemLC.Parent = LC1.Root
+                        AddHandler itemLC.Click, AddressOf itemLC_Click
+                        itemLC.Control = txtEdit
+
+                        AddHandler txtEdit.GotFocus, AddressOf txtEdit_GotFocus
+                        AddHandler txtEdit.LostFocus, AddressOf txtEdit_LostFocus
                     End If
-                    txtEdit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
-
-
-                    txtEdit.TabStop = Not txtEdit.Properties.ReadOnly
-
-                    txtEdit.Properties.MaxLength = Prec
-
-                    itemLC = New LayoutControlItem
-                    itemLC.Name = ObjName
-                    itemLC.Parent = LC1.Root
-                    AddHandler itemLC.Click, AddressOf itemLC_Click
-                    itemLC.Control = txtEdit
-
-                    AddHandler txtEdit.GotFocus, AddressOf txtEdit_GotFocus
-                    AddHandler txtEdit.LostFocus, AddressOf txtEdit_LostFocus
-
-
                 Case "money", "numeric", "decimal"
                     clcEdit = New DevExpress.XtraEditors.CalcEdit
                     clcEdit.Name = "txt" + ObjName
@@ -452,7 +486,8 @@ Public Class FormLapSP
     Dim Unique As New List(Of String)
     Dim oda2 As SqlDataAdapter
     Dim dsT2 As New DataSet
-    Sub RefreshData()
+    Dim CalcField As String = ""
+    Sub Refresher()
         Dim dlg As DevExpress.Utils.WaitDialogForm = Nothing
         Dim cn As New SqlConnection(conStr)
         Dim ocmd2 As New SqlCommand
@@ -466,7 +501,6 @@ Public Class FormLapSP
         Dim TempFilt As String = ""
         Dim IsSp As Boolean = False
 
-        Dim CalcField As String = ""
         Dim operasi As String()
         Dim str As String()
         Dim ekspresi As String()
@@ -567,25 +601,41 @@ Public Class FormLapSP
                                             End If
                                             If (ctrl.text <> "") OrElse IsSp Then
                                                 Rplc = ctrl.editvalue
-                                                If IsDBNull(Rplc) AndAlso IsSp Then
-                                                    If (tp = GetType(Integer) Or tp = GetType(Long)) Then
-                                                        Rplc = ObjToLong(Rplc)
-                                                    ElseIf tp = GetType(Date) Or tp = GetType(DateTime) Then
-                                                        Rplc = ObjToDate(Rplc)
-                                                    ElseIf tp = GetType(Double) Then
-                                                        Rplc = ObjToDbl(Rplc)
-                                                    ElseIf tp = GetType(String) Then
-                                                        Rplc = NullToStr(Rplc)
-                                                    ElseIf tp = GetType(Boolean) Then
-                                                        Rplc = ObjToBool(Rplc)
-                                                    End If
-                                                End If
+                                                'If IsDBNull(Rplc) AndAlso IsSp Then
+                                                '    If (tp = GetType(Integer) Or tp = GetType(Long)) Then
+                                                '        Rplc = ObjToLong(Rplc)
+                                                '        Rplc = IIf(Rplc Is Nothing AndAlso Strings.Left(fld, 2) = "id", 0, Rplc)
+                                                '    ElseIf tp = GetType(Date) Or tp = GetType(DateTime) Then
+                                                '        Rplc = ObjToDate(Rplc)
+                                                '    ElseIf tp = GetType(Double) Then
+                                                '        Rplc = ObjToDbl(Rplc)
+                                                '        Rplc = IIf(Rplc Is Nothing AndAlso Strings.Left(fld, 2) = "id", 0.0, Rplc)
+                                                '    ElseIf tp = GetType(String) Then
+                                                '        Rplc = NullToStr(Rplc)
+                                                '        Rplc = IIf(Rplc Is Nothing AndAlso Strings.Left(fld, 2) = "id", "", Rplc)
+                                                '    ElseIf tp = GetType(Boolean) Then
+                                                '        Rplc = ObjToBool(Rplc)
+                                                '    End If
+                                                'End If
                                                 TempFilt = Replace(TempFilt, match.Value.ToString, "@" & fld)
-                                                Rplc = IIf(Rplc Is Nothing AndAlso Strings.Left(fld, 2) = "id", 0, Rplc)
+                                                'If Rplc Is Nothing AndAlso Strings.Left(fld, 2) = "id" Then
+                                                Select Case tp
+                                                        Case GetType(Date), GetType(DateTime)
+                                                            Rplc = ObjToDate(Rplc)
+                                                        Case GetType(String)
+                                                            Rplc = NullToStr(Rplc)
+                                                        Case GetType(Integer), GetType(Long)
+                                                            Rplc = ObjToLong(Rplc)
+                                                        Case GetType(Double)
+                                                            Rplc = ObjToDbl(Rplc)
+                                                        Case GetType(Boolean)
+                                                            Rplc = ObjToBool(Rplc)
+                                                    End Select
+                                                'End If
                                                 ocmd2.Parameters.Add(New SqlParameter("@" & fld, DBtp)).Value = Rplc
                                                 Exit For
                                             Else
-                                                TempFilt = ""
+                                                    TempFilt = ""
                                             End If
                                             Continue For
                                         End If
@@ -654,6 +704,48 @@ Public Class FormLapSP
             dlg.Dispose()
             'GV.ShowFindPanel()
         End Try
+    End Sub
+
+
+    Sub Cetak()
+        Dim Action As ActionReport = IIf(IsEditReport, ActionReport.Edit, ActionReport.Preview)
+        Dim NamaFile As String = "CetakReport" & FormName & ".repx"
+        Dim PathFile As String = Application.StartupPath & "\Report\"
+        Dim str, operasi As String()
+        Dim RgText As String = ""
+        'Dim CalcField As String = "TglDari=Datetime=#" & TglDari.DateTime.ToString("yyyy/MM/dd") & "#|TglSampai=Datetime=#" & TglSampai.DateTime.ToString("yyyy/MM/dd") & "#"
+
+        If XtraTabControl1.SelectedTabPageIndex = 0 Then
+            NamaFile = "CetakReport" & FormName & ".repx"
+        Else
+            NamaFile = "CetakReport" & FormName & XtraTabControl1.SelectedTabPage.Text & ".repx"
+        End If
+
+        PathFile &= NamaFile
+        If System.IO.File.Exists(PathFile) OrElse Action = ActionReport.Edit Then
+            Refresher()
+            str = NullToStr(CalcRb).Split("|")
+            For i = 0 To UBound(str)
+                operasi = str(i).Split(";")
+                If operasi(0) = XtraTabControl1.SelectedTabPage.Name Then
+                    RgText = operasi(1)
+                    Exit For
+                Else
+                    RgText = "Tampilkan Semua"
+                End If
+            Next
+            RgText = IIf(CalcField <> "", "|", "") & "Radio=String='Status: " & RgText & "'"
+            clsDXReport.ViewXtraReport(Me.MdiParent, Action, PathFile, XtraTabControl1.SelectedTabPage.Text, NamaFile, dsT2, , CalcField & RgText)
+        Else
+            For Each ctrl In XtraTabControl1.SelectedTabPage.Controls
+                If TypeOf ctrl Is DevExpress.XtraGrid.GridControl Then
+                    'TryCast(ctrl, DevExpress.XtraGrid.GridControl).ShowPrintPreview()
+                    'TryCast(ctrl, DevExpress.XtraGrid.GridControl).ShowRibbonPrintPreview()
+                    clsDXReport.NewPreview(FormName, TryCast(ctrl, DevExpress.XtraGrid.GridControl), XtraTabControl1.SelectedTabPage.Text)
+                    Exit For
+                End If
+            Next
+        End If
     End Sub
 
     Private Function CekUniqueOrNull(ctrl As Object) As Boolean
@@ -736,7 +828,7 @@ Public Class FormLapSP
                     Next
                     CalcRb &= rgText
                     If ds.Tables(TableDS) Is Nothing Then
-                        RefreshData()
+                        Refresher()
                     End If
                     If NullToStr(sender.tag) = "" Then
                         ds.Tables(TableDS).DefaultView.RowFilter = NullToStr(sender.Tag)
@@ -1250,7 +1342,7 @@ Public Class FormLapSP
                 End If
             Next
         End If
-        If Formname = "EntriGudang" AndAlso TryCast(sender, DXSample.CustomSearchLookUpEdit).Name.ToLower = "txtidwilayah".ToLower Then 'DXSample.Custom
+        If FormName = "EntriGudang" AndAlso TryCast(sender, DXSample.CustomSearchLookUpEdit).Name.ToLower = "txtidwilayah".ToLower Then 'DXSample.Custom
             Dim SQL As String
             Dim dswil As New DataSet
             Try
@@ -1326,7 +1418,7 @@ Public Class FormLapSP
                         frmlookup.Strsql = isiKurawaByBS(strsql(0))
                         'frmlookup.FormName = sender.name
                         frmlookup.FormName = lked.Properties.View.Name
-                        frmlookup.NamaFormPemanggil = Formname
+                        frmlookup.NamaFormPemanggil = FormName
                         If frmlookup.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
                             sender.editvalue = frmlookup.NoID
                             lkEdit_EditValueChanged(sender, e)
@@ -1439,15 +1531,15 @@ Public Class FormLapSP
     Private Sub lkEdit_Popup(ByVal sender As Object, ByVal e As System.EventArgs)
         Dim lu As DXSample.CustomSearchLookUpEdit = CType(sender, DXSample.CustomSearchLookUpEdit)
         Dim Pop As Popup.PopupSearchLookUpEditForm = TryCast((TryCast(lu, DevExpress.Utils.Win.IPopupControl)).PopupWindow, Popup.PopupSearchLookUpEditForm)
-        Dim H As Long = Ini.BacaIniPath(LayoutsHelper.FolderLayouts & Formname & "PopupSize.ini", lu.Name, "Height", Pop.Size.Height)
-        Dim W As Long = Ini.BacaIniPath(LayoutsHelper.FolderLayouts & Formname & "PopupSize.ini", lu.Name, "Width", Pop.Size.Width)
+        Dim H As Long = Ini.BacaIniPath(LayoutsHelper.FolderLayouts & FormName & "PopupSize.ini", lu.Name, "Height", Pop.Size.Height)
+        Dim W As Long = Ini.BacaIniPath(LayoutsHelper.FolderLayouts & FormName & "PopupSize.ini", lu.Name, "Width", Pop.Size.Width)
         Pop.Size = New Size(W, H)
     End Sub
     Private Sub lkEdit_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs)
         'Dim dslk As New DataSet
         Dim lkedit As DXSample.CustomSearchLookUpEdit = Nothing 'DXSample.Custom
         Try
-            If Formname.ToLower = "entrirulemutasigudang" Then
+            If FormName.ToLower = "entrirulemutasigudang" Then
                 For Each ctrl In LC1.Controls
                     If ctrl.name.ToString.ToLower = "txtidgudangasal".ToLower Then
                         lkedit = CType(ctrl, DXSample.CustomSearchLookUpEdit) 'DXSample.Custom
@@ -1478,7 +1570,7 @@ Public Class FormLapSP
         Dim _button = (e.Button.ToString().Substring(e.Button.ToString().LastIndexOf("=") + 1).Trim())
         Select Case _button
             Case "0", "'Refresh'"
-                RefreshData()
+                Refresher()
             Case "1", "'Cetak'"
                 Cetak()
             Case "2", "'Close'"
@@ -1486,13 +1578,10 @@ Public Class FormLapSP
         End Select
     End Sub
 
-    Sub Cetak()
-
-    End Sub
 
     Private Sub RestoreLayout()
-        If System.IO.File.Exists(LayoutsHelper.FolderLayouts & Formname & ".xml") Then
-            LC1.RestoreLayoutFromXml(LayoutsHelper.FolderLayouts & Formname & ".xml")
+        If System.IO.File.Exists(LayoutsHelper.FolderLayouts & FormName & ".xml") Then
+            LC1.RestoreLayoutFromXml(LayoutsHelper.FolderLayouts & FormName & ".xml")
         End If
 
         For Each Pg In XtraTabControl1.Controls
@@ -1504,8 +1593,8 @@ Public Class FormLapSP
                         RestoreGVLayouts(GV)
                         'Exit For
                     ElseIf TypeOf ctl Is LayoutControl Then
-                        If System.IO.File.Exists(LayoutsHelper.FolderLayouts & Formname & ctl.name & ".xml") Then
-                            ctl.RestoreLayoutFromXml(LayoutsHelper.FolderLayouts & Formname & ctl.name & ".xml")
+                        If System.IO.File.Exists(LayoutsHelper.FolderLayouts & FormName & ctl.name & ".xml") Then
+                            ctl.RestoreLayoutFromXml(LayoutsHelper.FolderLayouts & FormName & ctl.name & ".xml")
                         End If
                     End If
                 Next
@@ -1517,15 +1606,18 @@ Public Class FormLapSP
 
     Private Sub RestoreGVLayouts(GV As GridView)
         With GV
+            GV.OptionsView.ColumnAutoWidth = False
+            GV.OptionsView.BestFitMaxRowCount = -1
+            GV.BestFitColumns()
             .OptionsDetail.SmartDetailExpandButtonMode = DetailExpandButtonMode.AlwaysEnabled
-            If System.IO.File.Exists(LayoutsHelper.FolderLayouts & Formname & GV.Name & ".xml") Then
-                .RestoreLayoutFromXml(LayoutsHelper.FolderLayouts & Formname & GV.Name & ".xml")
+            If System.IO.File.Exists(LayoutsHelper.FolderLayouts & FormName & GV.Name & ".xml") Then
+                .RestoreLayoutFromXml(LayoutsHelper.FolderLayouts & FormName & GV.Name & ".xml")
             End If
             For i As Integer = 0 To .Columns.Count - 1
                 Select Case .Columns(i).ColumnType.Name.ToLower
                     Case "int32", "int64", "int"
                         .Columns(i).DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-                        .Columns(i).DisplayFormat.FormatString = "n2"
+                        .Columns(i).DisplayFormat.FormatString = "n0"
                     Case "decimal", "single", "money", "double"
                         .Columns(i).DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
                         .Columns(i).DisplayFormat.FormatString = "n2"
@@ -1562,7 +1654,7 @@ Public Class FormLapSP
         Dim xOtorisasi As New FormOtorisasi
         Try
             If True Then
-                LC1.SaveLayoutToXml(LayoutsHelper.FolderLayouts & Formname & ".xml")
+                LC1.SaveLayoutToXml(LayoutsHelper.FolderLayouts & FormName & ".xml")
                 For Each Pg In XtraTabControl1.Controls
                     If TypeOf Pg Is DevExpress.XtraTab.XtraTabPage Then
                         For Each ctl In Pg.Controls
@@ -1570,11 +1662,11 @@ Public Class FormLapSP
                                 GC = ctl
                                 GV = GC.Views.Item(0)
                                 If GC.DataSource IsNot Nothing Then
-                                    GV.SaveLayoutToXml(LayoutsHelper.FolderLayouts & Formname & GV.Name & ".xml")
+                                    GV.SaveLayoutToXml(LayoutsHelper.FolderLayouts & FormName & GV.Name & ".xml")
                                 End If
                                 'Exit For
                             ElseIf TypeOf ctl Is LayoutControl Then
-                                ctl.SaveLayoutToXml(LayoutsHelper.FolderLayouts & Formname & ctl.name & ".xml")
+                                ctl.SaveLayoutToXml(LayoutsHelper.FolderLayouts & FormName & ctl.name & ".xml")
                                 'Exit For
                             End If
                         Next
@@ -1588,9 +1680,9 @@ Public Class FormLapSP
                         'lu.Properties.View.SaveLayoutToXml(LayoutsHelper.FolderLayouts & FormName & lu.Properties.View.Name & ".xml")
                         Dim Pop As Popup.PopupSearchLookUpEditForm = TryCast((TryCast(lu, DevExpress.Utils.Win.IPopupControl)).PopupWindow, Popup.PopupSearchLookUpEditForm)
                         If Pop IsNot Nothing Then
-                            lu.Properties.View.SaveLayoutToXml(LayoutsHelper.FolderLayouts & Formname & lu.Properties.View.Name & ".xml")
-                            Ini.TulisIniPath(LayoutsHelper.FolderLayouts & Formname & "PopupSize.ini", lu.Name, "Height", Pop.Size.Height)
-                            Ini.TulisIniPath(LayoutsHelper.FolderLayouts & Formname & "PopupSize.ini", lu.Name, "Width", Pop.Size.Width)
+                            lu.Properties.View.SaveLayoutToXml(LayoutsHelper.FolderLayouts & FormName & lu.Properties.View.Name & ".xml")
+                            Ini.TulisIniPath(LayoutsHelper.FolderLayouts & FormName & "PopupSize.ini", lu.Name, "Height", Pop.Size.Height)
+                            Ini.TulisIniPath(LayoutsHelper.FolderLayouts & FormName & "PopupSize.ini", lu.Name, "Width", Pop.Size.Width)
                         End If
                     End If
                 Next

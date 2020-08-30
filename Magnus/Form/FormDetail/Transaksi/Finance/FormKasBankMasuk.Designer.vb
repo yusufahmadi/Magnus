@@ -23,19 +23,20 @@ Partial Class FormKasBankMasuk
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormKasBankMasuk))
         Me.GC1 = New DevExpress.XtraGrid.GridControl()
-        Me.gridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.GV1 = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.GColID = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumnNoUrut = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GColIDAkun = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.RepositoryItemSearchLookUpAkun = New DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit()
-        Me.RepositoryItemSearchLookUpEdit1View = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.RepositoryItemSearchLookUpEdit1GViewAkun = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.GColIDRekanan = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.RepositoryItemSearchLookUpRekanan = New DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit()
-        Me.RepositoryItemSearchLookUpEdit2View = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.RepositoryItemSearchLookUpEdit2GViewRekanan = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.GCollIDReff = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.RepositoryItemSearchLookUpTransaksi = New DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit()
-        Me.RepositoryItemSearchLookUpEdit3View = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.RepositoryItemSearchLookUpEdit3GViewTransaksi = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.GColNominal = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.txtNominal = New DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit()
         Me.GridColumnCatatan = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -62,6 +63,7 @@ Partial Class FormKasBankMasuk
         Me.txtKeterangan = New DevExpress.XtraEditors.MemoEdit()
         Me.txtJTBG = New DevExpress.XtraEditors.DateEdit()
         Me.txtNoGiro = New DevExpress.XtraEditors.TextEdit()
+        Me.txtIDRekanan = New DevExpress.XtraEditors.LookUpEdit()
         Me.LayoutControlItem7 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup()
         Me.LayoutControlItem4 = New DevExpress.XtraLayout.LayoutControlItem()
@@ -71,21 +73,22 @@ Partial Class FormKasBankMasuk
         Me.LayoutControlItem10 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlGroup2 = New DevExpress.XtraLayout.LayoutControlGroup()
         Me.LayoutControlItem2 = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.LayoutControlItem6 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem5 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem8 = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.DxErrorProvider1 = New DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(Me.components)
-        Me.txtIDRekanan = New DevExpress.XtraEditors.LookUpEdit()
+        Me.LayoutControlItem6 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem11 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.DxErrorProvider1 = New DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(Me.components)
+        Me.PopupMenu1 = New DevExpress.XtraBars.PopupMenu(Me.components)
+        Me.BarButtonHapusItem = New DevExpress.XtraBars.BarButtonItem()
         CType(Me.GC1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.gridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GV1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemSearchLookUpAkun, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RepositoryItemSearchLookUpEdit1View, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemSearchLookUpEdit1GViewAkun, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemSearchLookUpRekanan, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RepositoryItemSearchLookUpEdit2View, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemSearchLookUpEdit2GViewRekanan, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemSearchLookUpTransaksi, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RepositoryItemSearchLookUpEdit3View, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemSearchLookUpEdit3GViewTransaksi, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtNominal, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtKurs, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.mainRibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -101,6 +104,7 @@ Partial Class FormKasBankMasuk
         CType(Me.txtJTBG.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtJTBG.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtNoGiro.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtIDRekanan.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem7, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -110,34 +114,34 @@ Partial Class FormKasBankMasuk
         CType(Me.LayoutControlItem10, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlGroup2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlItem6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem8, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DxErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.txtIDRekanan.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem11, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DxErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PopupMenu1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GC1
         '
         Me.GC1.Location = New System.Drawing.Point(12, 156)
-        Me.GC1.MainView = Me.gridView1
+        Me.GC1.MainView = Me.GV1
         Me.GC1.Name = "GC1"
         Me.GC1.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.txtNominal, Me.RepositoryItemSearchLookUpAkun, Me.RepositoryItemSearchLookUpRekanan, Me.RepositoryItemSearchLookUpTransaksi, Me.txtKurs})
-        Me.GC1.Size = New System.Drawing.Size(990, 348)
+        Me.GC1.Size = New System.Drawing.Size(998, 348)
         Me.GC1.TabIndex = 1
-        Me.GC1.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gridView1})
+        Me.GC1.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GV1})
         '
-        'gridView1
+        'GV1
         '
-        Me.gridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GColID, Me.GridColumnNoUrut, Me.GColIDAkun, Me.GColIDRekanan, Me.GCollIDReff, Me.GColNominal, Me.GridColumnCatatan, Me.GColKurs})
-        Me.gridView1.GridControl = Me.GC1
-        Me.gridView1.Name = "gridView1"
-        Me.gridView1.OptionsView.ColumnAutoWidth = False
-        Me.gridView1.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom
-        Me.gridView1.OptionsView.ShowFooter = True
-        Me.gridView1.OptionsView.ShowGroupPanel = False
+        Me.GV1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GColID, Me.GridColumnNoUrut, Me.GColIDAkun, Me.GColIDRekanan, Me.GCollIDReff, Me.GColNominal, Me.GridColumnCatatan, Me.GColKurs})
+        Me.GV1.GridControl = Me.GC1
+        Me.GV1.Name = "GV1"
+        Me.GV1.OptionsView.ColumnAutoWidth = False
+        Me.GV1.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom
+        Me.GV1.OptionsView.ShowFooter = True
+        Me.GV1.OptionsView.ShowGroupPanel = False
         '
         'GColID
         '
@@ -185,14 +189,14 @@ Partial Class FormKasBankMasuk
         Me.RepositoryItemSearchLookUpAkun.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.RepositoryItemSearchLookUpAkun.Name = "RepositoryItemSearchLookUpAkun"
         Me.RepositoryItemSearchLookUpAkun.NullText = "[Pilih Akun]"
-        Me.RepositoryItemSearchLookUpAkun.View = Me.RepositoryItemSearchLookUpEdit1View
+        Me.RepositoryItemSearchLookUpAkun.View = Me.RepositoryItemSearchLookUpEdit1GViewAkun
         '
-        'RepositoryItemSearchLookUpEdit1View
+        'RepositoryItemSearchLookUpEdit1GViewAkun
         '
-        Me.RepositoryItemSearchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
-        Me.RepositoryItemSearchLookUpEdit1View.Name = "RepositoryItemSearchLookUpEdit1View"
-        Me.RepositoryItemSearchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = False
-        Me.RepositoryItemSearchLookUpEdit1View.OptionsView.ShowGroupPanel = False
+        Me.RepositoryItemSearchLookUpEdit1GViewAkun.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
+        Me.RepositoryItemSearchLookUpEdit1GViewAkun.Name = "RepositoryItemSearchLookUpEdit1GViewAkun"
+        Me.RepositoryItemSearchLookUpEdit1GViewAkun.OptionsSelection.EnableAppearanceFocusedCell = False
+        Me.RepositoryItemSearchLookUpEdit1GViewAkun.OptionsView.ShowGroupPanel = False
         '
         'GColIDRekanan
         '
@@ -210,14 +214,14 @@ Partial Class FormKasBankMasuk
         Me.RepositoryItemSearchLookUpRekanan.AutoHeight = False
         Me.RepositoryItemSearchLookUpRekanan.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.RepositoryItemSearchLookUpRekanan.Name = "RepositoryItemSearchLookUpRekanan"
-        Me.RepositoryItemSearchLookUpRekanan.View = Me.RepositoryItemSearchLookUpEdit2View
+        Me.RepositoryItemSearchLookUpRekanan.View = Me.RepositoryItemSearchLookUpEdit2GViewRekanan
         '
-        'RepositoryItemSearchLookUpEdit2View
+        'RepositoryItemSearchLookUpEdit2GViewRekanan
         '
-        Me.RepositoryItemSearchLookUpEdit2View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
-        Me.RepositoryItemSearchLookUpEdit2View.Name = "RepositoryItemSearchLookUpEdit2View"
-        Me.RepositoryItemSearchLookUpEdit2View.OptionsSelection.EnableAppearanceFocusedCell = False
-        Me.RepositoryItemSearchLookUpEdit2View.OptionsView.ShowGroupPanel = False
+        Me.RepositoryItemSearchLookUpEdit2GViewRekanan.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
+        Me.RepositoryItemSearchLookUpEdit2GViewRekanan.Name = "RepositoryItemSearchLookUpEdit2GViewRekanan"
+        Me.RepositoryItemSearchLookUpEdit2GViewRekanan.OptionsSelection.EnableAppearanceFocusedCell = False
+        Me.RepositoryItemSearchLookUpEdit2GViewRekanan.OptionsView.ShowGroupPanel = False
         '
         'GCollIDReff
         '
@@ -228,8 +232,6 @@ Partial Class FormKasBankMasuk
         Me.GCollIDReff.FieldName = "IDReff"
         Me.GCollIDReff.Name = "GCollIDReff"
         Me.GCollIDReff.OptionsColumn.AllowMove = False
-        Me.GCollIDReff.Visible = True
-        Me.GCollIDReff.VisibleIndex = 4
         Me.GCollIDReff.Width = 100
         '
         'RepositoryItemSearchLookUpTransaksi
@@ -237,14 +239,14 @@ Partial Class FormKasBankMasuk
         Me.RepositoryItemSearchLookUpTransaksi.AutoHeight = False
         Me.RepositoryItemSearchLookUpTransaksi.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.RepositoryItemSearchLookUpTransaksi.Name = "RepositoryItemSearchLookUpTransaksi"
-        Me.RepositoryItemSearchLookUpTransaksi.View = Me.RepositoryItemSearchLookUpEdit3View
+        Me.RepositoryItemSearchLookUpTransaksi.View = Me.RepositoryItemSearchLookUpEdit3GViewTransaksi
         '
-        'RepositoryItemSearchLookUpEdit3View
+        'RepositoryItemSearchLookUpEdit3GViewTransaksi
         '
-        Me.RepositoryItemSearchLookUpEdit3View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
-        Me.RepositoryItemSearchLookUpEdit3View.Name = "RepositoryItemSearchLookUpEdit3View"
-        Me.RepositoryItemSearchLookUpEdit3View.OptionsSelection.EnableAppearanceFocusedCell = False
-        Me.RepositoryItemSearchLookUpEdit3View.OptionsView.ShowGroupPanel = False
+        Me.RepositoryItemSearchLookUpEdit3GViewTransaksi.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
+        Me.RepositoryItemSearchLookUpEdit3GViewTransaksi.Name = "RepositoryItemSearchLookUpEdit3GViewTransaksi"
+        Me.RepositoryItemSearchLookUpEdit3GViewTransaksi.OptionsSelection.EnableAppearanceFocusedCell = False
+        Me.RepositoryItemSearchLookUpEdit3GViewTransaksi.OptionsView.ShowGroupPanel = False
         '
         'GColNominal
         '
@@ -266,7 +268,7 @@ Partial Class FormKasBankMasuk
         Me.GColNominal.OptionsColumn.AllowMove = False
         Me.GColNominal.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Nominal", "GT : {0:#,###}")})
         Me.GColNominal.Visible = True
-        Me.GColNominal.VisibleIndex = 5
+        Me.GColNominal.VisibleIndex = 4
         Me.GColNominal.Width = 109
         '
         'txtNominal
@@ -290,7 +292,7 @@ Partial Class FormKasBankMasuk
         Me.GridColumnCatatan.FieldName = "Catatan"
         Me.GridColumnCatatan.Name = "GridColumnCatatan"
         Me.GridColumnCatatan.Visible = True
-        Me.GridColumnCatatan.VisibleIndex = 6
+        Me.GridColumnCatatan.VisibleIndex = 5
         Me.GridColumnCatatan.Width = 199
         '
         'GColKurs
@@ -341,14 +343,14 @@ Partial Class FormKasBankMasuk
         'mainRibbonControl
         '
         Me.mainRibbonControl.ExpandCollapseItem.Id = 0
-        Me.mainRibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.mainRibbonControl.ExpandCollapseItem, Me.bbiSave, Me.bbiSaveAndClose, Me.bbiSaveAndNew, Me.bbiReset, Me.bbiDelete, Me.bbiClose})
+        Me.mainRibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.mainRibbonControl.ExpandCollapseItem, Me.bbiSave, Me.bbiSaveAndClose, Me.bbiSaveAndNew, Me.bbiReset, Me.bbiDelete, Me.bbiClose, Me.BarButtonHapusItem})
         Me.mainRibbonControl.Location = New System.Drawing.Point(0, 0)
-        Me.mainRibbonControl.MaxItemId = 10
+        Me.mainRibbonControl.MaxItemId = 11
         Me.mainRibbonControl.Name = "mainRibbonControl"
         Me.mainRibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.mainRibbonPage})
         Me.mainRibbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.OfficeUniversal
         Me.mainRibbonControl.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.[False]
-        Me.mainRibbonControl.Size = New System.Drawing.Size(1014, 79)
+        Me.mainRibbonControl.Size = New System.Drawing.Size(1022, 83)
         Me.mainRibbonControl.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden
         '
         'bbiSave
@@ -444,10 +446,10 @@ Partial Class FormKasBankMasuk
         Me.LayoutControl1.Controls.Add(Me.txtIDRekanan)
         Me.LayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.LayoutControl1.HiddenItems.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem7})
-        Me.LayoutControl1.Location = New System.Drawing.Point(0, 79)
+        Me.LayoutControl1.Location = New System.Drawing.Point(0, 83)
         Me.LayoutControl1.Name = "LayoutControl1"
         Me.LayoutControl1.Root = Me.LayoutControlGroup1
-        Me.LayoutControl1.Size = New System.Drawing.Size(1014, 516)
+        Me.LayoutControl1.Size = New System.Drawing.Size(1022, 516)
         Me.LayoutControl1.TabIndex = 14
         Me.LayoutControl1.Text = "LayoutControl1"
         '
@@ -500,10 +502,10 @@ Partial Class FormKasBankMasuk
         '
         'txtKeterangan
         '
-        Me.txtKeterangan.Location = New System.Drawing.Point(474, 28)
+        Me.txtKeterangan.Location = New System.Drawing.Point(476, 28)
         Me.txtKeterangan.MenuManager = Me.mainRibbonControl
         Me.txtKeterangan.Name = "txtKeterangan"
-        Me.txtKeterangan.Size = New System.Drawing.Size(528, 124)
+        Me.txtKeterangan.Size = New System.Drawing.Size(534, 124)
         Me.txtKeterangan.StyleController = Me.LayoutControl1
         Me.txtKeterangan.TabIndex = 15
         '
@@ -518,7 +520,7 @@ Partial Class FormKasBankMasuk
         Me.txtJTBG.Properties.Mask.EditMask = "dd-MM-yyyy"
         Me.txtJTBG.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret
         Me.txtJTBG.Properties.MinValue = New Date(2020, 1, 1, 0, 0, 0, 0)
-        Me.txtJTBG.Size = New System.Drawing.Size(191, 20)
+        Me.txtJTBG.Size = New System.Drawing.Size(193, 20)
         Me.txtJTBG.StyleController = Me.LayoutControl1
         Me.txtJTBG.TabIndex = 13
         '
@@ -526,9 +528,18 @@ Partial Class FormKasBankMasuk
         '
         Me.txtNoGiro.Location = New System.Drawing.Point(267, 40)
         Me.txtNoGiro.Name = "txtNoGiro"
-        Me.txtNoGiro.Size = New System.Drawing.Size(191, 20)
+        Me.txtNoGiro.Size = New System.Drawing.Size(193, 20)
         Me.txtNoGiro.StyleController = Me.LayoutControl1
         Me.txtNoGiro.TabIndex = 14
+        '
+        'txtIDRekanan
+        '
+        Me.txtIDRekanan.Location = New System.Drawing.Point(83, 96)
+        Me.txtIDRekanan.Name = "txtIDRekanan"
+        Me.txtIDRekanan.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.txtIDRekanan.Size = New System.Drawing.Size(156, 20)
+        Me.txtIDRekanan.StyleController = Me.LayoutControl1
+        Me.txtIDRekanan.TabIndex = 16
         '
         'LayoutControlItem7
         '
@@ -546,7 +557,7 @@ Partial Class FormKasBankMasuk
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem4, Me.LayoutControlItem3, Me.LayoutControlGroupGiro, Me.LayoutControlGroup2})
         Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
-        Me.LayoutControlGroup1.Size = New System.Drawing.Size(1014, 516)
+        Me.LayoutControlGroup1.Size = New System.Drawing.Size(1022, 516)
         Me.LayoutControlGroup1.TextVisible = False
         '
         'LayoutControlItem4
@@ -554,16 +565,16 @@ Partial Class FormKasBankMasuk
         Me.LayoutControlItem4.Control = Me.GC1
         Me.LayoutControlItem4.Location = New System.Drawing.Point(0, 144)
         Me.LayoutControlItem4.Name = "LayoutControlItem4"
-        Me.LayoutControlItem4.Size = New System.Drawing.Size(994, 352)
+        Me.LayoutControlItem4.Size = New System.Drawing.Size(1002, 352)
         Me.LayoutControlItem4.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem4.TextVisible = False
         '
         'LayoutControlItem3
         '
         Me.LayoutControlItem3.Control = Me.txtKeterangan
-        Me.LayoutControlItem3.Location = New System.Drawing.Point(462, 0)
+        Me.LayoutControlItem3.Location = New System.Drawing.Point(464, 0)
         Me.LayoutControlItem3.Name = "LayoutControlItem3"
-        Me.LayoutControlItem3.Size = New System.Drawing.Size(532, 144)
+        Me.LayoutControlItem3.Size = New System.Drawing.Size(538, 144)
         Me.LayoutControlItem3.Text = "Keterangan"
         Me.LayoutControlItem3.TextLocation = DevExpress.Utils.Locations.Top
         Me.LayoutControlItem3.TextSize = New System.Drawing.Size(56, 13)
@@ -573,7 +584,7 @@ Partial Class FormKasBankMasuk
         Me.LayoutControlGroupGiro.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem9, Me.LayoutControlItem10})
         Me.LayoutControlGroupGiro.Location = New System.Drawing.Point(243, 0)
         Me.LayoutControlGroupGiro.Name = "LayoutControlGroupGiro"
-        Me.LayoutControlGroupGiro.Size = New System.Drawing.Size(219, 144)
+        Me.LayoutControlGroupGiro.Size = New System.Drawing.Size(221, 144)
         Me.LayoutControlGroupGiro.Text = "Giro"
         Me.LayoutControlGroupGiro.TextVisible = False
         '
@@ -583,7 +594,7 @@ Partial Class FormKasBankMasuk
         Me.LayoutControlItem9.CustomizationFormText = "Tgl"
         Me.LayoutControlItem9.Location = New System.Drawing.Point(0, 40)
         Me.LayoutControlItem9.Name = "LayoutControlItem9"
-        Me.LayoutControlItem9.Size = New System.Drawing.Size(195, 80)
+        Me.LayoutControlItem9.Size = New System.Drawing.Size(197, 80)
         Me.LayoutControlItem9.Text = "Tgl JT"
         Me.LayoutControlItem9.TextLocation = DevExpress.Utils.Locations.Top
         Me.LayoutControlItem9.TextSize = New System.Drawing.Size(56, 13)
@@ -594,7 +605,7 @@ Partial Class FormKasBankMasuk
         Me.LayoutControlItem10.CustomizationFormText = "Kode"
         Me.LayoutControlItem10.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlItem10.Name = "LayoutControlItem10"
-        Me.LayoutControlItem10.Size = New System.Drawing.Size(195, 40)
+        Me.LayoutControlItem10.Size = New System.Drawing.Size(197, 40)
         Me.LayoutControlItem10.Text = "No Giro"
         Me.LayoutControlItem10.TextLocation = DevExpress.Utils.Locations.Top
         Me.LayoutControlItem10.TextSize = New System.Drawing.Size(56, 13)
@@ -615,15 +626,6 @@ Partial Class FormKasBankMasuk
         Me.LayoutControlItem2.Size = New System.Drawing.Size(219, 24)
         Me.LayoutControlItem2.Text = "Kode"
         Me.LayoutControlItem2.TextSize = New System.Drawing.Size(56, 13)
-        '
-        'LayoutControlItem6
-        '
-        Me.LayoutControlItem6.Control = Me.txtKodeReff
-        Me.LayoutControlItem6.Location = New System.Drawing.Point(0, 96)
-        Me.LayoutControlItem6.Name = "LayoutControlItem6"
-        Me.LayoutControlItem6.Size = New System.Drawing.Size(219, 24)
-        Me.LayoutControlItem6.Text = "Kode Reff"
-        Me.LayoutControlItem6.TextSize = New System.Drawing.Size(56, 13)
         '
         'LayoutControlItem5
         '
@@ -658,18 +660,14 @@ Partial Class FormKasBankMasuk
         Me.LayoutControlItem8.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem8.TextVisible = False
         '
-        'DxErrorProvider1
+        'LayoutControlItem6
         '
-        Me.DxErrorProvider1.ContainerControl = Me
-        '
-        'txtIDRekanan
-        '
-        Me.txtIDRekanan.Location = New System.Drawing.Point(83, 96)
-        Me.txtIDRekanan.Name = "txtIDRekanan"
-        Me.txtIDRekanan.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.txtIDRekanan.Size = New System.Drawing.Size(156, 20)
-        Me.txtIDRekanan.StyleController = Me.LayoutControl1
-        Me.txtIDRekanan.TabIndex = 16
+        Me.LayoutControlItem6.Control = Me.txtKodeReff
+        Me.LayoutControlItem6.Location = New System.Drawing.Point(0, 96)
+        Me.LayoutControlItem6.Name = "LayoutControlItem6"
+        Me.LayoutControlItem6.Size = New System.Drawing.Size(219, 24)
+        Me.LayoutControlItem6.Text = "Kode Reff"
+        Me.LayoutControlItem6.TextSize = New System.Drawing.Size(56, 13)
         '
         'LayoutControlItem11
         '
@@ -684,11 +682,29 @@ Partial Class FormKasBankMasuk
         Me.LayoutControlItem11.Text = "Rekanan"
         Me.LayoutControlItem11.TextSize = New System.Drawing.Size(56, 13)
         '
+        'DxErrorProvider1
+        '
+        Me.DxErrorProvider1.ContainerControl = Me
+        '
+        'PopupMenu1
+        '
+        Me.PopupMenu1.ItemLinks.Add(Me.BarButtonHapusItem)
+        Me.PopupMenu1.Name = "PopupMenu1"
+        Me.PopupMenu1.Ribbon = Me.mainRibbonControl
+        '
+        'BarButtonHapusItem
+        '
+        Me.BarButtonHapusItem.Caption = "Hapus Item"
+        Me.BarButtonHapusItem.Id = 10
+        Me.BarButtonHapusItem.ImageOptions.Image = CType(resources.GetObject("BarButtonHapusItem.ImageOptions.Image"), System.Drawing.Image)
+        Me.BarButtonHapusItem.ImageOptions.LargeImage = CType(resources.GetObject("BarButtonHapusItem.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.BarButtonHapusItem.Name = "BarButtonHapusItem"
+        '
         'FormKasBankMasuk
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1014, 595)
+        Me.ClientSize = New System.Drawing.Size(1022, 599)
         Me.Controls.Add(Me.LayoutControl1)
         Me.Controls.Add(Me.mainRibbonControl)
         Me.Name = "FormKasBankMasuk"
@@ -696,13 +712,13 @@ Partial Class FormKasBankMasuk
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Kas Masuk"
         CType(Me.GC1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.gridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GV1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemSearchLookUpAkun, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RepositoryItemSearchLookUpEdit1View, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemSearchLookUpEdit1GViewAkun, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemSearchLookUpRekanan, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RepositoryItemSearchLookUpEdit2View, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemSearchLookUpEdit2GViewRekanan, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemSearchLookUpTransaksi, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RepositoryItemSearchLookUpEdit3View, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemSearchLookUpEdit3GViewTransaksi, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtNominal, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtKurs, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.mainRibbonControl, System.ComponentModel.ISupportInitialize).EndInit()
@@ -718,6 +734,7 @@ Partial Class FormKasBankMasuk
         CType(Me.txtJTBG.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtJTBG.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtNoGiro.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtIDRekanan.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem7, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).EndInit()
@@ -727,20 +744,20 @@ Partial Class FormKasBankMasuk
         CType(Me.LayoutControlItem10, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlGroup2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlItem6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem8, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DxErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.txtIDRekanan.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem11, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DxErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PopupMenu1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
     Private WithEvents GC1 As DevExpress.XtraGrid.GridControl
-    Private WithEvents gridView1 As DevExpress.XtraGrid.Views.Grid.GridView
+    Private WithEvents GV1 As DevExpress.XtraGrid.Views.Grid.GridView
     Private WithEvents GColIDAkun As DevExpress.XtraGrid.Columns.GridColumn
     Private WithEvents GCollIDReff As DevExpress.XtraGrid.Columns.GridColumn
     Private WithEvents GColNominal As DevExpress.XtraGrid.Columns.GridColumn
@@ -749,7 +766,7 @@ Partial Class FormKasBankMasuk
     Private WithEvents colId As DevExpress.XtraGrid.Columns.GridColumn
     Private WithEvents colName As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents RepositoryItemSearchLookUpAkun As DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit
-    Friend WithEvents RepositoryItemSearchLookUpEdit1View As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents RepositoryItemSearchLookUpEdit1GViewAkun As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents GColID As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents GridColumnCatatan As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents GridColumnNoUrut As DevExpress.XtraGrid.Columns.GridColumn
@@ -788,10 +805,12 @@ Partial Class FormKasBankMasuk
     Friend WithEvents LayoutControlGroup2 As DevExpress.XtraLayout.LayoutControlGroup
     Friend WithEvents GColIDRekanan As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents RepositoryItemSearchLookUpRekanan As DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit
-    Friend WithEvents RepositoryItemSearchLookUpEdit2View As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents RepositoryItemSearchLookUpEdit2GViewRekanan As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents RepositoryItemSearchLookUpTransaksi As DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit
-    Friend WithEvents RepositoryItemSearchLookUpEdit3View As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents RepositoryItemSearchLookUpEdit3GViewTransaksi As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents txtKurs As DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit
     Friend WithEvents txtIDRekanan As DevExpress.XtraEditors.LookUpEdit
     Friend WithEvents LayoutControlItem11 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents BarButtonHapusItem As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents PopupMenu1 As DevExpress.XtraBars.PopupMenu
 End Class

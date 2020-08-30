@@ -30,6 +30,8 @@ Public Module modDBVersion
                             UpdateV2()
                         Case 2
                             UpdateV3()
+                        Case 3
+                            UpdateV4()
                     End Select
                     ps.Hasil = True
                 Catch ex As Exception
@@ -44,8 +46,53 @@ Public Module modDBVersion
         Return ps
     End Function
 
+    'Tambah Menu
+    Public Function AddMenu(NamaForm As String, Caption As String, IsActive As Boolean, NamaTabel As String)
+        Dim ps As New Pesan With {.Message = "OK", .Hasil = True, .Value = ""}
+        Dim sql As String = ""
+        Using con As New SqlConnection(conStr)
+            Using com As New SqlCommand()
+                Using dlg As New WaitDialogForm("Update Menu")
+                    Try
+                        con.Open()
+                        com.Connection = con
+                        com.CommandTimeout = con.ConnectionTimeout
+                        com.Transaction = con.BeginTransaction
+                        Try
 
+                            sql = "Declare @NamaForm as varchar(50)='" & NamaForm & "',@Caption as varchar(150)='" & Caption & "',@IsActive as Bit=" & ObjToBit(IsActive) & ",@NamaTabel as varchar(50)='" & NamaTabel & "' " & vbCrLf &
+                                  "IF Not Exists (Select ID FROM MMenu Where NamaForm=@NamaForm) " & vbCrLf &
+                                  "BEGIN " & vbCrLf &
+                                  " Declare @ID As Int=0  " & vbCrLf &
+                                  " Select @ID=IsNull(Max(ID),0)+1 From MMenu" & vbCrLf &
+                                  " Insert Into MMenu (ID,NamaForm,Caption,IsActive,NamaTabel)" & vbCrLf &
+                                  " SELECT @ID,@NamaForm,@Caption,@IsActive,@NamaTabel " & vbCrLf &
+                                  "END"
+                            com.CommandText = sql
+                            com.ExecuteNonQuery()
 
+                            If Not com.Transaction Is Nothing Then
+                                com.Transaction.Commit()
+                                com.Transaction = Nothing
+                            End If
+                        Catch ex As Exception
+                            com.Transaction.Rollback()
+                            If Not com.Transaction Is Nothing Then
+                                com.Transaction = Nothing
+                            End If
+                            With ps
+                                .Message = ex.Message
+                                .Hasil = False
+                                .Value = Nothing
+                            End With
+                        End Try
+                    Catch ex As Exception
+
+                    End Try
+                End Using
+            End Using
+        End Using
+    End Function
 
 
     'NOTE + UPDATE VERSI JANGAN LUPA TAMBAHKAN DI PALING BAWAH (SEBELUM END) PANGGIL FUNCTION TERBARUNYA DI VERSI SEBELUMNYA 
@@ -63,34 +110,269 @@ Public Module modDBVersion
                         com.CommandTimeout = con.ConnectionTimeout
                         com.Transaction = con.BeginTransaction
                         Try
-                            'Perubahan Table MKaryawan Ke MRekanan
-                            'sql = "IF OBJECT_ID(N'MRekanan', N'U') IS NULL" & vbCrLf &
-                            '        "BEGIN " & vbCrLf &
-                            '        "CREATE TABLE [dbo].[MRekanan](" & vbCrLf &
-                            '        "[ID] [int] NOT NULL,[IDJenisRekanan] [smallint] NULL," & vbCrLf &
-                            '        "[Kode] [nvarchar](15) NOT NULL,[Nama] [nvarchar](80) NOT NULL," & vbCrLf &
-                            '        "[Alias] [nvarchar](50) NULL,[Keterangan] [nvarchar](250) NULL," & vbCrLf &
-                            '        "[Alamat] [nvarchar](250) NULL,[Alamat2] [nvarchar](250) NULL," & vbCrLf &
-                            '        "[HP] [nvarchar](50) NULL,[IsActive] [bit] NULL," & vbCrLf &
-                            '        "[NPWP] [nvarchar](25) NULL,[NamaWP] [nvarchar](80) NULL," & vbCrLf &
-                            '        "[NIK] [nvarchar](25) NULL, CONSTRAINT [PK_MRekanan] PRIMARY KEY CLUSTERED  " & vbCrLf &
-                            '        "([ID] ASC )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY] " & vbCrLf &
-                            '        ") ON [PRIMARY]; " & vbCrLf &
-                            '        " " & vbCrLf &
-                            '        "EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'0 Karyawan 1 Supplier 2 Customer' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'MRekanan', @level2type=N'COLUMN',@level2name=N'IDJenisRekanan' " & vbCrLf &
-                            '        "; " & vbCrLf &
-                            '        "ALTER TABLE [dbo].[MRekanan] ADD  CONSTRAINT [DF_MRekanan_IDJenisRekanan]  DEFAULT ((0)) FOR [IDJenisRekanan] " & vbCrLf &
-                            '        "; " & vbCrLf &
-                            '        "ALTER TABLE [dbo].[MRekanan] ADD  CONSTRAINT [DF_MRekanan_IsActive]  DEFAULT ((1)) FOR [IsActive] " & vbCrLf &
-                            '        "; " & vbCrLf &
-                            '        "END "
-                            'com.CommandText = sql
-                            'com.ExecuteNonQuery()
+                            sql = "ALTER TRIGGER [dbo].[InsertDefaultMenuRoleUser]
+                                    ON  [dbo].[MMenu]
+                                    AFTER INSERT " & vbCrLf &
+                                    " AS  BEGIN " & vbCrLf &
+                                    "   SET NOCOUNT ON; " & vbCrLf &
+                                    "   Declare @IDForm as int=0,@IsActive as bit=0 " & vbCrLf &
+                                    "    Select @IDForm=i.ID,@IsActive=i.IsActive From Inserted as i " & vbCrLf &
+                                    "   INSERT INTO [dbo].[MRoleUserD]
+                                            ([IDRoleUser],[IDMenu],[IsEnable],[IsBaru]
+                                            ,[IsUbah],[IsHapus],[IsCetak],[IDTypeLayout])
+                                        Select ID As [IDRoleUser],@IDForm As [IDMenu]
+                                            ,@IsActive [IsEnable],1 [IsBaru],1 [IsUbah],1 [IsHapus],1 [IsCetak],[IDTypeLayout]  " & vbCrLf &
+                                    "   From MRoleUser " & vbCrLf &
+                                    "END "
+                            com.CommandText = sql
+                            com.ExecuteNonQuery()
 
-                            ''Update DB Version
-                            'sql = "Update [DBVersion] SET [Versi] =4, [TanggalUpdate] =Getdate()"
-                            'com.CommandText = sql
-                            'com.ExecuteNonQuery()
+                            sql = "IF EXISTS (SELECT * FROM sys.triggers WHERE object_id = OBJECT_ID(N'[dbo].[DeleteDefaultMenuRoleUser]')) " & vbCrLf &
+                                    " DROP TRIGGER [dbo].[DeleteDefaultMenuRoleUser]; "
+                            com.CommandText = sql
+                            com.ExecuteNonQuery()
+
+                            sql = " CREATE TRIGGER DeleteDefaultMenuRoleUser " & vbCrLf &
+                                    " ON  MMenu " & vbCrLf &
+                                    " AFTER DELETE " & vbCrLf &
+                                    " AS  BEGIN " & vbCrLf &
+                                    "   SET NOCOUNT ON; " & vbCrLf &
+                                    "   Declare @IDForm as int=0,@IsActive as bit=0 " & vbCrLf &
+                                    "   Select @IDForm=i.ID,@IsActive=i.IsActive From deleted as i " & vbCrLf &
+                                    "   Delete [dbo].[MRoleUserD] " & vbCrLf &
+                                    "   Where [IDMenu] = @IDForm " & vbCrLf &
+                                    "END "
+                            com.CommandText = sql
+                            com.ExecuteNonQuery()
+
+                            sql = "Create VIEW vKasBankMasuk
+                                    As 
+                                    Select 'D' Jenis,A.Tgl,A.Kode,MKB.Nama,MRH.Nama Rekanan,A.Keterangan,
+                                    B.IDAkun,MA.Nama Akun,MRD.Nama Sub,B.Nominal,B.Catatan ,A.UserBuat,A.UserUbah,A.TanggalBuat,A.TanggalUbah
+                                    From KasBankMasuk A
+                                    Inner Join KasBankMasukD B On A.ID=B.IDKasBankMasuk
+                                    Left Join MAkun MKB on MKB.ID=A.IDKasBank
+                                    Left Join MRekanan MRH on MRH.ID=A.IDRekanan
+                                    Left Join MAkun MA on MA.ID=B.IDAkun
+                                    Left Join MRekanan MRD on MRD.ID=B.IDRekanan"
+                            com.CommandText = sql
+                            com.ExecuteNonQuery()
+
+                            sql = " Create View vKasBankKeluar
+                                    as 
+                                    Select 'K' Jenis,A.Tgl,A.Kode,MKB.Nama,MRH.Nama Rekanan,A.Keterangan,
+                                    B.IDAkun,MA.Nama Akun,MRD.Nama Sub,B.Nominal,B.Catatan ,A.UserBuat,A.UserUbah,A.TanggalBuat,A.TanggalUbah
+                                    From KasBankKeluar A
+                                    Inner Join KasBankKeluarD B On A.ID=B.IDKasBankKeluar
+                                    Left Join MAkun MKB on MKB.ID=A.IDKasBank
+                                    Left Join MRekanan MRH on MRH.ID=A.IDRekanan
+                                    Left Join MAkun MA on MA.ID=B.IDAkun
+                                    Left Join MRekanan MRD on MRD.ID=B.IDRekanan"
+                            com.CommandText = sql
+                            com.ExecuteNonQuery()
+
+                            sql = "Create Procedure spLapKasHarian(@T1 as Date='2020-01-02',@T2 as Date='2020-08-31')
+                                    As Begin
+                                    DECLARE @Temp AS TABLE (
+                                    [I] [int] IDENTITY(1,1) NOT NULL,
+                                    [Tgl] [date] NOT NULL,
+                                    [Kode] [nvarchar](50) NOT NULL,
+                                    [Akun] [nvarchar](50) NULL,
+                                    [Keterangan] [nvarchar](500) NULL,
+                                    [SaldoAwal] [numeric](18, 2) NULL,
+                                    [Debet] [numeric](18, 2) NULL,
+                                    [Kredit] [numeric](18, 2) NULL,
+                                    [SaldoAkhir] [numeric](18, 2) NULL,
+                                    [UserBuat] [nvarchar](50) NULL,
+                                    [UserUbah] [nvarchar](50) NULL,
+                                    [TanggalBuat] [datetime] NULL,
+                                    [TanggalUbah] [datetime] NULL)
+
+                                    Insert Into @Temp
+                                    Select Tgl,Kode,Akun,Catatan,0 SaldoAwal,
+                                    Case When Jenis='D' Then Nominal Else 0 End Debet, 
+                                    Case When Jenis='K' Then Nominal Else 0 End Kredit ,0 SaldoAkhir,UserBuat,UserUbah,TanggalBuat,TanggalUbah
+                                    From (
+                                    Select * from vKasBankMasuk
+                                    Union All
+                                    Select * from vKasBankKeluar
+                                    ) S
+                                    Where S.Tgl Between @T1 And Dateadd(day,1,@T2) 
+                                    --And Case when @IDBarang=0 then @IDBarang else S.IDBarang end= @IDBarang
+                                    Order By S.Tgl,S.Jenis
+ 
+                                    Declare @SaldoAwal as Money =0.0
+                                    Select @SaldoAwal=Sum(IsNull(S.Nominal,0)) 
+                                    From
+                                    ( 
+                                    Select Sum(Isnull(Nominal,0)) Nominal From vKasBankMasuk Where  Tgl <@T1 --And Case when @IDBarang=0 then @IDBarang else IDBarang end= @IDBarang
+                                    Union All 
+                                    Select Sum(-1*Isnull(Nominal,0)) Nominal From vKasBankKeluar Where Tgl <@T1 --And Case when @IDBarang=0 then @IDBarang else IDBarang end= @IDBarang 
+                                    ) As S
+
+
+                                    DECLARE @i AS INT, @iMax AS INT,@Nominal as [numeric](18, 2)=0
+                                    --SELECT @i=1, @iMax=MAX(NoID) FROM TempStok T
+                                    SELECT @i=0, @iMax=Max(I) FROM @Temp T
+                                    WHILE (@i<=@iMax)
+                                    BEGIN
+                                    Select @Nominal=Debet-Kredit From @Temp Where I=@i
+                                    update @Temp Set SaldoAwal= @SaldoAwal,SaldoAkhir=@SaldoAwal+@Nominal Where I=@i
+                                    Set @SaldoAwal=@SaldoAwal+@Nominal
+                                    Set @i+=1
+                                    END
+	
+                                    Select * from @Temp --Order By Tgl,Debet
+	
+                                    END"
+                            com.CommandText = sql
+                            com.ExecuteNonQuery()
+
+                            sql = " Create Procedure spLapKasPerKategori (@T1 as Date='2020-01-02',@T2 as Date='2020-08-31',@IDAkun as varchar(20)='')
+                                    As Begin
+                                    Select Year(S.Tgl) Tahun,Month(S.Tgl) Bulan, S.Akun,Sum(IsNull(Nominal,0)) Total from vKasBankKeluar  S
+                                    Where S.Tgl Between @T1 And Dateadd(day,1,@T2) 
+                                    And Case when @IDAkun='' then @IDAkun else S.IDAkun end= @IDAkun
+                                    Group By Year(S.Tgl),Month(S.Tgl), S.Akun
+                                    Order By Year(S.Tgl),Month(S.Tgl),Sum(IsNull(Nominal,0)) desc
+                                    END"
+                            com.CommandText = sql
+                            com.ExecuteNonQuery()
+
+                            sql = "BEGIN TRANSACTION
+                                    SET QUOTED_IDENTIFIER ON
+                                    SET ARITHABORT ON
+                                    SET NUMERIC_ROUNDABORT OFF
+                                    SET CONCAT_NULL_YIELDS_NULL ON
+                                    SET ANSI_NULLS ON
+                                    SET ANSI_PADDING ON
+                                    SET ANSI_WARNINGS ON
+                                    COMMIT
+                                    BEGIN TRANSACTION;
+                                    ALTER TABLE dbo.KasBankMasukD
+                                    DROP CONSTRAINT FK_KasBankMasukD_KasBankMasuk;
+                                    ALTER TABLE dbo.KasBankMasuk SET (LOCK_ESCALATION = TABLE);
+                                    COMMIT
+                                    BEGIN TRANSACTION;
+                                    ALTER TABLE dbo.KasBankMasukD
+                                    DROP CONSTRAINT DF_KasBankMasukD_IDReferensi;
+                                    ALTER TABLE dbo.KasBankMasukD
+                                    DROP CONSTRAINT DF_KasBankMasukD_IDTransaksi;
+                                    ALTER TABLE dbo.KasBankMasukD
+                                    DROP CONSTRAINT DF_KasBankMasukD_Kurs;
+                                    CREATE TABLE dbo.Tmp_KasBankMasukD
+                                    (
+                                    ID bigint NOT NULL,
+                                    IDKasBankMasuk int NOT NULL,
+                                    IDAkun nvarchar(15) NOT NULL,
+                                    IDRekanan int NOT NULL,
+                                    IDReff int NOT NULL,
+                                    Nominal money NOT NULL,
+                                    Kurs money NOT NULL,
+                                    Catatan nvarchar(150) NULL
+                                    )  ON [PRIMARY];
+                                    ALTER TABLE dbo.Tmp_KasBankMasukD SET (LOCK_ESCALATION = TABLE);
+                                    DECLARE @v sql_variant 
+                                    SET @v = N'ID Supplier Karyawan Customer'
+                                    EXECUTE sp_addextendedproperty N'MS_Description', @v, N'SCHEMA', N'dbo', N'TABLE', N'Tmp_KasBankMasukD', N'COLUMN', N'IDRekanan';
+                                    ALTER TABLE dbo.Tmp_KasBankMasukD ADD CONSTRAINT
+                                    DF_KasBankMasukD_IDReferensi DEFAULT ((0)) FOR IDRekanan;
+                                    ALTER TABLE dbo.Tmp_KasBankMasukD ADD CONSTRAINT
+                                    DF_KasBankMasukD_IDTransaksi DEFAULT ((0)) FOR IDReff;
+                                    ALTER TABLE dbo.Tmp_KasBankMasukD ADD CONSTRAINT
+                                    DF_KasBankMasukD_Kurs DEFAULT ((1)) FOR Kurs;
+                                    IF EXISTS(SELECT * FROM dbo.KasBankMasukD)
+                                    EXEC('INSERT INTO dbo.Tmp_KasBankMasukD (ID, IDKasBankMasuk, IDAkun, IDRekanan, IDReff, Nominal, Kurs, Catatan)
+                                            SELECT ID, IDKasBankMasuk, IDAkun, IDRekanan, IDReff, Nominal, Kurs, Catatan FROM dbo.KasBankMasukD WITH (HOLDLOCK TABLOCKX)');
+                                    DROP TABLE dbo.KasBankMasukD;
+                                    EXECUTE sp_rename N'dbo.Tmp_KasBankMasukD', N'KasBankMasukD', 'OBJECT' ;
+                                    ALTER TABLE dbo.KasBankMasukD ADD CONSTRAINT
+                                    PK_KasBankMasukD PRIMARY KEY CLUSTERED 
+                                    (
+                                    ID
+                                    ) WITH( STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY];
+                                    ALTER TABLE dbo.KasBankMasukD ADD CONSTRAINT
+                                    FK_KasBankMasukD_KasBankMasuk FOREIGN KEY
+                                    (
+                                    IDKasBankMasuk
+                                    ) REFERENCES dbo.KasBankMasuk
+                                    (
+                                    ID
+                                    ) ON UPDATE  NO ACTION 
+                                    ON DELETE  CASCADE ;
+                                    COMMIT"
+                            com.CommandText = sql
+                            com.ExecuteNonQuery()
+
+                            sql = "BEGIN TRANSACTION
+                                    SET QUOTED_IDENTIFIER ON
+                                    SET ARITHABORT ON
+                                    SET NUMERIC_ROUNDABORT OFF
+                                    SET CONCAT_NULL_YIELDS_NULL ON
+                                    SET ANSI_NULLS ON
+                                    SET ANSI_PADDING ON
+                                    SET ANSI_WARNINGS ON
+                                    COMMIT
+                                    BEGIN TRANSACTION;
+                                    ALTER TABLE dbo.KasBankKeluarD
+                                    DROP CONSTRAINT FK_KasBankKeluarD_KasBankKeluar;
+                                    ALTER TABLE dbo.KasBankKeluar SET (LOCK_ESCALATION = TABLE);
+                                    COMMIT
+                                    BEGIN TRANSACTION;
+                                    ALTER TABLE dbo.KasBankKeluarD
+                                    DROP CONSTRAINT DF_KasBankKeluarD_IDReferensi;
+                                    ALTER TABLE dbo.KasBankKeluarD
+                                    DROP CONSTRAINT DF_KasBankKeluarD_IDTransaksi;
+                                    ALTER TABLE dbo.KasBankKeluarD
+                                    DROP CONSTRAINT DF_KasBankKeluarD_Kurs;
+                                    CREATE TABLE dbo.Tmp_KasBankKeluarD
+                                    (
+                                    ID bigint NOT NULL,
+                                    IDKasBankKeluar int NOT NULL,
+                                    IDAkun nvarchar(15) NOT NULL,
+                                    IDRekanan int NOT NULL,
+                                    IDReff int NOT NULL,
+                                    Nominal money NOT NULL,
+                                    Kurs money NOT NULL,
+                                    Catatan nvarchar(150) NULL
+                                    )  ON [PRIMARY];
+                                    ALTER TABLE dbo.Tmp_KasBankKeluarD SET (LOCK_ESCALATION = TABLE);
+                                    DECLARE @v sql_variant 
+                                    SET @v = N'ID Supplier Karyawan Customer'
+                                    EXECUTE sp_addextendedproperty N'MS_Description', @v, N'SCHEMA', N'dbo', N'TABLE', N'Tmp_KasBankKeluarD', N'COLUMN', N'IDRekanan';
+                                    ALTER TABLE dbo.Tmp_KasBankKeluarD ADD CONSTRAINT
+                                    DF_KasBankKeluarD_IDReferensi DEFAULT ((0)) FOR IDRekanan;
+                                    ALTER TABLE dbo.Tmp_KasBankKeluarD ADD CONSTRAINT
+                                    DF_KasBankKeluarD_IDTransaksi DEFAULT ((0)) FOR IDReff;
+                                    ALTER TABLE dbo.Tmp_KasBankKeluarD ADD CONSTRAINT
+                                    DF_KasBankKeluarD_Kurs DEFAULT ((1)) FOR Kurs;
+                                    IF EXISTS(SELECT * FROM dbo.KasBankKeluarD)
+                                    EXEC('INSERT INTO dbo.Tmp_KasBankKeluarD (ID, IDKasBankKeluar, IDAkun, IDRekanan, IDReff, Nominal, Kurs, Catatan)
+                                    SELECT ID, IDKasBankKeluar, IDAkun, IDRekanan, IDReff, Nominal, Kurs, Catatan FROM dbo.KasBankKeluarD WITH (HOLDLOCK TABLOCKX)');
+                                    DROP TABLE dbo.KasBankKeluarD;
+                                    EXECUTE sp_rename N'dbo.Tmp_KasBankKeluarD', N'KasBankKeluarD', 'OBJECT' ;
+                                    ALTER TABLE dbo.KasBankKeluarD ADD CONSTRAINT
+                                    PK_KasBankKeluarD PRIMARY KEY CLUSTERED 
+                                    (
+                                    ID
+                                    ) WITH( STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY];
+                                    ALTER TABLE dbo.KasBankKeluarD ADD CONSTRAINT
+                                    FK_KasBankKeluarD_KasBankKeluar FOREIGN KEY
+                                    (
+                                    IDKasBankKeluar
+                                    ) REFERENCES dbo.KasBankKeluar
+                                    (
+                                    ID
+                                    ) ON UPDATE  NO ACTION 
+                                    ON DELETE  CASCADE ;
+                                    COMMIT"
+                            com.CommandText = sql
+                            com.ExecuteNonQuery()
+
+                            'Update DB Version
+                            sql = "Update [DBVersion] SET [Versi] =4, [TanggalUpdate] =Getdate()"
+                            com.CommandText = sql
+                            com.ExecuteNonQuery()
 
                             If Not com.Transaction Is Nothing Then
                                 com.Transaction.Commit()
@@ -117,6 +399,7 @@ Public Module modDBVersion
                 End Using
             End Using
         End Using
+        AddMenu("MasterSatuan", "Master Satuan", True, "MSatuan")
         Return ps
     End Function
 
@@ -567,6 +850,7 @@ Public Module modDBVersion
             End Using
         End Using
         Return ps
+        UpdateV4()
     End Function
 
 

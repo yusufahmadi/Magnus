@@ -71,10 +71,10 @@ Partial Public Class FormCalcTaffeta
         Me.LayoutControlItem17 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem14 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem15 = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.LayoutControlItem13 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItemNetProfit = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem26 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem27 = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.LayoutControlGroup7 = New DevExpress.XtraLayout.LayoutControlGroup()
+        Me.LayoutControlGroupProfitUp = New DevExpress.XtraLayout.LayoutControlGroup()
         Me.LayoutControlItem31 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem30 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem32 = New DevExpress.XtraLayout.LayoutControlItem()
@@ -120,10 +120,10 @@ Partial Public Class FormCalcTaffeta
         CType(Me.LayoutControlItem17, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem14, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem15, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlItem13, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItemNetProfit, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem26, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem27, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlGroup7, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlGroupProfitUp, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem31, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem30, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem32, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -494,7 +494,7 @@ Partial Public Class FormCalcTaffeta
         '
         Me.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.layoutControlGroup1.GroupBordersVisible = False
-        Me.layoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlGroup3, Me.LayoutControlGroup4, Me.LayoutControlGroup5, Me.LayoutControlItem26, Me.LayoutControlItem27, Me.LayoutControlGroup7})
+        Me.layoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlGroup3, Me.LayoutControlGroup4, Me.LayoutControlGroup5, Me.LayoutControlItem26, Me.LayoutControlItem27, Me.LayoutControlGroupProfitUp})
         Me.layoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.layoutControlGroup1.Name = "Root"
         Me.layoutControlGroup1.Size = New System.Drawing.Size(458, 636)
@@ -612,7 +612,7 @@ Partial Public Class FormCalcTaffeta
         '
         'LayoutControlGroup5
         '
-        Me.LayoutControlGroup5.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem17, Me.LayoutControlItem14, Me.LayoutControlItem15, Me.LayoutControlItem13})
+        Me.LayoutControlGroup5.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem17, Me.LayoutControlItem14, Me.LayoutControlItem15, Me.LayoutControlItemNetProfit})
         Me.LayoutControlGroup5.Location = New System.Drawing.Point(0, 449)
         Me.LayoutControlGroup5.Name = "LayoutControlGroup5"
         Me.LayoutControlGroup5.Size = New System.Drawing.Size(438, 167)
@@ -651,16 +651,16 @@ Partial Public Class FormCalcTaffeta
         Me.LayoutControlItem15.TextLocation = DevExpress.Utils.Locations.Top
         Me.LayoutControlItem15.TextSize = New System.Drawing.Size(105, 13)
         '
-        'LayoutControlItem13
+        'LayoutControlItemNetProfit
         '
-        Me.LayoutControlItem13.Control = Me.editTextNetProfit
-        Me.LayoutControlItem13.CustomizationFormText = "Lebar (mm)"
-        Me.LayoutControlItem13.Location = New System.Drawing.Point(0, 80)
-        Me.LayoutControlItem13.Name = "LayoutControlItem13"
-        Me.LayoutControlItem13.Size = New System.Drawing.Size(414, 44)
-        Me.LayoutControlItem13.Text = "Net Profit"
-        Me.LayoutControlItem13.TextLocation = DevExpress.Utils.Locations.Top
-        Me.LayoutControlItem13.TextSize = New System.Drawing.Size(105, 13)
+        Me.LayoutControlItemNetProfit.Control = Me.editTextNetProfit
+        Me.LayoutControlItemNetProfit.CustomizationFormText = "Lebar (mm)"
+        Me.LayoutControlItemNetProfit.Location = New System.Drawing.Point(0, 80)
+        Me.LayoutControlItemNetProfit.Name = "LayoutControlItemNetProfit"
+        Me.LayoutControlItemNetProfit.Size = New System.Drawing.Size(414, 44)
+        Me.LayoutControlItemNetProfit.Text = "Net Profit"
+        Me.LayoutControlItemNetProfit.TextLocation = DevExpress.Utils.Locations.Top
+        Me.LayoutControlItemNetProfit.TextSize = New System.Drawing.Size(105, 13)
         '
         'LayoutControlItem26
         '
@@ -683,13 +683,13 @@ Partial Public Class FormCalcTaffeta
         Me.LayoutControlItem27.TextLocation = DevExpress.Utils.Locations.Top
         Me.LayoutControlItem27.TextSize = New System.Drawing.Size(105, 13)
         '
-        'LayoutControlGroup7
+        'LayoutControlGroupProfitUp
         '
-        Me.LayoutControlGroup7.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem31, Me.LayoutControlItem30, Me.LayoutControlItem32, Me.LayoutControlItem5})
-        Me.LayoutControlGroup7.Location = New System.Drawing.Point(0, 203)
-        Me.LayoutControlGroup7.Name = "LayoutControlGroup7"
-        Me.LayoutControlGroup7.Size = New System.Drawing.Size(438, 123)
-        Me.LayoutControlGroup7.Text = "PROFIT UP"
+        Me.LayoutControlGroupProfitUp.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem31, Me.LayoutControlItem30, Me.LayoutControlItem32, Me.LayoutControlItem5})
+        Me.LayoutControlGroupProfitUp.Location = New System.Drawing.Point(0, 203)
+        Me.LayoutControlGroupProfitUp.Name = "LayoutControlGroupProfitUp"
+        Me.LayoutControlGroupProfitUp.Size = New System.Drawing.Size(438, 123)
+        Me.LayoutControlGroupProfitUp.Text = "PROFIT UP"
         '
         'LayoutControlItem31
         '
@@ -787,10 +787,10 @@ Partial Public Class FormCalcTaffeta
         CType(Me.LayoutControlItem17, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem14, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem15, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlItem13, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItemNetProfit, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem26, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem27, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlGroup7, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlGroupProfitUp, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem31, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem30, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem32, System.ComponentModel.ISupportInitialize).EndInit()
@@ -833,7 +833,7 @@ Partial Public Class FormCalcTaffeta
     Friend WithEvents editTextNetProfit As DevExpress.XtraEditors.TextEdit
     Friend WithEvents LayoutControlGroup4 As DevExpress.XtraLayout.LayoutControlGroup
     Friend WithEvents LayoutControlItem12 As DevExpress.XtraLayout.LayoutControlItem
-    Friend WithEvents LayoutControlItem13 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents LayoutControlItemNetProfit As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents editTextKomisiSalesProsen As DevExpress.XtraEditors.TextEdit
     Friend WithEvents editTextKomisiSalesNominal As DevExpress.XtraEditors.TextEdit
     Friend WithEvents editTextTransport As DevExpress.XtraEditors.TextEdit
@@ -850,7 +850,7 @@ Partial Public Class FormCalcTaffeta
     Friend WithEvents textView75Persen As DevExpress.XtraEditors.TextEdit
     Friend WithEvents textView100Persen As DevExpress.XtraEditors.TextEdit
     Friend WithEvents BehaviorManager1 As DevExpress.Utils.Behaviors.BehaviorManager
-    Friend WithEvents LayoutControlGroup7 As DevExpress.XtraLayout.LayoutControlGroup
+    Friend WithEvents LayoutControlGroupProfitUp As DevExpress.XtraLayout.LayoutControlGroup
     Friend WithEvents LayoutControlItem31 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents LayoutControlItem30 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents LayoutControlItem32 As DevExpress.XtraLayout.LayoutControlItem

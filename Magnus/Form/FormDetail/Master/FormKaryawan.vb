@@ -46,19 +46,21 @@ Partial Public Class FormKaryawan
     Private Sub bbiSave_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles bbiSave.ItemClick
         If SaveData() Then
             _IsNew = False
+            d = DialogResult.OK
             txtKode.Properties.ReadOnly = True
         End If
     End Sub
 
     Private Sub bbiSaveAndClose_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles bbiSaveAndClose.ItemClick
         If SaveData() Then
-            DialogResult = DialogResult.OK
+            d = DialogResult.OK
             Me.Close()
         End If
     End Sub
 
     Private Sub bbiSaveAndNew_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles bbiSaveAndNew.ItemClick
         If SaveData() Then
+            d = DialogResult.OK
             Me._IsNew = True
             Me._ID = 0
             ClearData()
@@ -168,17 +170,18 @@ Partial Public Class FormKaryawan
     End Sub
 
     Private Sub bbiDelete_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles bbiDelete.ItemClick
-        Dim f As Pesan = Query.DeleteDataMaster("MUser", "Username='" & txtKode.Text.Trim & "'")
+        Dim f As Pesan = Query.DeleteDataMaster("MKaryawan", "ID=" & Me._ID & "")
         If f.Hasil = True Then
             DevExpress.XtraEditors.XtraMessageBox.Show(Me, f.Message, NamaAplikasi)
-            DialogResult = DialogResult.OK
+            d = DialogResult.OK
             Me.Close()
         Else
             DevExpress.XtraEditors.XtraMessageBox.Show(Me, f.Message, NamaAplikasi)
         End If
     End Sub
-
+    Dim d As DialogResult
     Private Sub bbiClose_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles bbiClose.ItemClick
+        DialogResult = d
         Me.Close()
     End Sub
 End Class

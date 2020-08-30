@@ -82,6 +82,8 @@ Partial Class FormMain
         Me.BarButtonItem7 = New DevExpress.XtraBars.BarButtonItem()
         Me.SharedImageCollection1 = New DevExpress.Utils.SharedImageCollection(Me.components)
         Me.BarButtonItem4 = New DevExpress.XtraBars.BarButtonItem()
+        Me.BarButtonMasterSatuan = New DevExpress.XtraBars.BarButtonItem()
+        Me.BarStaticItem3 = New DevExpress.XtraBars.BarStaticItem()
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DocumentManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TabbedView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -93,9 +95,9 @@ Partial Class FormMain
         'RibbonControl
         '
         Me.RibbonControl.ExpandCollapseItem.Id = 0
-        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BarButtonSettingDatabase, Me.BarButtonMasterBarang, Me.BarButtonMasterKategori, Me.BarButtonMasterKategoriBiaya, Me.BarButtonKaryawan, Me.BarButtonManagementUser, Me.BarButtonStokKeluar, Me.BarButtonStokMasuk, Me.BarButtonKasMasuk, Me.BarButtonKasKeluar, Me.BarButtonLapKartuStok, Me.BarButtonLapSaldoStok, Me.BarButtonLapTopItem, Me.BarButtonLapKasHarian, Me.BarButtonLapPerbandinganBiayaBulanan, Me.BarButtonLapKasPerKategori, Me.BarButtonRoleUser, Me.BarStaticItem1, Me.BarStaticItem2, Me.BarStaticIP, Me.BarStaticItemUsername, Me.BarButtonItem1, Me.BarButtonCalcLabel, Me.BarButtonCalcRibbon, Me.BarButtonCalcTaffeta, Me.BarButtonCalcPaket, Me.BarButtonMasterTypeTaffeta, Me.BarButtonHelp, Me.BarButtonAbout, Me.BarButtonItem2, Me.BarCheckItem1, Me.SkinRibbonGalleryBarItem3})
+        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BarButtonSettingDatabase, Me.BarButtonMasterBarang, Me.BarButtonMasterKategori, Me.BarButtonMasterKategoriBiaya, Me.BarButtonKaryawan, Me.BarButtonManagementUser, Me.BarButtonStokKeluar, Me.BarButtonStokMasuk, Me.BarButtonKasMasuk, Me.BarButtonKasKeluar, Me.BarButtonLapKartuStok, Me.BarButtonLapSaldoStok, Me.BarButtonLapTopItem, Me.BarButtonLapKasHarian, Me.BarButtonLapPerbandinganBiayaBulanan, Me.BarButtonLapKasPerKategori, Me.BarButtonRoleUser, Me.BarStaticItem1, Me.BarStaticItem2, Me.BarStaticIP, Me.BarStaticItemUsername, Me.BarButtonItem1, Me.BarButtonCalcLabel, Me.BarButtonCalcRibbon, Me.BarButtonCalcTaffeta, Me.BarButtonCalcPaket, Me.BarButtonMasterTypeTaffeta, Me.BarButtonHelp, Me.BarButtonAbout, Me.BarButtonItem2, Me.BarCheckItem1, Me.SkinRibbonGalleryBarItem3, Me.BarButtonMasterSatuan, Me.BarStaticItem3})
         Me.RibbonControl.Location = New System.Drawing.Point(0, 0)
-        Me.RibbonControl.MaxItemId = 38
+        Me.RibbonControl.MaxItemId = 40
         Me.RibbonControl.Name = "RibbonControl"
         Me.RibbonControl.PageHeaderItemLinks.Add(Me.BarCheckItem1)
         Me.RibbonControl.PageHeaderItemLinks.Add(Me.BarStaticItemUsername)
@@ -126,7 +128,6 @@ Partial Class FormMain
         Me.BarButtonMasterKategori.Caption = "Kategori"
         Me.BarButtonMasterKategori.Id = 6
         Me.BarButtonMasterKategori.ImageOptions.Image = CType(resources.GetObject("BarButtonMasterKategori.ImageOptions.Image"), System.Drawing.Image)
-        Me.BarButtonMasterKategori.ImageOptions.LargeImage = CType(resources.GetObject("BarButtonMasterKategori.ImageOptions.LargeImage"), System.Drawing.Image)
         Me.BarButtonMasterKategori.Name = "BarButtonMasterKategori"
         '
         'BarButtonMasterKategoriBiaya
@@ -355,6 +356,7 @@ Partial Class FormMain
         '
         Me.RibbonPageGroup2.ItemLinks.Add(Me.BarButtonMasterBarang)
         Me.RibbonPageGroup2.ItemLinks.Add(Me.BarButtonMasterKategori)
+        Me.RibbonPageGroup2.ItemLinks.Add(Me.BarButtonMasterSatuan)
         Me.RibbonPageGroup2.Name = "RibbonPageGroup2"
         Me.RibbonPageGroup2.Text = "Stok"
         '
@@ -478,6 +480,7 @@ Partial Class FormMain
         Me.RibbonStatusBar.ItemLinks.Add(Me.BarStaticItem1)
         Me.RibbonStatusBar.ItemLinks.Add(Me.BarStaticItem2)
         Me.RibbonStatusBar.ItemLinks.Add(Me.BarStaticIP)
+        Me.RibbonStatusBar.ItemLinks.Add(Me.BarStaticItem3)
         Me.RibbonStatusBar.Location = New System.Drawing.Point(0, 499)
         Me.RibbonStatusBar.Name = "RibbonStatusBar"
         Me.RibbonStatusBar.Ribbon = Me.RibbonControl
@@ -680,6 +683,19 @@ Partial Class FormMain
         Me.BarButtonItem4.Id = 18
         Me.BarButtonItem4.Name = "BarButtonItem4"
         '
+        'BarButtonMasterSatuan
+        '
+        Me.BarButtonMasterSatuan.Caption = "Satuan"
+        Me.BarButtonMasterSatuan.Id = 38
+        Me.BarButtonMasterSatuan.ImageOptions.Image = CType(resources.GetObject("BarButtonItem3.ImageOptions.Image"), System.Drawing.Image)
+        Me.BarButtonMasterSatuan.Name = "BarButtonMasterSatuan"
+        '
+        'BarStaticItem3
+        '
+        Me.BarStaticItem3.Caption = "DB Version : -"
+        Me.BarStaticItem3.Id = 39
+        Me.BarStaticItem3.Name = "BarStaticItem3"
+        '
         'FormMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -766,4 +782,6 @@ Partial Class FormMain
     Friend WithEvents BarButtonItem2 As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BarCheckItem1 As DevExpress.XtraBars.BarCheckItem
     Friend WithEvents SkinRibbonGalleryBarItem3 As DevExpress.XtraBars.SkinRibbonGalleryBarItem
+    Friend WithEvents BarButtonMasterSatuan As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BarStaticItem3 As DevExpress.XtraBars.BarStaticItem
 End Class

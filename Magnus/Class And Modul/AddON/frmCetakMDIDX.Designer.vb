@@ -104,9 +104,9 @@ Partial Class frmCetakMDIDX
         '
         Me.DocumentViewer1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DocumentViewer1.IsMetric = False
-        Me.DocumentViewer1.Location = New System.Drawing.Point(0, 53)
+        Me.DocumentViewer1.Location = New System.Drawing.Point(0, 52)
         Me.DocumentViewer1.Name = "DocumentViewer1"
-        Me.DocumentViewer1.Size = New System.Drawing.Size(1046, 408)
+        Me.DocumentViewer1.Size = New System.Drawing.Size(1046, 413)
         Me.DocumentViewer1.TabIndex = 0
         '
         'DocumentViewerBarManager1
@@ -579,31 +579,31 @@ Partial Class frmCetakMDIDX
         Me.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top
         Me.barDockControlTop.Location = New System.Drawing.Point(0, 0)
         Me.barDockControlTop.Manager = Me.DocumentViewerBarManager1
-        Me.barDockControlTop.Size = New System.Drawing.Size(1046, 53)
+        Me.barDockControlTop.Size = New System.Drawing.Size(1046, 52)
         '
         'barDockControlBottom
         '
         Me.barDockControlBottom.CausesValidation = False
         Me.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 461)
+        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 465)
         Me.barDockControlBottom.Manager = Me.DocumentViewerBarManager1
-        Me.barDockControlBottom.Size = New System.Drawing.Size(1046, 26)
+        Me.barDockControlBottom.Size = New System.Drawing.Size(1046, 22)
         '
         'barDockControlLeft
         '
         Me.barDockControlLeft.CausesValidation = False
         Me.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left
-        Me.barDockControlLeft.Location = New System.Drawing.Point(0, 53)
+        Me.barDockControlLeft.Location = New System.Drawing.Point(0, 52)
         Me.barDockControlLeft.Manager = Me.DocumentViewerBarManager1
-        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 408)
+        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 413)
         '
         'barDockControlRight
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.barDockControlRight.Location = New System.Drawing.Point(1046, 53)
+        Me.barDockControlRight.Location = New System.Drawing.Point(1046, 52)
         Me.barDockControlRight.Manager = Me.DocumentViewerBarManager1
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 408)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 413)
         '
         'PrintPreviewBarCheckItem1
         '

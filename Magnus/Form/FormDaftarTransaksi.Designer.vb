@@ -234,6 +234,8 @@ Partial Class FormDaftarTransaksi
         Me.Controls.Add(Me.barDockControlRight)
         Me.Controls.Add(Me.barDockControlBottom)
         Me.Controls.Add(Me.barDockControlTop)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "FormDaftarTransaksi"
         Me.Text = "FormDaftarTransaksi"
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).EndInit()

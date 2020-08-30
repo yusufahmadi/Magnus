@@ -23,8 +23,9 @@ Partial Class FormStokKeluar
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormStokKeluar))
         Me.GC1 = New DevExpress.XtraGrid.GridControl()
-        Me.gridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.GV1 = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.GColID = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumnNoUrut = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GColIDBarang = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -59,8 +60,10 @@ Partial Class FormStokKeluar
         Me.LayoutControlItem4 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem3 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.DxErrorProvider1 = New DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(Me.components)
+        Me.PopupMenu1 = New DevExpress.XtraBars.PopupMenu(Me.components)
+        Me.BarButtonHapusItem = New DevExpress.XtraBars.BarButtonItem()
         CType(Me.GC1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.gridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GV1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemSearchLookUpEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemSearchLookUpEdit1View, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtQty, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -78,27 +81,28 @@ Partial Class FormStokKeluar
         CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DxErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PopupMenu1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GC1
         '
         Me.GC1.Location = New System.Drawing.Point(12, 60)
-        Me.GC1.MainView = Me.gridView1
+        Me.GC1.MainView = Me.GV1
         Me.GC1.Name = "GC1"
         Me.GC1.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.txtQty, Me.RepositoryItemSearchLookUpEdit1})
-        Me.GC1.Size = New System.Drawing.Size(776, 299)
+        Me.GC1.Size = New System.Drawing.Size(776, 295)
         Me.GC1.TabIndex = 1
-        Me.GC1.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gridView1})
+        Me.GC1.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GV1})
         '
-        'gridView1
+        'GV1
         '
-        Me.gridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GColID, Me.GridColumnNoUrut, Me.GColIDBarang, Me.GColNamaBarang, Me.GColQty, Me.GColUnit, Me.GColHarga, Me.GColJumlah, Me.GridColumnCatatan})
-        Me.gridView1.GridControl = Me.GC1
-        Me.gridView1.Name = "gridView1"
-        Me.gridView1.OptionsView.ColumnAutoWidth = False
-        Me.gridView1.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom
-        Me.gridView1.OptionsView.ShowFooter = True
-        Me.gridView1.OptionsView.ShowGroupPanel = False
+        Me.GV1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GColID, Me.GridColumnNoUrut, Me.GColIDBarang, Me.GColNamaBarang, Me.GColQty, Me.GColUnit, Me.GColHarga, Me.GColJumlah, Me.GridColumnCatatan})
+        Me.GV1.GridControl = Me.GC1
+        Me.GV1.Name = "GV1"
+        Me.GV1.OptionsView.ColumnAutoWidth = False
+        Me.GV1.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom
+        Me.GV1.OptionsView.ShowFooter = True
+        Me.GV1.OptionsView.ShowGroupPanel = False
         '
         'GColID
         '
@@ -266,14 +270,14 @@ Partial Class FormStokKeluar
         'mainRibbonControl
         '
         Me.mainRibbonControl.ExpandCollapseItem.Id = 0
-        Me.mainRibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.mainRibbonControl.ExpandCollapseItem, Me.bbiSave, Me.bbiSaveAndClose, Me.bbiSaveAndNew, Me.bbiReset, Me.bbiDelete, Me.bbiClose})
+        Me.mainRibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.mainRibbonControl.ExpandCollapseItem, Me.bbiSave, Me.bbiSaveAndClose, Me.bbiSaveAndNew, Me.bbiReset, Me.bbiDelete, Me.bbiClose, Me.BarButtonHapusItem})
         Me.mainRibbonControl.Location = New System.Drawing.Point(0, 0)
-        Me.mainRibbonControl.MaxItemId = 10
+        Me.mainRibbonControl.MaxItemId = 11
         Me.mainRibbonControl.Name = "mainRibbonControl"
         Me.mainRibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.mainRibbonPage})
         Me.mainRibbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.OfficeUniversal
         Me.mainRibbonControl.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.[False]
-        Me.mainRibbonControl.Size = New System.Drawing.Size(800, 79)
+        Me.mainRibbonControl.Size = New System.Drawing.Size(800, 83)
         Me.mainRibbonControl.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden
         '
         'bbiSave
@@ -361,10 +365,10 @@ Partial Class FormStokKeluar
         Me.LayoutControl1.Controls.Add(Me.txtKeterangan)
         Me.LayoutControl1.Controls.Add(Me.txtTgl)
         Me.LayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LayoutControl1.Location = New System.Drawing.Point(0, 79)
+        Me.LayoutControl1.Location = New System.Drawing.Point(0, 83)
         Me.LayoutControl1.Name = "LayoutControl1"
         Me.LayoutControl1.Root = Me.LayoutControlGroup1
-        Me.LayoutControl1.Size = New System.Drawing.Size(800, 371)
+        Me.LayoutControl1.Size = New System.Drawing.Size(800, 367)
         Me.LayoutControl1.TabIndex = 14
         Me.LayoutControl1.Text = "LayoutControl1"
         '
@@ -393,7 +397,7 @@ Partial Class FormStokKeluar
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem2, Me.EmptySpaceItem1, Me.LayoutControlItem4, Me.LayoutControlItem3})
         Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "LayoutControlGroup1"
-        Me.LayoutControlGroup1.Size = New System.Drawing.Size(800, 371)
+        Me.LayoutControlGroup1.Size = New System.Drawing.Size(800, 367)
         Me.LayoutControlGroup1.TextVisible = False
         '
         'LayoutControlItem1
@@ -427,7 +431,7 @@ Partial Class FormStokKeluar
         Me.LayoutControlItem4.Control = Me.GC1
         Me.LayoutControlItem4.Location = New System.Drawing.Point(0, 48)
         Me.LayoutControlItem4.Name = "LayoutControlItem4"
-        Me.LayoutControlItem4.Size = New System.Drawing.Size(780, 303)
+        Me.LayoutControlItem4.Size = New System.Drawing.Size(780, 299)
         Me.LayoutControlItem4.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem4.TextVisible = False
         '
@@ -445,6 +449,20 @@ Partial Class FormStokKeluar
         '
         Me.DxErrorProvider1.ContainerControl = Me
         '
+        'PopupMenu1
+        '
+        Me.PopupMenu1.ItemLinks.Add(Me.BarButtonHapusItem)
+        Me.PopupMenu1.Name = "PopupMenu1"
+        Me.PopupMenu1.Ribbon = Me.mainRibbonControl
+        '
+        'BarButtonHapusItem
+        '
+        Me.BarButtonHapusItem.Caption = "Hapus Item"
+        Me.BarButtonHapusItem.Id = 10
+        Me.BarButtonHapusItem.ImageOptions.Image = CType(resources.GetObject("BarButtonItem1.ImageOptions.Image"), System.Drawing.Image)
+        Me.BarButtonHapusItem.ImageOptions.LargeImage = CType(resources.GetObject("BarButtonItem1.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.BarButtonHapusItem.Name = "BarButtonHapusItem"
+        '
         'FormStokKeluar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -456,7 +474,7 @@ Partial Class FormStokKeluar
         Me.Ribbon = Me.mainRibbonControl
         Me.Text = "Stok Keluar"
         CType(Me.GC1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.gridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GV1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemSearchLookUpEdit1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemSearchLookUpEdit1View, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtQty, System.ComponentModel.ISupportInitialize).EndInit()
@@ -474,13 +492,14 @@ Partial Class FormStokKeluar
         CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DxErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PopupMenu1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
     Private WithEvents GC1 As DevExpress.XtraGrid.GridControl
-    Private WithEvents gridView1 As DevExpress.XtraGrid.Views.Grid.GridView
+    Private WithEvents GV1 As DevExpress.XtraGrid.Views.Grid.GridView
     Private WithEvents GColIDBarang As DevExpress.XtraGrid.Columns.GridColumn
     Private WithEvents GColUnit As DevExpress.XtraGrid.Columns.GridColumn
     Private WithEvents GColQty As DevExpress.XtraGrid.Columns.GridColumn
@@ -515,4 +534,6 @@ Partial Class FormStokKeluar
     Friend WithEvents LayoutControlItem4 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents LayoutControlItem3 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents DxErrorProvider1 As DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider
+    Friend WithEvents BarButtonHapusItem As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents PopupMenu1 As DevExpress.XtraBars.PopupMenu
 End Class

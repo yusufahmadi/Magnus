@@ -3,6 +3,7 @@ Imports DevExpress.Utils
 Imports DevExpress.XtraEditors
 Imports DevExpress.XtraEditors.Repository
 Imports DevExpress.XtraGrid.Columns
+Imports DevExpress.XtraGrid.Views.Grid
 Imports Magnus.Utils
 
 Public Class FormStokKeluar
@@ -67,13 +68,13 @@ Public Class FormStokKeluar
                 ds.Dispose()
                 GC1.Refresh()
 
-                gridView1.OptionsView.ColumnAutoWidth = False
-                gridView1.OptionsView.BestFitMaxRowCount = -1
-                gridView1.BestFitColumns()
+                GV1.OptionsView.ColumnAutoWidth = False
+                GV1.OptionsView.BestFitMaxRowCount = -1
+                GV1.BestFitColumns()
 
-                With gridView1
+                With GV1
                     For i As Integer = 0 To .Columns.Count - 1
-                        Select Case gridView1.Columns(i).ColumnType.Name.ToLower
+                        Select Case GV1.Columns(i).ColumnType.Name.ToLower
                             Case "int32", "int64", "int"
                                 .Columns(i).DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
                                 .Columns(i).DisplayFormat.FormatString = "n0"
@@ -142,27 +143,27 @@ Public Class FormStokKeluar
         End Using
     End Sub
 
-    Private Sub gridView1_CellValueChanged(ByVal sender As Object, ByVal e As DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs) Handles gridView1.CellValueChanged
+    Private Sub gridView1_CellValueChanged(ByVal sender As Object, ByVal e As DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs) Handles GV1.CellValueChanged
         If e.Column.FieldName = "IDBarang" Then
-            Dim value = gridView1.GetRowCellValue(e.RowHandle, e.Column)
+            Dim value = GV1.GetRowCellValue(e.RowHandle, e.Column)
             Dim dt = list.AsEnumerable.FirstOrDefault(Function(x) x.ID = Utils.ObjToInt(value))
 
             If dt IsNot Nothing Then
-                If Utils.ObjToInt(gridView1.GetFocusedRowCellValue(GColID)) < 1 Then
-                    gridView1.SetRowCellValue(e.RowHandle, "ID", -1)
+                If Utils.ObjToInt(GV1.GetFocusedRowCellValue(GColID)) < 1 Then
+                    GV1.SetRowCellValue(e.RowHandle, "ID", -1)
                 End If
-                gridView1.SetRowCellValue(e.RowHandle, "NamaBarang", dt.Nama)
-                gridView1.SetRowCellValue(e.RowHandle, "Unit", dt.SatuanTerkecil)
-                gridView1.SetRowCellValue(e.RowHandle, "Harga", 1)
-                gridView1.SetRowCellValue(e.RowHandle, "NoUrut", gridView1.RowCount)
+                GV1.SetRowCellValue(e.RowHandle, "NamaBarang", dt.Nama)
+                GV1.SetRowCellValue(e.RowHandle, "Unit", dt.SatuanTerkecil)
+                GV1.SetRowCellValue(e.RowHandle, "Harga", 1)
+                GV1.SetRowCellValue(e.RowHandle, "NoUrut", GV1.RowCount)
 
-                If Utils.NullToStr(gridView1.GetFocusedRowCellValue(GColQty)) = "" Then
+                If Utils.NullToStr(GV1.GetFocusedRowCellValue(GColQty)) = "" Then
                     qty = 0.0
                 Else
-                    qty = Utils.ObjToDbl(gridView1.GetFocusedRowCellValue(GColQty))
-                    price = Utils.ObjToDbl(gridView1.GetFocusedRowCellValue(GColHarga))
+                    qty = Utils.ObjToDbl(GV1.GetFocusedRowCellValue(GColQty))
+                    price = Utils.ObjToDbl(GV1.GetFocusedRowCellValue(GColHarga))
                     amount = qty * price
-                    gridView1.SetFocusedRowCellValue(GColJumlah, amount)
+                    GV1.SetFocusedRowCellValue(GColJumlah, amount)
                     'vat = amount / 10
                     'gridView1.SetFocusedRowCellValue(colVat, vat)
                 End If
@@ -170,10 +171,10 @@ Public Class FormStokKeluar
         End If
 
         If e.Column.Name = GColQty.Name Then
-            qty = Utils.ObjToDbl(gridView1.GetFocusedRowCellValue(GColQty))
-            price = Utils.ObjToDbl(gridView1.GetFocusedRowCellValue(GColHarga))
+            qty = Utils.ObjToDbl(GV1.GetFocusedRowCellValue(GColQty))
+            price = Utils.ObjToDbl(GV1.GetFocusedRowCellValue(GColHarga))
             amount = qty * price
-            gridView1.SetFocusedRowCellValue(GColJumlah, amount)
+            GV1.SetFocusedRowCellValue(GColJumlah, amount)
             'vat = amount / 10
             'gridView1.SetFocusedRowCellValue(colVat, vat)
         End If
@@ -251,7 +252,7 @@ Public Class FormStokKeluar
 
     Function IsValidOnDB() As Boolean
         IsValidOnDB = True
-        If CInt(Query.ExecuteScalar("Select Count(*) From " & tableMaster & " Where ID<>" & Me._ID & " And Kode ='" & txtKode.Text & "'")) > 0 Then
+        If CInt(Query.ExecuteScalar("Select Count(*) From " & TableMaster & " Where ID<>" & Me._ID & " And Kode ='" & txtKode.Text & "'")) > 0 Then
             If DialogResult.Yes = XtraMessageBox.Show("Kode sudah ada/terpakai. Perbarui Kode Otomatis ?", NamaAplikasi, MessageBoxButtons.OK, MessageBoxIcon.Information) Then
                 txtKode.Text = GlobalFunc.GetKodeTransaksi(txtTgl.DateTime, KodeDepan, TableMaster).Value.ToString
             Else
@@ -307,10 +308,10 @@ Public Class FormStokKeluar
                         End If
 
                         If Me._ID > 0 Then
-                            If gridView1.RowCount > 0 Then
-                                For i As Integer = 0 To gridView1.RowCount - 1
-                                    If ObjToInt(gridView1.GetRowCellValue(i, "IDBarang")) > 0 AndAlso ObjToInt(gridView1.GetRowCellValue(i, "Qty")) > 0 Then
-                                        If ObjToInt(gridView1.GetRowCellValue(i, "ID")) <= 0 Then
+                            If GV1.RowCount > 0 Then
+                                For i As Integer = 0 To GV1.RowCount - 1
+                                    If ObjToInt(GV1.GetRowCellValue(i, "IDBarang")) > 0 AndAlso ObjToInt(GV1.GetRowCellValue(i, "Qty")) > 0 Then
+                                        If ObjToInt(GV1.GetRowCellValue(i, "ID")) <= 0 Then
                                             Dim IDDetail As Long = 0
                                             com.CommandText = "Select Isnull(Max(ID),0)+1 From " & TableMaster & "D"
                                             IDDetail = ObjToLong(com.ExecuteScalar())
@@ -339,17 +340,17 @@ Public Class FormStokKeluar
                                                             ,[Jumlah] =@Jumlah
                                                             ,[Catatan] =@Catatan
                                                             Where [ID]=@ID"
-                                            com.Parameters.AddWithValue("@ID", ObjToInt(gridView1.GetRowCellValue(i, "ID")))
+                                            com.Parameters.AddWithValue("@ID", ObjToInt(GV1.GetRowCellValue(i, "ID")))
                                         End If
                                         com.Parameters.AddWithValue("@IDStokKeluar", Me._ID)
-                                        com.Parameters.AddWithValue("@NoUrut", ObjToInt(gridView1.GetRowCellValue(i, "NoUrut")))
-                                        com.Parameters.AddWithValue("@IDBarang", ObjToInt(gridView1.GetRowCellValue(i, "IDBarang")))
-                                        com.Parameters.AddWithValue("@Qty", ObjToInt(gridView1.GetRowCellValue(i, "Qty")))
+                                        com.Parameters.AddWithValue("@NoUrut", ObjToInt(GV1.GetRowCellValue(i, "NoUrut")))
+                                        com.Parameters.AddWithValue("@IDBarang", ObjToInt(GV1.GetRowCellValue(i, "IDBarang")))
+                                        com.Parameters.AddWithValue("@Qty", ObjToDbl(GV1.GetRowCellValue(i, "Qty")))
                                         com.Parameters.AddWithValue("@IDSatuan", 1) 'ObjToInt(gridView1.GetRowCellValue(i, "IDSatuan"))
                                         com.Parameters.AddWithValue("@Isi", 1) 'ObjToInt(gridView1.GetRowCellValue(i, "Isi"))
-                                        com.Parameters.AddWithValue("@Harga", ObjToInt(gridView1.GetRowCellValue(i, "Harga")))
-                                        com.Parameters.AddWithValue("@Jumlah", ObjToInt(gridView1.GetRowCellValue(i, "Jumlah")))
-                                        com.Parameters.AddWithValue("@Catatan", NullToStr(gridView1.GetRowCellValue(i, "Catatan")))
+                                        com.Parameters.AddWithValue("@Harga", ObjToInt(GV1.GetRowCellValue(i, "Harga")))
+                                        com.Parameters.AddWithValue("@Jumlah", ObjToInt(GV1.GetRowCellValue(i, "Jumlah")))
+                                        com.Parameters.AddWithValue("@Catatan", NullToStr(GV1.GetRowCellValue(i, "Catatan")))
 
                                         com.ExecuteNonQuery()
                                         com.Parameters.Clear()
@@ -409,6 +410,115 @@ Public Class FormStokKeluar
     Private Sub txtTgl_EditValueChanged(sender As Object, e As EventArgs) Handles txtTgl.EditValueChanged
         If txtKode.Properties.ReadOnly = False Then
             txtKode.Text = GlobalFunc.GetKodeTransaksi(txtTgl.DateTime, KodeDepan, TableMaster).Value.ToString
+        End If
+    End Sub
+
+
+    Private Sub gridView1_DataSourceChanged(sender As Object, e As EventArgs) Handles GV1.DataSourceChanged
+        RestoreGVLayouts(GV1)
+    End Sub
+
+    Private Sub FormStokMasuk_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
+        Try
+            If GC1.DataSource IsNot Nothing Then
+                GV1.SaveLayoutToXml(LayoutsHelper.FolderLayouts & Me.Name & GV1.Name & ".xml")
+            End If
+            If RepositoryItemSearchLookUpEdit1.DataSource IsNot Nothing Then
+                RepositoryItemSearchLookUpEdit1View.SaveLayoutToXml(LayoutsHelper.FolderLayouts & Me.Name & RepositoryItemSearchLookUpEdit1View.Name & ".xml")
+            End If
+        Catch ex As Exception
+            XtraMessageBox.Show("Kesalahan : " & ex.Message, NamaAplikasi, MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+        End Try
+    End Sub
+
+    Private Sub RepositoryItemSearchLookUpEdit1View_DataSourceChanged(sender As Object, e As EventArgs) Handles RepositoryItemSearchLookUpEdit1View.DataSourceChanged
+        RestoreGVLayouts(RepositoryItemSearchLookUpEdit1View)
+    End Sub
+
+    Private Sub RestoreGVLayouts(GV As GridView)
+        With GV
+            GV.OptionsView.ColumnAutoWidth = False
+            GV.OptionsView.BestFitMaxRowCount = -1
+            GV.BestFitColumns()
+            .OptionsDetail.SmartDetailExpandButtonMode = DetailExpandButtonMode.AlwaysEnabled
+            If System.IO.File.Exists(LayoutsHelper.FolderLayouts & Me.Text & GV.Name & ".xml") Then
+                .RestoreLayoutFromXml(LayoutsHelper.FolderLayouts & Me.Text & GV.Name & ".xml")
+            End If
+            For i As Integer = 0 To .Columns.Count - 1
+                Select Case .Columns(i).ColumnType.Name.ToLower
+                    Case "date", "datetime"
+                        If .Columns(i).FieldName.Trim.ToLower = "jam" Then
+                            .Columns(i).DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
+                            .Columns(i).DisplayFormat.FormatString = "HH:mm"
+                        ElseIf .Columns(i).FieldName.Trim.ToLower = "tanggalstart" Or .Columns(i).FieldName.Trim.ToLower = "tanggalend" Then
+                            .Columns(i).DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
+                            .Columns(i).DisplayFormat.FormatString = "dd-MM-yyyy HH:mm"
+                        Else
+                            .Columns(i).DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
+                            .Columns(i).DisplayFormat.FormatString = "dd-MM-yyyy"
+                        End If
+                    Case "int32", "int64", "int"
+                        .Columns(i).DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+                        .Columns(i).DisplayFormat.FormatString = "n0"
+                    Case "decimal", "single", "double", "numeric"
+                        .Columns(i).DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+                        .Columns(i).DisplayFormat.FormatString = "n2"
+                    Case "money"
+                        .Columns(i).DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+                        .Columns(i).DisplayFormat.FormatString = "c2"
+                    Case "string"
+                        .Columns(i).DisplayFormat.FormatType = DevExpress.Utils.FormatType.None
+                        .Columns(i).DisplayFormat.FormatString = ""
+                    Case "byte[]"
+                        reppicedit.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze
+                        .Columns(i).OptionsColumn.AllowGroup = False
+                        .Columns(i).OptionsColumn.AllowSort = False
+                        .Columns(i).OptionsFilter.AllowFilter = False
+                        .Columns(i).ColumnEdit = reppicedit
+                    Case "boolean", "bit"
+                        repckedit.DisplayValueUnchecked = "False"
+                        repckedit.DisplayValueChecked = "True"
+                        .Columns(i).ColumnEdit = repckedit
+                End Select
+                If .Columns(i).FieldName.Length >= 4 AndAlso .Columns(i).FieldName.Substring(0, 4).ToLower = "Kode".ToLower Then
+                    .Columns(i).Fixed = FixedStyle.Left
+                ElseIf .Columns(i).FieldName.ToLower = "Nama".ToLower Then
+                    .Columns(i).Fixed = FixedStyle.Left
+                ElseIf .Columns(i).FieldName.ToLower = "kurs" Then
+                    .Columns(i).DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+                    .Columns(i).DisplayFormat.FormatString = "n4"
+                ElseIf .Columns(i).FieldName.ToLower = "id" Or .Columns(i).FieldName.ToLower = "nourut" Or .Columns(i).FieldName.ToLower = "no" Or .Columns(i).FieldName.ToLower = "isposted" Then
+                    .Columns(i).Visible = False
+                End If
+            Next
+        End With
+    End Sub
+
+    Private Sub BarButtonHapusItem_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonHapusItem.ItemClick
+        Try
+            If GV1.SelectedRowsCount > 0 Then
+                Dim IDD As Long = ObjToLong(GV1.GetFocusedDataRow("ID"))
+                If IDD > 0 Then
+                    Sql = "Delete " & TableMaster & "D Where ID=" & IDD
+                    Query.Execute(Sql)
+                End If
+                GV1.DeleteSelectedRows()
+                GV1.Focus()
+            End If
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Private Sub GV1_MouseDown(sender As Object, e As MouseEventArgs) Handles GV1.MouseDown
+        Dim View As GridView = CType(sender, GridView)
+        If View Is Nothing Then Return
+        ' obtaining hit info
+        Dim hitInfo As DevExpress.XtraGrid.Views.Grid.ViewInfo.GridHitInfo = View.CalcHitInfo(New System.Drawing.Point(e.X, e.Y))
+        If (e.Button = Windows.Forms.MouseButtons.Right) And (hitInfo.InRow) And
+              (Not View.IsGroupRow(hitInfo.RowHandle)) Then
+            PopupMenu1.ShowPopup(Control.MousePosition)
         End If
     End Sub
 End Class

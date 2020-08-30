@@ -3,6 +3,7 @@ Imports DevExpress.Utils
 Imports DevExpress.XtraEditors
 Imports DevExpress.XtraEditors.Repository
 Imports DevExpress.XtraGrid.Columns
+Imports DevExpress.XtraGrid.Views.Grid
 Imports Magnus.Utils
 
 Public Class FormKasBankMasuk
@@ -91,47 +92,6 @@ Public Class FormKasBankMasuk
                 ds.Dispose()
                 GC1.Refresh()
 
-                gridView1.OptionsView.ColumnAutoWidth = False
-                gridView1.OptionsView.BestFitMaxRowCount = -1
-                gridView1.BestFitColumns()
-
-                With gridView1
-                    For i As Integer = 0 To .Columns.Count - 1
-                        Select Case gridView1.Columns(i).ColumnType.Name.ToLower
-                            Case "int32", "int64", "int"
-                                .Columns(i).DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-                                .Columns(i).DisplayFormat.FormatString = "n0"
-                            Case "decimal", "single", "double", "numeric"
-                                .Columns(i).DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-                                .Columns(i).DisplayFormat.FormatString = "n2"
-                            Case "money"
-                                .Columns(i).DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-                                .Columns(i).DisplayFormat.FormatString = "c2"
-                            Case "string"
-                                .Columns(i).DisplayFormat.FormatType = DevExpress.Utils.FormatType.None
-                                .Columns(i).DisplayFormat.FormatString = ""
-                            Case "date", "datetime"
-                                .Columns(i).DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
-                                .Columns(i).DisplayFormat.FormatString = "dd-MM-yyyy"
-                            Case "byte[]"
-                                reppicedit.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze
-                                .Columns(i).OptionsColumn.AllowGroup = False
-                                .Columns(i).OptionsColumn.AllowSort = False
-                                .Columns(i).OptionsFilter.AllowFilter = False
-                                .Columns(i).ColumnEdit = reppicedit
-                            Case "boolean", "bit"
-                                .Columns(i).ColumnEdit = repckedit
-                        End Select
-                        If .Columns(i).FieldName.Length >= 4 AndAlso .Columns(i).FieldName.Substring(0, 4).ToLower = "Kode".ToLower Then
-                            .Columns(i).Fixed = FixedStyle.Left
-                        ElseIf .Columns(i).FieldName.ToLower = "Nama".ToLower Then
-                            .Columns(i).Fixed = FixedStyle.Left
-                        ElseIf .Columns(i).FieldName.ToLower = "Kurs" Then
-                            .Columns(i).DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-                            .Columns(i).DisplayFormat.FormatString = "n4"
-                        End If
-                    Next
-                End With
             End If
         Catch ex As Exception
 
@@ -195,7 +155,7 @@ Public Class FormKasBankMasuk
 
 
                 d.SetCaption("Loading Detail Rekanan ...")
-                Sql = "SELECT ID,Kode,Nama,Alamat From MRekanan " &
+                Sql = "SELECT ID,Kode,Nama,Alamat,IDJenisRekanan From MRekanan " &
                       " Where IsActive=1 ORDER BY ID ASC"
                 ds = Query.ExecuteDataSet(Sql, "Rekanan")
                 If Not ds Is Nothing Then
@@ -215,7 +175,6 @@ Public Class FormKasBankMasuk
                             listRekanan.Add(e)
                         Next
                     End If
-
                     RepositoryItemSearchLookUpRekanan.DataSource = ds.Tables("Rekanan")
                     RepositoryItemSearchLookUpRekanan.ValueMember = "ID"
                     RepositoryItemSearchLookUpRekanan.DisplayMember = "Nama"
@@ -223,7 +182,6 @@ Public Class FormKasBankMasuk
                 End If
                 RepositoryItemSearchLookUpRekanan.NullText = "Pilih Rekanan"
                 GColIDRekanan.ColumnEdit = RepositoryItemSearchLookUpRekanan
-
 
                 d.SetCaption("Loading Detail Transaksi ...")
                 Sql = "Select HP.ID,HP.Kode,HP.Tgl,HP.KodeReff,HP.IDAkun,HP.IDRekanan, " & vbCrLf &
@@ -271,10 +229,10 @@ Public Class FormKasBankMasuk
         End Using
     End Sub
 
-    Private Sub gridView1_CellValueChanged(ByVal sender As Object, ByVal e As DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs) Handles gridView1.CellValueChanged
+    Private Sub gridView1_CellValueChanged(ByVal sender As Object, ByVal e As DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs) Handles GV1.CellValueChanged
         Dim value As Object = Nothing
         If e.Column.FieldName = "IDAkun" Then
-            value = gridView1.GetRowCellValue(e.RowHandle, e.Column)
+            value = GV1.GetRowCellValue(e.RowHandle, e.Column)
             If Utils.NullToStr(value) = Utils.NullToStr(txtIDKasBank.EditValue) Then
                 XtraMessageBox.Show("Akun Kas Bank dan Detil Akun Perkiraan Tidak boleh sama.")
                 Exit Sub
@@ -282,68 +240,68 @@ Public Class FormKasBankMasuk
             Dim dta = listAkun.AsEnumerable.FirstOrDefault(Function(x) x.ID = Utils.NullToStr(value))
 
             If dta IsNot Nothing Then
-                If Utils.ObjToInt(gridView1.GetFocusedRowCellValue(GColID)) < 1 Then
-                    gridView1.SetRowCellValue(e.RowHandle, "ID", -1)
+                If Utils.ObjToInt(GV1.GetFocusedRowCellValue(GColID)) < 1 Then
+                    GV1.SetRowCellValue(e.RowHandle, "ID", -1)
                 End If
-                If Utils.ObjToInt(gridView1.GetFocusedRowCellValue(GColKurs)) < 1 Then
-                    gridView1.SetRowCellValue(e.RowHandle, "Kurs", 1)
+                If Utils.ObjToInt(GV1.GetFocusedRowCellValue(GColKurs)) < 1 Then
+                    GV1.SetRowCellValue(e.RowHandle, "Kurs", 1)
                 End If
-                gridView1.SetRowCellValue(e.RowHandle, "NoUrut", gridView1.RowCount)
+                GV1.SetRowCellValue(e.RowHandle, "NoUrut", GV1.RowCount)
 
-                If Utils.NullToStr(gridView1.GetFocusedRowCellValue(GColNominal)) = "" Then
+                If Utils.NullToStr(GV1.GetFocusedRowCellValue(GColNominal)) = "" Then
                     nominal = 0.0
                 Else
-                    nominal = Utils.ObjToDbl(gridView1.GetFocusedRowCellValue(GColNominal))
+                    nominal = Utils.ObjToDbl(GV1.GetFocusedRowCellValue(GColNominal))
                 End If
             End If
         End If
 
         If e.Column.FieldName = "IDRekanan" Then
-            value = gridView1.GetRowCellValue(e.RowHandle, e.Column)
+            value = GV1.GetRowCellValue(e.RowHandle, e.Column)
             Dim dta = listRekanan.AsEnumerable.FirstOrDefault(Function(x) x.ID = Utils.ObjToInt(value))
 
             If dta IsNot Nothing Then
-                If Utils.ObjToInt(gridView1.GetFocusedRowCellValue(GColID)) < 1 Then
-                    gridView1.SetRowCellValue(e.RowHandle, "ID", -1)
+                If Utils.ObjToInt(GV1.GetFocusedRowCellValue(GColID)) < 1 Then
+                    GV1.SetRowCellValue(e.RowHandle, "ID", -1)
                 End If
-                If Utils.ObjToInt(gridView1.GetFocusedRowCellValue(GColKurs)) < 1 Then
-                    gridView1.SetRowCellValue(e.RowHandle, "Kurs", 1)
+                If Utils.ObjToInt(GV1.GetFocusedRowCellValue(GColKurs)) < 1 Then
+                    GV1.SetRowCellValue(e.RowHandle, "Kurs", 1)
                 End If
-                gridView1.SetRowCellValue(e.RowHandle, "NoUrut", gridView1.RowCount)
+                GV1.SetRowCellValue(e.RowHandle, "NoUrut", GV1.RowCount)
 
-                If Utils.NullToStr(gridView1.GetFocusedRowCellValue(GColNominal)) = "" Then
+                If Utils.NullToStr(GV1.GetFocusedRowCellValue(GColNominal)) = "" Then
                     nominal = 0.0
                 Else
-                    nominal = Utils.ObjToDbl(gridView1.GetFocusedRowCellValue(GColNominal))
+                    nominal = Utils.ObjToDbl(GV1.GetFocusedRowCellValue(GColNominal))
                 End If
             End If
         End If
 
         If e.Column.FieldName = "IDReff" Then
-            value = gridView1.GetRowCellValue(e.RowHandle, e.Column)
+            value = GV1.GetRowCellValue(e.RowHandle, e.Column)
             Dim dta = listHutangPiutang.AsEnumerable.FirstOrDefault(Function(x) x.ID = Utils.ObjToInt(value))
 
             If dta IsNot Nothing Then
-                If Utils.ObjToInt(gridView1.GetFocusedRowCellValue(GColID)) < 1 Then
-                    gridView1.SetRowCellValue(e.RowHandle, "ID", -1)
+                If Utils.ObjToInt(GV1.GetFocusedRowCellValue(GColID)) < 1 Then
+                    GV1.SetRowCellValue(e.RowHandle, "ID", -1)
                 End If
-                If Utils.ObjToInt(gridView1.GetFocusedRowCellValue(GColKurs)) < 1 Then
-                    gridView1.SetRowCellValue(e.RowHandle, "Kurs", 1)
+                If Utils.ObjToInt(GV1.GetFocusedRowCellValue(GColKurs)) < 1 Then
+                    GV1.SetRowCellValue(e.RowHandle, "Kurs", 1)
                 End If
 
-                gridView1.SetRowCellValue(e.RowHandle, "Nominal", dta.Nominal)
-                gridView1.SetRowCellValue(e.RowHandle, "NoUrut", gridView1.RowCount)
+                GV1.SetRowCellValue(e.RowHandle, "Nominal", dta.Nominal)
+                GV1.SetRowCellValue(e.RowHandle, "NoUrut", GV1.RowCount)
 
-                If Utils.NullToStr(gridView1.GetFocusedRowCellValue(GColNominal)) = "" Then
+                If Utils.NullToStr(GV1.GetFocusedRowCellValue(GColNominal)) = "" Then
                     nominal = 0.0
                 Else
-                    nominal = Utils.ObjToDbl(gridView1.GetFocusedRowCellValue(GColNominal))
+                    nominal = Utils.ObjToDbl(GV1.GetFocusedRowCellValue(GColNominal))
                 End If
             End If
         End If
 
         If e.Column.Name = GColNominal.Name Then
-            nominal = Utils.ObjToDbl(gridView1.GetFocusedRowCellValue(GColNominal))
+            nominal = Utils.ObjToDbl(GV1.GetFocusedRowCellValue(GColNominal))
             'price = Utils.ObjToDbl(gridView1.GetFocusedRowCellValue(GColKurs))
             'amount = nominal * price
             'gridView1.SetFocusedRowCellValue(GColJumlah, amount)
@@ -541,10 +499,10 @@ Public Class FormKasBankMasuk
                         End If
 
                         If Me._ID > 0 Then
-                            If gridView1.RowCount > 0 Then
-                                For i As Integer = 0 To gridView1.RowCount - 1
-                                    If ObjToInt(gridView1.GetRowCellValue(i, "IDAkun")) > 0 AndAlso ObjToInt(gridView1.GetRowCellValue(i, "Nominal")) <> 0 Then
-                                        If ObjToInt(gridView1.GetRowCellValue(i, "ID")) <= 0 Then
+                            If GV1.RowCount > 0 Then
+                                For i As Integer = 0 To GV1.RowCount - 1
+                                    If ObjToInt(GV1.GetRowCellValue(i, "IDAkun")) > 0 AndAlso ObjToInt(GV1.GetRowCellValue(i, "Nominal")) <> 0 Then
+                                        If ObjToInt(GV1.GetRowCellValue(i, "ID")) <= 0 Then
                                             Dim IDDetail As Long = 0
                                             com.CommandText = "Select Isnull(Max(ID),0)+1 From " & TableMaster & "D"
                                             IDDetail = ObjToLong(com.ExecuteScalar())
@@ -569,15 +527,15 @@ Public Class FormKasBankMasuk
                                                             ,[Kurs] = @Kurs
                                                             ,[Catatan] =@Catatan
                                                             Where [ID]=@ID"
-                                            com.Parameters.AddWithValue("@ID", ObjToInt(gridView1.GetRowCellValue(i, "ID")))
+                                            com.Parameters.AddWithValue("@ID", ObjToInt(GV1.GetRowCellValue(i, "ID")))
                                         End If
                                         com.Parameters.AddWithValue("@IDKasBankMasuk", Me._ID)
-                                        com.Parameters.AddWithValue("@IDAkun", NullToStr(gridView1.GetRowCellValue(i, "IDAkun")))
-                                        com.Parameters.AddWithValue("@IDRekanan", ObjToInt(gridView1.GetRowCellValue(i, "IDRekanan")))
-                                        com.Parameters.AddWithValue("@IDReff", ObjToInt(gridView1.GetRowCellValue(i, "IDReff")))
-                                        com.Parameters.AddWithValue("@Nominal", ObjToInt(gridView1.GetRowCellValue(i, "Nominal")))
-                                        com.Parameters.AddWithValue("@Kurs", ObjToInt(gridView1.GetRowCellValue(i, "Kurs")))
-                                        com.Parameters.AddWithValue("@Catatan", NullToStr(gridView1.GetRowCellValue(i, "Catatan")))
+                                        com.Parameters.AddWithValue("@IDAkun", NullToStr(GV1.GetRowCellValue(i, "IDAkun")))
+                                        com.Parameters.AddWithValue("@IDRekanan", ObjToInt(GV1.GetRowCellValue(i, "IDRekanan")))
+                                        com.Parameters.AddWithValue("@IDReff", ObjToInt(GV1.GetRowCellValue(i, "IDReff")))
+                                        com.Parameters.AddWithValue("@Nominal", ObjToInt(GV1.GetRowCellValue(i, "Nominal")))
+                                        com.Parameters.AddWithValue("@Kurs", ObjToInt(GV1.GetRowCellValue(i, "Kurs")))
+                                        com.Parameters.AddWithValue("@Catatan", NullToStr(GV1.GetRowCellValue(i, "Catatan")))
 
                                         com.ExecuteNonQuery()
                                         com.Parameters.Clear()
@@ -652,5 +610,138 @@ Public Class FormKasBankMasuk
         If txtKode.Properties.ReadOnly = False Then
             txtKode.Text = GetKode() 'GlobalFunc.GetKodeTransaksi(txtTgl.DateTime, KodeDepan, TableMaster).Value.ToString
         End If
+    End Sub
+
+    Private Sub gridView1_DataSourceChanged(sender As Object, e As EventArgs) Handles GV1.DataSourceChanged
+        RestoreGVLayouts(GV1)
+    End Sub
+    Private Sub RestoreGVLayouts(GV As GridView)
+        With GV
+            GV.OptionsView.ColumnAutoWidth = False
+            GV.OptionsView.BestFitMaxRowCount = -1
+            GV.BestFitColumns()
+            .OptionsDetail.SmartDetailExpandButtonMode = DetailExpandButtonMode.AlwaysEnabled
+            If System.IO.File.Exists(LayoutsHelper.FolderLayouts & Me.Name & GV.Name & ".xml") Then
+                .RestoreLayoutFromXml(LayoutsHelper.FolderLayouts & Me.Name & GV.Name & ".xml")
+            End If
+            For i As Integer = 0 To .Columns.Count - 1
+                Select Case .Columns(i).ColumnType.Name.ToLower
+                    Case "date", "datetime"
+                        If .Columns(i).FieldName.Trim.ToLower = "jam" Then
+                            .Columns(i).DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
+                            .Columns(i).DisplayFormat.FormatString = "HH:mm"
+                        ElseIf .Columns(i).FieldName.Trim.ToLower = "tanggalstart" Or .Columns(i).FieldName.Trim.ToLower = "tanggalend" Then
+                            .Columns(i).DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
+                            .Columns(i).DisplayFormat.FormatString = "dd-MM-yyyy HH:mm"
+                        Else
+                            .Columns(i).DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
+                            .Columns(i).DisplayFormat.FormatString = "dd-MM-yyyy"
+                        End If
+                    Case "int32", "int64", "int"
+                        .Columns(i).DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+                        .Columns(i).DisplayFormat.FormatString = "n0"
+                    Case "decimal", "single", "double", "numeric"
+                        .Columns(i).DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+                        .Columns(i).DisplayFormat.FormatString = "n2"
+                    Case "money"
+                        .Columns(i).DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+                        .Columns(i).DisplayFormat.FormatString = "c2"
+                    Case "string"
+                        .Columns(i).DisplayFormat.FormatType = DevExpress.Utils.FormatType.None
+                        .Columns(i).DisplayFormat.FormatString = ""
+                    Case "byte[]"
+                        reppicedit.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze
+                        .Columns(i).OptionsColumn.AllowGroup = False
+                        .Columns(i).OptionsColumn.AllowSort = False
+                        .Columns(i).OptionsFilter.AllowFilter = False
+                        .Columns(i).ColumnEdit = reppicedit
+                    Case "boolean", "bit"
+                        repckedit.DisplayValueUnchecked = "False"
+                        repckedit.DisplayValueChecked = "True"
+                        .Columns(i).ColumnEdit = repckedit
+                End Select
+                If .Columns(i).FieldName.Length >= 4 AndAlso .Columns(i).FieldName.Substring(0, 4).ToLower = "Kode".ToLower Then
+                    .Columns(i).Fixed = FixedStyle.Left
+                ElseIf .Columns(i).FieldName.ToLower = "Nama".ToLower Then
+                    .Columns(i).Fixed = FixedStyle.Left
+                ElseIf .Columns(i).FieldName.ToLower = "kurs" Then
+                    .Columns(i).DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+                    .Columns(i).DisplayFormat.FormatString = "n4"
+                ElseIf .Columns(i).FieldName.ToLower = "id" Or .Columns(i).FieldName.ToLower = "nourut" Or .Columns(i).FieldName.ToLower = "no" Or .Columns(i).FieldName.ToLower = "isposted" Then
+                    .Columns(i).Visible = False
+                End If
+            Next
+        End With
+    End Sub
+
+    Private Sub FormKasBankMasuk_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+        Try
+            If GC1.DataSource IsNot Nothing Then
+                GV1.SaveLayoutToXml(LayoutsHelper.FolderLayouts & Me.Name & GV1.Name & ".xml")
+            End If
+            If RepositoryItemSearchLookUpAkun.DataSource IsNot Nothing Then
+                RepositoryItemSearchLookUpEdit1GViewAkun.SaveLayoutToXml(LayoutsHelper.FolderLayouts & Me.Name & RepositoryItemSearchLookUpEdit1GViewAkun.Name & ".xml")
+            End If
+            If RepositoryItemSearchLookUpRekanan.DataSource IsNot Nothing Then
+                RepositoryItemSearchLookUpEdit2GViewRekanan.SaveLayoutToXml(LayoutsHelper.FolderLayouts & Me.Name & RepositoryItemSearchLookUpEdit2GViewRekanan.Name & ".xml")
+            End If
+            If RepositoryItemSearchLookUpTransaksi.DataSource IsNot Nothing Then
+                RepositoryItemSearchLookUpEdit3GViewTransaksi.SaveLayoutToXml(LayoutsHelper.FolderLayouts & Me.Name & RepositoryItemSearchLookUpEdit3GViewTransaksi.Name & ".xml")
+            End If
+        Catch ex As Exception
+            XtraMessageBox.Show("Kesalahan : " & ex.Message, NamaAplikasi, MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+        End Try
+    End Sub
+
+    Private Sub RepositoryItemSearchLookUpEdit3GViewTransaksi_DataSourceChanged(sender As Object, e As EventArgs) Handles RepositoryItemSearchLookUpEdit3GViewTransaksi.DataSourceChanged
+        Try
+            RestoreGVLayouts(RepositoryItemSearchLookUpEdit3GViewTransaksi)
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Private Sub RepositoryItemSearchLookUpEdit2GViewRekanan_DataSourceChanged(sender As Object, e As EventArgs) Handles RepositoryItemSearchLookUpEdit2GViewRekanan.DataSourceChanged
+        Try
+            RestoreGVLayouts(RepositoryItemSearchLookUpEdit2GViewRekanan)
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Private Sub RepositoryItemSearchLookUpEdit1GViewAkun_DataSourceChanged(sender As Object, e As EventArgs) Handles RepositoryItemSearchLookUpEdit1GViewAkun.DataSourceChanged
+        Try
+            RestoreGVLayouts(RepositoryItemSearchLookUpEdit1GViewAkun)
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Private Sub GV1_MouseDown(sender As Object, e As MouseEventArgs) Handles GV1.MouseDown
+        Dim View As GridView = CType(sender, GridView)
+        If View Is Nothing Then Return
+        ' obtaining hit info
+        Dim hitInfo As DevExpress.XtraGrid.Views.Grid.ViewInfo.GridHitInfo = View.CalcHitInfo(New System.Drawing.Point(e.X, e.Y))
+        If (e.Button = Windows.Forms.MouseButtons.Right) And (hitInfo.InRow) And
+              (Not View.IsGroupRow(hitInfo.RowHandle)) Then
+            PopupMenu1.ShowPopup(Control.MousePosition)
+        End If
+    End Sub
+
+    Private Sub BarButtonHapusItem_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonHapusItem.ItemClick
+        Try
+            If GV1.SelectedRowsCount > 0 Then
+                Dim IDD As Long = ObjToLong(GV1.GetFocusedDataRow("ID"))
+                If IDD > 0 Then
+                    Sql = "Delete " & TableMaster & "D Where ID=" & IDD
+                    Query.Execute(Sql)
+                End If
+                GV1.DeleteSelectedRows()
+                GV1.Focus()
+            End If
+        Catch ex As Exception
+
+        End Try
     End Sub
 End Class

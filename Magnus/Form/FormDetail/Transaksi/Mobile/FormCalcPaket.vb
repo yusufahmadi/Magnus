@@ -88,12 +88,13 @@ Partial Public Class FormCalcPaket
     Private Sub bbiSave_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles bbiSave.ItemClick
         If SaveData() Then
             _IsNew = False
+            d = DialogResult.OK
         End If
     End Sub
 
     Private Sub bbiSaveAndClose_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles bbiSaveAndClose.ItemClick
         If SaveData() Then
-            DialogResult = DialogResult.OK
+            d = DialogResult.OK
             Me.Close()
         End If
     End Sub
@@ -103,6 +104,7 @@ Partial Public Class FormCalcPaket
             Me._IsNew = True
             Me._ID = 0
             ClearData()
+            d = DialogResult.OK
             Me.FormBasic_Load(sender, e)
         End If
     End Sub
@@ -242,7 +244,7 @@ Partial Public Class FormCalcPaket
         Dim f As Pesan = Query.DeleteDataMaster("TTaffeta", "[no]=" & Me._ID)
         If f.Hasil = True Then
             DevExpress.XtraEditors.XtraMessageBox.Show(Me, f.Message, NamaAplikasi)
-            DialogResult = DialogResult.OK
+            d = DialogResult.OK
             Me.Close()
         Else
             DevExpress.XtraEditors.XtraMessageBox.Show(Me, f.Message, NamaAplikasi)
@@ -287,6 +289,10 @@ Partial Public Class FormCalcPaket
 
     Private Sub editTextpanjang_ribbon_EditValueChanged(sender As Object, e As EventArgs) Handles editTextpanjang_ribbon.EditValueChanged
         Hitung()
+    End Sub
+    Dim d As DialogResult
+    Private Sub FormCalcPaket_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+        DialogResult = IIf(d = DialogResult.None, DialogResult.Cancel, d)
     End Sub
 
     'Private Sub textView30Persen_DoubleClick(sender As Object, e As EventArgs) Handles textView10Persen.DoubleClick

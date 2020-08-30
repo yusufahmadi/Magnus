@@ -13,7 +13,7 @@ Partial Public Class FormCalcTaffeta
     Public Sub New()
         InitializeComponent()
     End Sub
-
+    Dim d As DialogResult
     Sub LoadDataAdapter()
         Dim str As String = "", IDKategori As Integer = 0
         str = "Select Df_IDKategoriBahanTaffeta From MSettingCalc"
@@ -25,8 +25,10 @@ Partial Public Class FormCalcTaffeta
         txtTanggal.EditValue = Now
         If IDRoleUser = 1 Then
         Else
+            LayoutControlGroupProfitUp.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
             LayoutControlItemHargaInc.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
             LayoutControlItemModal.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
+            LayoutControlItemNetProfit.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
         End If
     End Sub
     Private Sub FormBasic_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -84,19 +86,21 @@ Partial Public Class FormCalcTaffeta
     End Sub
     Private Sub bbiSave_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles bbiSave.ItemClick
         If SaveData() Then
+            d = DialogResult.OK
             _IsNew = False
         End If
     End Sub
 
     Private Sub bbiSaveAndClose_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles bbiSaveAndClose.ItemClick
         If SaveData() Then
-            DialogResult = DialogResult.OK
+            d = DialogResult.OK
             Me.Close()
         End If
     End Sub
 
     Private Sub bbiSaveAndNew_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles bbiSaveAndNew.ItemClick
         If SaveData() Then
+            d = DialogResult.OK
             Me._IsNew = True
             Me._ID = 0
             ClearData()
@@ -248,6 +252,7 @@ Partial Public Class FormCalcTaffeta
     Private Sub bbiDelete_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles bbiDelete.ItemClick
         Dim f As Pesan = Query.DeleteDataMaster("TTaffeta", "[no]=" & Me._ID)
         If f.Hasil = True Then
+            d = DialogResult.OK
             DevExpress.XtraEditors.XtraMessageBox.Show(Me, f.Message, NamaAplikasi)
             DialogResult = DialogResult.OK
             Me.Close()
@@ -257,6 +262,7 @@ Partial Public Class FormCalcTaffeta
     End Sub
 
     Private Sub bbiClose_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles bbiClose.ItemClick
+        DialogResult = IIf(d = DialogResult.None, DialogResult.Cancel, d)
         Me.Close()
     End Sub
 
@@ -274,6 +280,14 @@ Partial Public Class FormCalcTaffeta
 
     Private Sub editTextJualSesuaiOrder_EditValueChanged(sender As Object, e As EventArgs) 
         Hitung()
+    End Sub
+
+    Private Sub editTextKurs_EditValueChanged(sender As Object, e As EventArgs) Handles editTextKurs.EditValueChanged
+        Hitung()
+    End Sub
+
+    Private Sub FormCalcTaffeta_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+        DialogResult = IIf(d = DialogResult.None, DialogResult.Cancel, d)
     End Sub
 
     'Private Sub textView30Persen_DoubleClick(sender As Object, e As EventArgs) Handles textView10Persen.DoubleClick

@@ -7,7 +7,7 @@ Imports System.Runtime.InteropServices
 ' set of attributes. Change these attribute values to modify the information
 ' associated with an assembly.
 <Assembly: AssemblyTitle("MAGNUS")>
-<Assembly: AssemblyDescription("Maximum Application Gain New Ultimate Solutin")>
+<Assembly: AssemblyDescription("Maximum Application Gain New Ultimate Solution")>
 <Assembly: AssemblyConfiguration("")>
 <Assembly: AssemblyCompany("Ruwet Solution")>
 <Assembly: AssemblyProduct("MAGNUS")>

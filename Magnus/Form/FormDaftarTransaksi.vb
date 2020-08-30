@@ -148,11 +148,15 @@ Partial Public Class FormDaftarTransaksi
                     End Select
                     If .Columns(i).FieldName.Length >= 4 AndAlso .Columns(i).FieldName.Substring(0, 4).ToLower = "Kode".ToLower Then
                         .Columns(i).Fixed = FixedStyle.Left
-                    ElseIf .Columns(i).FieldName.ToLower = "Nama".ToLower Then
+                    ElseIf .Columns(i).FieldName.ToLower = "nama".ToLower Then
                         .Columns(i).Fixed = FixedStyle.Left
-                    ElseIf .Columns(i).FieldName.ToLower = "Kurs" Then
+                    ElseIf .Columns(i).FieldName.ToLower = "tgl".ToLower Or .Columns(i).FieldName.ToLower = "tanggal".ToLower Then
+                        .Columns(i).Fixed = FixedStyle.Left
+                    ElseIf .Columns(i).FieldName.ToLower = "kurs" Then
                         .Columns(i).DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
                         .Columns(i).DisplayFormat.FormatString = "n4"
+                    ElseIf .Columns(i).FieldName.ToLower = "id" Or .Columns(i).FieldName.ToLower = "no" Or .Columns(i).FieldName.ToLower = "isposted" Then
+                        .Columns(i).Visible = False
                     End If
                 Next
             End With
@@ -237,87 +241,95 @@ Partial Public Class FormDaftarTransaksi
 
     Sub Ubah()
         Dim view As ColumnView = GridControl1.FocusedView
+        Dim Id As Object
         Select Case idFrmTr
             Case IDFormTr.F_StokMasuk
                 Using f As New FormStokMasuk
                     f._IsNew = False
-                    f._ID = ObjToInt(view.GetDataRow(GridView1.FocusedRowHandle)("ID"))
+                    Id = ObjToInt(view.GetDataRow(GridView1.FocusedRowHandle)("ID"))
+                    f._ID = Id
                     If f.ShowDialog() = DialogResult.OK Then
                         BarButtonRefresh.PerformClick()
                         GridView1.ClearSelection()
-                        GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("ID"), f._ID.ToString)
+                        GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("ID"), Id.ToString)
                         GridView1.SelectRow(GridView1.FocusedRowHandle)
                     End If
                 End Using
             Case IDFormTr.F_StokKeluar
                 Using f As New FormStokKeluar
                     f._IsNew = False
-                    f._ID = ObjToInt(view.GetDataRow(GridView1.FocusedRowHandle)("ID"))
+                    Id = ObjToInt(view.GetDataRow(GridView1.FocusedRowHandle)("ID"))
+                    f._ID = Id
                     If f.ShowDialog() = DialogResult.OK Then
                         BarButtonRefresh.PerformClick()
                         GridView1.ClearSelection()
-                        GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("ID"), f._ID.ToString)
+                        GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("ID"), Id.ToString)
                         GridView1.SelectRow(GridView1.FocusedRowHandle)
                     End If
                 End Using
             Case IDFormTr.F_KasMasuk
                 Using f As New FormKasBankMasuk
                     f._IsNew = False
-                    f._ID = ObjToInt(view.GetDataRow(GridView1.FocusedRowHandle)("ID"))
+                    Id = ObjToInt(view.GetDataRow(GridView1.FocusedRowHandle)("ID"))
+                    f._ID = Id
                     If f.ShowDialog() = DialogResult.OK Then
                         BarButtonRefresh.PerformClick()
                         GridView1.ClearSelection()
-                        GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("ID"), f._ID.ToString)
+                        GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("ID"), Id.ToString)
                         GridView1.SelectRow(GridView1.FocusedRowHandle)
                     End If
                 End Using
             Case IDFormTr.F_KasKeluar
                 Using f As New FormKasBankKeluar
                     f._IsNew = False
-                    f._ID = ObjToInt(view.GetDataRow(GridView1.FocusedRowHandle)("ID"))
+                    Id = ObjToInt(view.GetDataRow(GridView1.FocusedRowHandle)("ID"))
+                    f._ID = Id
                     If f.ShowDialog() = DialogResult.OK Then
                         BarButtonRefresh.PerformClick()
                         GridView1.ClearSelection()
-                        GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("ID"), f._ID.ToString)
+                        GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("ID"), Id.ToString)
                         GridView1.SelectRow(GridView1.FocusedRowHandle)
                     End If
                 End Using
             Case IDFormTr.F_CalcLabel
                 Using f As New FormCalcLabel
                     f._IsNew = False
-                    f._ID = ObjToInt(view.GetDataRow(GridView1.FocusedRowHandle)("no"))
+                    Id = ObjToInt(view.GetDataRow(GridView1.FocusedRowHandle)("no"))
+                    f._ID = Id
                     f.FormName = "Label Calculator"
                     f.TableName = "TLabel"
                     If f.ShowDialog() = DialogResult.OK Then
                         BarButtonRefresh.PerformClick()
                         GridView1.ClearSelection()
-                        GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("no"), f._ID.ToString)
+                        GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("No"), Id.ToString)
                         GridView1.SelectRow(GridView1.FocusedRowHandle)
                     End If
                 End Using
             Case IDFormTr.F_CalcRibbon
                 Using f As New FormCalcRibbon
                     f._IsNew = False
-                    f._ID = ObjToInt(view.GetDataRow(GridView1.FocusedRowHandle)("no"))
+                    Id = ObjToInt(view.GetDataRow(GridView1.FocusedRowHandle)("no"))
+                    f._ID = Id
                     f.FormName = "Ribbon Calculator"
                     f.TableName = "TRibbon"
                     If f.ShowDialog() = DialogResult.OK Then
                         BarButtonRefresh.PerformClick()
                         GridView1.ClearSelection()
-                        GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("no"), f._ID.ToString)
+                        GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("No"), Id.ToString)
                         GridView1.SelectRow(GridView1.FocusedRowHandle)
                     End If
                 End Using
             Case IDFormTr.F_CalcTaffeta
                 Using f As New FormCalcTaffeta
                     f._IsNew = False
-                    f._ID = ObjToInt(view.GetDataRow(GridView1.FocusedRowHandle)("no"))
+                    Id = ObjToInt(view.GetDataRow(GridView1.FocusedRowHandle)("no"))
+                    f._ID = Id
                     f.FormName = "Taffeta Calculator"
                     f.TableName = "TTaffeta"
-                    If f.ShowDialog() = DialogResult.OK Then
+                    If f.ShowDialog(Me) = DialogResult.OK Then
                         BarButtonRefresh.PerformClick()
                         GridView1.ClearSelection()
-                        GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("no"), f._ID.ToString)
+                        GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("No"), Id.ToString)
                         GridView1.SelectRow(GridView1.FocusedRowHandle)
                     End If
                 End Using
@@ -330,7 +342,7 @@ Partial Public Class FormDaftarTransaksi
                     If f.ShowDialog() = DialogResult.OK Then
                         BarButtonRefresh.PerformClick()
                         GridView1.ClearSelection()
-                        GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("no"), f._ID.ToString)
+                        GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("No"), Id.ToString)
                         GridView1.SelectRow(GridView1.FocusedRowHandle)
                     End If
                 End Using

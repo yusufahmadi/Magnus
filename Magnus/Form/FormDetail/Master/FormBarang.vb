@@ -40,13 +40,15 @@ Partial Public Class FormBarang
             LayoutControlItemHargaJual.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
             txtHargaJual.Properties.ReadOnly = True
         End If
+
+        LayoutControlItemIDSatuanTerkecil.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always
+
         'Not Ready
         LayoutControlItemP.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
         LayoutControlItemL.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
         LayoutControlItemT.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
         LayoutControlItemIDSatuanTerbesar.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
         LayoutControlItemIsi.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
-        LayoutControlItemIDSatuanTerkecil.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
 
         'Simple View
         Me.Width = 450

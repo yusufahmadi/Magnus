@@ -15,6 +15,7 @@ Imports System.Collections.Generic
 Imports DevExpress.XtraEditors.Controls
 Imports DevExpress.XtraReports.Extensions
 Imports Magnus.Utils
+Imports DevExpress.LookAndFeel
 
 Public Class clsDXReport
     Public Shared Function TextFileSave(ByVal strData As String,
@@ -296,7 +297,7 @@ Public Class clsDXReport
             PrintableComp.Margins = New System.Drawing.Printing.Margins(L, R, T, B)
 
             PrintableComp.CreateDocument()
-            PrintableComp.ShowRibbonPreviewDialog(FormMain.LookAndFeel)
+            PrintableComp.ShowRibbonPreviewDialog(UserLookAndFeel.Default)
 
             If GCPrint.DataSource IsNot Nothing Then
                 GCPrint.DefaultView.SaveLayoutToXml(PathLayouts & ".xml")

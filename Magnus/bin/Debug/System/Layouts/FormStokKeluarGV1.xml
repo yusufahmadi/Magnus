@@ -1,0 +1,78 @@
+﻿<XtraSerializer version="1.0" application="View">
+  <property name="#LayoutVersion" />
+  <property name="OptionsView" isnull="true" iskey="true">
+    <property name="NewItemRowPosition">Bottom</property>
+    <property name="ColumnAutoWidth">false</property>
+    <property name="ShowFooter">true</property>
+    <property name="ShowGroupPanel">false</property>
+  </property>
+  <property name="ActiveFilterEnabled">true</property>
+  <property name="Columns" iskey="true" value="9">
+    <property name="Item1" isnull="true" iskey="true">
+      <property name="Name">GColID</property>
+      <property name="Width">31</property>
+    </property>
+    <property name="Item2" isnull="true" iskey="true">
+      <property name="Name">GridColumnNoUrut</property>
+      <property name="Width">54</property>
+    </property>
+    <property name="Item3" isnull="true" iskey="true">
+      <property name="Name">GColIDBarang</property>
+      <property name="VisibleIndex">0</property>
+      <property name="Visible">true</property>
+      <property name="Width">85</property>
+      <property name="Summary" iskey="true" value="1">
+        <property name="Item1" isnull="true" iskey="true">
+          <property name="Tag" isnull="true" />
+          <property name="FieldName">IDBarang</property>
+          <property name="SummaryType">Count</property>
+          <property name="DisplayFormat">Total Baris : {0}</property>
+        </property>
+      </property>
+    </property>
+    <property name="Item4" isnull="true" iskey="true">
+      <property name="Name">GColNamaBarang</property>
+      <property name="VisibleIndex">1</property>
+      <property name="Visible">true</property>
+      <property name="Width">132</property>
+    </property>
+    <property name="Item5" isnull="true" iskey="true">
+      <property name="Name">GColQty</property>
+      <property name="VisibleIndex">2</property>
+      <property name="Visible">true</property>
+      <property name="Width">38</property>
+    </property>
+    <property name="Item6" isnull="true" iskey="true">
+      <property name="Name">GColUnit</property>
+      <property name="VisibleIndex">3</property>
+      <property name="Visible">true</property>
+      <property name="Width">39</property>
+    </property>
+    <property name="Item7" isnull="true" iskey="true">
+      <property name="Name">GColHarga</property>
+      <property name="Width">120</property>
+    </property>
+    <property name="Item8" isnull="true" iskey="true">
+      <property name="Name">GColJumlah</property>
+      <property name="Width">150</property>
+      <property name="Summary" iskey="true" value="1">
+        <property name="Item1" isnull="true" iskey="true">
+          <property name="Tag" isnull="true" />
+          <property name="FieldName">Jumlah</property>
+          <property name="SummaryType">Sum</property>
+          <property name="DisplayFormat">Jumlah ={0:#,#}</property>
+        </property>
+      </property>
+    </property>
+    <property name="Item9" isnull="true" iskey="true">
+      <property name="Name">GridColumnCatatan</property>
+      <property name="VisibleIndex">4</property>
+      <property name="Visible">true</property>
+      <property name="Width">59</property>
+    </property>
+  </property>
+  <property name="ActiveFilterString" />
+  <property name="GroupSummarySortInfoState" />
+  <property name="FindFilterText" />
+  <property name="FindPanelVisible">false</property>
+</XtraSerializer>

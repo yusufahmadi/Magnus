@@ -90,11 +90,11 @@ Partial Public Class FormKaryawan
         Me.dataLayoutControl1.Controls.Add(Me.txtAlamat2)
         Me.dataLayoutControl1.Controls.Add(Me.txtHP)
         Me.dataLayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dataLayoutControl1.Location = New System.Drawing.Point(0, 143)
+        Me.dataLayoutControl1.Location = New System.Drawing.Point(0, 146)
         Me.dataLayoutControl1.Name = "dataLayoutControl1"
         Me.dataLayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(841, 263, 450, 400)
         Me.dataLayoutControl1.Root = Me.layoutControlGroup1
-        Me.dataLayoutControl1.Size = New System.Drawing.Size(324, 381)
+        Me.dataLayoutControl1.Size = New System.Drawing.Size(332, 382)
         Me.dataLayoutControl1.TabIndex = 0
         '
         'txtKeterangan
@@ -102,7 +102,7 @@ Partial Public Class FormKaryawan
         Me.txtKeterangan.Location = New System.Drawing.Point(12, 148)
         Me.txtKeterangan.MenuManager = Me.mainRibbonControl
         Me.txtKeterangan.Name = "txtKeterangan"
-        Me.txtKeterangan.Size = New System.Drawing.Size(300, 78)
+        Me.txtKeterangan.Size = New System.Drawing.Size(308, 78)
         Me.txtKeterangan.StyleController = Me.dataLayoutControl1
         Me.txtKeterangan.TabIndex = 10
         '
@@ -116,7 +116,7 @@ Partial Public Class FormKaryawan
         Me.mainRibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.mainRibbonPage})
         Me.mainRibbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013
         Me.mainRibbonControl.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.[False]
-        Me.mainRibbonControl.Size = New System.Drawing.Size(324, 143)
+        Me.mainRibbonControl.Size = New System.Drawing.Size(332, 146)
         Me.mainRibbonControl.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden
         '
         'bbiSave
@@ -183,11 +183,11 @@ Partial Public Class FormKaryawan
         '
         'ckIsActive
         '
-        Me.ckIsActive.Location = New System.Drawing.Point(12, 350)
+        Me.ckIsActive.Location = New System.Drawing.Point(12, 351)
         Me.ckIsActive.MenuManager = Me.mainRibbonControl
         Me.ckIsActive.Name = "ckIsActive"
         Me.ckIsActive.Properties.Caption = "Aktif"
-        Me.ckIsActive.Size = New System.Drawing.Size(300, 19)
+        Me.ckIsActive.Size = New System.Drawing.Size(308, 19)
         Me.ckIsActive.StyleController = Me.dataLayoutControl1
         Me.ckIsActive.TabIndex = 9
         '
@@ -196,7 +196,7 @@ Partial Public Class FormKaryawan
         Me.txtAlias.Location = New System.Drawing.Point(12, 108)
         Me.txtAlias.MenuManager = Me.mainRibbonControl
         Me.txtAlias.Name = "txtAlias"
-        Me.txtAlias.Size = New System.Drawing.Size(300, 20)
+        Me.txtAlias.Size = New System.Drawing.Size(308, 20)
         Me.txtAlias.StyleController = Me.dataLayoutControl1
         Me.txtAlias.TabIndex = 6
         '
@@ -205,7 +205,7 @@ Partial Public Class FormKaryawan
         Me.txtNama.Location = New System.Drawing.Point(12, 68)
         Me.txtNama.MenuManager = Me.mainRibbonControl
         Me.txtNama.Name = "txtNama"
-        Me.txtNama.Size = New System.Drawing.Size(300, 20)
+        Me.txtNama.Size = New System.Drawing.Size(308, 20)
         Me.txtNama.StyleController = Me.dataLayoutControl1
         Me.txtNama.TabIndex = 5
         '
@@ -214,7 +214,7 @@ Partial Public Class FormKaryawan
         Me.txtKode.Location = New System.Drawing.Point(12, 28)
         Me.txtKode.MenuManager = Me.mainRibbonControl
         Me.txtKode.Name = "txtKode"
-        Me.txtKode.Size = New System.Drawing.Size(300, 20)
+        Me.txtKode.Size = New System.Drawing.Size(308, 20)
         Me.txtKode.StyleController = Me.dataLayoutControl1
         Me.txtKode.TabIndex = 4
         '
@@ -222,7 +222,7 @@ Partial Public Class FormKaryawan
         '
         Me.txtAlamat.Location = New System.Drawing.Point(12, 246)
         Me.txtAlamat.Name = "txtAlamat"
-        Me.txtAlamat.Size = New System.Drawing.Size(300, 20)
+        Me.txtAlamat.Size = New System.Drawing.Size(308, 20)
         Me.txtAlamat.StyleController = Me.dataLayoutControl1
         Me.txtAlamat.TabIndex = 4
         '
@@ -230,7 +230,7 @@ Partial Public Class FormKaryawan
         '
         Me.txtAlamat2.Location = New System.Drawing.Point(12, 286)
         Me.txtAlamat2.Name = "txtAlamat2"
-        Me.txtAlamat2.Size = New System.Drawing.Size(300, 20)
+        Me.txtAlamat2.Size = New System.Drawing.Size(308, 20)
         Me.txtAlamat2.StyleController = Me.dataLayoutControl1
         Me.txtAlamat2.TabIndex = 5
         '
@@ -238,7 +238,7 @@ Partial Public Class FormKaryawan
         '
         Me.txtHP.Location = New System.Drawing.Point(12, 326)
         Me.txtHP.Name = "txtHP"
-        Me.txtHP.Size = New System.Drawing.Size(300, 20)
+        Me.txtHP.Size = New System.Drawing.Size(308, 20)
         Me.txtHP.StyleController = Me.dataLayoutControl1
         Me.txtHP.TabIndex = 6
         '
@@ -249,7 +249,7 @@ Partial Public Class FormKaryawan
         Me.layoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.layoutControlGroup2})
         Me.layoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.layoutControlGroup1.Name = "Root"
-        Me.layoutControlGroup1.Size = New System.Drawing.Size(324, 381)
+        Me.layoutControlGroup1.Size = New System.Drawing.Size(332, 382)
         Me.layoutControlGroup1.TextVisible = False
         '
         'layoutControlGroup2
@@ -259,14 +259,14 @@ Partial Public Class FormKaryawan
         Me.layoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem3, Me.LayoutControlItem4, Me.LayoutControlItem5, Me.LayoutControlItem7, Me.LayoutControlItem6, Me.LayoutControlItem8, Me.LayoutControlItem2})
         Me.layoutControlGroup2.Location = New System.Drawing.Point(0, 0)
         Me.layoutControlGroup2.Name = "autoGeneratedGroup0"
-        Me.layoutControlGroup2.Size = New System.Drawing.Size(304, 361)
+        Me.layoutControlGroup2.Size = New System.Drawing.Size(312, 362)
         '
         'LayoutControlItem1
         '
         Me.LayoutControlItem1.Control = Me.txtKode
         Me.LayoutControlItem1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlItem1.Name = "LayoutControlItem1"
-        Me.LayoutControlItem1.Size = New System.Drawing.Size(304, 40)
+        Me.LayoutControlItem1.Size = New System.Drawing.Size(312, 40)
         Me.LayoutControlItem1.Text = "Kode"
         Me.LayoutControlItem1.TextLocation = DevExpress.Utils.Locations.Top
         Me.LayoutControlItem1.TextSize = New System.Drawing.Size(56, 13)
@@ -276,7 +276,7 @@ Partial Public Class FormKaryawan
         Me.LayoutControlItem3.Control = Me.txtAlias
         Me.LayoutControlItem3.Location = New System.Drawing.Point(0, 80)
         Me.LayoutControlItem3.Name = "LayoutControlItem3"
-        Me.LayoutControlItem3.Size = New System.Drawing.Size(304, 40)
+        Me.LayoutControlItem3.Size = New System.Drawing.Size(312, 40)
         Me.LayoutControlItem3.Text = "Alias"
         Me.LayoutControlItem3.TextLocation = DevExpress.Utils.Locations.Top
         Me.LayoutControlItem3.TextSize = New System.Drawing.Size(56, 13)
@@ -289,7 +289,7 @@ Partial Public Class FormKaryawan
         Me.LayoutControlItem4.MaxSize = New System.Drawing.Size(404, 0)
         Me.LayoutControlItem4.MinSize = New System.Drawing.Size(116, 40)
         Me.LayoutControlItem4.Name = "LayoutControlItem4"
-        Me.LayoutControlItem4.Size = New System.Drawing.Size(304, 40)
+        Me.LayoutControlItem4.Size = New System.Drawing.Size(312, 40)
         Me.LayoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem4.Text = "Alamat 1"
         Me.LayoutControlItem4.TextLocation = DevExpress.Utils.Locations.Top
@@ -303,7 +303,7 @@ Partial Public Class FormKaryawan
         Me.LayoutControlItem5.MaxSize = New System.Drawing.Size(404, 0)
         Me.LayoutControlItem5.MinSize = New System.Drawing.Size(116, 40)
         Me.LayoutControlItem5.Name = "LayoutControlItem5"
-        Me.LayoutControlItem5.Size = New System.Drawing.Size(304, 40)
+        Me.LayoutControlItem5.Size = New System.Drawing.Size(312, 40)
         Me.LayoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem5.Text = "Alamat 2"
         Me.LayoutControlItem5.TextLocation = DevExpress.Utils.Locations.Top
@@ -317,7 +317,7 @@ Partial Public Class FormKaryawan
         Me.LayoutControlItem7.MaxSize = New System.Drawing.Size(404, 0)
         Me.LayoutControlItem7.MinSize = New System.Drawing.Size(116, 40)
         Me.LayoutControlItem7.Name = "LayoutControlItem7"
-        Me.LayoutControlItem7.Size = New System.Drawing.Size(304, 40)
+        Me.LayoutControlItem7.Size = New System.Drawing.Size(312, 41)
         Me.LayoutControlItem7.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem7.Text = "HP:"
         Me.LayoutControlItem7.TextLocation = DevExpress.Utils.Locations.Top
@@ -326,9 +326,9 @@ Partial Public Class FormKaryawan
         'LayoutControlItem6
         '
         Me.LayoutControlItem6.Control = Me.ckIsActive
-        Me.LayoutControlItem6.Location = New System.Drawing.Point(0, 338)
+        Me.LayoutControlItem6.Location = New System.Drawing.Point(0, 339)
         Me.LayoutControlItem6.Name = "LayoutControlItem6"
-        Me.LayoutControlItem6.Size = New System.Drawing.Size(304, 23)
+        Me.LayoutControlItem6.Size = New System.Drawing.Size(312, 23)
         Me.LayoutControlItem6.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem6.TextVisible = False
         '
@@ -337,7 +337,7 @@ Partial Public Class FormKaryawan
         Me.LayoutControlItem8.Control = Me.txtKeterangan
         Me.LayoutControlItem8.Location = New System.Drawing.Point(0, 120)
         Me.LayoutControlItem8.Name = "LayoutControlItem8"
-        Me.LayoutControlItem8.Size = New System.Drawing.Size(304, 98)
+        Me.LayoutControlItem8.Size = New System.Drawing.Size(312, 98)
         Me.LayoutControlItem8.Text = "Keterangan"
         Me.LayoutControlItem8.TextLocation = DevExpress.Utils.Locations.Top
         Me.LayoutControlItem8.TextSize = New System.Drawing.Size(56, 13)
@@ -347,7 +347,7 @@ Partial Public Class FormKaryawan
         Me.LayoutControlItem2.Control = Me.txtNama
         Me.LayoutControlItem2.Location = New System.Drawing.Point(0, 40)
         Me.LayoutControlItem2.Name = "LayoutControlItem2"
-        Me.LayoutControlItem2.Size = New System.Drawing.Size(304, 40)
+        Me.LayoutControlItem2.Size = New System.Drawing.Size(312, 40)
         Me.LayoutControlItem2.Text = "Nama"
         Me.LayoutControlItem2.TextLocation = DevExpress.Utils.Locations.Top
         Me.LayoutControlItem2.TextSize = New System.Drawing.Size(56, 13)
@@ -361,7 +361,7 @@ Partial Public Class FormKaryawan
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange
-        Me.ClientSize = New System.Drawing.Size(324, 524)
+        Me.ClientSize = New System.Drawing.Size(332, 528)
         Me.Controls.Add(Me.dataLayoutControl1)
         Me.Controls.Add(Me.mainRibbonControl)
         Me.Name = "FormKaryawan"

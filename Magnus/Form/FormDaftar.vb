@@ -15,6 +15,7 @@ Partial Public Class FormDaftar
         F_MKategoriBiaya = 4
         F_MKaryawan = 5
         F_TypeTaffeta = 6
+        F_MSatuan = 7
     End Enum
     Public NamaForm As String = "Undefined"
     Private Sub FormDaftar_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -56,13 +57,16 @@ Partial Public Class FormDaftar
                 sql = "Select R.ID,R.Kode,R.Nama,R.Keterangan,R.IsActive,T.Nama TypeLayout,R.MenuSettingUser From MRoleUser R Left Join MTypeLayout T On R.IDTypeLayout=T.ID "
             Case IDForm.F_MBarang
                 If IDTypeLayout = 1 Then 'A.P,A.L,A.T,A.Isi,
-                    sql = "Select A.ID,B.Kode + ' - ' + B.Nama KodeKategori, A.Kode,A.Nama,A.Catatan,A.IsActive,A.HargaBeli,A.TanggalBuat,A.UserBuat,A.TanggalUbah,A.UserUbah "
+                    sql = "Select A.ID,B.Kode + ' - ' + B.Nama KodeKategori, A.Kode,A.Nama,A.Catatan,C.Kode Satuan,A.IsActive,A.HargaBeli,A.TanggalBuat,A.UserBuat,A.TanggalUbah,A.UserUbah "
                 Else
-                    sql = "Select A.ID,B.Kode KodeKategori,B.Nama Kategori, A.Kode,A.Nama,A.Catatan,A.IsActive,A.TanggalBuat,A.UserBuat,A.TanggalUbah,A.UserUbah "
+                    sql = "Select A.ID,B.Kode KodeKategori,B.Nama Kategori, A.Kode,A.Nama,A.Catatan,C.Kode Satuan,A.IsActive,A.TanggalBuat,A.UserBuat,A.TanggalUbah,A.UserUbah "
                 End If
                 sql = sql & " From MBarang A Left Join MKategori B on A.IDKategori=B.ID "
+                sql = sql & " Left Join MSatuan C on A.IDSatuanTerkecil=C.ID "
             Case IDForm.F_MKategori
                 sql = "Select * From MKategori "
+            Case IDForm.F_MSatuan
+                sql = "Select ID,Kode,Nama,IsActive From MSatuan "
             Case IDForm.F_MKategoriBiaya
                 sql = "Select ID,ID Kode,Nama,Keterangan,IsActive From MAkun Where IDAkunLv2='0601' "
             Case IDForm.F_MKaryawan
@@ -110,9 +114,11 @@ Partial Public Class FormDaftar
                         .Columns(i).Fixed = FixedStyle.Left
                     ElseIf .Columns(i).FieldName.ToLower = "Nama".ToLower Then
                         .Columns(i).Fixed = FixedStyle.Left
-                    ElseIf .Columns(i).FieldName.ToLower = "Kurs" Then
+                    ElseIf .Columns(i).FieldName.ToLower = "Kurs".ToLower Then
                         .Columns(i).DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
                         .Columns(i).DisplayFormat.FormatString = "n4"
+                    ElseIf .Columns(i).FieldName.ToLower = "id" Or .Columns(i).FieldName.ToLower = "no" Then
+                        .Columns(i).Visible = False
                     End If
                 Next
             End With
@@ -150,6 +156,15 @@ Partial Public Class FormDaftar
                     f._IsNew = True
                     f.FormName = "Kategori"
                     f.TableName = "MKategori"
+                    If f.ShowDialog() = DialogResult.OK Then
+                        BarButtonRefresh.PerformClick()
+                    End If
+                End Using
+            Case IDForm.F_MSatuan
+                Using f As New FormBasic
+                    f._IsNew = True
+                    f.FormName = "Satuan"
+                    f.TableName = "MSatuan"
                     If f.ShowDialog() = DialogResult.OK Then
                         BarButtonRefresh.PerformClick()
                     End If
@@ -239,6 +254,19 @@ Partial Public Class FormDaftar
                         GridView1.SelectRow(GridView1.FocusedRowHandle)
                     End If
                 End Using
+            Case IDForm.F_MSatuan
+                Using f As New FormBasic
+                    f._IsNew = False
+                    f.FormName = "Satuan"
+                    f.TableName = "MSatuan"
+                    f._ID = ObjToInt(view.GetDataRow(GridView1.FocusedRowHandle)("ID"))
+                    If f.ShowDialog() = DialogResult.OK Then
+                        BarButtonRefresh.PerformClick()
+                        GridView1.ClearSelection()
+                        GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("ID"), f._ID.ToString)
+                        GridView1.SelectRow(GridView1.FocusedRowHandle)
+                    End If
+                End Using
             Case IDForm.F_MKategoriBiaya
                 Using f As New FormKategoriBiaya
                     f._IsNew = False
@@ -289,7 +317,7 @@ Partial Public Class FormDaftar
 
     Sub Hapus()
         Dim view As ColumnView = GridControl1.FocusedView
-        Dim ID As Integer = 0
+        Dim ID As Object
         If IDForm.F_User <> idFrm Then
             ID = ObjToInt(view.GetDataRow(GridView1.FocusedRowHandle)("ID"))
         End If
@@ -345,13 +373,25 @@ Partial Public Class FormDaftar
                 Else
                     DevExpress.XtraEditors.XtraMessageBox.Show(Me, f.Message, NamaAplikasi)
                 End If
-            Case IDForm.F_MKategoriBiaya
-                Dim f As Pesan = Query.DeleteDataMaster("MKategoriBiaya", "ID=" & ID & "")
+            Case IDForm.F_MSatuan
+                Dim f As Pesan = Query.DeleteDataMaster("MSatuan", "ID=" & ID & "")
                 If f.Hasil = True Then
                     DevExpress.XtraEditors.XtraMessageBox.Show(Me, f.Message, NamaAplikasi)
                     BarButtonRefresh.PerformClick()
                     GridView1.ClearSelection()
                     GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("ID"), ID.ToString)
+                    GridView1.SelectRow(GridView1.FocusedRowHandle)
+                Else
+                    DevExpress.XtraEditors.XtraMessageBox.Show(Me, f.Message, NamaAplikasi)
+                End If
+            Case IDForm.F_MKategoriBiaya
+                ID = NullToStr(view.GetDataRow(GridView1.FocusedRowHandle)("ID"))
+                Dim f As Pesan = Query.DeleteDataMaster("MAkun", "ID='" & ID.ToString & "'")
+                If f.Hasil = True Then
+                    DevExpress.XtraEditors.XtraMessageBox.Show(Me, f.Message, NamaAplikasi)
+                    BarButtonRefresh.PerformClick()
+                    GridView1.ClearSelection()
+                    GridView1.FocusedRowHandle = GridView1.LocateByDisplayText(0, GridView1.Columns("ID"), ID)
                     GridView1.SelectRow(GridView1.FocusedRowHandle)
                 Else
                     DevExpress.XtraEditors.XtraMessageBox.Show(Me, f.Message, NamaAplikasi)

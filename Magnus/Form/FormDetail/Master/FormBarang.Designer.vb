@@ -66,6 +66,7 @@ Partial Public Class FormBarang
         Me.txtP = New DevExpress.XtraEditors.TextEdit()
         Me.txtL = New DevExpress.XtraEditors.TextEdit()
         Me.txtT = New DevExpress.XtraEditors.TextEdit()
+        Me.txtCatatan = New DevExpress.XtraEditors.MemoEdit()
         Me.layoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup()
         Me.layoutControlGroup2 = New DevExpress.XtraLayout.LayoutControlGroup()
         Me.EmptySpaceItem1 = New DevExpress.XtraLayout.EmptySpaceItem()
@@ -89,7 +90,6 @@ Partial Public Class FormBarang
         Me.LayoutControlItemGVD = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItemProsenUp = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItemHargaJual = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.txtCatatan = New DevExpress.XtraEditors.MemoEdit()
         CType(Me.dataLayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.dataLayoutControl1.SuspendLayout()
         CType(Me.GridControl1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -116,6 +116,7 @@ Partial Public Class FormBarang
         CType(Me.txtP.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtL.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtT.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtCatatan.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.layoutControlGroup1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.layoutControlGroup2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -139,7 +140,6 @@ Partial Public Class FormBarang
         CType(Me.LayoutControlItemGVD, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItemProsenUp, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItemHargaJual, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.txtCatatan.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'dataLayoutControl1
@@ -166,21 +166,21 @@ Partial Public Class FormBarang
         Me.dataLayoutControl1.Controls.Add(Me.txtT)
         Me.dataLayoutControl1.Controls.Add(Me.txtCatatan)
         Me.dataLayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dataLayoutControl1.Location = New System.Drawing.Point(0, 143)
+        Me.dataLayoutControl1.Location = New System.Drawing.Point(0, 146)
         Me.dataLayoutControl1.Name = "dataLayoutControl1"
         Me.dataLayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(701, 596, 810, 400)
         Me.dataLayoutControl1.Root = Me.layoutControlGroup1
-        Me.dataLayoutControl1.Size = New System.Drawing.Size(879, 349)
+        Me.dataLayoutControl1.Size = New System.Drawing.Size(887, 350)
         Me.dataLayoutControl1.TabIndex = 0
         '
         'GridControl1
         '
-        Me.GridControl1.Location = New System.Drawing.Point(447, 28)
+        Me.GridControl1.Location = New System.Drawing.Point(451, 28)
         Me.GridControl1.MainView = Me.GridView1
         Me.GridControl1.MenuManager = Me.mainRibbonControl
         Me.GridControl1.Name = "GridControl1"
         Me.GridControl1.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.repo_cbIDSatuan})
-        Me.GridControl1.Size = New System.Drawing.Size(420, 309)
+        Me.GridControl1.Size = New System.Drawing.Size(424, 310)
         Me.GridControl1.TabIndex = 22
         Me.GridControl1.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
@@ -296,7 +296,7 @@ Partial Public Class FormBarang
         Me.mainRibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.mainRibbonPage})
         Me.mainRibbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013
         Me.mainRibbonControl.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.[False]
-        Me.mainRibbonControl.Size = New System.Drawing.Size(879, 143)
+        Me.mainRibbonControl.Size = New System.Drawing.Size(887, 146)
         Me.mainRibbonControl.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden
         '
         'bbiSave
@@ -364,67 +364,67 @@ Partial Public Class FormBarang
         'txtTanggalUbah
         '
         Me.txtTanggalUbah.EditValue = Nothing
-        Me.txtTanggalUbah.Location = New System.Drawing.Point(319, 317)
+        Me.txtTanggalUbah.Location = New System.Drawing.Point(321, 318)
         Me.txtTanggalUbah.MenuManager = Me.mainRibbonControl
         Me.txtTanggalUbah.Name = "txtTanggalUbah"
         Me.txtTanggalUbah.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.txtTanggalUbah.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.txtTanggalUbah.Properties.ReadOnly = True
-        Me.txtTanggalUbah.Size = New System.Drawing.Size(124, 20)
+        Me.txtTanggalUbah.Size = New System.Drawing.Size(126, 20)
         Me.txtTanggalUbah.StyleController = Me.dataLayoutControl1
         Me.txtTanggalUbah.TabIndex = 21
         '
         'txtTanggalBuat
         '
         Me.txtTanggalBuat.EditValue = Nothing
-        Me.txtTanggalBuat.Location = New System.Drawing.Point(95, 317)
+        Me.txtTanggalBuat.Location = New System.Drawing.Point(95, 318)
         Me.txtTanggalBuat.MenuManager = Me.mainRibbonControl
         Me.txtTanggalBuat.Name = "txtTanggalBuat"
         Me.txtTanggalBuat.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.txtTanggalBuat.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.txtTanggalBuat.Properties.ReadOnly = True
-        Me.txtTanggalBuat.Size = New System.Drawing.Size(137, 20)
+        Me.txtTanggalBuat.Size = New System.Drawing.Size(139, 20)
         Me.txtTanggalBuat.StyleController = Me.dataLayoutControl1
         Me.txtTanggalBuat.TabIndex = 20
         '
         'txtUserUbah
         '
-        Me.txtUserUbah.Location = New System.Drawing.Point(319, 293)
+        Me.txtUserUbah.Location = New System.Drawing.Point(321, 294)
         Me.txtUserUbah.Name = "txtUserUbah"
         Me.txtUserUbah.Properties.ReadOnly = True
-        Me.txtUserUbah.Size = New System.Drawing.Size(124, 20)
+        Me.txtUserUbah.Size = New System.Drawing.Size(126, 20)
         Me.txtUserUbah.StyleController = Me.dataLayoutControl1
         Me.txtUserUbah.TabIndex = 19
         '
         'txtUserBuat
         '
-        Me.txtUserBuat.Location = New System.Drawing.Point(95, 293)
+        Me.txtUserBuat.Location = New System.Drawing.Point(95, 294)
         Me.txtUserBuat.Name = "txtUserBuat"
         Me.txtUserBuat.Properties.ReadOnly = True
-        Me.txtUserBuat.Size = New System.Drawing.Size(137, 20)
+        Me.txtUserBuat.Size = New System.Drawing.Size(139, 20)
         Me.txtUserBuat.StyleController = Me.dataLayoutControl1
         Me.txtUserBuat.TabIndex = 18
         '
         'txtIDSatuanTerkecil
         '
-        Me.txtIDSatuanTerkecil.Location = New System.Drawing.Point(393, 192)
+        Me.txtIDSatuanTerkecil.Location = New System.Drawing.Point(395, 192)
         Me.txtIDSatuanTerkecil.MenuManager = Me.mainRibbonControl
         Me.txtIDSatuanTerkecil.Name = "txtIDSatuanTerkecil"
         Me.txtIDSatuanTerkecil.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.txtIDSatuanTerkecil.Properties.NullText = ""
-        Me.txtIDSatuanTerkecil.Size = New System.Drawing.Size(50, 20)
+        Me.txtIDSatuanTerkecil.Size = New System.Drawing.Size(52, 20)
         Me.txtIDSatuanTerkecil.StyleController = Me.dataLayoutControl1
         Me.txtIDSatuanTerkecil.TabIndex = 17
         '
         'txtHargaJual
         '
         Me.txtHargaJual.EditValue = "0.00"
-        Me.txtHargaJual.Location = New System.Drawing.Point(256, 240)
+        Me.txtHargaJual.Location = New System.Drawing.Point(257, 240)
         Me.txtHargaJual.Name = "txtHargaJual"
         Me.txtHargaJual.Properties.Mask.EditMask = "n2"
         Me.txtHargaJual.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.txtHargaJual.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.txtHargaJual.Size = New System.Drawing.Size(187, 20)
+        Me.txtHargaJual.Size = New System.Drawing.Size(190, 20)
         Me.txtHargaJual.StyleController = Me.dataLayoutControl1
         Me.txtHargaJual.TabIndex = 16
         '
@@ -436,19 +436,19 @@ Partial Public Class FormBarang
         Me.txtProsenUp.Properties.Mask.EditMask = "n2"
         Me.txtProsenUp.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.txtProsenUp.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.txtProsenUp.Size = New System.Drawing.Size(74, 20)
+        Me.txtProsenUp.Size = New System.Drawing.Size(75, 20)
         Me.txtProsenUp.StyleController = Me.dataLayoutControl1
         Me.txtProsenUp.TabIndex = 15
         '
         'txtIsi
         '
         Me.txtIsi.EditValue = "1"
-        Me.txtIsi.Location = New System.Drawing.Point(256, 192)
+        Me.txtIsi.Location = New System.Drawing.Point(257, 192)
         Me.txtIsi.Name = "txtIsi"
         Me.txtIsi.Properties.Mask.EditMask = "n0"
         Me.txtIsi.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.txtIsi.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.txtIsi.Size = New System.Drawing.Size(50, 20)
+        Me.txtIsi.Size = New System.Drawing.Size(51, 20)
         Me.txtIsi.StyleController = Me.dataLayoutControl1
         Me.txtIsi.TabIndex = 14
         '
@@ -460,7 +460,7 @@ Partial Public Class FormBarang
         Me.txtHargaBeli.Properties.Mask.EditMask = "n4"
         Me.txtHargaBeli.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.txtHargaBeli.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.txtHargaBeli.Size = New System.Drawing.Size(348, 20)
+        Me.txtHargaBeli.Size = New System.Drawing.Size(352, 20)
         Me.txtHargaBeli.StyleController = Me.dataLayoutControl1
         Me.txtHargaBeli.TabIndex = 13
         '
@@ -471,17 +471,17 @@ Partial Public Class FormBarang
         Me.txtIDSatuanTerbesar.Name = "txtIDSatuanTerbesar"
         Me.txtIDSatuanTerbesar.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.txtIDSatuanTerbesar.Properties.NullText = ""
-        Me.txtIDSatuanTerbesar.Size = New System.Drawing.Size(74, 20)
+        Me.txtIDSatuanTerbesar.Size = New System.Drawing.Size(75, 20)
         Me.txtIDSatuanTerbesar.StyleController = Me.dataLayoutControl1
         Me.txtIDSatuanTerbesar.TabIndex = 12
         '
         'ckIsNonStok
         '
-        Me.ckIsNonStok.Location = New System.Drawing.Point(204, 169)
+        Me.ckIsNonStok.Location = New System.Drawing.Point(206, 169)
         Me.ckIsNonStok.MenuManager = Me.mainRibbonControl
         Me.ckIsNonStok.Name = "ckIsNonStok"
         Me.ckIsNonStok.Properties.Caption = "Non Stok"
-        Me.ckIsNonStok.Size = New System.Drawing.Size(239, 19)
+        Me.ckIsNonStok.Size = New System.Drawing.Size(241, 19)
         Me.ckIsNonStok.StyleController = Me.dataLayoutControl1
         Me.ckIsNonStok.TabIndex = 11
         '
@@ -491,7 +491,7 @@ Partial Public Class FormBarang
         Me.ckIsActive.MenuManager = Me.mainRibbonControl
         Me.ckIsActive.Name = "ckIsActive"
         Me.ckIsActive.Properties.Caption = "Aktif"
-        Me.ckIsActive.Size = New System.Drawing.Size(188, 19)
+        Me.ckIsActive.Size = New System.Drawing.Size(190, 19)
         Me.ckIsActive.StyleController = Me.dataLayoutControl1
         Me.ckIsActive.TabIndex = 9
         '
@@ -502,7 +502,7 @@ Partial Public Class FormBarang
         Me.txtIDKategori.Name = "txtIDKategori"
         Me.txtIDKategori.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.txtIDKategori.Properties.NullText = ""
-        Me.txtIDKategori.Size = New System.Drawing.Size(348, 20)
+        Me.txtIDKategori.Size = New System.Drawing.Size(352, 20)
         Me.txtIDKategori.StyleController = Me.dataLayoutControl1
         Me.txtIDKategori.TabIndex = 7
         '
@@ -512,7 +512,7 @@ Partial Public Class FormBarang
         Me.txtNama.MenuManager = Me.mainRibbonControl
         Me.txtNama.Name = "txtNama"
         Me.txtNama.Properties.MaxLength = 50
-        Me.txtNama.Size = New System.Drawing.Size(348, 20)
+        Me.txtNama.Size = New System.Drawing.Size(352, 20)
         Me.txtNama.StyleController = Me.dataLayoutControl1
         Me.txtNama.TabIndex = 5
         '
@@ -522,7 +522,7 @@ Partial Public Class FormBarang
         Me.txtKode.MenuManager = Me.mainRibbonControl
         Me.txtKode.Name = "txtKode"
         Me.txtKode.Properties.MaxLength = 13
-        Me.txtKode.Size = New System.Drawing.Size(348, 20)
+        Me.txtKode.Size = New System.Drawing.Size(352, 20)
         Me.txtKode.StyleController = Me.dataLayoutControl1
         Me.txtKode.TabIndex = 4
         '
@@ -530,25 +530,35 @@ Partial Public Class FormBarang
         '
         Me.txtP.Location = New System.Drawing.Point(95, 145)
         Me.txtP.Name = "txtP"
-        Me.txtP.Size = New System.Drawing.Size(74, 20)
+        Me.txtP.Size = New System.Drawing.Size(75, 20)
         Me.txtP.StyleController = Me.dataLayoutControl1
         Me.txtP.TabIndex = 4
         '
         'txtL
         '
-        Me.txtL.Location = New System.Drawing.Point(256, 145)
+        Me.txtL.Location = New System.Drawing.Point(257, 145)
         Me.txtL.Name = "txtL"
-        Me.txtL.Size = New System.Drawing.Size(50, 20)
+        Me.txtL.Size = New System.Drawing.Size(51, 20)
         Me.txtL.StyleController = Me.dataLayoutControl1
         Me.txtL.TabIndex = 5
         '
         'txtT
         '
-        Me.txtT.Location = New System.Drawing.Point(393, 145)
+        Me.txtT.Location = New System.Drawing.Point(395, 145)
         Me.txtT.Name = "txtT"
-        Me.txtT.Size = New System.Drawing.Size(50, 20)
+        Me.txtT.Size = New System.Drawing.Size(52, 20)
         Me.txtT.StyleController = Me.dataLayoutControl1
         Me.txtT.TabIndex = 6
+        '
+        'txtCatatan
+        '
+        Me.txtCatatan.Location = New System.Drawing.Point(95, 84)
+        Me.txtCatatan.MenuManager = Me.mainRibbonControl
+        Me.txtCatatan.Name = "txtCatatan"
+        Me.txtCatatan.Properties.MaxLength = 250
+        Me.txtCatatan.Size = New System.Drawing.Size(352, 57)
+        Me.txtCatatan.StyleController = Me.dataLayoutControl1
+        Me.txtCatatan.TabIndex = 10
         '
         'layoutControlGroup1
         '
@@ -557,7 +567,7 @@ Partial Public Class FormBarang
         Me.layoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.layoutControlGroup2})
         Me.layoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.layoutControlGroup1.Name = "Root"
-        Me.layoutControlGroup1.Size = New System.Drawing.Size(879, 349)
+        Me.layoutControlGroup1.Size = New System.Drawing.Size(887, 350)
         Me.layoutControlGroup1.TextVisible = False
         '
         'layoutControlGroup2
@@ -567,14 +577,14 @@ Partial Public Class FormBarang
         Me.layoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.EmptySpaceItem1, Me.LayoutControlItemIsActive, Me.LayoutControlItem5, Me.LayoutControlItem1, Me.LayoutControlItem2, Me.LayoutControlItemIsNonStock, Me.LayoutControlItem4, Me.LayoutControlItemP, Me.LayoutControlItemL, Me.LayoutControlItemT, Me.LayoutControlItemIDSatuanTerbesar, Me.LayoutControlItemHargaBeli, Me.LayoutControlItemIsi, Me.LayoutControlItemIDSatuanTerkecil, Me.LayoutControlItemUserBuat, Me.LayoutControlItemUserUbah, Me.LayoutControlItemTanggalBuat, Me.LayoutControlItemTanggalUbah, Me.LayoutControlItemGVD, Me.LayoutControlItemProsenUp, Me.LayoutControlItemHargaJual})
         Me.layoutControlGroup2.Location = New System.Drawing.Point(0, 0)
         Me.layoutControlGroup2.Name = "autoGeneratedGroup0"
-        Me.layoutControlGroup2.Size = New System.Drawing.Size(859, 329)
+        Me.layoutControlGroup2.Size = New System.Drawing.Size(867, 330)
         '
         'EmptySpaceItem1
         '
         Me.EmptySpaceItem1.AllowHotTrack = False
         Me.EmptySpaceItem1.Location = New System.Drawing.Point(0, 252)
         Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Size = New System.Drawing.Size(435, 29)
+        Me.EmptySpaceItem1.Size = New System.Drawing.Size(439, 30)
         Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
         '
         'LayoutControlItemIsActive
@@ -582,7 +592,7 @@ Partial Public Class FormBarang
         Me.LayoutControlItemIsActive.Control = Me.ckIsActive
         Me.LayoutControlItemIsActive.Location = New System.Drawing.Point(0, 157)
         Me.LayoutControlItemIsActive.Name = "LayoutControlItemIsActive"
-        Me.LayoutControlItemIsActive.Size = New System.Drawing.Size(192, 23)
+        Me.LayoutControlItemIsActive.Size = New System.Drawing.Size(194, 23)
         Me.LayoutControlItemIsActive.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItemIsActive.TextVisible = False
         '
@@ -591,7 +601,7 @@ Partial Public Class FormBarang
         Me.LayoutControlItem5.Control = Me.txtCatatan
         Me.LayoutControlItem5.Location = New System.Drawing.Point(0, 72)
         Me.LayoutControlItem5.Name = "LayoutControlItem5"
-        Me.LayoutControlItem5.Size = New System.Drawing.Size(435, 61)
+        Me.LayoutControlItem5.Size = New System.Drawing.Size(439, 61)
         Me.LayoutControlItem5.Text = "Catatan"
         Me.LayoutControlItem5.TextSize = New System.Drawing.Size(80, 13)
         '
@@ -600,7 +610,7 @@ Partial Public Class FormBarang
         Me.LayoutControlItem1.Control = Me.txtKode
         Me.LayoutControlItem1.Location = New System.Drawing.Point(0, 24)
         Me.LayoutControlItem1.Name = "LayoutControlItem1"
-        Me.LayoutControlItem1.Size = New System.Drawing.Size(435, 24)
+        Me.LayoutControlItem1.Size = New System.Drawing.Size(439, 24)
         Me.LayoutControlItem1.Text = "Kode"
         Me.LayoutControlItem1.TextSize = New System.Drawing.Size(80, 13)
         '
@@ -609,16 +619,16 @@ Partial Public Class FormBarang
         Me.LayoutControlItem2.Control = Me.txtNama
         Me.LayoutControlItem2.Location = New System.Drawing.Point(0, 48)
         Me.LayoutControlItem2.Name = "LayoutControlItem2"
-        Me.LayoutControlItem2.Size = New System.Drawing.Size(435, 24)
+        Me.LayoutControlItem2.Size = New System.Drawing.Size(439, 24)
         Me.LayoutControlItem2.Text = "Nama"
         Me.LayoutControlItem2.TextSize = New System.Drawing.Size(80, 13)
         '
         'LayoutControlItemIsNonStock
         '
         Me.LayoutControlItemIsNonStock.Control = Me.ckIsNonStok
-        Me.LayoutControlItemIsNonStock.Location = New System.Drawing.Point(192, 157)
+        Me.LayoutControlItemIsNonStock.Location = New System.Drawing.Point(194, 157)
         Me.LayoutControlItemIsNonStock.Name = "LayoutControlItemIsNonStock"
-        Me.LayoutControlItemIsNonStock.Size = New System.Drawing.Size(243, 23)
+        Me.LayoutControlItemIsNonStock.Size = New System.Drawing.Size(245, 23)
         Me.LayoutControlItemIsNonStock.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItemIsNonStock.TextVisible = False
         '
@@ -627,7 +637,7 @@ Partial Public Class FormBarang
         Me.LayoutControlItem4.Control = Me.txtIDKategori
         Me.LayoutControlItem4.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlItem4.Name = "LayoutControlItem4"
-        Me.LayoutControlItem4.Size = New System.Drawing.Size(435, 24)
+        Me.LayoutControlItem4.Size = New System.Drawing.Size(439, 24)
         Me.LayoutControlItem4.Text = "Kategori"
         Me.LayoutControlItem4.TextSize = New System.Drawing.Size(80, 13)
         '
@@ -637,7 +647,7 @@ Partial Public Class FormBarang
         Me.LayoutControlItemP.CustomizationFormText = "layoutControlItem1"
         Me.LayoutControlItemP.Location = New System.Drawing.Point(0, 133)
         Me.LayoutControlItemP.Name = "LayoutControlItemP"
-        Me.LayoutControlItemP.Size = New System.Drawing.Size(161, 24)
+        Me.LayoutControlItemP.Size = New System.Drawing.Size(162, 24)
         Me.LayoutControlItemP.Text = "P"
         Me.LayoutControlItemP.TextLocation = DevExpress.Utils.Locations.Left
         Me.LayoutControlItemP.TextSize = New System.Drawing.Size(80, 13)
@@ -646,9 +656,9 @@ Partial Public Class FormBarang
         '
         Me.LayoutControlItemL.Control = Me.txtL
         Me.LayoutControlItemL.CustomizationFormText = "layoutControlItem2"
-        Me.LayoutControlItemL.Location = New System.Drawing.Point(161, 133)
+        Me.LayoutControlItemL.Location = New System.Drawing.Point(162, 133)
         Me.LayoutControlItemL.Name = "LayoutControlItemL"
-        Me.LayoutControlItemL.Size = New System.Drawing.Size(137, 24)
+        Me.LayoutControlItemL.Size = New System.Drawing.Size(138, 24)
         Me.LayoutControlItemL.Text = "L"
         Me.LayoutControlItemL.TextLocation = DevExpress.Utils.Locations.Left
         Me.LayoutControlItemL.TextSize = New System.Drawing.Size(80, 13)
@@ -657,9 +667,9 @@ Partial Public Class FormBarang
         '
         Me.LayoutControlItemT.Control = Me.txtT
         Me.LayoutControlItemT.CustomizationFormText = "layoutControlItem3"
-        Me.LayoutControlItemT.Location = New System.Drawing.Point(298, 133)
+        Me.LayoutControlItemT.Location = New System.Drawing.Point(300, 133)
         Me.LayoutControlItemT.Name = "LayoutControlItemT"
-        Me.LayoutControlItemT.Size = New System.Drawing.Size(137, 24)
+        Me.LayoutControlItemT.Size = New System.Drawing.Size(139, 24)
         Me.LayoutControlItemT.Text = "T"
         Me.LayoutControlItemT.TextLocation = DevExpress.Utils.Locations.Left
         Me.LayoutControlItemT.TextSize = New System.Drawing.Size(80, 13)
@@ -669,7 +679,7 @@ Partial Public Class FormBarang
         Me.LayoutControlItemIDSatuanTerbesar.Control = Me.txtIDSatuanTerbesar
         Me.LayoutControlItemIDSatuanTerbesar.Location = New System.Drawing.Point(0, 180)
         Me.LayoutControlItemIDSatuanTerbesar.Name = "LayoutControlItemIDSatuanTerbesar"
-        Me.LayoutControlItemIDSatuanTerbesar.Size = New System.Drawing.Size(161, 24)
+        Me.LayoutControlItemIDSatuanTerbesar.Size = New System.Drawing.Size(162, 24)
         Me.LayoutControlItemIDSatuanTerbesar.Text = "Satuan Terbesar"
         Me.LayoutControlItemIDSatuanTerbesar.TextSize = New System.Drawing.Size(80, 13)
         '
@@ -678,70 +688,70 @@ Partial Public Class FormBarang
         Me.LayoutControlItemHargaBeli.Control = Me.txtHargaBeli
         Me.LayoutControlItemHargaBeli.Location = New System.Drawing.Point(0, 204)
         Me.LayoutControlItemHargaBeli.Name = "LayoutControlItemHargaBeli"
-        Me.LayoutControlItemHargaBeli.Size = New System.Drawing.Size(435, 24)
+        Me.LayoutControlItemHargaBeli.Size = New System.Drawing.Size(439, 24)
         Me.LayoutControlItemHargaBeli.Text = "HargaBeli"
         Me.LayoutControlItemHargaBeli.TextSize = New System.Drawing.Size(80, 13)
         '
         'LayoutControlItemIsi
         '
         Me.LayoutControlItemIsi.Control = Me.txtIsi
-        Me.LayoutControlItemIsi.Location = New System.Drawing.Point(161, 180)
+        Me.LayoutControlItemIsi.Location = New System.Drawing.Point(162, 180)
         Me.LayoutControlItemIsi.Name = "LayoutControlItemIsi"
-        Me.LayoutControlItemIsi.Size = New System.Drawing.Size(137, 24)
+        Me.LayoutControlItemIsi.Size = New System.Drawing.Size(138, 24)
         Me.LayoutControlItemIsi.Text = "Isi"
         Me.LayoutControlItemIsi.TextSize = New System.Drawing.Size(80, 13)
         '
         'LayoutControlItemIDSatuanTerkecil
         '
         Me.LayoutControlItemIDSatuanTerkecil.Control = Me.txtIDSatuanTerkecil
-        Me.LayoutControlItemIDSatuanTerkecil.Location = New System.Drawing.Point(298, 180)
+        Me.LayoutControlItemIDSatuanTerkecil.Location = New System.Drawing.Point(300, 180)
         Me.LayoutControlItemIDSatuanTerkecil.Name = "LayoutControlItemIDSatuanTerkecil"
-        Me.LayoutControlItemIDSatuanTerkecil.Size = New System.Drawing.Size(137, 24)
-        Me.LayoutControlItemIDSatuanTerkecil.Text = "Satuan Terkecil"
+        Me.LayoutControlItemIDSatuanTerkecil.Size = New System.Drawing.Size(139, 24)
+        Me.LayoutControlItemIDSatuanTerkecil.Text = "Satuan"
         Me.LayoutControlItemIDSatuanTerkecil.TextSize = New System.Drawing.Size(80, 13)
         '
         'LayoutControlItemUserBuat
         '
         Me.LayoutControlItemUserBuat.Control = Me.txtUserBuat
-        Me.LayoutControlItemUserBuat.Location = New System.Drawing.Point(0, 281)
+        Me.LayoutControlItemUserBuat.Location = New System.Drawing.Point(0, 282)
         Me.LayoutControlItemUserBuat.Name = "LayoutControlItemUserBuat"
-        Me.LayoutControlItemUserBuat.Size = New System.Drawing.Size(224, 24)
+        Me.LayoutControlItemUserBuat.Size = New System.Drawing.Size(226, 24)
         Me.LayoutControlItemUserBuat.Text = "User Buat"
         Me.LayoutControlItemUserBuat.TextSize = New System.Drawing.Size(80, 13)
         '
         'LayoutControlItemUserUbah
         '
         Me.LayoutControlItemUserUbah.Control = Me.txtUserUbah
-        Me.LayoutControlItemUserUbah.Location = New System.Drawing.Point(224, 281)
+        Me.LayoutControlItemUserUbah.Location = New System.Drawing.Point(226, 282)
         Me.LayoutControlItemUserUbah.Name = "LayoutControlItemUserUbah"
-        Me.LayoutControlItemUserUbah.Size = New System.Drawing.Size(211, 24)
+        Me.LayoutControlItemUserUbah.Size = New System.Drawing.Size(213, 24)
         Me.LayoutControlItemUserUbah.Text = "User Ubah"
         Me.LayoutControlItemUserUbah.TextSize = New System.Drawing.Size(80, 13)
         '
         'LayoutControlItemTanggalBuat
         '
         Me.LayoutControlItemTanggalBuat.Control = Me.txtTanggalBuat
-        Me.LayoutControlItemTanggalBuat.Location = New System.Drawing.Point(0, 305)
+        Me.LayoutControlItemTanggalBuat.Location = New System.Drawing.Point(0, 306)
         Me.LayoutControlItemTanggalBuat.Name = "LayoutControlItemTanggalBuat"
-        Me.LayoutControlItemTanggalBuat.Size = New System.Drawing.Size(224, 24)
+        Me.LayoutControlItemTanggalBuat.Size = New System.Drawing.Size(226, 24)
         Me.LayoutControlItemTanggalBuat.Text = "Tanggal Buat"
         Me.LayoutControlItemTanggalBuat.TextSize = New System.Drawing.Size(80, 13)
         '
         'LayoutControlItemTanggalUbah
         '
         Me.LayoutControlItemTanggalUbah.Control = Me.txtTanggalUbah
-        Me.LayoutControlItemTanggalUbah.Location = New System.Drawing.Point(224, 305)
+        Me.LayoutControlItemTanggalUbah.Location = New System.Drawing.Point(226, 306)
         Me.LayoutControlItemTanggalUbah.Name = "LayoutControlItemTanggalUbah"
-        Me.LayoutControlItemTanggalUbah.Size = New System.Drawing.Size(211, 24)
+        Me.LayoutControlItemTanggalUbah.Size = New System.Drawing.Size(213, 24)
         Me.LayoutControlItemTanggalUbah.Text = "Tanggal Ubah"
         Me.LayoutControlItemTanggalUbah.TextSize = New System.Drawing.Size(80, 13)
         '
         'LayoutControlItemGVD
         '
         Me.LayoutControlItemGVD.Control = Me.GridControl1
-        Me.LayoutControlItemGVD.Location = New System.Drawing.Point(435, 0)
+        Me.LayoutControlItemGVD.Location = New System.Drawing.Point(439, 0)
         Me.LayoutControlItemGVD.Name = "LayoutControlItemGVD"
-        Me.LayoutControlItemGVD.Size = New System.Drawing.Size(424, 329)
+        Me.LayoutControlItemGVD.Size = New System.Drawing.Size(428, 330)
         Me.LayoutControlItemGVD.Text = "Detail"
         Me.LayoutControlItemGVD.TextLocation = DevExpress.Utils.Locations.Top
         Me.LayoutControlItemGVD.TextSize = New System.Drawing.Size(80, 13)
@@ -751,35 +761,25 @@ Partial Public Class FormBarang
         Me.LayoutControlItemProsenUp.Control = Me.txtProsenUp
         Me.LayoutControlItemProsenUp.Location = New System.Drawing.Point(0, 228)
         Me.LayoutControlItemProsenUp.Name = "LayoutControlItemProsenUp"
-        Me.LayoutControlItemProsenUp.Size = New System.Drawing.Size(161, 24)
+        Me.LayoutControlItemProsenUp.Size = New System.Drawing.Size(162, 24)
         Me.LayoutControlItemProsenUp.Text = "Up"
         Me.LayoutControlItemProsenUp.TextSize = New System.Drawing.Size(80, 13)
         '
         'LayoutControlItemHargaJual
         '
         Me.LayoutControlItemHargaJual.Control = Me.txtHargaJual
-        Me.LayoutControlItemHargaJual.Location = New System.Drawing.Point(161, 228)
+        Me.LayoutControlItemHargaJual.Location = New System.Drawing.Point(162, 228)
         Me.LayoutControlItemHargaJual.Name = "LayoutControlItemHargaJual"
-        Me.LayoutControlItemHargaJual.Size = New System.Drawing.Size(274, 24)
+        Me.LayoutControlItemHargaJual.Size = New System.Drawing.Size(277, 24)
         Me.LayoutControlItemHargaJual.Text = "HargaJual"
         Me.LayoutControlItemHargaJual.TextSize = New System.Drawing.Size(80, 13)
-        '
-        'txtCatatan
-        '
-        Me.txtCatatan.Location = New System.Drawing.Point(95, 84)
-        Me.txtCatatan.MenuManager = Me.mainRibbonControl
-        Me.txtCatatan.Name = "txtCatatan"
-        Me.txtCatatan.Properties.MaxLength = 250
-        Me.txtCatatan.Size = New System.Drawing.Size(348, 57)
-        Me.txtCatatan.StyleController = Me.dataLayoutControl1
-        Me.txtCatatan.TabIndex = 10
         '
         'FormBarang
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange
-        Me.ClientSize = New System.Drawing.Size(879, 492)
+        Me.ClientSize = New System.Drawing.Size(887, 496)
         Me.Controls.Add(Me.dataLayoutControl1)
         Me.Controls.Add(Me.mainRibbonControl)
         Me.Name = "FormBarang"
@@ -812,6 +812,7 @@ Partial Public Class FormBarang
         CType(Me.txtP.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtL.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtT.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtCatatan.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.layoutControlGroup1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.layoutControlGroup2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -835,7 +836,6 @@ Partial Public Class FormBarang
         CType(Me.LayoutControlItemGVD, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItemProsenUp, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItemHargaJual, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.txtCatatan.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

@@ -79,11 +79,11 @@ Partial Public Class FormKategoriBiaya
         Me.dataLayoutControl1.Controls.Add(Me.txtNama)
         Me.dataLayoutControl1.Controls.Add(Me.txtKode)
         Me.dataLayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dataLayoutControl1.Location = New System.Drawing.Point(0, 143)
+        Me.dataLayoutControl1.Location = New System.Drawing.Point(0, 146)
         Me.dataLayoutControl1.Name = "dataLayoutControl1"
         Me.dataLayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(376, 61, 450, 400)
         Me.dataLayoutControl1.Root = Me.layoutControlGroup1
-        Me.dataLayoutControl1.Size = New System.Drawing.Size(324, 197)
+        Me.dataLayoutControl1.Size = New System.Drawing.Size(332, 198)
         Me.dataLayoutControl1.TabIndex = 0
         '
         'txtParent
@@ -93,7 +93,7 @@ Partial Public Class FormKategoriBiaya
         Me.txtParent.Name = "txtParent"
         Me.txtParent.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.txtParent.Properties.ReadOnly = True
-        Me.txtParent.Size = New System.Drawing.Size(241, 20)
+        Me.txtParent.Size = New System.Drawing.Size(249, 20)
         Me.txtParent.StyleController = Me.dataLayoutControl1
         Me.txtParent.TabIndex = 11
         '
@@ -107,7 +107,7 @@ Partial Public Class FormKategoriBiaya
         Me.mainRibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.mainRibbonPage})
         Me.mainRibbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013
         Me.mainRibbonControl.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.[False]
-        Me.mainRibbonControl.Size = New System.Drawing.Size(324, 143)
+        Me.mainRibbonControl.Size = New System.Drawing.Size(332, 146)
         Me.mainRibbonControl.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden
         '
         'bbiSave
@@ -179,7 +179,7 @@ Partial Public Class FormKategoriBiaya
         Me.txtIDAkunLv2.Name = "txtIDAkunLv2"
         Me.txtIDAkunLv2.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.txtIDAkunLv2.Properties.ReadOnly = True
-        Me.txtIDAkunLv2.Size = New System.Drawing.Size(241, 20)
+        Me.txtIDAkunLv2.Size = New System.Drawing.Size(249, 20)
         Me.txtIDAkunLv2.StyleController = Me.dataLayoutControl1
         Me.txtIDAkunLv2.TabIndex = 10
         '
@@ -190,7 +190,7 @@ Partial Public Class FormKategoriBiaya
         Me.ckIsActive.MenuManager = Me.mainRibbonControl
         Me.ckIsActive.Name = "ckIsActive"
         Me.ckIsActive.Properties.Caption = "Aktif"
-        Me.ckIsActive.Size = New System.Drawing.Size(300, 19)
+        Me.ckIsActive.Size = New System.Drawing.Size(308, 19)
         Me.ckIsActive.StyleController = Me.dataLayoutControl1
         Me.ckIsActive.TabIndex = 9
         '
@@ -199,7 +199,7 @@ Partial Public Class FormKategoriBiaya
         Me.txtKeterangan.Location = New System.Drawing.Point(71, 108)
         Me.txtKeterangan.MenuManager = Me.mainRibbonControl
         Me.txtKeterangan.Name = "txtKeterangan"
-        Me.txtKeterangan.Size = New System.Drawing.Size(241, 20)
+        Me.txtKeterangan.Size = New System.Drawing.Size(249, 20)
         Me.txtKeterangan.StyleController = Me.dataLayoutControl1
         Me.txtKeterangan.TabIndex = 6
         '
@@ -208,7 +208,7 @@ Partial Public Class FormKategoriBiaya
         Me.txtNama.Location = New System.Drawing.Point(71, 84)
         Me.txtNama.MenuManager = Me.mainRibbonControl
         Me.txtNama.Name = "txtNama"
-        Me.txtNama.Size = New System.Drawing.Size(241, 20)
+        Me.txtNama.Size = New System.Drawing.Size(249, 20)
         Me.txtNama.StyleController = Me.dataLayoutControl1
         Me.txtNama.TabIndex = 5
         '
@@ -218,7 +218,7 @@ Partial Public Class FormKategoriBiaya
         Me.txtKode.MenuManager = Me.mainRibbonControl
         Me.txtKode.Name = "txtKode"
         Me.txtKode.Properties.ReadOnly = True
-        Me.txtKode.Size = New System.Drawing.Size(241, 20)
+        Me.txtKode.Size = New System.Drawing.Size(249, 20)
         Me.txtKode.StyleController = Me.dataLayoutControl1
         Me.txtKode.TabIndex = 4
         '
@@ -229,7 +229,7 @@ Partial Public Class FormKategoriBiaya
         Me.layoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.layoutControlGroup2})
         Me.layoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.layoutControlGroup1.Name = "Root"
-        Me.layoutControlGroup1.Size = New System.Drawing.Size(324, 197)
+        Me.layoutControlGroup1.Size = New System.Drawing.Size(332, 198)
         Me.layoutControlGroup1.TextVisible = False
         '
         'layoutControlGroup2
@@ -239,14 +239,14 @@ Partial Public Class FormKategoriBiaya
         Me.layoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.EmptySpaceItem1, Me.LayoutControlItem3, Me.LayoutControlItem6, Me.LayoutControlItem2, Me.LayoutControlItem4, Me.LayoutControlItem5})
         Me.layoutControlGroup2.Location = New System.Drawing.Point(0, 0)
         Me.layoutControlGroup2.Name = "autoGeneratedGroup0"
-        Me.layoutControlGroup2.Size = New System.Drawing.Size(304, 177)
+        Me.layoutControlGroup2.Size = New System.Drawing.Size(312, 178)
         '
         'LayoutControlItem1
         '
         Me.LayoutControlItem1.Control = Me.txtKode
         Me.LayoutControlItem1.Location = New System.Drawing.Point(0, 48)
         Me.LayoutControlItem1.Name = "LayoutControlItem1"
-        Me.LayoutControlItem1.Size = New System.Drawing.Size(304, 24)
+        Me.LayoutControlItem1.Size = New System.Drawing.Size(312, 24)
         Me.LayoutControlItem1.Text = "Kode"
         Me.LayoutControlItem1.TextSize = New System.Drawing.Size(56, 13)
         '
@@ -255,7 +255,7 @@ Partial Public Class FormKategoriBiaya
         Me.EmptySpaceItem1.AllowHotTrack = False
         Me.EmptySpaceItem1.Location = New System.Drawing.Point(0, 143)
         Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Size = New System.Drawing.Size(304, 34)
+        Me.EmptySpaceItem1.Size = New System.Drawing.Size(312, 35)
         Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
         '
         'LayoutControlItem3
@@ -263,7 +263,7 @@ Partial Public Class FormKategoriBiaya
         Me.LayoutControlItem3.Control = Me.txtKeterangan
         Me.LayoutControlItem3.Location = New System.Drawing.Point(0, 96)
         Me.LayoutControlItem3.Name = "LayoutControlItem3"
-        Me.LayoutControlItem3.Size = New System.Drawing.Size(304, 24)
+        Me.LayoutControlItem3.Size = New System.Drawing.Size(312, 24)
         Me.LayoutControlItem3.Text = "Keterangan"
         Me.LayoutControlItem3.TextSize = New System.Drawing.Size(56, 13)
         '
@@ -272,7 +272,7 @@ Partial Public Class FormKategoriBiaya
         Me.LayoutControlItem6.Control = Me.ckIsActive
         Me.LayoutControlItem6.Location = New System.Drawing.Point(0, 120)
         Me.LayoutControlItem6.Name = "LayoutControlItem6"
-        Me.LayoutControlItem6.Size = New System.Drawing.Size(304, 23)
+        Me.LayoutControlItem6.Size = New System.Drawing.Size(312, 23)
         Me.LayoutControlItem6.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem6.TextVisible = False
         '
@@ -281,7 +281,7 @@ Partial Public Class FormKategoriBiaya
         Me.LayoutControlItem2.Control = Me.txtNama
         Me.LayoutControlItem2.Location = New System.Drawing.Point(0, 72)
         Me.LayoutControlItem2.Name = "LayoutControlItem2"
-        Me.LayoutControlItem2.Size = New System.Drawing.Size(304, 24)
+        Me.LayoutControlItem2.Size = New System.Drawing.Size(312, 24)
         Me.LayoutControlItem2.Text = "Nama"
         Me.LayoutControlItem2.TextSize = New System.Drawing.Size(56, 13)
         '
@@ -290,7 +290,7 @@ Partial Public Class FormKategoriBiaya
         Me.LayoutControlItem4.Control = Me.txtIDAkunLv2
         Me.LayoutControlItem4.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlItem4.Name = "LayoutControlItem4"
-        Me.LayoutControlItem4.Size = New System.Drawing.Size(304, 24)
+        Me.LayoutControlItem4.Size = New System.Drawing.Size(312, 24)
         Me.LayoutControlItem4.Text = "Akun Lv 2"
         Me.LayoutControlItem4.TextSize = New System.Drawing.Size(56, 13)
         '
@@ -299,7 +299,7 @@ Partial Public Class FormKategoriBiaya
         Me.LayoutControlItem5.Control = Me.txtParent
         Me.LayoutControlItem5.Location = New System.Drawing.Point(0, 24)
         Me.LayoutControlItem5.Name = "LayoutControlItem5"
-        Me.LayoutControlItem5.Size = New System.Drawing.Size(304, 24)
+        Me.LayoutControlItem5.Size = New System.Drawing.Size(312, 24)
         Me.LayoutControlItem5.Text = "Parent"
         Me.LayoutControlItem5.TextSize = New System.Drawing.Size(56, 13)
         '
@@ -308,7 +308,7 @@ Partial Public Class FormKategoriBiaya
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange
-        Me.ClientSize = New System.Drawing.Size(324, 340)
+        Me.ClientSize = New System.Drawing.Size(332, 344)
         Me.Controls.Add(Me.dataLayoutControl1)
         Me.Controls.Add(Me.mainRibbonControl)
         Me.Name = "FormKategoriBiaya"

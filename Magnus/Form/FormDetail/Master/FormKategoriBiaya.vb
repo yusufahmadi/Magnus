@@ -38,33 +38,39 @@ Partial Public Class FormKategoriBiaya
             ClearData()
         Else
             Dim ds As New DataSet
-            Dim sql As String = "Select * from " & TableName & " Where Left(IDAkunLv2,4)='" & KlasifikasiAkun & "' AND ID='" & Me._ID & "'"
-            ds = Query.ExecuteDataSet(sql)
-            If Not ds Is Nothing Then
-                With ds.Tables(0).Rows(0)
-                    Me._ID = NullToStr(.Item("ID"))
-                    txtIDAkunLv2.EditValue = NullToStr(.Item("IDAkunLv2"))
-                    txtParent.EditValue = NullToStr(.Item("IDParent"))
-                    txtKode.Text = NullToStr(.Item("ID"))
-                    txtNama.Text = NullToStr(.Item("Nama"))
-                    txtKeterangan.Text = NullToStr(.Item("Keterangan"))
-                    ckIsActive.Checked = ObjToBool(.Item("IsActive"))
-                End With
-                ds.Dispose()
-            End If
+            Try
+                Dim sql As String = "Select * from " & TableName & " Where Left(IDAkunLv2,4)='" & KlasifikasiAkun & "' AND ID='" & Me._ID & "'"
+                ds = Query.ExecuteDataSet(sql)
+                If Not ds Is Nothing Then
+                    With ds.Tables(0).Rows(0)
+                        Me._ID = NullToStr(.Item("ID"))
+                        txtIDAkunLv2.EditValue = NullToStr(.Item("IDAkunLv2"))
+                        txtParent.EditValue = NullToStr(.Item("IDParent"))
+                        txtKode.Text = NullToStr(.Item("ID"))
+                        txtNama.Text = NullToStr(.Item("Nama"))
+                        txtKeterangan.Text = NullToStr(.Item("Keterangan"))
+                        ckIsActive.Checked = ObjToBool(.Item("IsActive"))
+                    End With
+                    ds.Dispose()
+                End If
+            Catch ex As Exception
+
+            End Try
         End If
     End Sub
-
+    Dim d As DialogResult = Nothing
     Private Sub bbiSave_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles bbiSave.ItemClick
         If SaveData() Then
             _IsNew = False
+            FormBasic_Load(sender, e)
+            d = DialogResult.OK
             txtKode.Properties.ReadOnly = True
         End If
     End Sub
 
     Private Sub bbiSaveAndClose_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles bbiSaveAndClose.ItemClick
         If SaveData() Then
-            DialogResult = DialogResult.OK
+            d = DialogResult.OK
             Me.Close()
         End If
     End Sub
@@ -72,7 +78,8 @@ Partial Public Class FormKategoriBiaya
     Private Sub bbiSaveAndNew_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles bbiSaveAndNew.ItemClick
         If SaveData() Then
             Me._IsNew = True
-            Me._ID = 0
+            Me._ID = ""
+            d = DialogResult.OK
             ClearData()
             Me.FormBasic_Load(sender, e)
         End If
@@ -80,7 +87,7 @@ Partial Public Class FormKategoriBiaya
 
     Sub ClearData()
         txtKode.Text = ""
-        txtKode.Focus()
+        txtNama.Focus()
         txtNama.Text = ""
         txtKeterangan.Text = ""
         ckIsActive.Checked = True
@@ -134,9 +141,11 @@ Partial Public Class FormKategoriBiaya
             Try
 
                 If _IsNew Then
+
                     sql = "Select Isnull(Max(Substring(ID," & NullToStr(txtIDAkunLv2.EditValue).Length + 1 & ",2)),0)+1 From " & TableName & " Where Right(ID,2)<>'99' And LEFT(ID," & NullToStr(txtIDAkunLv2.EditValue).Length & ")= '" & NullToStr(txtIDAkunLv2.EditValue) & "'"
                     Me._ID = NullToStr(txtIDAkunLv2.EditValue) & Format(ObjToInt(Query.ExecuteScalar(sql)), "00")
-                    sql = "Insert Into " & TableName & " (ID,IDAkunLv2,IDParent,Nama,Keterangan,IsActive,LevelPerkiraan) " & vbCrLf &
+                    txtKode.EditValue = Me._ID
+                    sql = "Insert Into " & TableName & " (ID,IDAkunLv2,IDParent,Nama,Keterangan,IsActive,Level) " & vbCrLf &
                           " Values ('" & Me._ID & "','" & NullToStr(txtIDAkunLv2.EditValue) & "','" & NullToStr(txtParent.EditValue) & "'," & vbCrLf &
                             " '" & txtNama.Text.Trim & "'," & vbCrLf &
                             " '" & txtKeterangan.Text.Trim & "'," & vbCrLf &
@@ -144,12 +153,14 @@ Partial Public Class FormKategoriBiaya
 
                 Else
                     sql = "Update " & TableName & " Set " & vbCrLf &
+                            " ID ='" & NullToStr(txtKode.EditValue) & "',  " & vbCrLf &
                             " IDAkunLv2 ='" & NullToStr(txtIDAkunLv2.EditValue) & "',  " & vbCrLf &
                             " IDParent ='" & NullToStr(txtParent.EditValue) & "',  " & vbCrLf &
                             " Nama ='" & FixApostropi(txtNama.Text).Trim & "',  " & vbCrLf &
                             " Keterangan ='" & FixApostropi(txtKeterangan.Text).Trim & "',  " & vbCrLf &
                             " IsActive= " & Utils.ObjToBit(ckIsActive.Checked) & " " & vbCrLf &
                             " Where ID ='" & Me._ID & "'"
+                    Me._ID = NullToStr(txtKode.EditValue)
                 End If
                 If sql <> "" Then
                     e = Query.Execute(sql)
@@ -174,7 +185,8 @@ Partial Public Class FormKategoriBiaya
         Dim f As Pesan = Query.DeleteDataMaster(TableName, "ID='" & Me._ID & "'")
         If f.Hasil = True Then
             DevExpress.XtraEditors.XtraMessageBox.Show(Me,f.Message)
-            DialogResult = DialogResult.OK
+            d = DialogResult.OK
+            FormBasic_Load(sender, e)
             Me.Close()
         Else
             DevExpress.XtraEditors.XtraMessageBox.Show(Me,f.Message)
@@ -193,5 +205,9 @@ Partial Public Class FormKategoriBiaya
                 End If
             End Using
         End If
+    End Sub
+
+    Private Sub FormKategoriBiaya_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+        DialogResult = d
     End Sub
 End Class

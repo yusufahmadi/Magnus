@@ -13,6 +13,7 @@ Public Class FormMain
         Query.GetApplicationSetting()
         BarStaticItem1.Caption = "Server : " & Ini.BacaIni("Application", "Server", "-")
         BarStaticItem2.Caption = "Database : " & Ini.BacaIni("Application", "Database", "-")
+        BarStaticItem3.Caption = "DB Version : " & Query.ExecuteScalar("Select Versi From DBVersion")
     End Sub
 
     Sub ShowMenuByUserRole(ByVal _IDRole As Integer)
@@ -75,6 +76,13 @@ Public Class FormMain
                     BarButtonMasterKategori.Visibility = DevExpress.XtraBars.BarItemVisibility.Always
                 Else
                     BarButtonMasterKategori.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
+                End If
+            Case "MasterSatuan"
+                BarButtonMasterSatuan.Tag = NamaForm
+                If IsActive AndAlso IsEnable Then
+                    BarButtonMasterSatuan.Visibility = DevExpress.XtraBars.BarItemVisibility.Always
+                Else
+                    BarButtonMasterSatuan.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
                 End If
             Case "MasterKategoriBiaya"
                 BarButtonMasterKategoriBiaya.Tag = NamaForm
@@ -227,24 +235,27 @@ Public Class FormMain
     Sub callDaftar(ByVal _idFrm As FormDaftar.IDForm, ByVal _namaForm As Object)
         Dim frmEntri As FormDaftar = Nothing
         Dim F As Object
-        For Each F In MdiChildren
-            If TypeOf F Is FormDaftar Then
-                If DirectCast(F, Magnus.FormDaftar).NamaForm = _namaForm.ToString Then
-                    frmEntri = F
-                    Exit For
+        Try
+            For Each F In MdiChildren
+                If TypeOf F Is FormDaftar Then
+                    If DirectCast(F, Magnus.FormDaftar).NamaForm = _namaForm.ToString Then
+                        frmEntri = F
+                        Exit For
+                    End If
                 End If
+            Next
+            If frmEntri Is Nothing Then
+                frmEntri = New FormDaftar
+                frmEntri.idFrm = _idFrm 'FormDaftar.IDForm.F_User
+                frmEntri.NamaForm = _namaForm.ToString  '"Daftar User"
+                frmEntri.WindowState = FormWindowState.Maximized
+                frmEntri.MdiParent = Me
             End If
-        Next
-        If frmEntri Is Nothing Then
-            frmEntri = New FormDaftar
-            frmEntri.idFrm = _idFrm 'FormDaftar.IDForm.F_User
-            frmEntri.NamaForm = _namaForm.ToString  '"Daftar User"
-            frmEntri.WindowState = FormWindowState.Maximized
-            frmEntri.MdiParent = Me
-        End If
-        frmEntri.Show()
-        frmEntri.Focus()
-
+            frmEntri.Show()
+            frmEntri.Focus()
+        Catch ex As Exception
+            DevExpress.XtraEditors.XtraMessageBox.Show(Me, ex.Message, NamaAplikasi)
+        End Try
         'Dim doc As Document = TabbedView1.Documents.OfType(Of Document)().Where(Function(d) d.Control = frmEntri).FirstOrDefault()
         'doc.Appearance.HeaderActive.BackColor = TabColor((formCount - 1) Mod 6)
         'doc.Appearance.Header.BackColor = TabColor((formCount - 1) Mod 6)
@@ -277,26 +288,33 @@ Public Class FormMain
         callDaftar(FormDaftar.IDForm.F_TypeTaffeta, BarButtonMasterTypeTaffeta.Tag)
     End Sub
 
+    Private Sub BarButtonItem3_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonMasterSatuan.ItemClick
+        callDaftar(FormDaftar.IDForm.F_MSatuan, BarButtonMasterSatuan.Tag)
+    End Sub
     Sub callDaftarTransaksi(ByVal _idFrmTr As FormDaftarTransaksi.IDFormTr, ByVal _namaForm As Object)
         Dim frmEntri As FormDaftarTransaksi = Nothing
         Dim F As Object
-        For Each F In MdiChildren
-            If TypeOf F Is FormDaftarTransaksi Then
-                If DirectCast(F, Magnus.FormDaftarTransaksi).NamaForm = _namaForm.ToString Then
-                    frmEntri = F
-                    Exit For
+        Try
+            For Each F In MdiChildren
+                If TypeOf F Is FormDaftarTransaksi Then
+                    If DirectCast(F, Magnus.FormDaftarTransaksi).NamaForm = _namaForm.ToString Then
+                        frmEntri = F
+                        Exit For
+                    End If
                 End If
+            Next
+            If frmEntri Is Nothing Then
+                frmEntri = New FormDaftarTransaksi
+                frmEntri.idFrmTr = _idFrmTr 'FormDaftar.IDForm.F_User
+                frmEntri.NamaForm = _namaForm.ToString  '"Daftar User"
+                frmEntri.WindowState = FormWindowState.Maximized
+                frmEntri.MdiParent = Me
             End If
-        Next
-        If frmEntri Is Nothing Then
-            frmEntri = New FormDaftarTransaksi
-            frmEntri.idFrmTr = _idFrmTr 'FormDaftar.IDForm.F_User
-            frmEntri.NamaForm = _namaForm.ToString  '"Daftar User"
-            frmEntri.WindowState = FormWindowState.Maximized
-            frmEntri.MdiParent = Me
-        End If
-        frmEntri.Show()
-        frmEntri.Focus()
+            frmEntri.Show()
+            frmEntri.Focus()
+        Catch ex As Exception
+            DevExpress.XtraEditors.XtraMessageBox.Show(Me, ex.Message, NamaAplikasi)
+        End Try
 
         'Dim doc As Document = TabbedView1.Documents.OfType(Of Document)().Where(Function(d) d.Control = frmEntri).FirstOrDefault()
         'doc.Appearance.HeaderActive.BackColor = TabColor((formCount - 1) Mod 6)
@@ -365,24 +383,27 @@ Public Class FormMain
     Sub callLaporanSp(ByVal _namaForm As String, ByVal SpName As Object, Optional IsAllowSort As Boolean = False)
         Dim frmEntri As FormLapSP = Nothing
         Dim F As Object
-        For Each F In MdiChildren
-            If TypeOf F Is FormLapSP Then
-                If DirectCast(F, Magnus.FormLapSP).Formname = _namaForm.ToString Then
-                    frmEntri = F
-                    Exit For
+        Try
+            For Each F In MdiChildren
+                If TypeOf F Is FormLapSP Then
+                    If DirectCast(F, Magnus.FormLapSP).FormName = _namaForm.ToString Then
+                        frmEntri = F
+                        Exit For
+                    End If
                 End If
+            Next
+            If frmEntri Is Nothing Then
+                frmEntri = New FormLapSP
+                frmEntri.spName = SpName 'FormDaftar.IDForm.F_User
+                frmEntri.FormName = _namaForm.ToString  '"Daftar User"
+                frmEntri.WindowState = FormWindowState.Maximized
+                frmEntri.MdiParent = Me
             End If
-        Next
-        If frmEntri Is Nothing Then
-            frmEntri = New FormLapSP
-            frmEntri.spName = SpName 'FormDaftar.IDForm.F_User
-            frmEntri.Formname = _namaForm.ToString  '"Daftar User"
-            frmEntri.WindowState = FormWindowState.Maximized
-            frmEntri.MdiParent = Me
-        End If
-        frmEntri.Show()
-        frmEntri.Focus()
-
+            frmEntri.Show()
+            frmEntri.Focus()
+        Catch ex As Exception
+            DevExpress.XtraEditors.XtraMessageBox.Show(Me, ex.Message, NamaAplikasi)
+        End Try
         'Dim doc As Document = TabbedView1.Documents.OfType(Of Document)().Where(Function(d) d.Control = frmEntri).FirstOrDefault()
         'doc.Appearance.HeaderActive.BackColor = TabColor((formCount - 1) Mod 6)
         'doc.Appearance.Header.BackColor = TabColor((formCount - 1) Mod 6)
@@ -405,10 +426,11 @@ Public Class FormMain
     End Sub
 
     Private Sub BarButtonLapKasPerKategori_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonLapKasPerKategori.ItemClick
-        callLaporanSp("Laporan Kas Per Kategori", "spLapKasPerKategori")
+        callLaporanSp("Laporan Kas Per Kategori", "spLapKasPerKategori", True)
     End Sub
 
     Private Sub BarButtonLapPerbandinganBiayaBulanan_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonLapPerbandinganBiayaBulanan.ItemClick
         callLaporanSp("Laporan Perbandingan Biaya Bulanan", "spLapPerbandinganBiayaBulanan")
     End Sub
+
 End Class

@@ -17,7 +17,7 @@
     <property name="UseDefaultLookAndFeel">true</property>
     <property name="UseWindowsXPTheme">false</property>
   </property>
-  <property name="Items" iskey="true" value="2">
+  <property name="Items" iskey="true" value="5">
     <property name="Item1" isnull="true" iskey="true">
       <property name="TypeName">LayoutGroup</property>
       <property name="TabbedGroupParentName" />
@@ -69,7 +69,7 @@
         <property name="RowDefinitions" iskey="true" value="0" />
         <property name="ColumnDefinitions" iskey="true" value="0" />
       </property>
-      <property name="Size">@3,Width=800@3,Height=390</property>
+      <property name="Size">@4,Width=1914@3,Height=774</property>
       <property name="ExpandButtonVisible">false</property>
       <property name="ExpandButtonMode">Normal</property>
       <property name="HeaderButtonsLocation">Default</property>
@@ -254,14 +254,254 @@
       <property name="TextToControlDistance">0</property>
       <property name="Spacing">0, 0, 0, 0</property>
       <property name="Padding">2, 2, 2, 2</property>
-      <property name="Location">@1,X=0@1,Y=0</property>
-      <property name="Size">@3,Width=780@3,Height=370</property>
+      <property name="Location">@1,X=0@2,Y=24</property>
+      <property name="Size">@4,Width=1894@3,Height=730</property>
       <property name="ShowInCustomizationForm">true</property>
       <property name="Text">LayoutControlItem1</property>
       <property name="CustomizationFormText">LayoutControlItem1</property>
       <property name="StartNewLine">false</property>
       <property name="Visibility">Always</property>
       <property name="TextLocation">Default</property>
+    </property>
+    <property name="Item3" isnull="true" iskey="true">
+      <property name="TypeName">LayoutControlItem</property>
+      <property name="ControlName">txtT1</property>
+      <property name="AllowHtmlStringInCaption">false</property>
+      <property name="TextAlignMode">UseParentOptions</property>
+      <property name="SizeConstraintsType">Default</property>
+      <property name="Image" isnull="true" />
+      <property name="ImageIndex">-1</property>
+      <property name="ImageAlignment">MiddleLeft</property>
+      <property name="ImageToTextDistance">5</property>
+      <property name="OptionsPrint" isnull="true" iskey="true">
+        <property name="TextToControlDistance">-1</property>
+        <property name="AllowPrint">true</property>
+        <property name="AppearanceItemCaption" isnull="true" iskey="true">
+          <property name="ForeColor" />
+          <property name="BorderColor" />
+          <property name="BackColor" />
+          <property name="BackColor2" />
+          <property name="Font">Tahoma, 8.25pt</property>
+          <property name="GradientMode">Horizontal</property>
+          <property name="FontSizeDelta">0</property>
+          <property name="FontStyleDelta">Regular</property>
+        </property>
+      </property>
+      <property name="MaxSize">@1,Width=0@2,Height=24</property>
+      <property name="MinSize">@2,Width=93@2,Height=24</property>
+      <property name="ControlAlignment">TopLeft</property>
+      <property name="ContentVisible">true</property>
+      <property name="HighlightFocusedItem">Default</property>
+      <property name="TrimClientAreaToControl">true</property>
+      <property name="AllowGlyphSkinning">Default</property>
+      <property name="OptionsCustomization" isnull="true" iskey="true">
+        <property name="AllowDrag">Default</property>
+        <property name="AllowDrop">Default</property>
+      </property>
+      <property name="OptionsTableLayoutItem" isnull="true" iskey="true">
+        <property name="RowIndex">0</property>
+        <property name="RowSpan">1</property>
+        <property name="ColumnIndex">0</property>
+        <property name="ColumnSpan">1</property>
+      </property>
+      <property name="OptionsToolTip" isnull="true" iskey="true">
+        <property name="ToolTip" />
+        <property name="ToolTipTitle" />
+        <property name="ToolTipIconType">None</property>
+        <property name="ImmediateToolTip">false</property>
+        <property name="AllowHtmlString">Default</property>
+        <property name="IconToolTip" />
+        <property name="IconToolTipTitle" />
+        <property name="IconToolTipIconType">None</property>
+        <property name="EnableIconToolTip">true</property>
+        <property name="IconImmediateToolTip">false</property>
+        <property name="IconAllowHtmlString">Default</property>
+      </property>
+      <property name="Name">T1</property>
+      <property name="AppearanceItemCaption" isnull="true" iskey="true">
+        <property name="ForeColor" />
+        <property name="BorderColor" />
+        <property name="BackColor" />
+        <property name="BackColor2" />
+        <property name="Font">Tahoma, 8.25pt</property>
+        <property name="GradientMode">Horizontal</property>
+        <property name="FontSizeDelta">0</property>
+        <property name="FontStyleDelta">Regular</property>
+      </property>
+      <property name="ParentName">Root</property>
+      <property name="TextVisible">true</property>
+      <property name="TextSize">@2,Width=36@2,Height=13</property>
+      <property name="TextToControlDistance">3</property>
+      <property name="Spacing">0, 0, 0, 0</property>
+      <property name="Padding">2, 2, 2, 2</property>
+      <property name="Location">@1,X=0@1,Y=0</property>
+      <property name="Size">@3,Width=182@2,Height=24</property>
+      <property name="ShowInCustomizationForm">true</property>
+      <property name="Text">Tgl Dari</property>
+      <property name="CustomizationFormText">T1</property>
+      <property name="StartNewLine">false</property>
+      <property name="Visibility">Always</property>
+      <property name="TextLocation">Default</property>
+    </property>
+    <property name="Item4" isnull="true" iskey="true">
+      <property name="TypeName">LayoutControlItem</property>
+      <property name="ControlName">txtT2</property>
+      <property name="AllowHtmlStringInCaption">false</property>
+      <property name="TextAlignMode">UseParentOptions</property>
+      <property name="SizeConstraintsType">Default</property>
+      <property name="Image" isnull="true" />
+      <property name="ImageIndex">-1</property>
+      <property name="ImageAlignment">MiddleLeft</property>
+      <property name="ImageToTextDistance">5</property>
+      <property name="OptionsPrint" isnull="true" iskey="true">
+        <property name="TextToControlDistance">-1</property>
+        <property name="AllowPrint">true</property>
+        <property name="AppearanceItemCaption" isnull="true" iskey="true">
+          <property name="ForeColor" />
+          <property name="BorderColor" />
+          <property name="BackColor" />
+          <property name="BackColor2" />
+          <property name="Font">Tahoma, 8.25pt</property>
+          <property name="GradientMode">Horizontal</property>
+          <property name="FontSizeDelta">0</property>
+          <property name="FontStyleDelta">Regular</property>
+        </property>
+      </property>
+      <property name="MaxSize">@1,Width=0@2,Height=24</property>
+      <property name="MinSize">@2,Width=93@2,Height=24</property>
+      <property name="ControlAlignment">TopLeft</property>
+      <property name="ContentVisible">true</property>
+      <property name="HighlightFocusedItem">Default</property>
+      <property name="TrimClientAreaToControl">true</property>
+      <property name="AllowGlyphSkinning">Default</property>
+      <property name="OptionsCustomization" isnull="true" iskey="true">
+        <property name="AllowDrag">Default</property>
+        <property name="AllowDrop">Default</property>
+      </property>
+      <property name="OptionsTableLayoutItem" isnull="true" iskey="true">
+        <property name="RowIndex">0</property>
+        <property name="RowSpan">1</property>
+        <property name="ColumnIndex">0</property>
+        <property name="ColumnSpan">1</property>
+      </property>
+      <property name="OptionsToolTip" isnull="true" iskey="true">
+        <property name="ToolTip" />
+        <property name="ToolTipTitle" />
+        <property name="ToolTipIconType">None</property>
+        <property name="ImmediateToolTip">false</property>
+        <property name="AllowHtmlString">Default</property>
+        <property name="IconToolTip" />
+        <property name="IconToolTipTitle" />
+        <property name="IconToolTipIconType">None</property>
+        <property name="EnableIconToolTip">true</property>
+        <property name="IconImmediateToolTip">false</property>
+        <property name="IconAllowHtmlString">Default</property>
+      </property>
+      <property name="Name">T2</property>
+      <property name="AppearanceItemCaption" isnull="true" iskey="true">
+        <property name="ForeColor" />
+        <property name="BorderColor" />
+        <property name="BackColor" />
+        <property name="BackColor2" />
+        <property name="Font">Tahoma, 8.25pt</property>
+        <property name="GradientMode">Horizontal</property>
+        <property name="FontSizeDelta">0</property>
+        <property name="FontStyleDelta">Regular</property>
+      </property>
+      <property name="ParentName">Root</property>
+      <property name="TextVisible">true</property>
+      <property name="TextSize">@2,Width=36@2,Height=13</property>
+      <property name="TextToControlDistance">3</property>
+      <property name="Spacing">0, 0, 0, 0</property>
+      <property name="Padding">2, 2, 2, 2</property>
+      <property name="Location">@3,X=182@1,Y=0</property>
+      <property name="Size">@3,Width=182@2,Height=24</property>
+      <property name="ShowInCustomizationForm">true</property>
+      <property name="Text">Sampai</property>
+      <property name="CustomizationFormText">T2</property>
+      <property name="StartNewLine">false</property>
+      <property name="Visibility">Always</property>
+      <property name="TextLocation">Default</property>
+    </property>
+    <property name="Item5" isnull="true" iskey="true">
+      <property name="TypeName">EmptySpaceItem</property>
+      <property name="TextVisible">false</property>
+      <property name="TextToControlDistance">0</property>
+      <property name="TextLocation">Default</property>
+      <property name="ContentVisible">true</property>
+      <property name="HighlightFocusedItem">Default</property>
+      <property name="TrimClientAreaToControl">true</property>
+      <property name="ControlAlignment">TopLeft</property>
+      <property name="Image" isnull="true" />
+      <property name="ImageAlignment">MiddleLeft</property>
+      <property name="ImageIndex">-1</property>
+      <property name="ImageToTextDistance">5</property>
+      <property name="MinSize">@2,Width=10@2,Height=10</property>
+      <property name="MaxSize">@1,Width=0@1,Height=0</property>
+      <property name="ControlName" isnull="true" />
+      <property name="AllowHtmlStringInCaption">false</property>
+      <property name="TextAlignMode">UseParentOptions</property>
+      <property name="SizeConstraintsType">Default</property>
+      <property name="OptionsPrint" isnull="true" iskey="true">
+        <property name="TextToControlDistance">-1</property>
+        <property name="AllowPrint">true</property>
+        <property name="AppearanceItemCaption" isnull="true" iskey="true">
+          <property name="ForeColor" />
+          <property name="BorderColor" />
+          <property name="BackColor" />
+          <property name="BackColor2" />
+          <property name="Font">Tahoma, 8.25pt</property>
+          <property name="GradientMode">Horizontal</property>
+          <property name="FontSizeDelta">0</property>
+          <property name="FontStyleDelta">Regular</property>
+        </property>
+      </property>
+      <property name="AllowGlyphSkinning">Default</property>
+      <property name="OptionsCustomization" isnull="true" iskey="true">
+        <property name="AllowDrag">Default</property>
+        <property name="AllowDrop">Default</property>
+      </property>
+      <property name="OptionsTableLayoutItem" isnull="true" iskey="true">
+        <property name="RowIndex">0</property>
+        <property name="RowSpan">1</property>
+        <property name="ColumnIndex">0</property>
+        <property name="ColumnSpan">1</property>
+      </property>
+      <property name="OptionsToolTip" isnull="true" iskey="true">
+        <property name="ToolTip" />
+        <property name="ToolTipTitle" />
+        <property name="ToolTipIconType">None</property>
+        <property name="ImmediateToolTip">false</property>
+        <property name="AllowHtmlString">Default</property>
+        <property name="IconToolTip" />
+        <property name="IconToolTipTitle" />
+        <property name="IconToolTipIconType">None</property>
+        <property name="EnableIconToolTip">true</property>
+        <property name="IconImmediateToolTip">false</property>
+        <property name="IconAllowHtmlString">Default</property>
+      </property>
+      <property name="Name">item0</property>
+      <property name="AppearanceItemCaption" isnull="true" iskey="true">
+        <property name="ForeColor" />
+        <property name="BorderColor" />
+        <property name="BackColor" />
+        <property name="BackColor2" />
+        <property name="Font">Tahoma, 8.25pt</property>
+        <property name="GradientMode">Horizontal</property>
+        <property name="FontSizeDelta">0</property>
+        <property name="FontStyleDelta">Regular</property>
+      </property>
+      <property name="ParentName">Root</property>
+      <property name="TextSize">@1,Width=0@1,Height=0</property>
+      <property name="Spacing">0, 0, 0, 0</property>
+      <property name="Padding">2, 2, 2, 2</property>
+      <property name="Location">@3,X=364@1,Y=0</property>
+      <property name="Size">@4,Width=1530@2,Height=24</property>
+      <property name="ShowInCustomizationForm">true</property>
+      <property name="Text">item0</property>
+      <property name="CustomizationFormText">item0</property>
+      <property name="StartNewLine">false</property>
+      <property name="Visibility">Always</property>
     </property>
   </property>
 </XtraSerializer>

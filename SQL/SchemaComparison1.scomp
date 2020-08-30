@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!-- Devart (www.devart.com), compare document file -->
+<!-- Modifying this generated file will probably render it invalid -->
+<CompareDocument>
+  <Properties>
+    <DatabaseProvider>aa8afe9c-7d62-4564-b477-c12e62e0f440</DatabaseProvider>
+    <ProviderVersion>1.10.265.0</ProviderVersion>
+    <SchemaVersion>1.1</SchemaVersion>
+  </Properties>
+  <Source Type="Database">
+    <DataConnection>(local)</DataConnection>
+    <ConnectionString>Data Source=(local);Integrated Security=False;User ID=sa;</ConnectionString>
+    <Schema>Magnus</Schema>
+  </Source>
+  <Target Type="Database">
+    <DataConnection>(local)</DataConnection>
+    <ConnectionString>Data Source=(local);Integrated Security=False;User ID=sa;</ConnectionString>
+    <Schema>Magnus20</Schema>
+  </Target>
+  <Filter Value="0" />
+  <ComparisonOptions>
+    <IgnoreExtendedProperties>false</IgnoreExtendedProperties>
+    <IgnoreIndexes>false</IgnoreIndexes>
+    <IgnoreStatistics>false</IgnoreStatistics>
+    <IgnoreLogins>true</IgnoreLogins>
+    <ForceColumnOrder>false</ForceColumnOrder>
+    <IgnoreCheckConstraints>false</IgnoreCheckConstraints>
+    <IgnoreCollations>false</IgnoreCollations>
+    <IgnoreDefaultConstraints>false</IgnoreDefaultConstraints>
+    <IgnoreFilegroupsPartitionSchemes>true</IgnoreFilegroupsPartitionSchemes>
+    <IgnoreForeignKeys>false</IgnoreForeignKeys>
+    <IgnoreIdentitySeedIncrementValues>false</IgnoreIdentitySeedIncrementValues>
+    <IgnorePrimaryKeys>false</IgnorePrimaryKeys>
+    <IgnoreUniqueKeys>false</IgnoreUniqueKeys>
+    <DecryptEncryptedObjects>true</DecryptEncryptedObjects>
+    <IgnoreCase>false</IgnoreCase>
+    <IgnoreComments>false</IgnoreComments>
+    <IgnoreWhiteSpace>false</IgnoreWhiteSpace>
+    <IgnoreAuthorizationOnSchemaObjects>false</IgnoreAuthorizationOnSchemaObjects>
+    <IgnorePermissions>false</IgnorePermissions>
+    <IgnoreTriggerFireOrder>false</IgnoreTriggerFireOrder>
+    <IgnoreDMLTriggers>false</IgnoreDMLTriggers>
+  </ComparisonOptions>
+  <ObjectFilter>
+    <Include>Table</Include>
+    <Include>View</Include>
+    <Include>Procedure</Include>
+    <Include>Function</Include>
+    <Include>User</Include>
+    <Include>Role</Include>
+    <Include>ApplicationRole</Include>
+    <Include>Rule</Include>
+    <Include>Default</Include>
+    <Include>UserDefinedType</Include>
+    <Include>Schema</Include>
+    <Include>XmlSchemaCollection</Include>
+    <Include>UserDataType</Include>
+    <Include>ClrType</Include>
+    <Include>UserTableType</Include>
+  </ObjectFilter>
+  <GroupType Value="Status" />
+  <ModifiedObjects />
+  <SynchronizationOptions>
+    <PropertyValue Name="SynchronizeType">2</PropertyValue>
+    <PropertyValue Name="OpenScriptInEditor">false</PropertyValue>
+    <PropertyValue Name="RefreshAfterSynchronization">false</PropertyValue>
+    <PropertyValue Name="BackupDatabase">true</PropertyValue>
+    <PropertyValue Name="ExecuteAsSingleTransaction">true</PropertyValue>
+    <PropertyValue Name="UseCommitMode">false</PropertyValue>
+    <PropertyValue Name="CommitPageLength">200</PropertyValue>
+    <PropertyValue Name="UseUnicode">false</PropertyValue>
+    <PropertyValue Name="UseSchemaNamePrefix">false</PropertyValue>
+  </SynchronizationOptions>
+  <Mapping ExcludeUnmappedSchemas="False">
+    <Schemas>
+      <Object SourceName="dbo" TargetName="dbo" State="DefaultMapped" />
+      <Object SourceName="guest" TargetName="guest" State="DefaultMapped" />
+    </Schemas>
+  </Mapping>
+</CompareDocument>

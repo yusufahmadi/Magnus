@@ -22,10 +22,10 @@ Partial Class FormLapSP
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim WindowsUIButtonImageOptions1 As DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions = New DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions()
+        Dim WindowsUIButtonImageOptions7 As DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions = New DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormLapSP))
-        Dim WindowsUIButtonImageOptions2 As DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions = New DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions()
-        Dim WindowsUIButtonImageOptions3 As DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions = New DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions()
+        Dim WindowsUIButtonImageOptions8 As DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions = New DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions()
+        Dim WindowsUIButtonImageOptions9 As DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions = New DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions()
         Me.windowsUIButtonPanelMain = New DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel()
         Me.LC1 = New DevExpress.XtraLayout.LayoutControl()
         Me.XtraTabControl1 = New DevExpress.XtraTab.XtraTabControl()
@@ -62,12 +62,10 @@ Partial Class FormLapSP
         Me.windowsUIButtonPanelMain.AppearanceButton.Pressed.Options.UseFont = True
         Me.windowsUIButtonPanelMain.AppearanceButton.Pressed.Options.UseForeColor = True
         Me.windowsUIButtonPanelMain.BackColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(63, Byte), Integer), CType(CType(63, Byte), Integer))
-        WindowsUIButtonImageOptions1.Image = CType(resources.GetObject("WindowsUIButtonImageOptions1.Image"), System.Drawing.Image)
-        WindowsUIButtonImageOptions1.ImageUri.Uri = "SaveAndClose;Size32x32;GrayScaled"
-        WindowsUIButtonImageOptions2.Image = CType(resources.GetObject("WindowsUIButtonImageOptions2.Image"), System.Drawing.Image)
-        WindowsUIButtonImageOptions3.ImageUri.Uri = "Edit/Delete;Size32x32;GrayScaled"
-        Me.windowsUIButtonPanelMain.Buttons.AddRange(New DevExpress.XtraEditors.ButtonPanel.IBaseButton() {New DevExpress.XtraBars.Docking2010.WindowsUISeparator(), New DevExpress.XtraBars.Docking2010.WindowsUIButton("Refresh", True, WindowsUIButtonImageOptions1), New DevExpress.XtraBars.Docking2010.WindowsUISeparator(), New DevExpress.XtraBars.Docking2010.WindowsUIButton("Cetak", True, WindowsUIButtonImageOptions2), New DevExpress.XtraBars.Docking2010.WindowsUISeparator(), New DevExpress.XtraBars.Docking2010.WindowsUIButton("Close", True, WindowsUIButtonImageOptions3)})
-        Me.windowsUIButtonPanelMain.ContentAlignment = System.Drawing.ContentAlignment.MiddleLeft
+        WindowsUIButtonImageOptions7.Image = CType(resources.GetObject("WindowsUIButtonImageOptions7.Image"), System.Drawing.Image)
+        WindowsUIButtonImageOptions8.Image = CType(resources.GetObject("WindowsUIButtonImageOptions8.Image"), System.Drawing.Image)
+        WindowsUIButtonImageOptions9.Image = CType(resources.GetObject("WindowsUIButtonImageOptions9.Image"), System.Drawing.Image)
+        Me.windowsUIButtonPanelMain.Buttons.AddRange(New DevExpress.XtraEditors.ButtonPanel.IBaseButton() {New DevExpress.XtraBars.Docking2010.WindowsUIButton("Refresh", True, WindowsUIButtonImageOptions7), New DevExpress.XtraBars.Docking2010.WindowsUISeparator(), New DevExpress.XtraBars.Docking2010.WindowsUIButton("Cetak", True, WindowsUIButtonImageOptions8), New DevExpress.XtraBars.Docking2010.WindowsUISeparator(), New DevExpress.XtraBars.Docking2010.WindowsUIButton("Close", True, WindowsUIButtonImageOptions9)})
         Me.windowsUIButtonPanelMain.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.windowsUIButtonPanelMain.EnableImageTransparency = True
         Me.windowsUIButtonPanelMain.ForeColor = System.Drawing.Color.White
@@ -79,7 +77,6 @@ Partial Class FormLapSP
         Me.windowsUIButtonPanelMain.Size = New System.Drawing.Size(800, 60)
         Me.windowsUIButtonPanelMain.TabIndex = 6
         Me.windowsUIButtonPanelMain.Text = "windowsUIButtonPanelMain"
-        Me.windowsUIButtonPanelMain.UseButtonBackgroundImages = False
         '
         'LC1
         '
@@ -152,6 +149,8 @@ Partial Class FormLapSP
         Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.LC1)
         Me.Controls.Add(Me.windowsUIButtonPanelMain)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "FormLapSP"
         Me.Text = "FormLap"
         CType(Me.LC1, System.ComponentModel.ISupportInitialize).EndInit()

@@ -186,6 +186,8 @@ Partial Class FormDaftar
         Me.Controls.Add(Me.barDockControlRight)
         Me.Controls.Add(Me.barDockControlBottom)
         Me.Controls.Add(Me.barDockControlTop)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "FormDaftar"
         Me.Text = "FormDaftar"
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).EndInit()

@@ -67,78 +67,7 @@ Public Class FungsiControl
         'End If
         LayOutKu = LayoutsHelper.FolderLayouts & frm.ToString & ".xml"
     End Function
-    'Public Shared Sub SetForm(ByRef frm As XtraForm)
-    '    Try
-    '        Dim ico As Icon = Nothing
-    '        If Exists(Application.StartupPath & "\icon.ico") Then
-    '            ico = New Icon(Application.StartupPath & "\icon.ico")
-    '            frm.Icon = ico
-    '        End If
-    '        Dim cControl As Control
-    '        For Each cControl In frm.Controls
-    '            If (TypeOf cControl Is SimpleButton) Then
-    '                SetButton(trycast(cControl, SimpleButton), button_.cmdLainnya)
-    '            ElseIf (TypeOf cControl Is TextEdit) Then
-    '                SetText(trycast(cControl, TextEdit))
-    '            ElseIf (TypeOf cControl Is DateEdit) Then
-    '                SetDateEdit(trycast(cControl, DateEdit))
-    '            ElseIf (TypeOf cControl Is LabelControl) Then
-    '                SetLabel(trycast(cControl, LabelControl))
-    '            ElseIf (TypeOf cControl Is GridControl) Then
-    '                SetGrid(trycast(cControl, GridControl))
-    '            ElseIf (TypeOf cControl Is PanelControl) Then
-    '                ControlInPanelControl(trycast(cControl, PanelControl))
-    '            ElseIf (TypeOf cControl Is LayoutControl) Then
-    '                SetLayoutControl(trycast(cControl, LayoutControl))
-    '                ControlInLayOutControl(trycast(cControl, LayoutControl))
-    '            ElseIf (TypeOf cControl Is XtraTabControl) Then
-    '                ControlInXtraTabControl(trycast(cControl, XtraTabControl))
-    '            End If
-    '        Next cControl
 
-    '        'Add Handler
-    '        AddHandler frm.Activated, AddressOf Form_Activated
-    '    Catch ex As Exception
-    '        'FxMessage("Error : " & ex.Message, mPublic.NamaAplikasi, MessageBoxButtons.OK, MessageBoxIcon.Error, , , ex.StackTrace)
-    '        'Resume Next
-    '    End Try
-    'End Sub
-
-    'Public Shared Sub SetButton(ByRef btn As SimpleButton, ByVal tipe As button_, Optional ByVal includehandles As Boolean = True)
-    '    If includehandles Then
-    '        'Add Handler
-    '        AddHandler btn.MouseHover, AddressOf SimpleButton_MouseHover
-    '        AddHandler btn.MouseLeave, AddressOf SimpleButton_MouseLeave
-    '    End If
-
-    '    'Properties
-    '    'Style
-    '    Dim FileImage As String = mPublic.AppPath & "\System\Image\" & CStr(tipe.ToString) & ".ico"
-    '    Try
-    '        If System.IO.File.Exists(FileImage) Then
-    '            btn.Image = Image.FromFile(FileImage)
-    '        Else
-    '            If Not DirectoryExists(mPublic.AppPath & "\System\Image") Then
-    '                System.IO.Directory.CreateDirectory(mPublic.AppPath & "\System\Image")
-    '            End If
-    '            btn.Image = Image.FromFile(mPublic.AppPath & "\System\Image\command.ico")
-    '        End If
-
-    '        btn.Cursor = Cursors.Hand
-    '        btn.BackColor = Color.Snow
-    '        btn.Appearance.BackColor2 = Color.PowderBlue
-    '        btn.Appearance.BorderColor = SystemColors.ButtonFace
-    '        btn.Appearance.ForeColor = Color.FromName(Ini.BacaIni("Button", "ForeColor", "Black"))
-    '        btn.Appearance.Options.UseBackColor = True
-    '        btn.Appearance.Options.UseBorderColor = True
-    '        btn.Appearance.Options.UseFont = True
-    '        btn.Appearance.Options.UseForeColor = True
-    '        btn.LookAndFeel.UseDefaultLookAndFeel = True
-    '        btn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Default
-    '    Catch ex As Exception
-    '        XtraMessageBox.Show(ex.Message & vbCrLf & FileImage)
-    '    End Try
-    'End Sub
     Public Shared Function CekAngka(ByVal v1)
         If InStr(1, "1234567890," & Chr(8), Chr(v1)) Then
             CekAngka = v1

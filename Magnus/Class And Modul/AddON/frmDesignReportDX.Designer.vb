@@ -125,10 +125,10 @@ Namespace Reporting
             Me.XrDesignDockManager1 = New DevExpress.XtraReports.UserDesigner.XRDesignDockManager(Me.components)
             Me.panelContainer1 = New DevExpress.XtraBars.Docking.DockPanel()
             Me.panelContainer2 = New DevExpress.XtraBars.Docking.DockPanel()
-            Me.FieldListDockPanel1 = New DevExpress.XtraReports.UserDesigner.FieldListDockPanel()
-            Me.FieldListDockPanel1_Container = New DevExpress.XtraReports.UserDesigner.DesignControlContainer()
             Me.ReportExplorerDockPanel1 = New DevExpress.XtraReports.UserDesigner.ReportExplorerDockPanel()
             Me.ReportExplorerDockPanel1_Container = New DevExpress.XtraReports.UserDesigner.DesignControlContainer()
+            Me.FieldListDockPanel1 = New DevExpress.XtraReports.UserDesigner.FieldListDockPanel()
+            Me.FieldListDockPanel1_Container = New DevExpress.XtraReports.UserDesigner.DesignControlContainer()
             Me.panelContainer3 = New DevExpress.XtraBars.Docking.DockPanel()
             Me.PropertyGridDockPanel1 = New DevExpress.XtraReports.UserDesigner.PropertyGridDockPanel()
             Me.PropertyGridDockPanel1_Container = New DevExpress.XtraReports.UserDesigner.DesignControlContainer()
@@ -147,8 +147,8 @@ Namespace Reporting
             CType(Me.XrDesignDockManager1, System.ComponentModel.ISupportInitialize).BeginInit()
             Me.panelContainer1.SuspendLayout()
             Me.panelContainer2.SuspendLayout()
-            Me.FieldListDockPanel1.SuspendLayout()
             Me.ReportExplorerDockPanel1.SuspendLayout()
+            Me.FieldListDockPanel1.SuspendLayout()
             Me.panelContainer3.SuspendLayout()
             Me.PropertyGridDockPanel1.SuspendLayout()
             Me.ReportGalleryDockPanel1.SuspendLayout()
@@ -949,31 +949,31 @@ Namespace Reporting
             Me.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top
             Me.barDockControlTop.Location = New System.Drawing.Point(0, 0)
             Me.barDockControlTop.Manager = Me.XrDesignBarManager1
-            Me.barDockControlTop.Size = New System.Drawing.Size(882, 84)
+            Me.barDockControlTop.Size = New System.Drawing.Size(882, 80)
             '
             'barDockControlBottom
             '
             Me.barDockControlBottom.CausesValidation = False
             Me.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom
-            Me.barDockControlBottom.Location = New System.Drawing.Point(0, 512)
+            Me.barDockControlBottom.Location = New System.Drawing.Point(0, 515)
             Me.barDockControlBottom.Manager = Me.XrDesignBarManager1
-            Me.barDockControlBottom.Size = New System.Drawing.Size(882, 25)
+            Me.barDockControlBottom.Size = New System.Drawing.Size(882, 22)
             '
             'barDockControlLeft
             '
             Me.barDockControlLeft.CausesValidation = False
             Me.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left
-            Me.barDockControlLeft.Location = New System.Drawing.Point(0, 84)
+            Me.barDockControlLeft.Location = New System.Drawing.Point(0, 80)
             Me.barDockControlLeft.Manager = Me.XrDesignBarManager1
-            Me.barDockControlLeft.Size = New System.Drawing.Size(29, 428)
+            Me.barDockControlLeft.Size = New System.Drawing.Size(24, 435)
             '
             'barDockControlRight
             '
             Me.barDockControlRight.CausesValidation = False
             Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
-            Me.barDockControlRight.Location = New System.Drawing.Point(882, 84)
+            Me.barDockControlRight.Location = New System.Drawing.Point(882, 80)
             Me.barDockControlRight.Manager = Me.XrDesignBarManager1
-            Me.barDockControlRight.Size = New System.Drawing.Size(0, 428)
+            Me.barDockControlRight.Size = New System.Drawing.Size(0, 435)
             '
             'XrDesignDockManager1
             '
@@ -989,10 +989,10 @@ Namespace Reporting
             Me.panelContainer1.Controls.Add(Me.panelContainer3)
             Me.panelContainer1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Right
             Me.panelContainer1.ID = New System.Guid("2483d067-acb5-4925-9895-6663cb7126ad")
-            Me.panelContainer1.Location = New System.Drawing.Point(680, 84)
+            Me.panelContainer1.Location = New System.Drawing.Point(680, 80)
             Me.panelContainer1.Name = "panelContainer1"
             Me.panelContainer1.OriginalSize = New System.Drawing.Size(202, 200)
-            Me.panelContainer1.Size = New System.Drawing.Size(202, 428)
+            Me.panelContainer1.Size = New System.Drawing.Size(202, 435)
             Me.panelContainer1.Text = "panelContainer1"
             '
             'panelContainer2
@@ -1004,46 +1004,46 @@ Namespace Reporting
             Me.panelContainer2.ID = New System.Guid("8cf9c772-4712-46ae-9846-4676bbf16444")
             Me.panelContainer2.Location = New System.Drawing.Point(0, 0)
             Me.panelContainer2.Name = "panelContainer2"
-            Me.panelContainer2.OriginalSize = New System.Drawing.Size(200, 200)
-            Me.panelContainer2.Size = New System.Drawing.Size(202, 214)
+            Me.panelContainer2.OriginalSize = New System.Drawing.Size(202, 214)
+            Me.panelContainer2.Size = New System.Drawing.Size(202, 218)
             Me.panelContainer2.Tabbed = True
             Me.panelContainer2.Text = "panelContainer2"
-            '
-            'FieldListDockPanel1
-            '
-            Me.FieldListDockPanel1.Controls.Add(Me.FieldListDockPanel1_Container)
-            Me.FieldListDockPanel1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill
-            Me.FieldListDockPanel1.ID = New System.Guid("faf69838-a93f-4114-83e8-d0d09cc5ce95")
-            Me.FieldListDockPanel1.Location = New System.Drawing.Point(5, 23)
-            Me.FieldListDockPanel1.Name = "FieldListDockPanel1"
-            Me.FieldListDockPanel1.OriginalSize = New System.Drawing.Size(200, 200)
-            Me.FieldListDockPanel1.Size = New System.Drawing.Size(193, 158)
-            Me.FieldListDockPanel1.Text = "Field List"
-            '
-            'FieldListDockPanel1_Container
-            '
-            Me.FieldListDockPanel1_Container.Location = New System.Drawing.Point(0, 0)
-            Me.FieldListDockPanel1_Container.Name = "FieldListDockPanel1_Container"
-            Me.FieldListDockPanel1_Container.Size = New System.Drawing.Size(193, 158)
-            Me.FieldListDockPanel1_Container.TabIndex = 0
             '
             'ReportExplorerDockPanel1
             '
             Me.ReportExplorerDockPanel1.Controls.Add(Me.ReportExplorerDockPanel1_Container)
             Me.ReportExplorerDockPanel1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill
             Me.ReportExplorerDockPanel1.ID = New System.Guid("fb3ec6cc-3b9b-4b9c-91cf-cff78c1edbf1")
-            Me.ReportExplorerDockPanel1.Location = New System.Drawing.Point(5, 23)
+            Me.ReportExplorerDockPanel1.Location = New System.Drawing.Point(5, 38)
             Me.ReportExplorerDockPanel1.Name = "ReportExplorerDockPanel1"
-            Me.ReportExplorerDockPanel1.OriginalSize = New System.Drawing.Size(200, 200)
-            Me.ReportExplorerDockPanel1.Size = New System.Drawing.Size(193, 158)
+            Me.ReportExplorerDockPanel1.OriginalSize = New System.Drawing.Size(193, 158)
+            Me.ReportExplorerDockPanel1.Size = New System.Drawing.Size(193, 147)
             Me.ReportExplorerDockPanel1.Text = "Report Explorer"
             '
             'ReportExplorerDockPanel1_Container
             '
             Me.ReportExplorerDockPanel1_Container.Location = New System.Drawing.Point(0, 0)
             Me.ReportExplorerDockPanel1_Container.Name = "ReportExplorerDockPanel1_Container"
-            Me.ReportExplorerDockPanel1_Container.Size = New System.Drawing.Size(193, 158)
+            Me.ReportExplorerDockPanel1_Container.Size = New System.Drawing.Size(193, 147)
             Me.ReportExplorerDockPanel1_Container.TabIndex = 0
+            '
+            'FieldListDockPanel1
+            '
+            Me.FieldListDockPanel1.Controls.Add(Me.FieldListDockPanel1_Container)
+            Me.FieldListDockPanel1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill
+            Me.FieldListDockPanel1.ID = New System.Guid("faf69838-a93f-4114-83e8-d0d09cc5ce95")
+            Me.FieldListDockPanel1.Location = New System.Drawing.Point(5, 38)
+            Me.FieldListDockPanel1.Name = "FieldListDockPanel1"
+            Me.FieldListDockPanel1.OriginalSize = New System.Drawing.Size(193, 158)
+            Me.FieldListDockPanel1.Size = New System.Drawing.Size(193, 147)
+            Me.FieldListDockPanel1.Text = "Field List"
+            '
+            'FieldListDockPanel1_Container
+            '
+            Me.FieldListDockPanel1_Container.Location = New System.Drawing.Point(0, 0)
+            Me.FieldListDockPanel1_Container.Name = "FieldListDockPanel1_Container"
+            Me.FieldListDockPanel1_Container.Size = New System.Drawing.Size(193, 147)
+            Me.FieldListDockPanel1_Container.TabIndex = 0
             '
             'panelContainer3
             '
@@ -1052,10 +1052,10 @@ Namespace Reporting
             Me.panelContainer3.Controls.Add(Me.ReportGalleryDockPanel1)
             Me.panelContainer3.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill
             Me.panelContainer3.ID = New System.Guid("ce5d3223-68b5-4ad7-b4cc-4ccb8eb78d6c")
-            Me.panelContainer3.Location = New System.Drawing.Point(0, 214)
+            Me.panelContainer3.Location = New System.Drawing.Point(0, 218)
             Me.panelContainer3.Name = "panelContainer3"
-            Me.panelContainer3.OriginalSize = New System.Drawing.Size(200, 200)
-            Me.panelContainer3.Size = New System.Drawing.Size(202, 214)
+            Me.panelContainer3.OriginalSize = New System.Drawing.Size(202, 214)
+            Me.panelContainer3.Size = New System.Drawing.Size(202, 217)
             Me.panelContainer3.Tabbed = True
             Me.panelContainer3.Text = "panelContainer3"
             '
@@ -1064,17 +1064,17 @@ Namespace Reporting
             Me.PropertyGridDockPanel1.Controls.Add(Me.PropertyGridDockPanel1_Container)
             Me.PropertyGridDockPanel1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill
             Me.PropertyGridDockPanel1.ID = New System.Guid("b38d12c3-cd06-4dec-b93d-63a0088e495a")
-            Me.PropertyGridDockPanel1.Location = New System.Drawing.Point(5, 23)
+            Me.PropertyGridDockPanel1.Location = New System.Drawing.Point(5, 38)
             Me.PropertyGridDockPanel1.Name = "PropertyGridDockPanel1"
-            Me.PropertyGridDockPanel1.OriginalSize = New System.Drawing.Size(200, 200)
-            Me.PropertyGridDockPanel1.Size = New System.Drawing.Size(193, 159)
+            Me.PropertyGridDockPanel1.OriginalSize = New System.Drawing.Size(193, 159)
+            Me.PropertyGridDockPanel1.Size = New System.Drawing.Size(193, 147)
             Me.PropertyGridDockPanel1.Text = "Property Grid"
             '
             'PropertyGridDockPanel1_Container
             '
             Me.PropertyGridDockPanel1_Container.Location = New System.Drawing.Point(0, 0)
             Me.PropertyGridDockPanel1_Container.Name = "PropertyGridDockPanel1_Container"
-            Me.PropertyGridDockPanel1_Container.Size = New System.Drawing.Size(193, 159)
+            Me.PropertyGridDockPanel1_Container.Size = New System.Drawing.Size(193, 147)
             Me.PropertyGridDockPanel1_Container.TabIndex = 0
             '
             'ReportGalleryDockPanel1
@@ -1082,17 +1082,17 @@ Namespace Reporting
             Me.ReportGalleryDockPanel1.Controls.Add(Me.ReportGalleryDockPanel1_Container)
             Me.ReportGalleryDockPanel1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill
             Me.ReportGalleryDockPanel1.ID = New System.Guid("7cd5b1e8-63bb-46f7-af65-af61eb851a38")
-            Me.ReportGalleryDockPanel1.Location = New System.Drawing.Point(5, 23)
+            Me.ReportGalleryDockPanel1.Location = New System.Drawing.Point(5, 38)
             Me.ReportGalleryDockPanel1.Name = "ReportGalleryDockPanel1"
-            Me.ReportGalleryDockPanel1.OriginalSize = New System.Drawing.Size(75, 200)
-            Me.ReportGalleryDockPanel1.Size = New System.Drawing.Size(193, 159)
+            Me.ReportGalleryDockPanel1.OriginalSize = New System.Drawing.Size(193, 159)
+            Me.ReportGalleryDockPanel1.Size = New System.Drawing.Size(193, 147)
             Me.ReportGalleryDockPanel1.Text = "Report Gallery"
             '
             'ReportGalleryDockPanel1_Container
             '
             Me.ReportGalleryDockPanel1_Container.Location = New System.Drawing.Point(0, 0)
             Me.ReportGalleryDockPanel1_Container.Name = "ReportGalleryDockPanel1_Container"
-            Me.ReportGalleryDockPanel1_Container.Size = New System.Drawing.Size(193, 159)
+            Me.ReportGalleryDockPanel1_Container.Size = New System.Drawing.Size(193, 147)
             Me.ReportGalleryDockPanel1_Container.TabIndex = 0
             '
             'panelContainer4
@@ -1102,10 +1102,10 @@ Namespace Reporting
             Me.panelContainer4.Controls.Add(Me.ErrorListDockPanel1)
             Me.panelContainer4.Dock = DevExpress.XtraBars.Docking.DockingStyle.Bottom
             Me.panelContainer4.ID = New System.Guid("ab1ca581-d969-437d-9738-5ab9e8872af1")
-            Me.panelContainer4.Location = New System.Drawing.Point(29, 384)
+            Me.panelContainer4.Location = New System.Drawing.Point(24, 387)
             Me.panelContainer4.Name = "panelContainer4"
             Me.panelContainer4.OriginalSize = New System.Drawing.Size(200, 128)
-            Me.panelContainer4.Size = New System.Drawing.Size(651, 128)
+            Me.panelContainer4.Size = New System.Drawing.Size(656, 128)
             Me.panelContainer4.Tabbed = True
             Me.panelContainer4.Text = "panelContainer4"
             '
@@ -1114,17 +1114,17 @@ Namespace Reporting
             Me.GroupAndSortDockPanel1.Controls.Add(Me.GroupAndSortDockPanel1_Container)
             Me.GroupAndSortDockPanel1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill
             Me.GroupAndSortDockPanel1.ID = New System.Guid("4bab159e-c495-4d67-87dc-f4e895da443e")
-            Me.GroupAndSortDockPanel1.Location = New System.Drawing.Point(4, 24)
+            Me.GroupAndSortDockPanel1.Location = New System.Drawing.Point(4, 39)
             Me.GroupAndSortDockPanel1.Name = "GroupAndSortDockPanel1"
-            Me.GroupAndSortDockPanel1.OriginalSize = New System.Drawing.Size(643, 144)
-            Me.GroupAndSortDockPanel1.Size = New System.Drawing.Size(643, 72)
+            Me.GroupAndSortDockPanel1.OriginalSize = New System.Drawing.Size(643, 72)
+            Me.GroupAndSortDockPanel1.Size = New System.Drawing.Size(648, 57)
             Me.GroupAndSortDockPanel1.Text = "Group and Sort"
             '
             'GroupAndSortDockPanel1_Container
             '
             Me.GroupAndSortDockPanel1_Container.Location = New System.Drawing.Point(0, 0)
             Me.GroupAndSortDockPanel1_Container.Name = "GroupAndSortDockPanel1_Container"
-            Me.GroupAndSortDockPanel1_Container.Size = New System.Drawing.Size(643, 72)
+            Me.GroupAndSortDockPanel1_Container.Size = New System.Drawing.Size(648, 57)
             Me.GroupAndSortDockPanel1_Container.TabIndex = 0
             '
             'ErrorListDockPanel1
@@ -1132,17 +1132,17 @@ Namespace Reporting
             Me.ErrorListDockPanel1.Controls.Add(Me.ErrorListDockPanel1_Container)
             Me.ErrorListDockPanel1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill
             Me.ErrorListDockPanel1.ID = New System.Guid("5a9a01fd-6e95-4e81-a8c4-ac63153d7488")
-            Me.ErrorListDockPanel1.Location = New System.Drawing.Point(4, 24)
+            Me.ErrorListDockPanel1.Location = New System.Drawing.Point(4, 39)
             Me.ErrorListDockPanel1.Name = "ErrorListDockPanel1"
-            Me.ErrorListDockPanel1.OriginalSize = New System.Drawing.Size(643, 144)
-            Me.ErrorListDockPanel1.Size = New System.Drawing.Size(643, 72)
+            Me.ErrorListDockPanel1.OriginalSize = New System.Drawing.Size(643, 72)
+            Me.ErrorListDockPanel1.Size = New System.Drawing.Size(648, 57)
             Me.ErrorListDockPanel1.Text = "Scripts Errors"
             '
             'ErrorListDockPanel1_Container
             '
             Me.ErrorListDockPanel1_Container.Location = New System.Drawing.Point(0, 0)
             Me.ErrorListDockPanel1_Container.Name = "ErrorListDockPanel1_Container"
-            Me.ErrorListDockPanel1_Container.Size = New System.Drawing.Size(643, 72)
+            Me.ErrorListDockPanel1_Container.Size = New System.Drawing.Size(648, 57)
             Me.ErrorListDockPanel1_Container.TabIndex = 0
             '
             'ReportDesigner1
@@ -1164,8 +1164,8 @@ Namespace Reporting
             Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
             Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
             Me.ClientSize = New System.Drawing.Size(882, 537)
-            Me.Controls.Add(Me.panelContainer4)
             Me.Controls.Add(Me.panelContainer1)
+            Me.Controls.Add(Me.panelContainer4)
             Me.Controls.Add(Me.barDockControlLeft)
             Me.Controls.Add(Me.barDockControlRight)
             Me.Controls.Add(Me.barDockControlBottom)
@@ -1181,8 +1181,8 @@ Namespace Reporting
             CType(Me.XrDesignDockManager1, System.ComponentModel.ISupportInitialize).EndInit()
             Me.panelContainer1.ResumeLayout(False)
             Me.panelContainer2.ResumeLayout(False)
-            Me.FieldListDockPanel1.ResumeLayout(False)
             Me.ReportExplorerDockPanel1.ResumeLayout(False)
+            Me.FieldListDockPanel1.ResumeLayout(False)
             Me.panelContainer3.ResumeLayout(False)
             Me.PropertyGridDockPanel1.ResumeLayout(False)
             Me.ReportGalleryDockPanel1.ResumeLayout(False)

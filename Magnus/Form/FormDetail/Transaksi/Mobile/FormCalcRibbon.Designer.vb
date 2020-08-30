@@ -74,10 +74,10 @@ Partial Public Class FormCalcRibbon
         Me.LayoutControlItem17 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem14 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem15 = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.LayoutControlItem13 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItemNetProfit = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem26 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem27 = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.LayoutControlGroup7 = New DevExpress.XtraLayout.LayoutControlGroup()
+        Me.LayoutControlGroupMarginInfo = New DevExpress.XtraLayout.LayoutControlGroup()
         Me.LayoutControlItem6 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem28 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem31 = New DevExpress.XtraLayout.LayoutControlItem()
@@ -131,10 +131,10 @@ Partial Public Class FormCalcRibbon
         CType(Me.LayoutControlItem17, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem14, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem15, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlItem13, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItemNetProfit, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem26, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem27, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlGroup7, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlGroupMarginInfo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem28, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem31, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -564,7 +564,7 @@ Partial Public Class FormCalcRibbon
         '
         Me.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.layoutControlGroup1.GroupBordersVisible = False
-        Me.layoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlGroup3, Me.LayoutControlGroup4, Me.LayoutControlGroup5, Me.LayoutControlItem26, Me.LayoutControlItem27, Me.LayoutControlGroup7})
+        Me.layoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlGroup3, Me.LayoutControlGroup4, Me.LayoutControlGroup5, Me.LayoutControlItem26, Me.LayoutControlItem27, Me.LayoutControlGroupMarginInfo})
         Me.layoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.layoutControlGroup1.Name = "Root"
         Me.layoutControlGroup1.Size = New System.Drawing.Size(439, 672)
@@ -672,7 +672,7 @@ Partial Public Class FormCalcRibbon
         '
         'LayoutControlGroup5
         '
-        Me.LayoutControlGroup5.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem17, Me.LayoutControlItem14, Me.LayoutControlItem15, Me.LayoutControlItem13})
+        Me.LayoutControlGroup5.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem17, Me.LayoutControlItem14, Me.LayoutControlItem15, Me.LayoutControlItemNetProfit})
         Me.LayoutControlGroup5.Location = New System.Drawing.Point(0, 489)
         Me.LayoutControlGroup5.Name = "LayoutControlGroup5"
         Me.LayoutControlGroup5.Size = New System.Drawing.Size(419, 163)
@@ -711,16 +711,16 @@ Partial Public Class FormCalcRibbon
         Me.LayoutControlItem15.TextLocation = DevExpress.Utils.Locations.Top
         Me.LayoutControlItem15.TextSize = New System.Drawing.Size(109, 13)
         '
-        'LayoutControlItem13
+        'LayoutControlItemNetProfit
         '
-        Me.LayoutControlItem13.Control = Me.editTextNetProfit
-        Me.LayoutControlItem13.CustomizationFormText = "Lebar (mm)"
-        Me.LayoutControlItem13.Location = New System.Drawing.Point(0, 80)
-        Me.LayoutControlItem13.Name = "LayoutControlItem13"
-        Me.LayoutControlItem13.Size = New System.Drawing.Size(395, 40)
-        Me.LayoutControlItem13.Text = "Net Profit"
-        Me.LayoutControlItem13.TextLocation = DevExpress.Utils.Locations.Top
-        Me.LayoutControlItem13.TextSize = New System.Drawing.Size(109, 13)
+        Me.LayoutControlItemNetProfit.Control = Me.editTextNetProfit
+        Me.LayoutControlItemNetProfit.CustomizationFormText = "Lebar (mm)"
+        Me.LayoutControlItemNetProfit.Location = New System.Drawing.Point(0, 80)
+        Me.LayoutControlItemNetProfit.Name = "LayoutControlItemNetProfit"
+        Me.LayoutControlItemNetProfit.Size = New System.Drawing.Size(395, 40)
+        Me.LayoutControlItemNetProfit.Text = "Net Profit"
+        Me.LayoutControlItemNetProfit.TextLocation = DevExpress.Utils.Locations.Top
+        Me.LayoutControlItemNetProfit.TextSize = New System.Drawing.Size(109, 13)
         '
         'LayoutControlItem26
         '
@@ -743,13 +743,13 @@ Partial Public Class FormCalcRibbon
         Me.LayoutControlItem27.TextLocation = DevExpress.Utils.Locations.Top
         Me.LayoutControlItem27.TextSize = New System.Drawing.Size(109, 13)
         '
-        'LayoutControlGroup7
+        'LayoutControlGroupMarginInfo
         '
-        Me.LayoutControlGroup7.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem6, Me.LayoutControlItem28, Me.LayoutControlItem31, Me.LayoutControlItem29, Me.LayoutControlItem30, Me.LayoutControlItem32, Me.LayoutControlItem5, Me.LayoutControlItem33, Me.LayoutControlItem34})
-        Me.LayoutControlGroup7.Location = New System.Drawing.Point(0, 203)
-        Me.LayoutControlGroup7.Name = "LayoutControlGroup7"
-        Me.LayoutControlGroup7.Size = New System.Drawing.Size(419, 163)
-        Me.LayoutControlGroup7.Text = "MARGIN INFO"
+        Me.LayoutControlGroupMarginInfo.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem6, Me.LayoutControlItem28, Me.LayoutControlItem31, Me.LayoutControlItem29, Me.LayoutControlItem30, Me.LayoutControlItem32, Me.LayoutControlItem5, Me.LayoutControlItem33, Me.LayoutControlItem34})
+        Me.LayoutControlGroupMarginInfo.Location = New System.Drawing.Point(0, 203)
+        Me.LayoutControlGroupMarginInfo.Name = "LayoutControlGroupMarginInfo"
+        Me.LayoutControlGroupMarginInfo.Size = New System.Drawing.Size(419, 163)
+        Me.LayoutControlGroupMarginInfo.Text = "MARGIN INFO"
         '
         'LayoutControlItem6
         '
@@ -905,10 +905,10 @@ Partial Public Class FormCalcRibbon
         CType(Me.LayoutControlItem17, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem14, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem15, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlItem13, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItemNetProfit, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem26, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem27, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlGroup7, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlGroupMarginInfo, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem28, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem31, System.ComponentModel.ISupportInitialize).EndInit()
@@ -956,7 +956,7 @@ Partial Public Class FormCalcRibbon
     Friend WithEvents editTextNetProfit As DevExpress.XtraEditors.TextEdit
     Friend WithEvents LayoutControlGroup4 As DevExpress.XtraLayout.LayoutControlGroup
     Friend WithEvents LayoutControlItem12 As DevExpress.XtraLayout.LayoutControlItem
-    Friend WithEvents LayoutControlItem13 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents LayoutControlItemNetProfit As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents editTextKomisiSalesProsen As DevExpress.XtraEditors.TextEdit
     Friend WithEvents editTextKomisiSalesNominal As DevExpress.XtraEditors.TextEdit
     Friend WithEvents editTextTransport As DevExpress.XtraEditors.TextEdit
@@ -978,7 +978,7 @@ Partial Public Class FormCalcRibbon
     Friend WithEvents textView75Persen As DevExpress.XtraEditors.TextEdit
     Friend WithEvents textView85Persen As DevExpress.XtraEditors.TextEdit
     Friend WithEvents BehaviorManager1 As DevExpress.Utils.Behaviors.BehaviorManager
-    Friend WithEvents LayoutControlGroup7 As DevExpress.XtraLayout.LayoutControlGroup
+    Friend WithEvents LayoutControlGroupMarginInfo As DevExpress.XtraLayout.LayoutControlGroup
     Friend WithEvents LayoutControlItem6 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents LayoutControlItem28 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents LayoutControlItem31 As DevExpress.XtraLayout.LayoutControlItem
