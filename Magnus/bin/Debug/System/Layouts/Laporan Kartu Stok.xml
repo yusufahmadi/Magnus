@@ -69,7 +69,7 @@
         <property name="RowDefinitions" iskey="true" value="0" />
         <property name="ColumnDefinitions" iskey="true" value="0" />
       </property>
-      <property name="Size">@4,Width=1914@3,Height=770</property>
+      <property name="Size">@4,Width=1016@3,Height=343</property>
       <property name="ExpandButtonVisible">false</property>
       <property name="ExpandButtonMode">Normal</property>
       <property name="HeaderButtonsLocation">Default</property>
@@ -255,7 +255,7 @@
       <property name="Spacing">0, 0, 0, 0</property>
       <property name="Padding">2, 2, 2, 2</property>
       <property name="Location">@1,X=0@2,Y=48</property>
-      <property name="Size">@4,Width=1894@3,Height=702</property>
+      <property name="Size">@3,Width=996@3,Height=275</property>
       <property name="ShowInCustomizationForm">true</property>
       <property name="Text">LayoutControlItem1</property>
       <property name="CustomizationFormText">LayoutControlItem1</property>
@@ -334,8 +334,8 @@
       <property name="TextToControlDistance">3</property>
       <property name="Spacing">0, 0, 0, 0</property>
       <property name="Padding">2, 2, 2, 2</property>
-      <property name="Location">@3,X=188@1,Y=0</property>
-      <property name="Size">@3,Width=189@2,Height=24</property>
+      <property name="Location">@3,X=166@1,Y=0</property>
+      <property name="Size">@3,Width=161@2,Height=24</property>
       <property name="ShowInCustomizationForm">true</property>
       <property name="Text">Sampai</property>
       <property name="CustomizationFormText">T2</property>
@@ -415,8 +415,8 @@
       <property name="TextSize">@1,Width=0@1,Height=0</property>
       <property name="Spacing">0, 0, 0, 0</property>
       <property name="Padding">2, 2, 2, 2</property>
-      <property name="Location">@3,X=377@1,Y=0</property>
-      <property name="Size">@4,Width=1517@2,Height=48</property>
+      <property name="Location">@3,X=327@1,Y=0</property>
+      <property name="Size">@3,Width=669@2,Height=48</property>
       <property name="ShowInCustomizationForm">true</property>
       <property name="Text">item0</property>
       <property name="CustomizationFormText">item0</property>
@@ -495,7 +495,7 @@
       <property name="Spacing">0, 0, 0, 0</property>
       <property name="Padding">2, 2, 2, 2</property>
       <property name="Location">@1,X=0@2,Y=24</property>
-      <property name="Size">@3,Width=377@2,Height=24</property>
+      <property name="Size">@3,Width=327@2,Height=24</property>
       <property name="ShowInCustomizationForm">true</property>
       <property name="Text">Barang</property>
       <property name="CustomizationFormText">IDBarang</property>
@@ -575,7 +575,7 @@
       <property name="Spacing">0, 0, 0, 0</property>
       <property name="Padding">2, 2, 2, 2</property>
       <property name="Location">@1,X=0@1,Y=0</property>
-      <property name="Size">@3,Width=188@2,Height=24</property>
+      <property name="Size">@3,Width=166@2,Height=24</property>
       <property name="ShowInCustomizationForm">true</property>
       <property name="Text">Tanggal Dari</property>
       <property name="CustomizationFormText">T1</property>

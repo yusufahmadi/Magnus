@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="MagnusDataSet" targetNamespace="http://tempuri.org/MagnusDataSet.xsd" xmlns:mstns="http://tempuri.org/MagnusDataSet.xsd" xmlns="http://tempuri.org/MagnusDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection ConnectionStringObject="Data Source=.;Initial Catalog=Magnus;Persist Security Info=True;User ID=sa" IsAppSettingsProperty="false" Modifier="Assembly" Name="y-520.Magnus.dbo" ParameterPrefix="@" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="vStokKeluarTableAdapter" GeneratorDataComponentClassName="vStokKeluarTableAdapter" Name="vStokKeluar" UserDataComponentName="vStokKeluarTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="y-520.Magnus.dbo" DbObjectName="Magnus.dbo.vStokKeluar" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Jenis, ID, Tgl, Kode, Keterangan, KodeBarang, NamaBarang, Qty, Unit, Catatan, UserBuat, TanggalBuat, TanggalUbah, UserUbah, IDBarang, Kategori, IDKategori FROM dbo.vStokKeluar</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Jenis" DataSetColumn="Jenis" />
+              <Mapping SourceColumn="ID" DataSetColumn="ID" />
+              <Mapping SourceColumn="Tgl" DataSetColumn="Tgl" />
+              <Mapping SourceColumn="Kode" DataSetColumn="Kode" />
+              <Mapping SourceColumn="Keterangan" DataSetColumn="Keterangan" />
+              <Mapping SourceColumn="KodeBarang" DataSetColumn="KodeBarang" />
+              <Mapping SourceColumn="NamaBarang" DataSetColumn="NamaBarang" />
+              <Mapping SourceColumn="Qty" DataSetColumn="Qty" />
+              <Mapping SourceColumn="Unit" DataSetColumn="Unit" />
+              <Mapping SourceColumn="Catatan" DataSetColumn="Catatan" />
+              <Mapping SourceColumn="UserBuat" DataSetColumn="UserBuat" />
+              <Mapping SourceColumn="TanggalBuat" DataSetColumn="TanggalBuat" />
+              <Mapping SourceColumn="TanggalUbah" DataSetColumn="TanggalUbah" />
+              <Mapping SourceColumn="UserUbah" DataSetColumn="UserUbah" />
+              <Mapping SourceColumn="IDBarang" DataSetColumn="IDBarang" />
+              <Mapping SourceColumn="Kategori" DataSetColumn="Kategori" />
+              <Mapping SourceColumn="IDKategori" DataSetColumn="IDKategori" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="MagnusDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="MagnusDataSet" msprop:Generator_UserDSName="MagnusDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="vStokKeluar" msprop:Generator_TableClassName="vStokKeluarDataTable" msprop:Generator_TableVarName="tablevStokKeluar" msprop:Generator_TablePropName="vStokKeluar" msprop:Generator_RowDeletingName="vStokKeluarRowDeleting" msprop:Generator_RowChangingName="vStokKeluarRowChanging" msprop:Generator_RowEvHandlerName="vStokKeluarRowChangeEventHandler" msprop:Generator_RowDeletedName="vStokKeluarRowDeleted" msprop:Generator_UserTableName="vStokKeluar" msprop:Generator_RowChangedName="vStokKeluarRowChanged" msprop:Generator_RowEvArgName="vStokKeluarRowChangeEvent" msprop:Generator_RowClassName="vStokKeluarRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Jenis" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnJenis" msprop:Generator_ColumnPropNameInRow="Jenis" msprop:Generator_ColumnPropNameInTable="JenisColumn" msprop:Generator_UserColumnName="Jenis" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
+              <xs:element name="Tgl" msprop:Generator_ColumnVarNameInTable="columnTgl" msprop:Generator_ColumnPropNameInRow="Tgl" msprop:Generator_ColumnPropNameInTable="TglColumn" msprop:Generator_UserColumnName="Tgl" type="xs:dateTime" />
+              <xs:element name="Kode" msprop:Generator_ColumnVarNameInTable="columnKode" msprop:Generator_ColumnPropNameInRow="Kode" msprop:Generator_ColumnPropNameInTable="KodeColumn" msprop:Generator_UserColumnName="Kode">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Keterangan" msprop:Generator_ColumnVarNameInTable="columnKeterangan" msprop:Generator_ColumnPropNameInRow="Keterangan" msprop:Generator_ColumnPropNameInTable="KeteranganColumn" msprop:Generator_UserColumnName="Keterangan" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KodeBarang" msprop:Generator_ColumnVarNameInTable="columnKodeBarang" msprop:Generator_ColumnPropNameInRow="KodeBarang" msprop:Generator_ColumnPropNameInTable="KodeBarangColumn" msprop:Generator_UserColumnName="KodeBarang">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="13" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NamaBarang" msprop:Generator_ColumnVarNameInTable="columnNamaBarang" msprop:Generator_ColumnPropNameInRow="NamaBarang" msprop:Generator_ColumnPropNameInTable="NamaBarangColumn" msprop:Generator_UserColumnName="NamaBarang">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Qty" msprop:Generator_ColumnVarNameInTable="columnQty" msprop:Generator_ColumnPropNameInRow="Qty" msprop:Generator_ColumnPropNameInTable="QtyColumn" msprop:Generator_UserColumnName="Qty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Unit" msprop:Generator_ColumnVarNameInTable="columnUnit" msprop:Generator_ColumnPropNameInRow="Unit" msprop:Generator_ColumnPropNameInTable="UnitColumn" msprop:Generator_UserColumnName="Unit" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Catatan" msprop:Generator_ColumnVarNameInTable="columnCatatan" msprop:Generator_ColumnPropNameInRow="Catatan" msprop:Generator_ColumnPropNameInTable="CatatanColumn" msprop:Generator_UserColumnName="Catatan" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UserBuat" msprop:Generator_ColumnVarNameInTable="columnUserBuat" msprop:Generator_ColumnPropNameInRow="UserBuat" msprop:Generator_ColumnPropNameInTable="UserBuatColumn" msprop:Generator_UserColumnName="UserBuat" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TanggalBuat" msprop:Generator_ColumnVarNameInTable="columnTanggalBuat" msprop:Generator_ColumnPropNameInRow="TanggalBuat" msprop:Generator_ColumnPropNameInTable="TanggalBuatColumn" msprop:Generator_UserColumnName="TanggalBuat" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="TanggalUbah" msprop:Generator_ColumnVarNameInTable="columnTanggalUbah" msprop:Generator_ColumnPropNameInRow="TanggalUbah" msprop:Generator_ColumnPropNameInTable="TanggalUbahColumn" msprop:Generator_UserColumnName="TanggalUbah" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="UserUbah" msprop:Generator_ColumnVarNameInTable="columnUserUbah" msprop:Generator_ColumnPropNameInRow="UserUbah" msprop:Generator_ColumnPropNameInTable="UserUbahColumn" msprop:Generator_UserColumnName="UserUbah" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IDBarang" msprop:Generator_ColumnVarNameInTable="columnIDBarang" msprop:Generator_ColumnPropNameInRow="IDBarang" msprop:Generator_ColumnPropNameInTable="IDBarangColumn" msprop:Generator_UserColumnName="IDBarang" type="xs:int" />
+              <xs:element name="Kategori" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnKategori" msprop:Generator_ColumnPropNameInRow="Kategori" msprop:Generator_ColumnPropNameInTable="KategoriColumn" msprop:Generator_UserColumnName="Kategori" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="63" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IDKategori" msprop:Generator_ColumnVarNameInTable="columnIDKategori" msprop:Generator_ColumnPropNameInRow="IDKategori" msprop:Generator_ColumnPropNameInTable="IDKategoriColumn" msprop:Generator_UserColumnName="IDKategori" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:vStokKeluar" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

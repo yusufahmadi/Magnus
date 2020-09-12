@@ -237,10 +237,10 @@ Public Class FormDemoGridLookup
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Using f As New FormStokMasukErr
-            f._IsNew = True
-            If f.ShowDialog() = DialogResult.OK Then
-            End If
-        End Using
+        'Using f As New FormStokMasukErr
+        '    f._IsNew = True
+        '    If f.ShowDialog() = DialogResult.OK Then
+        '    End If
+        'End Using
     End Sub
 End Class

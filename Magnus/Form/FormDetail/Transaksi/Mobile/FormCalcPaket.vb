@@ -3,7 +3,7 @@ Imports DevExpress.XtraLayout.Helpers
 Imports System.ComponentModel.DataAnnotations
 Imports System.IO
 Imports Magnus.Utils
-
+Imports DevExpress.XtraEditors
 
 Partial Public Class FormCalcPaket
     Public _IsNew As Boolean
@@ -25,8 +25,8 @@ Partial Public Class FormCalcPaket
         txtTanggal.EditValue = Now
         If IDRoleUser = 1 Then
         Else
-            LayoutControlItemHargaInc.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
-            LayoutControlItemModal.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
+            'LayoutControlCustOrderLine.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
+            'LayoutControlItemModal.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
         End If
     End Sub
     Private Sub FormBasic_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -86,6 +86,9 @@ Partial Public Class FormCalcPaket
         End Try
     End Sub
     Private Sub bbiSave_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles bbiSave.ItemClick
+        If DialogResult.No = XtraMessageBox.Show(Me, "Yakin ingin menyimpan ?", NamaAplikasi, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) Then
+            Exit Sub
+        End If
         If SaveData() Then
             _IsNew = False
             d = DialogResult.OK
@@ -93,6 +96,9 @@ Partial Public Class FormCalcPaket
     End Sub
 
     Private Sub bbiSaveAndClose_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles bbiSaveAndClose.ItemClick
+        If DialogResult.No = XtraMessageBox.Show(Me, "Yakin ingin menyimpan dan menutup entrian ini ?", NamaAplikasi, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) Then
+            Exit Sub
+        End If
         If SaveData() Then
             d = DialogResult.OK
             Me.Close()
@@ -100,6 +106,9 @@ Partial Public Class FormCalcPaket
     End Sub
 
     Private Sub bbiSaveAndNew_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles bbiSaveAndNew.ItemClick
+        If DialogResult.No = XtraMessageBox.Show(Me, "Yakin ingin menyimpan dan membuat entrian Baru ?", NamaAplikasi, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) Then
+            Exit Sub
+        End If
         If SaveData() Then
             Me._IsNew = True
             Me._ID = 0
@@ -267,7 +276,7 @@ Partial Public Class FormCalcPaket
         Hitung()
     End Sub
 
-    Private Sub editTextJualSesuaiOrder_EditValueChanged(sender As Object, e As EventArgs) 
+    Private Sub editTextJualSesuaiOrder_EditValueChanged(sender As Object, e As EventArgs)
         Hitung()
     End Sub
 

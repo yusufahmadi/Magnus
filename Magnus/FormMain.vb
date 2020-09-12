@@ -430,7 +430,27 @@ Public Class FormMain
     End Sub
 
     Private Sub BarButtonLapPerbandinganBiayaBulanan_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonLapPerbandinganBiayaBulanan.ItemClick
-        callLaporanSp("Laporan Perbandingan Biaya Bulanan", "spLapPerbandinganBiayaBulanan")
+        Dim frmEntri As FormLaporanChart = Nothing
+        Dim F As Object
+        Try
+            For Each F In MdiChildren
+                If TypeOf F Is FormLaporanChart Then
+                    frmEntri = F
+                    Exit For
+                End If
+            Next
+            If frmEntri Is Nothing Then
+                frmEntri = New FormLaporanChart
+                'frmEntri.spName = SpName 'FormDaftar.IDForm.F_User
+                frmEntri.FormName = "Grafik Perbandingan Biaya Bulanan"
+                frmEntri.WindowState = FormWindowState.Maximized
+                frmEntri.MdiParent = Me
+            End If
+            frmEntri.Show()
+            frmEntri.Focus()
+        Catch ex As Exception
+            DevExpress.XtraEditors.XtraMessageBox.Show(Me, ex.Message, NamaAplikasi)
+        End Try
     End Sub
 
 End Class

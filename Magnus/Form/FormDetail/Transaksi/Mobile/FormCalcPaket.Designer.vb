@@ -56,8 +56,8 @@ Partial Public Class FormCalcPaket
         Me.LayoutControlGroup3 = New DevExpress.XtraLayout.LayoutControlGroup()
         Me.LayoutControlItem7 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem8 = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.LayoutControlItemModal = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.LayoutControlItemHargaInc = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItemSaranBeli = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlCustOrderLine = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem14 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem10 = New DevExpress.XtraLayout.LayoutControlItem()
@@ -99,8 +99,8 @@ Partial Public Class FormCalcPaket
         CType(Me.LayoutControlGroup3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem7, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem8, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlItemModal, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlItemHargaInc, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItemSaranBeli, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlCustOrderLine, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem14, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem10, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -140,16 +140,16 @@ Partial Public Class FormCalcPaket
         Me.dataLayoutControl1.Controls.Add(Me.editTextxtotal_jadi_roll)
         Me.dataLayoutControl1.Controls.Add(Me.editTextisi_roll)
         Me.dataLayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dataLayoutControl1.Location = New System.Drawing.Point(0, 83)
+        Me.dataLayoutControl1.Location = New System.Drawing.Point(0, 79)
         Me.dataLayoutControl1.Name = "dataLayoutControl1"
         Me.dataLayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(558, 176, 450, 400)
         Me.dataLayoutControl1.Root = Me.layoutControlGroup1
-        Me.dataLayoutControl1.Size = New System.Drawing.Size(461, 451)
+        Me.dataLayoutControl1.Size = New System.Drawing.Size(461, 455)
         Me.dataLayoutControl1.TabIndex = 0
         '
         'editTextqty_order_customer_pcs
         '
-        Me.editTextqty_order_customer_pcs.Location = New System.Drawing.Point(214, 99)
+        Me.editTextqty_order_customer_pcs.Location = New System.Drawing.Point(214, 98)
         Me.editTextqty_order_customer_pcs.MenuManager = Me.mainRibbonControl
         Me.editTextqty_order_customer_pcs.Name = "editTextqty_order_customer_pcs"
         Me.editTextqty_order_customer_pcs.Properties.DisplayFormat.FormatString = "n2"
@@ -172,7 +172,7 @@ Partial Public Class FormCalcPaket
         Me.mainRibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.mainRibbonPage})
         Me.mainRibbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.OfficeUniversal
         Me.mainRibbonControl.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.[False]
-        Me.mainRibbonControl.Size = New System.Drawing.Size(461, 83)
+        Me.mainRibbonControl.Size = New System.Drawing.Size(461, 79)
         Me.mainRibbonControl.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden
         '
         'bbiSave
@@ -255,7 +255,7 @@ Partial Public Class FormCalcPaket
         '
         'editTextLebar
         '
-        Me.editTextLebar.Location = New System.Drawing.Point(24, 179)
+        Me.editTextLebar.Location = New System.Drawing.Point(24, 178)
         Me.editTextLebar.MenuManager = Me.mainRibbonControl
         Me.editTextLebar.Name = "editTextLebar"
         Me.editTextLebar.Properties.Mask.EditMask = "n2"
@@ -267,7 +267,7 @@ Partial Public Class FormCalcPaket
         '
         'editTextcustomer_minta_bikin_jadinya_line
         '
-        Me.editTextcustomer_minta_bikin_jadinya_line.Location = New System.Drawing.Point(24, 99)
+        Me.editTextcustomer_minta_bikin_jadinya_line.Location = New System.Drawing.Point(24, 98)
         Me.editTextcustomer_minta_bikin_jadinya_line.MenuManager = Me.mainRibbonControl
         Me.editTextcustomer_minta_bikin_jadinya_line.Name = "editTextcustomer_minta_bikin_jadinya_line"
         Me.editTextcustomer_minta_bikin_jadinya_line.Properties.DisplayFormat.FormatString = "n2"
@@ -282,7 +282,7 @@ Partial Public Class FormCalcPaket
         '
         'editTextxjadi_belanja_bahan_baku_label_dalam_Roll
         '
-        Me.editTextxjadi_belanja_bahan_baku_label_dalam_Roll.Location = New System.Drawing.Point(24, 259)
+        Me.editTextxjadi_belanja_bahan_baku_label_dalam_Roll.Location = New System.Drawing.Point(24, 258)
         Me.editTextxjadi_belanja_bahan_baku_label_dalam_Roll.MenuManager = Me.mainRibbonControl
         Me.editTextxjadi_belanja_bahan_baku_label_dalam_Roll.Name = "editTextxjadi_belanja_bahan_baku_label_dalam_Roll"
         Me.editTextxjadi_belanja_bahan_baku_label_dalam_Roll.Properties.Mask.EditMask = "n2"
@@ -296,7 +296,7 @@ Partial Public Class FormCalcPaket
         '
         'editTexttinggi
         '
-        Me.editTexttinggi.Location = New System.Drawing.Point(163, 179)
+        Me.editTexttinggi.Location = New System.Drawing.Point(163, 178)
         Me.editTexttinggi.Name = "editTexttinggi"
         Me.editTexttinggi.Properties.Mask.EditMask = "n2"
         Me.editTexttinggi.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
@@ -307,7 +307,7 @@ Partial Public Class FormCalcPaket
         '
         'editTextxlebar_bahan
         '
-        Me.editTextxlebar_bahan.Location = New System.Drawing.Point(24, 219)
+        Me.editTextxlebar_bahan.Location = New System.Drawing.Point(24, 218)
         Me.editTextxlebar_bahan.Name = "editTextxlebar_bahan"
         Me.editTextxlebar_bahan.Properties.Mask.EditMask = "n0"
         Me.editTextxlebar_bahan.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
@@ -320,7 +320,7 @@ Partial Public Class FormCalcPaket
         '
         'editTextx1roll_jadiny_pcs
         '
-        Me.editTextx1roll_jadiny_pcs.Location = New System.Drawing.Point(214, 219)
+        Me.editTextx1roll_jadiny_pcs.Location = New System.Drawing.Point(214, 218)
         Me.editTextx1roll_jadiny_pcs.Name = "editTextx1roll_jadiny_pcs"
         Me.editTextx1roll_jadiny_pcs.Properties.Mask.EditMask = "n2"
         Me.editTextx1roll_jadiny_pcs.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
@@ -333,7 +333,7 @@ Partial Public Class FormCalcPaket
         '
         'editTextpisau_yang_digunakan
         '
-        Me.editTextpisau_yang_digunakan.Location = New System.Drawing.Point(301, 179)
+        Me.editTextpisau_yang_digunakan.Location = New System.Drawing.Point(301, 178)
         Me.editTextpisau_yang_digunakan.Name = "editTextpisau_yang_digunakan"
         Me.editTextpisau_yang_digunakan.Properties.Mask.EditMask = "n0"
         Me.editTextpisau_yang_digunakan.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
@@ -345,7 +345,7 @@ Partial Public Class FormCalcPaket
         '
         'editTextdibulatkan
         '
-        Me.editTextdibulatkan.Location = New System.Drawing.Point(214, 259)
+        Me.editTextdibulatkan.Location = New System.Drawing.Point(214, 258)
         Me.editTextdibulatkan.Name = "editTextdibulatkan"
         Me.editTextdibulatkan.Properties.Mask.EditMask = "n2"
         Me.editTextdibulatkan.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
@@ -365,7 +365,7 @@ Partial Public Class FormCalcPaket
         '
         'editTextxmaka_kebutuhan_ribbonnya
         '
-        Me.editTextxmaka_kebutuhan_ribbonnya.Location = New System.Drawing.Point(215, 382)
+        Me.editTextxmaka_kebutuhan_ribbonnya.Location = New System.Drawing.Point(215, 380)
         Me.editTextxmaka_kebutuhan_ribbonnya.Name = "editTextxmaka_kebutuhan_ribbonnya"
         Me.editTextxmaka_kebutuhan_ribbonnya.Properties.Mask.EditMask = "n2"
         Me.editTextxmaka_kebutuhan_ribbonnya.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
@@ -378,7 +378,7 @@ Partial Public Class FormCalcPaket
         '
         'editTextx1roll_ribbon_bisa_cetak_pcs
         '
-        Me.editTextx1roll_ribbon_bisa_cetak_pcs.Location = New System.Drawing.Point(24, 382)
+        Me.editTextx1roll_ribbon_bisa_cetak_pcs.Location = New System.Drawing.Point(24, 380)
         Me.editTextx1roll_ribbon_bisa_cetak_pcs.Name = "editTextx1roll_ribbon_bisa_cetak_pcs"
         Me.editTextx1roll_ribbon_bisa_cetak_pcs.Properties.Mask.EditMask = "n2"
         Me.editTextx1roll_ribbon_bisa_cetak_pcs.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
@@ -391,7 +391,7 @@ Partial Public Class FormCalcPaket
         '
         'editTextlebar_ribbon
         '
-        Me.editTextlebar_ribbon.Location = New System.Drawing.Point(24, 342)
+        Me.editTextlebar_ribbon.Location = New System.Drawing.Point(24, 340)
         Me.editTextlebar_ribbon.Name = "editTextlebar_ribbon"
         Me.editTextlebar_ribbon.Properties.Mask.EditMask = "n2"
         Me.editTextlebar_ribbon.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
@@ -403,7 +403,7 @@ Partial Public Class FormCalcPaket
         '
         'editTextpanjang_ribbon
         '
-        Me.editTextpanjang_ribbon.Location = New System.Drawing.Point(215, 342)
+        Me.editTextpanjang_ribbon.Location = New System.Drawing.Point(215, 340)
         Me.editTextpanjang_ribbon.Name = "editTextpanjang_ribbon"
         Me.editTextpanjang_ribbon.Properties.Mask.EditMask = "n2"
         Me.editTextpanjang_ribbon.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
@@ -415,7 +415,7 @@ Partial Public Class FormCalcPaket
         '
         'editTextxtotal_jadi_roll
         '
-        Me.editTextxtotal_jadi_roll.Location = New System.Drawing.Point(214, 139)
+        Me.editTextxtotal_jadi_roll.Location = New System.Drawing.Point(214, 138)
         Me.editTextxtotal_jadi_roll.Name = "editTextxtotal_jadi_roll"
         Me.editTextxtotal_jadi_roll.Properties.Mask.EditMask = "n2"
         Me.editTextxtotal_jadi_roll.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
@@ -428,7 +428,7 @@ Partial Public Class FormCalcPaket
         '
         'editTextisi_roll
         '
-        Me.editTextisi_roll.Location = New System.Drawing.Point(24, 139)
+        Me.editTextisi_roll.Location = New System.Drawing.Point(24, 138)
         Me.editTextisi_roll.Name = "editTextisi_roll"
         Me.editTextisi_roll.Properties.Mask.EditMask = "n0"
         Me.editTextisi_roll.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
@@ -445,15 +445,15 @@ Partial Public Class FormCalcPaket
         Me.layoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlGroup3, Me.LayoutControlItem26, Me.LayoutControlItem27, Me.LayoutControlGroup7})
         Me.layoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.layoutControlGroup1.Name = "Root"
-        Me.layoutControlGroup1.Size = New System.Drawing.Size(461, 451)
+        Me.layoutControlGroup1.Size = New System.Drawing.Size(461, 455)
         Me.layoutControlGroup1.TextVisible = False
         '
         'LayoutControlGroup3
         '
-        Me.LayoutControlGroup3.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem7, Me.LayoutControlItem8, Me.LayoutControlItemModal, Me.LayoutControlItemHargaInc, Me.LayoutControlItem1, Me.LayoutControlItem14, Me.LayoutControlItem10, Me.LayoutControlItem11, Me.LayoutControlItem17, Me.LayoutControlItem4, Me.LayoutControlItem5})
+        Me.LayoutControlGroup3.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem7, Me.LayoutControlItem8, Me.LayoutControlItemSaranBeli, Me.LayoutControlCustOrderLine, Me.LayoutControlItem1, Me.LayoutControlItem14, Me.LayoutControlItem10, Me.LayoutControlItem11, Me.LayoutControlItem17, Me.LayoutControlItem4, Me.LayoutControlItem5})
         Me.LayoutControlGroup3.Location = New System.Drawing.Point(0, 40)
         Me.LayoutControlGroup3.Name = "LayoutControlGroup3"
-        Me.LayoutControlGroup3.Size = New System.Drawing.Size(441, 243)
+        Me.LayoutControlGroup3.Size = New System.Drawing.Size(441, 242)
         Me.LayoutControlGroup3.Text = "Perhitungan Belanja Bahan Baku Label"
         '
         'LayoutControlItem7
@@ -477,25 +477,25 @@ Partial Public Class FormCalcPaket
         Me.LayoutControlItem8.TextLocation = DevExpress.Utils.Locations.Top
         Me.LayoutControlItem8.TextSize = New System.Drawing.Size(115, 13)
         '
-        'LayoutControlItemModal
+        'LayoutControlItemSaranBeli
         '
-        Me.LayoutControlItemModal.Control = Me.editTextxjadi_belanja_bahan_baku_label_dalam_Roll
-        Me.LayoutControlItemModal.Location = New System.Drawing.Point(0, 160)
-        Me.LayoutControlItemModal.Name = "LayoutControlItemModal"
-        Me.LayoutControlItemModal.Size = New System.Drawing.Size(190, 40)
-        Me.LayoutControlItemModal.Text = "Saran Beli B.Baku  _ Roll"
-        Me.LayoutControlItemModal.TextLocation = DevExpress.Utils.Locations.Top
-        Me.LayoutControlItemModal.TextSize = New System.Drawing.Size(115, 13)
+        Me.LayoutControlItemSaranBeli.Control = Me.editTextxjadi_belanja_bahan_baku_label_dalam_Roll
+        Me.LayoutControlItemSaranBeli.Location = New System.Drawing.Point(0, 160)
+        Me.LayoutControlItemSaranBeli.Name = "LayoutControlItemSaranBeli"
+        Me.LayoutControlItemSaranBeli.Size = New System.Drawing.Size(190, 40)
+        Me.LayoutControlItemSaranBeli.Text = "Saran Beli B.Baku  _ Roll"
+        Me.LayoutControlItemSaranBeli.TextLocation = DevExpress.Utils.Locations.Top
+        Me.LayoutControlItemSaranBeli.TextSize = New System.Drawing.Size(115, 13)
         '
-        'LayoutControlItemHargaInc
+        'LayoutControlCustOrderLine
         '
-        Me.LayoutControlItemHargaInc.Control = Me.editTextcustomer_minta_bikin_jadinya_line
-        Me.LayoutControlItemHargaInc.Location = New System.Drawing.Point(0, 0)
-        Me.LayoutControlItemHargaInc.Name = "LayoutControlItemHargaInc"
-        Me.LayoutControlItemHargaInc.Size = New System.Drawing.Size(190, 40)
-        Me.LayoutControlItemHargaInc.Text = "Cust Order _ Line "
-        Me.LayoutControlItemHargaInc.TextLocation = DevExpress.Utils.Locations.Top
-        Me.LayoutControlItemHargaInc.TextSize = New System.Drawing.Size(115, 13)
+        Me.LayoutControlCustOrderLine.Control = Me.editTextcustomer_minta_bikin_jadinya_line
+        Me.LayoutControlCustOrderLine.Location = New System.Drawing.Point(0, 0)
+        Me.LayoutControlCustOrderLine.Name = "LayoutControlCustOrderLine"
+        Me.LayoutControlCustOrderLine.Size = New System.Drawing.Size(190, 40)
+        Me.LayoutControlCustOrderLine.Text = "Cust Order _ Line "
+        Me.LayoutControlCustOrderLine.TextLocation = DevExpress.Utils.Locations.Top
+        Me.LayoutControlCustOrderLine.TextSize = New System.Drawing.Size(115, 13)
         '
         'LayoutControlItem1
         '
@@ -597,9 +597,9 @@ Partial Public Class FormCalcPaket
         'LayoutControlGroup7
         '
         Me.LayoutControlGroup7.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem31, Me.LayoutControlItem30, Me.LayoutControlItem2, Me.LayoutControlItem3, Me.EmptySpaceItem1})
-        Me.LayoutControlGroup7.Location = New System.Drawing.Point(0, 283)
+        Me.LayoutControlGroup7.Location = New System.Drawing.Point(0, 282)
         Me.LayoutControlGroup7.Name = "LayoutControlGroup7"
-        Me.LayoutControlGroup7.Size = New System.Drawing.Size(441, 148)
+        Me.LayoutControlGroup7.Size = New System.Drawing.Size(441, 153)
         Me.LayoutControlGroup7.Text = "Perhitungan Pemakaian Ribbonnya"
         '
         'LayoutControlItem31
@@ -651,7 +651,7 @@ Partial Public Class FormCalcPaket
         Me.EmptySpaceItem1.AllowHotTrack = False
         Me.EmptySpaceItem1.Location = New System.Drawing.Point(0, 80)
         Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Size = New System.Drawing.Size(417, 25)
+        Me.EmptySpaceItem1.Size = New System.Drawing.Size(417, 31)
         Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
         '
         'FormCalcPaket
@@ -691,8 +691,8 @@ Partial Public Class FormCalcPaket
         CType(Me.LayoutControlGroup3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem7, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem8, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlItemModal, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlItemHargaInc, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItemSaranBeli, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlCustOrderLine, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem14, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem10, System.ComponentModel.ISupportInitialize).EndInit()
@@ -727,9 +727,9 @@ Partial Public Class FormCalcPaket
     Private WithEvents bbiDelete As DevExpress.XtraBars.BarButtonItem
     Private WithEvents bbiClose As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents editTextxjadi_belanja_bahan_baku_label_dalam_Roll As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents LayoutControlItemModal As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents LayoutControlItemSaranBeli As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents editTextcustomer_minta_bikin_jadinya_line As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents LayoutControlItemHargaInc As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents LayoutControlCustOrderLine As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents editTextLebar As DevExpress.XtraEditors.TextEdit
     Friend WithEvents LayoutControlItem7 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents editTexttinggi As DevExpress.XtraEditors.TextEdit

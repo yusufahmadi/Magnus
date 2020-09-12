@@ -6,18 +6,16 @@
     <property name="ShowFilterPanelMode">ShowAlways</property>
   </property>
   <property name="ActiveFilterEnabled">true</property>
-  <property name="Columns" iskey="true" value="11">
+  <property name="Columns" iskey="true" value="12">
     <property name="Item1" isnull="true" iskey="true">
       <property name="Name">colID</property>
-      <property name="VisibleIndex">3</property>
-      <property name="Visible">true</property>
-      <property name="Width">33</property>
+      <property name="Width">31</property>
     </property>
     <property name="Item2" isnull="true" iskey="true">
       <property name="Name">colKodeKategori</property>
       <property name="VisibleIndex">0</property>
       <property name="Visible">true</property>
-      <property name="Width">112</property>
+      <property name="Width">146</property>
     </property>
     <property name="Item3" isnull="true" iskey="true">
       <property name="Name">colKode</property>
@@ -33,42 +31,51 @@
     </property>
     <property name="Item5" isnull="true" iskey="true">
       <property name="Name">colCatatan</property>
-      <property name="VisibleIndex">4</property>
+      <property name="VisibleIndex">3</property>
       <property name="Visible">true</property>
       <property name="Width">122</property>
     </property>
     <property name="Item6" isnull="true" iskey="true">
+      <property name="Name">colSatuan</property>
+      <property name="VisibleIndex">4</property>
+      <property name="Visible">true</property>
+      <property name="Width">54</property>
+    </property>
+    <property name="Item7" isnull="true" iskey="true">
       <property name="Name">colIsActive</property>
       <property name="VisibleIndex">5</property>
       <property name="Visible">true</property>
-      <property name="Width">70</property>
-    </property>
-    <property name="Item7" isnull="true" iskey="true">
-      <property name="Name">colHargaBeli</property>
-      <property name="Width">77</property>
+      <property name="Width">62</property>
     </property>
     <property name="Item8" isnull="true" iskey="true">
-      <property name="Name">colTanggalBuat</property>
+      <property name="Name">colHargaBeli</property>
       <property name="VisibleIndex">6</property>
       <property name="Visible">true</property>
-      <property name="Width">94</property>
+      <property name="Width">68</property>
     </property>
     <property name="Item9" isnull="true" iskey="true">
-      <property name="Name">colUserBuat</property>
+      <property name="Name">colTanggalBuat</property>
       <property name="VisibleIndex">7</property>
       <property name="Visible">true</property>
+      <property name="Width">83</property>
     </property>
     <property name="Item10" isnull="true" iskey="true">
-      <property name="Name">colTanggalUbah</property>
+      <property name="Name">colUserBuat</property>
       <property name="VisibleIndex">8</property>
       <property name="Visible">true</property>
-      <property name="Width">97</property>
+      <property name="Width">67</property>
     </property>
     <property name="Item11" isnull="true" iskey="true">
-      <property name="Name">colUserUbah</property>
+      <property name="Name">colTanggalUbah</property>
       <property name="VisibleIndex">9</property>
       <property name="Visible">true</property>
-      <property name="Width">78</property>
+      <property name="Width">86</property>
+    </property>
+    <property name="Item12" isnull="true" iskey="true">
+      <property name="Name">colUserUbah</property>
+      <property name="VisibleIndex">10</property>
+      <property name="Visible">true</property>
+      <property name="Width">70</property>
     </property>
   </property>
   <property name="ActiveFilterString" />

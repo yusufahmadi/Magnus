@@ -164,7 +164,7 @@ Partial Public Class FormBasic
     Private Sub bbiReset_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles bbiReset.ItemClick
         Me.FormBasic_Load(sender, e)
     End Sub
-    Dim d As DialogResult
+    Dim d As DialogResult = DialogResult.Cancel
     Private Sub bbiDelete_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles bbiDelete.ItemClick
         Dim f As Pesan = Query.DeleteDataMaster(TableName, "ID='" & Me._ID & "'")
         If f.Hasil = True Then

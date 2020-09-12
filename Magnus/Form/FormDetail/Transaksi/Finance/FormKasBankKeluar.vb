@@ -68,9 +68,9 @@ Public Class FormKasBankKeluar
         GetKode = ""
         Sql = "Select IsKas From MAkun Where ID='" & NullToStr(txtIDKasBank.EditValue) & "'"
         If ObjToBool(Query.ExecuteScalar(Sql)) Then
-            KodeDepan = "BKM"
+            KodeDepan = "BKK"
         Else
-            KodeDepan = "BBM"
+            KodeDepan = "BBK"
         End If
         GetKode = GlobalFunc.GetKodeTransaksi(txtTgl.DateTime, KodeDepan, TableMaster).Value.ToString()
         Return GetKode
@@ -314,6 +314,9 @@ Public Class FormKasBankKeluar
 
 
     Private Sub bbiSave_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles bbiSave.ItemClick
+        If DialogResult.No = XtraMessageBox.Show(Me, "Yakin ingin menyimpan ?", NamaAplikasi, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) Then
+            Exit Sub
+        End If
         If Utils.ObjToBool(SaveData()) Then
             _IsNew = False
             txtKode.Properties.ReadOnly = True
@@ -322,6 +325,9 @@ Public Class FormKasBankKeluar
     End Sub
 
     Private Sub bbiSaveAndClose_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles bbiSaveAndClose.ItemClick
+        If DialogResult.No = XtraMessageBox.Show(Me, "Yakin ingin menyimpan dan menutup entrian ini ?", NamaAplikasi, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) Then
+            Exit Sub
+        End If
         If Utils.ObjToBool(SaveData()) Then
             DialogResult = DialogResult.OK
             Me.Close()
@@ -329,6 +335,9 @@ Public Class FormKasBankKeluar
     End Sub
 
     Private Sub bbiSaveAndNew_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles bbiSaveAndNew.ItemClick
+        If DialogResult.No = XtraMessageBox.Show(Me, "Yakin ingin menyimpan dan membuat entrian Baru ?", NamaAplikasi, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) Then
+            Exit Sub
+        End If
         If Utils.ObjToBool(SaveData()) Then
             Me._IsNew = True
             Me._ID = 0
