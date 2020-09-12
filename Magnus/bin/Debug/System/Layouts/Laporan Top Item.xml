@@ -69,7 +69,7 @@
         <property name="RowDefinitions" iskey="true" value="0" />
         <property name="ColumnDefinitions" iskey="true" value="0" />
       </property>
-      <property name="Size">@4,Width=1914@3,Height=774</property>
+      <property name="Size">@4,Width=1160@3,Height=339</property>
       <property name="ExpandButtonVisible">false</property>
       <property name="ExpandButtonMode">Normal</property>
       <property name="HeaderButtonsLocation">Default</property>
@@ -255,7 +255,7 @@
       <property name="Spacing">0, 0, 0, 0</property>
       <property name="Padding">2, 2, 2, 2</property>
       <property name="Location">@1,X=0@2,Y=48</property>
-      <property name="Size">@4,Width=1894@3,Height=706</property>
+      <property name="Size">@4,Width=1140@3,Height=271</property>
       <property name="ShowInCustomizationForm">true</property>
       <property name="Text">LayoutControlItem1</property>
       <property name="CustomizationFormText">LayoutControlItem1</property>
@@ -334,8 +334,8 @@
       <property name="TextToControlDistance">3</property>
       <property name="Spacing">0, 0, 0, 0</property>
       <property name="Padding">2, 2, 2, 2</property>
-      <property name="Location">@3,X=167@1,Y=0</property>
-      <property name="Size">@3,Width=180@2,Height=24</property>
+      <property name="Location">@3,X=147@1,Y=0</property>
+      <property name="Size">@3,Width=154@2,Height=24</property>
       <property name="ShowInCustomizationForm">true</property>
       <property name="Text">TglAkhir</property>
       <property name="CustomizationFormText">TglAkhir</property>
@@ -415,7 +415,7 @@
       <property name="Spacing">0, 0, 0, 0</property>
       <property name="Padding">2, 2, 2, 2</property>
       <property name="Location">@1,X=0@1,Y=0</property>
-      <property name="Size">@3,Width=167@2,Height=24</property>
+      <property name="Size">@3,Width=147@2,Height=24</property>
       <property name="ShowInCustomizationForm">true</property>
       <property name="Text">TglAwal</property>
       <property name="CustomizationFormText">TglAwal</property>
@@ -495,7 +495,7 @@
       <property name="Spacing">0, 0, 0, 0</property>
       <property name="Padding">2, 2, 2, 2</property>
       <property name="Location">@1,X=0@2,Y=24</property>
-      <property name="Size">@3,Width=347@2,Height=24</property>
+      <property name="Size">@3,Width=301@2,Height=24</property>
       <property name="ShowInCustomizationForm">true</property>
       <property name="Text">Kategori</property>
       <property name="CustomizationFormText">Kategori</property>
@@ -575,8 +575,8 @@
       <property name="TextSize">@1,Width=0@1,Height=0</property>
       <property name="Spacing">0, 0, 0, 0</property>
       <property name="Padding">2, 2, 2, 2</property>
-      <property name="Location">@3,X=347@1,Y=0</property>
-      <property name="Size">@4,Width=1547@2,Height=48</property>
+      <property name="Location">@3,X=301@1,Y=0</property>
+      <property name="Size">@3,Width=839@2,Height=48</property>
       <property name="ShowInCustomizationForm">true</property>
       <property name="Text">item0</property>
       <property name="CustomizationFormText">item0</property>
