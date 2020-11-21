@@ -54,6 +54,8 @@ Partial Class FormMain
         Me.BarButtonItem2 = New DevExpress.XtraBars.BarButtonItem()
         Me.BarCheckItem1 = New DevExpress.XtraBars.BarCheckItem()
         Me.SkinRibbonGalleryBarItem3 = New DevExpress.XtraBars.SkinRibbonGalleryBarItem()
+        Me.BarButtonMasterSatuan = New DevExpress.XtraBars.BarButtonItem()
+        Me.BarStaticItem3 = New DevExpress.XtraBars.BarStaticItem()
         Me.RibbonPageMaster = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.RibbonPageGroup2 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RibbonPageGroup7 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
@@ -82,8 +84,6 @@ Partial Class FormMain
         Me.BarButtonItem7 = New DevExpress.XtraBars.BarButtonItem()
         Me.SharedImageCollection1 = New DevExpress.Utils.SharedImageCollection(Me.components)
         Me.BarButtonItem4 = New DevExpress.XtraBars.BarButtonItem()
-        Me.BarButtonMasterSatuan = New DevExpress.XtraBars.BarButtonItem()
-        Me.BarStaticItem3 = New DevExpress.XtraBars.BarStaticItem()
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DocumentManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TabbedView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -346,11 +346,25 @@ Partial Class FormMain
         Me.SkinRibbonGalleryBarItem3.Id = 37
         Me.SkinRibbonGalleryBarItem3.Name = "SkinRibbonGalleryBarItem3"
         '
+        'BarButtonMasterSatuan
+        '
+        Me.BarButtonMasterSatuan.Caption = "Satuan"
+        Me.BarButtonMasterSatuan.Id = 38
+        Me.BarButtonMasterSatuan.ImageOptions.Image = CType(resources.GetObject("BarButtonMasterSatuan.ImageOptions.Image"), System.Drawing.Image)
+        Me.BarButtonMasterSatuan.Name = "BarButtonMasterSatuan"
+        '
+        'BarStaticItem3
+        '
+        Me.BarStaticItem3.Caption = "DB Version : -"
+        Me.BarStaticItem3.Id = 39
+        Me.BarStaticItem3.Name = "BarStaticItem3"
+        '
         'RibbonPageMaster
         '
         Me.RibbonPageMaster.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup2, Me.RibbonPageGroup7, Me.RibbonPageGroup8})
         Me.RibbonPageMaster.Name = "RibbonPageMaster"
         Me.RibbonPageMaster.Text = "Master"
+        Me.RibbonPageMaster.Visible = False
         '
         'RibbonPageGroup2
         '
@@ -377,6 +391,7 @@ Partial Class FormMain
         Me.RibbonPageMobile.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup11})
         Me.RibbonPageMobile.Name = "RibbonPageMobile"
         Me.RibbonPageMobile.Text = "Mobile"
+        Me.RibbonPageMobile.Visible = False
         '
         'RibbonPageGroup11
         '
@@ -392,6 +407,7 @@ Partial Class FormMain
         Me.RibbonPageStok.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup3})
         Me.RibbonPageStok.Name = "RibbonPageStok"
         Me.RibbonPageStok.Text = "Stok"
+        Me.RibbonPageStok.Visible = False
         '
         'RibbonPageGroup3
         '
@@ -407,6 +423,7 @@ Partial Class FormMain
         Me.RibbonPageKas.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup4})
         Me.RibbonPageKas.Name = "RibbonPageKas"
         Me.RibbonPageKas.Text = "Kas"
+        Me.RibbonPageKas.Visible = False
         '
         'RibbonPageGroup4
         '
@@ -422,6 +439,7 @@ Partial Class FormMain
         Me.RibbonPageLaporan.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup5, Me.RibbonPageGroup10})
         Me.RibbonPageLaporan.Name = "RibbonPageLaporan"
         Me.RibbonPageLaporan.Text = "Laporan"
+        Me.RibbonPageLaporan.Visible = False
         '
         'RibbonPageGroup5
         '
@@ -682,19 +700,6 @@ Partial Class FormMain
         Me.BarButtonItem4.Caption = "Per Kategori"
         Me.BarButtonItem4.Id = 18
         Me.BarButtonItem4.Name = "BarButtonItem4"
-        '
-        'BarButtonMasterSatuan
-        '
-        Me.BarButtonMasterSatuan.Caption = "Satuan"
-        Me.BarButtonMasterSatuan.Id = 38
-        Me.BarButtonMasterSatuan.ImageOptions.Image = CType(resources.GetObject("BarButtonItem3.ImageOptions.Image"), System.Drawing.Image)
-        Me.BarButtonMasterSatuan.Name = "BarButtonMasterSatuan"
-        '
-        'BarStaticItem3
-        '
-        Me.BarStaticItem3.Caption = "DB Version : -"
-        Me.BarStaticItem3.Id = 39
-        Me.BarStaticItem3.Name = "BarStaticItem3"
         '
         'FormMain
         '

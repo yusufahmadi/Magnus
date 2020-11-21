@@ -45,7 +45,7 @@ Public Class FormMain
                         .NamaForm = ds.Tables(0).Rows(i).Item("NamaForm").ToString.Trim
                         .Caption = ds.Tables(0).Rows(i).Item("Caption").ToString.Trim
                         .IsActive = Utils.ObjToBool(ds.Tables(0).Rows(i).Item("IsActive"))
-                        .IsEnable = Utils.ObjToBool(ds.Tables(0).Rows(i).Item("IsBaru"))
+                        .IsEnable = Utils.ObjToBool(ds.Tables(0).Rows(i).Item("IsEnable"))
                         .IsBaru = Utils.ObjToBool(ds.Tables(0).Rows(i).Item("IsBaru"))
                         .IsUbah = Utils.ObjToBool(ds.Tables(0).Rows(i).Item("IsUbah"))
                         .IsHapus = Utils.ObjToBool(ds.Tables(0).Rows(i).Item("IsHapus"))
@@ -67,6 +67,7 @@ Public Class FormMain
                 BarButtonMasterBarang.Tag = NamaForm
                 If IsActive AndAlso IsEnable Then
                     BarButtonMasterBarang.Visibility = DevExpress.XtraBars.BarItemVisibility.Always
+                    RibbonPageMaster.Visible = True
                 Else
                     BarButtonMasterBarang.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
                 End If
@@ -74,6 +75,7 @@ Public Class FormMain
                 BarButtonMasterKategori.Tag = NamaForm
                 If IsActive AndAlso IsEnable Then
                     BarButtonMasterKategori.Visibility = DevExpress.XtraBars.BarItemVisibility.Always
+                    RibbonPageMaster.Visible = True
                 Else
                     BarButtonMasterKategori.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
                 End If
@@ -81,6 +83,7 @@ Public Class FormMain
                 BarButtonMasterSatuan.Tag = NamaForm
                 If IsActive AndAlso IsEnable Then
                     BarButtonMasterSatuan.Visibility = DevExpress.XtraBars.BarItemVisibility.Always
+                    RibbonPageMaster.Visible = True
                 Else
                     BarButtonMasterSatuan.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
                 End If
@@ -88,6 +91,7 @@ Public Class FormMain
                 BarButtonMasterKategoriBiaya.Tag = NamaForm
                 If IsActive AndAlso IsEnable Then
                     BarButtonMasterKategoriBiaya.Visibility = DevExpress.XtraBars.BarItemVisibility.Always
+                    RibbonPageMaster.Visible = True
                 Else
                     BarButtonMasterKategoriBiaya.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
                 End If
@@ -95,6 +99,7 @@ Public Class FormMain
                 BarButtonMasterTypeTaffeta.Tag = NamaForm
                 If IsActive AndAlso IsEnable Then
                     BarButtonMasterTypeTaffeta.Visibility = DevExpress.XtraBars.BarItemVisibility.Always
+                    RibbonPageMaster.Visible = True
                 Else
                     BarButtonMasterTypeTaffeta.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
                 End If
@@ -102,12 +107,14 @@ Public Class FormMain
                 BarButtonKaryawan.Tag = NamaForm
                 If IsActive AndAlso IsEnable Then
                     BarButtonKaryawan.Visibility = DevExpress.XtraBars.BarItemVisibility.Always
+                    RibbonPageMaster.Visible = True
                 Else
                     BarButtonKaryawan.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
                 End If
             Case "MasterRoleUser"
                 BarButtonRoleUser.Tag = NamaForm
                 If IsActive AndAlso IsEnable Then
+                    RibbonPageSetting.Visible = True
                     BarButtonRoleUser.Visibility = DevExpress.XtraBars.BarItemVisibility.Always
                 Else
                     BarButtonRoleUser.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
@@ -115,6 +122,7 @@ Public Class FormMain
             Case "MasterUser"
                 BarButtonManagementUser.Tag = NamaForm
                 If IsActive AndAlso IsEnable Then
+                    RibbonPageSetting.Visible = True
                     BarButtonManagementUser.Visibility = DevExpress.XtraBars.BarItemVisibility.Always
                 Else
                     BarButtonManagementUser.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
@@ -122,6 +130,7 @@ Public Class FormMain
             Case "CalcLabel"
                 BarButtonCalcLabel.Tag = NamaForm
                 If IsActive AndAlso IsEnable Then
+                    RibbonPageMobile.Visible = True
                     BarButtonCalcLabel.Visibility = DevExpress.XtraBars.BarItemVisibility.Always
                 Else
                     BarButtonCalcLabel.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
@@ -129,6 +138,7 @@ Public Class FormMain
             Case "CalcRibbon"
                 BarButtonCalcRibbon.Tag = NamaForm
                 If IsActive AndAlso IsEnable Then
+                    RibbonPageMobile.Visible = True
                     BarButtonCalcRibbon.Visibility = DevExpress.XtraBars.BarItemVisibility.Always
                 Else
                     BarButtonCalcRibbon.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
@@ -136,6 +146,7 @@ Public Class FormMain
             Case "CalcTaffeta"
                 BarButtonCalcTaffeta.Tag = NamaForm
                 If IsActive AndAlso IsEnable Then
+                    RibbonPageMobile.Visible = True
                     BarButtonCalcTaffeta.Visibility = DevExpress.XtraBars.BarItemVisibility.Always
                 Else
                     BarButtonCalcTaffeta.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
@@ -143,6 +154,7 @@ Public Class FormMain
             Case "CalcPaket"
                 BarButtonCalcPaket.Tag = NamaForm
                 If IsActive AndAlso IsEnable Then
+                    RibbonPageMobile.Visible = True
                     BarButtonCalcPaket.Visibility = DevExpress.XtraBars.BarItemVisibility.Always
                 Else
                     BarButtonCalcPaket.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
@@ -150,6 +162,7 @@ Public Class FormMain
             Case "StokMasuk"
                 BarButtonStokMasuk.Tag = NamaForm
                 If IsActive AndAlso IsEnable Then
+                    RibbonPageStok.Visible = True
                     BarButtonStokMasuk.Visibility = DevExpress.XtraBars.BarItemVisibility.Always
                 Else
                     BarButtonStokMasuk.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
@@ -157,6 +170,7 @@ Public Class FormMain
             Case "StokKeluar"
                 BarButtonStokKeluar.Tag = NamaForm
                 If IsActive AndAlso IsEnable Then
+                    RibbonPageStok.Visible = True
                     BarButtonStokKeluar.Visibility = DevExpress.XtraBars.BarItemVisibility.Always
                 Else
                     BarButtonStokKeluar.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
@@ -164,6 +178,7 @@ Public Class FormMain
             Case "KasMasuk"
                 BarButtonKasMasuk.Tag = NamaForm
                 If IsActive AndAlso IsEnable Then
+                    RibbonPageKas.Visible = True
                     BarButtonKasMasuk.Visibility = DevExpress.XtraBars.BarItemVisibility.Always
                 Else
                     BarButtonKasMasuk.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
@@ -171,6 +186,7 @@ Public Class FormMain
             Case "KasKeluar"
                 BarButtonKasKeluar.Tag = NamaForm
                 If IsActive AndAlso IsEnable Then
+                    RibbonPageKas.Visible = True
                     BarButtonKasKeluar.Visibility = DevExpress.XtraBars.BarItemVisibility.Always
                 Else
                     BarButtonKasKeluar.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
@@ -178,6 +194,7 @@ Public Class FormMain
             Case "LaporanKartuStok"
                 BarButtonLapKartuStok.Tag = NamaForm
                 If IsActive AndAlso IsEnable Then
+                    RibbonPageLaporan.Visible = True
                     BarButtonLapKartuStok.Visibility = DevExpress.XtraBars.BarItemVisibility.Always
                 Else
                     BarButtonLapKartuStok.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
@@ -185,6 +202,7 @@ Public Class FormMain
             Case "LaporanSaldoStok"
                 BarButtonLapSaldoStok.Tag = NamaForm
                 If IsActive AndAlso IsEnable Then
+                    RibbonPageLaporan.Visible = True
                     BarButtonLapSaldoStok.Visibility = DevExpress.XtraBars.BarItemVisibility.Always
                 Else
                     BarButtonLapSaldoStok.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
@@ -192,6 +210,7 @@ Public Class FormMain
             Case "LaporanTopItem"
                 BarButtonLapTopItem.Tag = NamaForm
                 If IsActive AndAlso IsEnable Then
+                    RibbonPageLaporan.Visible = True
                     BarButtonLapTopItem.Visibility = DevExpress.XtraBars.BarItemVisibility.Always
                 Else
                     BarButtonLapTopItem.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
@@ -199,6 +218,7 @@ Public Class FormMain
             Case "LaporanKasHarian"
                 BarButtonLapKasHarian.Tag = NamaForm
                 If IsActive AndAlso IsEnable Then
+                    RibbonPageLaporan.Visible = True
                     BarButtonLapKasHarian.Visibility = DevExpress.XtraBars.BarItemVisibility.Always
                 Else
                     BarButtonLapKasHarian.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
@@ -213,6 +233,7 @@ Public Class FormMain
             Case "LaporanPerbandinganKasBulanan"
                 BarButtonLapPerbandinganBiayaBulanan.Tag = NamaForm
                 If IsActive AndAlso IsEnable Then
+                    RibbonPageLaporan.Visible = True
                     BarButtonLapPerbandinganBiayaBulanan.Visibility = DevExpress.XtraBars.BarItemVisibility.Always
                 Else
                     BarButtonLapPerbandinganBiayaBulanan.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
